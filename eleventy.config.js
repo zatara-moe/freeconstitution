@@ -28,27 +28,26 @@ module.exports = function (eleventyConfig) {
     return n + suffix;
   });
 
-  // Sections filter: split markdown body into named sections by ## headings
+  // Sections filter: split rendered HTML by <h2> tags into named sections
   eleventyConfig.addFilter("sections", function (content) {
     if (!content) return {};
     const sections = {};
-    let currentKey = null;
-    let currentLines = [];
     const slugify = (text) =>
       text.toLowerCase().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "_").replace(/^_|_$/g, "");
 
-    content.split("\n").forEach((line) => {
-      if (line.startsWith("## ")) {
-        if (currentKey) sections[currentKey] = currentLines.join("\n").trim();
-        const heading = line.slice(3).trim();
-        currentKey = slugify(heading);
-        sections[currentKey + "_heading"] = heading;
-        currentLines = [];
-      } else if (currentKey) {
-        currentLines.push(line);
+    // Split on <h2> tags — keeps the delimiter in the result
+    const parts = content.split(/(?=<h2[ >])/);
+
+    parts.forEach((part) => {
+      const match = part.match(/^<h2[^>]*>(.*?)<\/h2>/);
+      if (match) {
+        const heading = match[1].trim();
+        const key = slugify(heading);
+        sections[key + "_heading"] = heading;
+        // Everything after the </h2> closing tag is the section content
+        sections[key] = part.replace(/^<h2[^>]*>.*?<\/h2>/, "").trim();
       }
     });
-    if (currentKey) sections[currentKey] = currentLines.join("\n").trim();
     return sections;
   });
 
