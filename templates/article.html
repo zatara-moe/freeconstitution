@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set s = item._sections %}
+{% block title %}Article {{ item.number }} — {{ site.title }}{% endblock %}
+{% block description %}{{ item.title }}: plain-English version and original text of Article {{ item.number }}.{% endblock %}
+
+{% block main %}
+<article class="article-page">
+  <header class="amendment-header wrap">
+    <p class="eyebrow">Article {{ item.number }}</p>
+    <h1>{{ item.title }}</h1>
+  </header>
+
+  <div class="layer wrap">
+    {{ item._html | safe }}
+  </div>
+
+  <nav class="amendment-nav wrap" aria-label="Article navigation">
+    {% if item.number > 1 %}
+      <a class="prev" href="/articles/{{ item.number - 1 }}/">← Article {{ item.number - 1 }}</a>
+    {% endif %}
+    {% if item.number < 7 %}
+      <a class="next" href="/articles/{{ item.number + 1 }}/">Article {{ item.number + 1 }} →</a>
+    {% endif %}
+  </nav>
+
+  <footer class="review-footer wrap">
+    <p class="source-link">
+      Source: <a href="{{ item.source_url }}" rel="external">National Archives</a>
+      (retrieved {{ item.source_retrieved | format_date }}).
+    </p>
+  </footer>
+</article>
+{% endblock %}
