@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+<article class="article-page">
+  <header class="amendment-header wrap">
+    <p class="eyebrow">Article {{ number }}</p>
+    <h1>{{ title }}</h1>
+  </header>
+
+  <div class="layer wrap">
+    {{ content | safe }}
+  </div>
+
+  <nav class="amendment-nav wrap" aria-label="Article navigation">
+    {% if number > 1 %}
+      <a class="prev" href="/articles/{{ number - 1 }}/">← Article {{ number - 1 }}</a>
+    {% endif %}
+    {% if number < 7 %}
+      <a class="next" href="/articles/{{ number + 1 }}/">Article {{ number + 1 }} →</a>
+    {% endif %}
+  </nav>
+
+  <footer class="review-footer wrap">
+    <p class="source-link">
+      Source: <a href="{{ source_url }}" rel="external">National Archives</a>
+      (retrieved {{ source_retrieved | formatDate }}).
+    </p>
+  </footer>
+</article>

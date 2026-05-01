@@ -1,0 +1,32 @@
+---
+layout: base.njk
+permalink: /situations/index.html
+title: Situations — freeconstitution.org
+description: Short cards for moments when knowing your rights matters.
+---
+
+<section class="page-header wrap">
+  <h1>Situations</h1>
+  <p class="lede">Short cards for moments when knowing your rights matters. Each one shows what you can say, the law you are citing, and where to call if you need help.</p>
+</section>
+
+<section class="wrap">
+  <ul class="card-list">
+    {% for sit in collections.situations %}
+    <li class="card">
+      <a href="/situations/{{ sit.data.slug }}/">
+        <h2>{{ sit.data.title }}</h2>
+        <p>{{ sit.data.summary }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap">
+  <p class="meta">
+    These cards are starting points, not legal advice. Each one names the constitutional
+    amendments it draws on and links to the full text. If you need a lawyer, contact
+    your state's ACLU affiliate or a public defender.
+  </p>
+</section>

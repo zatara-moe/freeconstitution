@@ -1,60 +1,62 @@
-# Free Constitution
+# freeconstitution.org
 
-A free, ad-free, account-free reference site for the U.S. Constitution. The full original text from the National Archives, alongside a careful plain-English version, plus quick references for situations where you might need to know your rights.
+A free, ad-free, account-free reference for the United States Constitution. Verbatim text plus plain-English explanations, designed to read clearly to anyone — including readers who are not lawyers, who learned English as a second language, or whose brains work differently from the assumptions academic writing tends to make.
 
-**Domain:** freeconstitution.org
-**Tagline:** Read your Constitution. Know your rights.
-**Audience:** Anyone who reads outside the legal-academic register, with particular attention to neurodivergent readers.
+## Stack
 
-## Project structure
+- **Eleventy** (static site generator) — Node.js
+- **Nunjucks** templates
+- **Markdown + YAML frontmatter** for content
+- **Vercel** for hosting (zero config)
+
+## Local development
+
+Requires Node.js 18+.
 
 ```
-freeconstitution/
-├── content/                Source content files (Markdown + YAML frontmatter)
+npm install
+npm run dev
+```
+
+Visit `http://localhost:8080`. The server auto-rebuilds on file changes.
+
+## Build
+
+```
+npm run build
+```
+
+Output goes to `_site/`.
+
+## Project layout
+
+```
+src/
+├── _data/site.js            ← site title, tagline
+├── _includes/               ← Nunjucks layouts
+│   ├── base.njk
+│   ├── amendment.njk
+│   ├── article.njk
+│   ├── situation.njk
+│   ├── preamble.njk
+│   ├── declaration.njk
+│   └── page.njk
+├── content/
+│   ├── amendments/1.md … 27.md
+│   ├── articles/1.md … 7.md
+│   ├── situations/*.md
 │   ├── preamble.md
 │   ├── declaration.md
-│   ├── articles/           Articles I-VII
-│   ├── amendments/         Amendments 1-27
-│   └── situations/         Pocket-reference cards
-├── templates/              Jinja2 HTML templates
-├── static/                 CSS, fonts, search assets
-├── reviewers/              Reviewer profiles (YAML)
-├── build.py                Build script
-├── PROCESS.md              Editorial governance and review procedures
-└── dist/                   Built site (generated, not in git)
+│   ├── about.md
+│   └── sources.md
+├── css/site.css
+├── js/prefs.js
+├── favicon.svg
+├── robots.txt
+├── index.njk                ← homepage
+└── situations.njk           ← situations index
 ```
 
-## Building the site
+## Editorial process
 
-```bash
-pip install --break-system-packages markdown pyyaml jinja2
-python build.py
-```
-
-The build reads files from `content/` and writes static HTML to `dist/`. Pagefind runs at deploy time to generate the search index.
-
-## Editorial principles
-
-The full editorial methodology is in `PROCESS.md`. Brief version:
-
-1. **Verbatim text is the authority.** Plain-English is commentary on the text, never a replacement.
-2. **Plain-English preserves textual ambiguity** rather than resolving it. (The Second Amendment is the canonical example.)
-3. **Three layers per rights amendment**: verbatim, plain-English, "What this means for you."
-4. **One layer for structural amendments and Articles**: verbatim, plain-English, About.
-5. **Literal language over figurative** throughout, for neurodivergent readers and ESL readers.
-6. **Predictable structure** — every page is in the same order with the same headings.
-7. **The architecture stays calm.** Stress is the user's, not the site's.
-
-## Source
-
-The verbatim text is from the U.S. National Archives literal-print transcripts:
-- https://www.archives.gov/founding-docs/constitution-transcript
-- https://www.archives.gov/founding-docs/bill-of-rights-transcript
-- https://www.archives.gov/founding-docs/amendments-11-27
-- https://www.archives.gov/founding-docs/declaration-transcript
-
-## License
-
-Verbatim text: U.S. government works, public domain.
-Plain-English versions, "What this means for you" cards, and "About" cards: CC BY-SA 4.0. Attribution required; modifications must be shared under the same license.
-Code: MIT.
+See `PROCESS.md` for the full editorial governance documentation.

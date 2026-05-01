@@ -1,0 +1,13 @@
+{
+  "name": "freeconstitution",
+  "version": "1.0.0",
+  "description": "Free, ad-free reference for the U.S. Constitution.",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

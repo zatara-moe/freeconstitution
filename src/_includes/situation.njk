@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+<article class="situation">
+  <header class="amendment-header wrap">
+    <p class="eyebrow">Situations</p>
+    <h1>{{ title }}</h1>
+    <p class="summary">{{ summary }}</p>
+  </header>
+
+  <div class="layer wrap">
+    {{ content | safe }}
+  </div>
+
+  {% if related_amendments %}
+  <section class="related wrap">
+    <h2>Read the full Amendment</h2>
+    <ul class="situation-list">
+      {% for n in related_amendments %}
+        {% for amd in collections.amendments %}
+          {% if amd.data.number == n %}
+          <li><a href="/amendments/{{ amd.data.number }}/">{{ amd.data.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <footer class="review-footer wrap">
+    <p class="review-status">
+      Legal review:
+      {% if review and review.legal and review.legal.status == "verified" %}
+        reviewed by {{ review.legal.by }} on {{ review.legal.date | formatDate }}.
+      {% else %}
+        pending review. This card is a starting point and not legal advice.
+      {% endif %}
+    </p>
+    <p class="meta">
+      This is general information, not legal advice for your situation. If you need a lawyer,
+      contact your state's ACLU affiliate or a public defender.
+    </p>
+  </footer>
+</article>

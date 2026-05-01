@@ -1,0 +1,43 @@
+---
+layout: base.njk
+---
+{% set s = content | sections %}
+<article class="amendment">
+  <header class="amendment-header wrap">
+    <p class="eyebrow">Constitution of the United States</p>
+    <h1>Preamble</h1>
+    <p class="ratified">Ratified {{ ratified | formatDate }}</p>
+  </header>
+
+  {% if s.verbatim %}
+  <section class="layer verbatim wrap" aria-labelledby="verbatim">
+    <h2 id="verbatim">Verbatim</h2>
+    {{ s.verbatim | safe }}
+  </section>
+  {% endif %}
+
+  {% if s.plain_english %}
+  <section class="layer plain wrap" aria-labelledby="plain">
+    <h2 id="plain">Plain English</h2>
+    {{ s.plain_english | safe }}
+  </section>
+  {% endif %}
+
+  {% if s.about %}
+  <section class="layer about wrap" aria-labelledby="about">
+    <h2 id="about">About</h2>
+    {{ s.about | safe }}
+  </section>
+  {% endif %}
+
+  <nav class="amendment-nav wrap" aria-label="Continue reading">
+    <a class="next" href="/articles/1/">Article 1: The Legislative Branch →</a>
+  </nav>
+
+  <footer class="review-footer wrap">
+    <p class="source-link">
+      Source: <a href="{{ source_url }}" rel="external">National Archives</a>
+      (retrieved {{ source_retrieved | formatDate }}).
+    </p>
+  </footer>
+</article>

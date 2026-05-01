@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<article class="declaration">
+  <header class="amendment-header wrap">
+    <p class="eyebrow">Founding document</p>
+    <h1>Declaration of Independence</h1>
+    <p class="ratified">Adopted {{ adopted | formatDate }}</p>
+  </header>
+
+  <div class="layer wrap">
+    {{ content | safe }}
+  </div>
+
+  <footer class="review-footer wrap">
+    <p class="source-link">
+      Source: <a href="{{ source_url }}" rel="external">National Archives</a>
+      (retrieved {{ source_retrieved | formatDate }}).
+    </p>
+  </footer>
+</article>
