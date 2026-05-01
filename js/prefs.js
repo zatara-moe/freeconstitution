@@ -9,7 +9,7 @@
     size: 17,
     spacing: 1.6,
     font: "default",
-    theme: "auto",
+    theme: "light",
     italics: true,
   };
 

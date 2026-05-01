@@ -1,5 +1,5 @@
 module.exports = {
-  title: "freeconstitution.org",
+  title: "Free Constitution",
   tagline: "Read your Constitution. Know your rights.",
   buildDate: (() => {
     const d = new Date();

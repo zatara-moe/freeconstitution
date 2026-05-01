@@ -81,20 +81,8 @@
   --link-hover: #ECB29D;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1B1814;
-    --bg-card: #232019;
-    --ink: #F1E8D5;
-    --ink-soft: #C7BBA5;
-    --ink-faint: #8A7E6C;
-    --rule: #3A3329;
-    --accent: #D9745A;
-    --accent-soft: #4A2E25;
-    --link: #D9745A;
-    --link-hover: #ECB29D;
-  }
-}
+/* Dark mode is opt-in only via the Reading preferences panel.
+   No auto-detection of OS dark mode. */
 
 /* ---- Base --------------------------------------------------------------- */
 
