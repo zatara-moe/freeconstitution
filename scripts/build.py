@@ -227,18 +227,59 @@ BACK_TO_TOP = """<button class="back-to-top" aria-label="Back to top">
 </button>"""
 
 
-def page_shell(title, description, body, canonical, extra_head=""):
+def seo_head(title, description, canonical, og_image, og_type="website", jsonld=None):
+    """Returns the complete <head> SEO block: meta, OG, Twitter Card, JSON-LD."""
+    full_url = f"{SITE_URL}{canonical}"
+    og_image_url = f"{SITE_URL}{og_image}"
+    jld = ""
+    if jsonld:
+        import json
+        jld = f'<script type="application/ld+json">{json.dumps(jsonld, indent=None)}</script>'
+    return f"""<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Primary SEO -->
+<title>{escape(title)}</title>
+<meta name="description" content="{escape(description)}">
+<link rel="canonical" href="{full_url}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Hope for Americans">
+
+<!-- Open Graph (Facebook, iMessage, Slack, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="{og_type}">
+<meta property="og:title" content="{escape(title)}">
+<meta property="og:description" content="{escape(description)}">
+<meta property="og:url" content="{full_url}">
+<meta property="og:image" content="{og_image_url}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{escape(title)} — freeconstitution.org">
+<meta property="og:site_name" content="Free Constitution">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{escape(title)}">
+<meta name="twitter:description" content="{escape(description)}">
+<meta name="twitter:image" content="{og_image_url}">
+<meta name="twitter:image:alt" content="{escape(title)} — freeconstitution.org">
+<meta name="twitter:site" content="@hopeforamericans">
+
+<!-- Favicon -->
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+
+{FONTS}
+<link rel="stylesheet" href="/static/css/site.css">
+{jld}"""
+
+
+def page_shell(title, description, body, canonical, og_image="/static/og/home.jpg",
+               og_type="website", jsonld=None, extra_head=""):
+    head = seo_head(title, description, canonical, og_image, og_type, jsonld)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{escape(title)}</title>
-<meta name="description" content="{escape(description)}">
-<link rel="canonical" href="{SITE_URL}{canonical}">
-<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
-{FONTS}
-<link rel="stylesheet" href="/static/css/site.css">
+{head}
 {extra_head}
 </head>
 <body>
@@ -423,10 +464,25 @@ def render_amendment(a, prev_a, next_a):
 </article>"""
     url = f"/amendments/{n}/"
     PAGE_ANCHORS[url] = a["anchors"]
+    ratified_iso = str(f.get("ratified", "")) or ""
+    amend_jld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": f["title"],
+        "description": f"The {ordinal} Amendment to the United States Constitution, verbatim text and plain-English explanation.",
+        "url": f"{SITE_URL}{url}",
+        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+        "isPartOf": {"@type": "WebSite", "name": "Free Constitution", "url": SITE_URL},
+        "about": {"@type": "Legislation", "name": f["title"], "legislationIdentifier": f"US-Amend-{n}"},
+        **({"datePublished": ratified_iso} if ratified_iso else {}),
+    }
     write(f"{url}index.html", page_shell(
         f"{f['title']} | {SITE_NAME}",
-        f"The {ordinal} Amendment, verbatim and in plain English, with what it means for you.",
-        body, url))
+        f"The {ordinal} Amendment — verbatim text, plain-English translation, and what it means for you today.",
+        body, url,
+        og_image=f"/static/og/amendment-{n}.jpg",
+        og_type="article",
+        jsonld=amend_jld))
     return url
 
 
@@ -468,10 +524,22 @@ def render_article(art, prev_a, next_a):
 </article>"""
     url = f"/articles/{n}/"
     PAGE_ANCHORS[url] = art["anchors"]
+    art_jld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": f"Article {ROMAN[n]}: {name}",
+        "description": f"Article {ROMAN[n]} of the United States Constitution — {name}. Verbatim text and plain-English explanation.",
+        "url": f"{SITE_URL}{url}",
+        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+        "about": {"@type": "Legislation", "name": f"Article {ROMAN[n]} of the US Constitution"},
+    }
     write(f"{url}index.html", page_shell(
-        f"Article {ROMAN[n]}, {name} | {SITE_NAME}",
-        f"Article {ROMAN[n]} of the Constitution, verbatim and in plain English.",
-        body, url))
+        f"Article {ROMAN[n]}: {name} | {SITE_NAME}",
+        f"Article {ROMAN[n]} of the United States Constitution ({name}), verbatim text and plain-English explanation.",
+        body, url,
+        og_image="/static/og/home.jpg",
+        og_type="article",
+        jsonld=art_jld))
     return url
 
 
@@ -505,9 +573,21 @@ def render_situation(s):
 </article>"""
     url = f"/situations/{slug}/"
     PAGE_ANCHORS[url] = s["anchors"]
+    sit_jld = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": f["title"],
+        "description": f.get("summary", ""),
+        "url": f"{SITE_URL}{url}",
+        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+    }
     write(f"{url}index.html", page_shell(
-        f"{f['title']} | {SITE_NAME}",
-        f.get("summary", ""), body, url))
+        f"{f['title']} — Know Your Rights | {SITE_NAME}",
+        f.get("summary", ""),
+        body, url,
+        og_image="/static/og/situation-default.jpg",
+        og_type="article",
+        jsonld=sit_jld))
     return url
 
 
@@ -528,10 +608,20 @@ def render_situations_index(situations):
   {not_legal_advice()}
 </section>"""
     url = "/situations/"
+    sit_idx_jld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Know Your Rights — Situations",
+        "description": "Plain-language guides for specific moments when your rights are at stake.",
+        "url": f"{SITE_URL}{url}",
+        "publisher": {"@type": "Organization", "name": "Hope for Americans"},
+    }
     write(f"{url}index.html", page_shell(
-        f"Situations | {SITE_NAME}",
-        "Pocket cards for moments when knowing your rights matters.",
-        body, url))
+        f"Know Your Rights — Situation Cards | {SITE_NAME}",
+        "Plain-language guides for specific moments when your rights are at stake. At a protest, searched by police, turned away from voting.",
+        body, url,
+        og_image="/static/og/situation-default.jpg",
+        jsonld=sit_idx_jld))
     return url
 
 
@@ -556,6 +646,48 @@ def render_simple(front, html, anchors, url, kind_eyebrow=None, note=False):
 
 
 def render_home(amendments, articles, situations):
+    # Short subjects for every amendment, shown in the grid
+    AMEND_SUBJECTS = {
+        1: "Speech, religion, press, assembly",
+        2: "Right to bear arms",
+        3: "Quartering soldiers",
+        4: "Search and seizure",
+        5: "Due process, self-incrimination",
+        6: "Right to a fair trial",
+        7: "Trial by jury in civil cases",
+        8: "Cruel and unusual punishment",
+        9: "Rights kept by the people",
+        10: "Powers kept by the states",
+        11: "Limits on suing states",
+        12: "Electing the president",
+        13: "Abolition of slavery",
+        14: "Citizenship, equal protection",
+        15: "Right to vote by race",
+        16: "Income tax",
+        17: "Electing senators directly",
+        18: "Prohibition of alcohol",
+        19: "Right to vote by sex",
+        20: "Presidential terms and succession",
+        21: "Repeal of Prohibition",
+        22: "Presidential term limits",
+        23: "D.C. electoral votes",
+        24: "Abolition of poll taxes",
+        25: "Presidential disability",
+        26: "Voting age lowered to 18",
+        27: "Congressional pay changes",
+    }
+
+    # Friendlier article names for the homepage
+    ARTICLE_NAMES = {
+        1: "Congress",
+        2: "The president",
+        3: "The courts",
+        4: "The states",
+        5: "How to amend the Constitution",
+        6: "The Constitution as supreme law",
+        7: "How the Constitution was approved",
+    }
+
     # Jump rail
     rail = ""
     for jp in JUMP_POINTS:
@@ -574,14 +706,15 @@ def render_home(amendments, articles, situations):
   <span class="sit-go">Read the card</span>
 </a>"""
 
-    # Amendments grid, Bill of Rights first
+    # Amendments grid with subjects
     bor = ""
     rest = ""
     for a in amendments:
         n = a["front"]["number"]
+        subj = AMEND_SUBJECTS.get(n, "")
         cell = f"""<a class="amend-cell" href="/amendments/{n}/">
   <span class="num">{n}</span>
-  <span class="title">{ORDINALS[n]}</span>
+  <span class="amend-info"><span class="title">{ORDINALS[n]}</span><span class="subject">{escape(subj)}</span></span>
 </a>"""
         if n <= 10:
             bor += cell
@@ -592,38 +725,46 @@ def render_home(amendments, articles, situations):
     arts = ""
     for art in articles:
         n = art["front"]["number"]
-        raw_title = art["front"]["title"]
-        name = raw_title.split(" — ", 1)[1] if " — " in raw_title else raw_title
+        name = ARTICLE_NAMES.get(n, art["front"]["title"])
         arts += f"""<a class="article-row" href="/articles/{n}/">
   <span class="num">Article {ROMAN[n]}</span>
   <span class="title">{escape(name)}</span>
 </a>"""
 
-    body = f"""<section class="hero wrap">
+    body = f"""<div class="hero-band">
+<section class="hero wrap">
   <a href="https://hopeforamericans.net" class="hfa-eyebrow">
     <span class="hfa-eyebrow-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"><path d="M40 34Q40 24 50 24Q60 24 60 34L60 78"/></svg></span>
     <span>A Hope for Americans project</span>
   </a>
   <h1>The Constitution<span class="dot">.</span></h1>
   <p class="lede">{TAGLINE}</p>
-  <p class="sublede">The full text. A plain-English version. Short cards for situations where it matters. Free. No accounts. No ads.</p>
+  <p class="sublede">Every word of the original, plus a plain-English version you can read anytime. A free reference, open to everyone.</p>
+  <div class="hero-cta-row">
+    <a class="cta" href="/preamble/">Start with the Preamble</a>
+    <a class="cta cta-secondary" href="#rights-now">I need to know my rights</a>
+  </div>
 </section>
+</div>
 
 <section id="rights-now" class="wrap rail-section">
-  <h2>Your rights, asked a lot right now</h2>
-  <p class="section-lede">Questions people are searching this year. Each one jumps to the exact section that answers it.</p>
+  <p class="section-eyebrow">Your rights</p>
+  <p class="section-title">Questions people are asking right now</p>
+  <p class="section-lede">Tap any question to go straight to the answer.</p>
   <div class="jump-rail">{rail}</div>
 </section>
 
 <section id="situations" class="wrap">
-  <h2>Situations</h2>
-  <p class="section-lede">Pocket cards for moments when knowing your rights matters.</p>
+  <p class="section-eyebrow">Situation cards</p>
+  <p class="section-title">What to say when it matters</p>
+  <p class="section-lede">Plain-language guides for specific moments when your rights are at stake.</p>
   <div class="sit-grid">{sits}</div>
 </section>
 
 <section id="amendments" class="wrap">
-  <h2>Amendments</h2>
-  <p class="section-lede">The 27 changes ratified since 1791. The first ten are the Bill of Rights.</p>
+  <p class="section-eyebrow">The Bill of Rights and all 27 amendments</p>
+  <p class="section-title">Amendments</p>
+  <p class="section-lede">Changes to the Constitution since it was written. The first ten are the Bill of Rights.</p>
   <h3 class="grid-label">Bill of Rights, 1791</h3>
   <div class="amend-grid">{bor}</div>
   <h3 class="grid-label">Later amendments, 1795 to 1992</h3>
@@ -631,20 +772,47 @@ def render_home(amendments, articles, situations):
 </section>
 
 <section id="articles" class="wrap">
-  <h2>Articles</h2>
-  <p class="section-lede">The seven articles of the original Constitution, ratified 1788. Start with the <a href="/preamble/">Preamble</a>.</p>
+  <p class="section-eyebrow">The original Constitution</p>
+  <p class="section-title">Articles</p>
+  <p class="section-lede">The seven sections ratified in 1788. Start with the <a href="/preamble/">Preamble</a>, the one-paragraph mission statement.</p>
   <div class="article-list">{arts}</div>
 </section>
 
 <section id="declaration" class="wrap declaration-block">
-  <h2>The Declaration of Independence</h2>
-  <p class="section-lede">Not part of the Constitution. The founding statement the Constitution was later written to put into practice.</p>
-  <a class="cta" href="/declaration/">Read the Declaration</a>
+  <p class="section-eyebrow">Founding document</p>
+  <p class="section-title">The Declaration of Independence</p>
+  <p class="section-lede">Not part of the Constitution. The statement that explains why the country exists, written 11 years before the Constitution.</p>
+  <a class="cta cta-secondary" href="/declaration/">Read the Declaration</a>
 </section>"""
+    home_jld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": f"{SITE_URL}/#website",
+                "url": SITE_URL,
+                "name": "Free Constitution",
+                "description": "Every word of the United States Constitution, verbatim and in plain English.",
+                "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+                "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE_URL}/situations/"}, "query": "required"},
+            },
+            {
+                "@type": "WebPage",
+                "@id": f"{SITE_URL}/#webpage",
+                "url": SITE_URL,
+                "name": "Free Constitution — Read your Constitution. Know your rights.",
+                "description": "A free reference for the United States Constitution. Every word of the original, plus a plain-English version anyone can read.",
+                "isPartOf": {"@id": f"{SITE_URL}/#website"},
+            }
+        ]
+    }
     write("/index.html", page_shell(
-        f"{SITE_NAME}, {TAGLINE}",
-        "A free, ad-free, account-free reference for the United States Constitution. Verbatim text plus plain-English explanations.",
-        body, "/"))
+        f"Free Constitution — Read your Constitution. Know your rights.",
+        "A free reference for the United States Constitution. Verbatim text plus a plain-English version. Know your rights.",
+        body, "/",
+        og_image="/static/og/home.jpg",
+        og_type="website",
+        jsonld=home_jld))
 
 
 def render_404():
@@ -710,20 +878,83 @@ def main():
     render_home(amendments, articles, situations)
     render_404()
 
-    # robots, sitemap, llms.txt
-    write("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+    today = date.today().isoformat()
+
+    # robots.txt — allow all crawlers including AI
+    write("/robots.txt", (
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {SITE_URL}/sitemap.xml\n\n"
+        "# AI crawlers welcome\n"
+        "User-agent: GPTBot\nAllow: /\n"
+        "User-agent: ClaudeBot\nAllow: /\n"
+        "User-agent: PerplexityBot\nAllow: /\n"
+        "User-agent: Googlebot\nAllow: /\n"
+    ))
+
+    # Sitemap with lastmod and changefreq
+    PRIORITY = {
+        "/": ("1.0", "weekly"),
+        "/situations/": ("0.9", "weekly"),
+        "/preamble/": ("0.8", "monthly"),
+    }
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in sorted(set(urls)):
-        sm.append(f"  <url><loc>{SITE_URL}{u}</loc></url>")
+        priority, freq = PRIORITY.get(u, ("0.7" if "/amendments/" in u or "/situations/" in u else "0.6", "monthly"))
+        sm.append(f'  <url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{priority}</priority></url>')
     sm.append("</urlset>")
     write("/sitemap.xml", "\n".join(sm))
-    write("/llms.txt", (
-        f"# {SITE_NAME}\n\n{TAGLINE}\n\n"
-        "A free, ad-free, account-free reference for the United States Constitution. "
-        "Verbatim text from the National Archives plus a plain-English layer.\n\n"
-        "Not legal advice.\n"
-    ))
+
+    # llms.txt — GEO-optimised for AI crawlers (Perplexity, ChatGPT, Gemini, Claude)
+    amend_lines = "\n".join(
+        f"- [{ORDINALS[a['front']['number']]} Amendment]({SITE_URL}/amendments/{a['front']['number']}/): {a['front']['title']}"
+        for a in amendments
+    )
+    sit_lines = "\n".join(
+        f"- [{s['front']['title']}]({SITE_URL}/situations/{s['front']['slug']}/): {s['front'].get('summary','')}"
+        for s in situations
+    )
+    write("/llms.txt", f"""# Free Constitution
+
+> {TAGLINE}
+
+freeconstitution.org is a free reference for the United States Constitution, published by Hope for Americans, a civic-tech project based in Flagstaff, Arizona. The site is open to everyone. It contains no ads and no tracking.
+
+## What this site contains
+
+- The verbatim text of the United States Constitution and all 27 amendments, sourced from the National Archives
+- A plain-English translation of every section
+- Practical explanations of what each amendment means in everyday life
+- Situation cards: plain-language guides for specific moments when rights are at stake
+- The Declaration of Independence (not law, but context)
+
+## Content policy
+
+All verbatim constitutional text is from the National Archives (public domain). Plain-English layers and situation cards are original content by Hope for Americans, licensed CC BY 4.0. This site is not legal advice.
+
+## Amendments
+
+{amend_lines}
+
+## Situation cards
+
+{sit_lines}
+
+## Key pages
+
+- [Homepage]({SITE_URL}/)
+- [All situations]({SITE_URL}/situations/)
+- [Preamble]({SITE_URL}/preamble/)
+- [Declaration of Independence]({SITE_URL}/declaration/)
+- [About]({SITE_URL}/about/)
+- [Sources]({SITE_URL}/sources/)
+
+## Contact
+
+Hope for Americans — hopeforamericans.net
+""")
+
 
     # Validate jump points
     problems = []

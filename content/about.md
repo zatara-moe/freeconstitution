@@ -9,9 +9,9 @@ reading_time_seconds: 180
 
 ## What this is
 
-freeconstitution.org is a free, ad-free, account-free reference site for the United States Constitution. The full verbatim text of the Constitution and all 27 amendments is here, along with a plain-English version of each section, and short cards for situations where knowing your rights matters.
+freeconstitution.org is a free reference for the United States Constitution. The full verbatim text of the Constitution and all 27 amendments is here, along with a plain-English version of each section, and short cards for situations where knowing your rights matters.
 
-You do not need to sign up. You do not need to give us an email. There are no ads. There is no tracking beyond basic anonymous server logs. The whole site is meant to load fast on a slow phone and read clearly to anyone — including readers who are not lawyers, who learned English as a second language, or whose brains work differently from the assumptions academic writing tends to make.
+The site is open to everyone. It loads fast on a slow phone and reads clearly for anyone, including readers who are not lawyers, who learned English as a second language, or whose brains work differently from the assumptions academic writing tends to make.
 
 Think of it as a pocket guide.
 
@@ -27,10 +27,10 @@ This is not the only source. The official source for the Constitution is the Nat
 
 Every amendment and article on this site has four parts:
 
-1. **Verbatim** — the exact text as ratified, taken from the National Archives.
-2. **Plain English** — a translation that drops archaic words but keeps the meaning, including the ambiguities that lawyers and judges still argue about. We do not resolve those ambiguities for you.
-3. **What this means for you** (rights amendments) or **About** (structural amendments) — a short explanation of how the section affects everyday life, with notes on how courts have interpreted it.
-4. **Notes on supersession or repeal** — where one amendment has changed or replaced another, we say so inline.
+- **Verbatim**: the exact text as ratified, taken from the National Archives.
+- **Plain English**: a translation that drops archaic words but keeps the meaning, including the ambiguities that lawyers and judges still argue about. We do not resolve those ambiguities for you.
+- **What this means for you** (rights amendments) or **About** (structural amendments): a short explanation of how the section affects everyday life, with notes on how courts have interpreted it.
+- **Notes on supersession or repeal**: where one amendment has changed or replaced another, we say so inline.
 
 Where words are still legally meaningful but no longer in everyday use, we kept them and explained them. Where words are simply old-fashioned ways of saying something modern (*ordain* for *establish*, *posterity* for *future generations*), we updated them.
 
@@ -48,13 +48,13 @@ Each page shows the date of its most recent review and the name of the reviewer.
 
 ## Who is behind this
 
-This is a project of [organization name pending], a nonprofit based in Flagstaff, Arizona. We are a small team. We do not take ad money. We do not sell data. We do not run on donations from anyone whose name we cannot share publicly.
+This is a Hope for Americans project, built by a small team in Flagstaff, Arizona. The site is funded by the team itself. Revenue comes from the work, not from advertising or data.
 
-If you want to help, the most useful thing you can do is share the site with someone who needs it. The second most useful thing is to tell us when we got something wrong. Contact information is on the homepage footer.
+If you want to help, the most useful thing you can do is share the site with someone who needs it. The second most useful thing is to tell us when we got something wrong.
 
 ## Editorial process
 
-Our full editorial process — how we make decisions about wording, how we handle disagreements between reviewers, how we update pages when courts hand down new rulings — is documented publicly. See the [editorial notes](/notes) for word-by-word reasoning behind specific translation choices. See [PROCESS](https://github.com/[repo]/blob/main/PROCESS.md) on the project's source repository for the full governance document.
+Our full editorial process is documented publicly. This covers how we make decisions about wording, how we handle disagreements between reviewers, and how we update pages when courts hand down new rulings. See the [editorial notes](/notes) for word-by-word reasoning behind specific translation choices.
 
 This site is open source. Anyone can read the code, see the full revision history, and propose changes.
 

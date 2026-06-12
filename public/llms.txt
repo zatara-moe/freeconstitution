@@ -1,7 +1,67 @@
 # Free Constitution
 
-Read your Constitution. Know your rights.
+> Read your Constitution. Know your rights.
 
-A free, ad-free, account-free reference for the United States Constitution. Verbatim text from the National Archives plus a plain-English layer.
+freeconstitution.org is a free reference for the United States Constitution, published by Hope for Americans, a civic-tech project based in Flagstaff, Arizona. The site is open to everyone. It contains no ads and no tracking.
 
-Not legal advice.
+## What this site contains
+
+- The verbatim text of the United States Constitution and all 27 amendments, sourced from the National Archives
+- A plain-English translation of every section
+- Practical explanations of what each amendment means in everyday life
+- Situation cards: plain-language guides for specific moments when rights are at stake
+- The Declaration of Independence (not law, but context)
+
+## Content policy
+
+All verbatim constitutional text is from the National Archives (public domain). Plain-English layers and situation cards are original content by Hope for Americans, licensed CC BY 4.0. This site is not legal advice.
+
+## Amendments
+
+- [First Amendment](https://freeconstitution.org/amendments/1/): First Amendment
+- [Second Amendment](https://freeconstitution.org/amendments/2/): Second Amendment
+- [Third Amendment](https://freeconstitution.org/amendments/3/): Third Amendment
+- [Fourth Amendment](https://freeconstitution.org/amendments/4/): Fourth Amendment
+- [Fifth Amendment](https://freeconstitution.org/amendments/5/): Fifth Amendment
+- [Sixth Amendment](https://freeconstitution.org/amendments/6/): Sixth Amendment
+- [Seventh Amendment](https://freeconstitution.org/amendments/7/): Seventh Amendment
+- [Eighth Amendment](https://freeconstitution.org/amendments/8/): Eighth Amendment
+- [Ninth Amendment](https://freeconstitution.org/amendments/9/): Ninth Amendment
+- [Tenth Amendment](https://freeconstitution.org/amendments/10/): Tenth Amendment
+- [Eleventh Amendment](https://freeconstitution.org/amendments/11/): Eleventh Amendment
+- [Twelfth Amendment](https://freeconstitution.org/amendments/12/): Twelfth Amendment
+- [Thirteenth Amendment](https://freeconstitution.org/amendments/13/): Thirteenth Amendment
+- [Fourteenth Amendment](https://freeconstitution.org/amendments/14/): Fourteenth Amendment
+- [Fifteenth Amendment](https://freeconstitution.org/amendments/15/): Fifteenth Amendment
+- [Sixteenth Amendment](https://freeconstitution.org/amendments/16/): Sixteenth Amendment
+- [Seventeenth Amendment](https://freeconstitution.org/amendments/17/): Seventeenth Amendment
+- [Eighteenth Amendment](https://freeconstitution.org/amendments/18/): Eighteenth Amendment
+- [Nineteenth Amendment](https://freeconstitution.org/amendments/19/): Nineteenth Amendment
+- [Twentieth Amendment](https://freeconstitution.org/amendments/20/): Twentieth Amendment
+- [Twenty-first Amendment](https://freeconstitution.org/amendments/21/): Twenty-First Amendment
+- [Twenty-second Amendment](https://freeconstitution.org/amendments/22/): Twenty-Second Amendment
+- [Twenty-third Amendment](https://freeconstitution.org/amendments/23/): Twenty-Third Amendment
+- [Twenty-fourth Amendment](https://freeconstitution.org/amendments/24/): Twenty-Fourth Amendment
+- [Twenty-fifth Amendment](https://freeconstitution.org/amendments/25/): Twenty-Fifth Amendment
+- [Twenty-sixth Amendment](https://freeconstitution.org/amendments/26/): Twenty-Sixth Amendment
+- [Twenty-seventh Amendment](https://freeconstitution.org/amendments/27/): Twenty-Seventh Amendment
+
+## Situation cards
+
+- [At a protest](https://freeconstitution.org/situations/at-a-protest/): What you can say and do if you are stopped, questioned, or threatened with arrest at a protest.
+- [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What you can say and do if police are asking you questions, whether on the street, in a car, or at a station.
+- [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What you can say and do if a police officer wants to search you, your bag, your car, or your home.
+- [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you do not have the right ID.
+
+## Key pages
+
+- [Homepage](https://freeconstitution.org/)
+- [All situations](https://freeconstitution.org/situations/)
+- [Preamble](https://freeconstitution.org/preamble/)
+- [Declaration of Independence](https://freeconstitution.org/declaration/)
+- [About](https://freeconstitution.org/about/)
+- [Sources](https://freeconstitution.org/sources/)
+
+## Contact
+
+Hope for Americans — hopeforamericans.net
