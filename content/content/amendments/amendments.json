@@ -1,0 +1,5 @@
+{
+  "layout": "amendment.njk",
+  "permalink": "/amendments/{{ number }}/index.html",
+  "tags": ["amendments"]
+}

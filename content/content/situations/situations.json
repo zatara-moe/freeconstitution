@@ -1,0 +1,5 @@
+{
+  "layout": "situation.njk",
+  "permalink": "/situations/{{ slug }}/index.html",
+  "tags": ["situations"]
+}
