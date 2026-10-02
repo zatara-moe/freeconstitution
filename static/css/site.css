@@ -1,7 +1,7 @@
 /* ============================================================
    freeconstitution.org design system
-   Sister site to freescripture.org: parchment paper, federal navy,
-   heritage red used sparingly. Built for neurodivergent and young
+   Hope for Americans family (see BRAND.md): parchment paper, federal
+   navy, heritage red with one job (careful / don't). Built for neurodivergent and young
    readers: hyperlegible type, one idea per block, big tap targets,
    predictable layout, user-controlled size, spacing, font, color
    and depth. Fonts are self-hosted (no third-party requests).
@@ -9,8 +9,6 @@
 
 @font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Atkinson Hyperlegible Next"; font-style: italic; font-weight: 400; font-display: swap;
-  src: url("/static/fonts/atkinson-hyperlegible-next-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 700; font-display: swap;
   src: url("/static/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Lexend"; font-style: normal; font-weight: 400; font-display: swap;
@@ -19,8 +17,6 @@
   src: url("/static/fonts/lexend-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("/static/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 400; font-display: swap;
-  src: url("/static/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 600 700; font-display: swap;
   src: url("/static/fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
 
@@ -566,3 +562,50 @@ html[data-depth="quick"] .depth-std { display: none !important; }
 .faq:last-child { border-bottom: 0; }
 .faq h3 { font-size: 1.05rem; margin-bottom: .35rem; color: var(--navy); }
 .faq p { margin-bottom: .5rem; }
+
+/* ============================================================
+   v2.3 identity layer (see BRAND.md)
+   ============================================================ */
+:root { --fill-band: #fffdf8; --focus: #1e3a5f; --halo: #fbf8f0; }
+html[data-theme="sepia"] { --fill-band: #f8f0dc; --halo: #f3e9d2; }
+html[data-theme="dark"] { --fill-band: #232833; --focus: #bcd2ee; --halo: #13161b; }
+@media (prefers-color-scheme: dark) { html:not([data-theme]) { --fill-band: #232833; --focus: #bcd2ee; --halo: #13161b; } }
+
+/* Mark + wordmark: the page with a star; name in the voice face */
+.wm-mark { display: block; width: 2rem; height: 2rem; padding: 0; background: none; border-radius: 0; flex: none; }
+.wm-svg { display: block; width: 100%; height: 100%; }
+.wordmark { font-family: var(--font-orig); font-weight: 600; font-size: 1.15rem; letter-spacing: 0; }
+
+/* Focus ring: navy with a paper halo; light ring on dark surfaces */
+:focus-visible, .seg input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; box-shadow: 0 0 0 6px var(--halo); }
+.site-header :focus-visible { outline-color: var(--on-header); box-shadow: none; }
+
+/* Heritage red has one job: careful / don't / myth / wrong. Everything else is navy. */
+.sec-title .ic, .kicker .ic, .layer > h2 .ic { color: var(--navy); }
+.phrase dd::before { color: var(--navy); }
+.article-row .num, .sec-num { color: var(--navy); }
+.letter h2 { color: var(--navy); }
+.strip-dot.k-founding, .key.k-founding, .tl-item.k-founding::before { background: var(--navy); }
+.tl-dot.k-founding { fill: var(--navy); }
+.pill-founding { background: var(--navy-wash); color: var(--navy); }
+.hfa-madein span { color: inherit; }
+
+/* Upright text: emphasis is weight; case names are court gold */
+em, i, cite { font-style: normal; font-weight: 700; }
+em.case { color: var(--gold); }
+
+/* Filled cards, no borders or shadows (family card shape) */
+.card, .phrase, .jump, .resume-card { background: var(--paper-2); border-color: transparent; box-shadow: none; }
+.resume-card { background: var(--navy-wash); }
+.finder-btn { background: var(--fill-band); border-color: transparent; box-shadow: none; }
+.card:hover, .jump:hover, .finder-btn:hover { border-color: var(--navy); }
+
+/* The document as the image */
+.doc-line { display: grid; gap: .5rem; padding: 1.3rem 0; border-top: 2px solid var(--rule-soft); border-bottom: 2px solid var(--rule-soft); text-decoration: none; color: var(--ink); }
+.doc-words { font-family: var(--font-orig); font-weight: 600; font-size: clamp(1.45rem, 5.6vw, 2rem); line-height: 1.25; text-wrap: balance; }
+.doc-src { display: block; font-weight: 700; font-size: .95rem; color: var(--navy); }
+.doc-line:hover .doc-src { text-decoration: underline; }
+
+/* Footer seal: the 13 stars of 1777 */
+.star-ring { display: block; width: 2.6rem; height: 2.6rem; margin: 0 auto .6rem; fill: var(--navy); }
+.hfa-more { margin-top: .5rem !important; }

@@ -13,13 +13,14 @@ Young adults (16–25), neurodivergent readers (ADHD, autistic, dyslexic), Engli
 - No idioms, sarcasm, metaphors, or jokes in any rights layer. ("Doing a lot of work," "the tip of the iceberg," "a slippery slope" — cut them.) Autistic and English-learner readers take them literally.
 - Use numbers, not adjectives: "about half of states," "since 2014."
 - Sentence case for headings. Never ALL CAPS for anything people must read.
+- No italics anywhere. Emphasis is bold. See BRAND.md for the visual rules.
 
 ## Terms
 - Define a legal term in the same sentence the first time it appears on a page ("probable cause, meaning good reason to believe…").
 - Glossary terms in `content/glossary.yml` are linked automatically.
 
 ## Accuracy (we have no lawyer review, so this is the review)
-- State current law only when a Supreme Court decision or the text itself says it. Name the case and year once, in italics, and say what it decided in one sentence.
+- State current law only when a Supreme Court decision or the text itself says it. Name the case and year once and say what it decided in one sentence. Write the case name as `*Case v. Case*`; the site shows it upright in bold court gold (never italic). Short names without "v." (*Heller*) show in bold.
 - If serious lawyers or judges disagree, say it is debated, give both readings fairly, and name the open question. Never pick a side.
 - Separate law from opinion. "The Court held…" is fact. "Some argue… others argue…" goes in Who argued what or Actively contested.
 - Never predict how a court will rule. Never tell a reader what to do in their specific case.

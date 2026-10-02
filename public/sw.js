@@ -1,6 +1,6 @@
 /* Free Constitution offline support. Caches pages you open on this device only. */
-const V = "fc-20261001";
-const CORE = ["/", "/situations/", "/offline/", "/static/css/site.css?v=20261001", "/static/js/app.js?v=20261001", "/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2", "/static/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2", "/static/favicon.svg", "/situations/being-questioned-by-police/", "/situations/searched-by-police/", "/situations/at-school/", "/situations/posting-online/", "/situations/at-work/", "/situations/recording-police/", "/situations/first-time-voter/", "/situations/at-a-protest/", "/situations/turned-away-from-voting/", "/situations/immigration-agents-at-the-door/"];
+const V = "fc-20261001b";
+const CORE = ["/", "/situations/", "/offline/", "/static/css/site.css?v=20261001b", "/static/js/app.js?v=20261001b", "/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2", "/static/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2", "/static/favicon.svg", "/situations/being-questioned-by-police/", "/situations/searched-by-police/", "/situations/at-school/", "/situations/posting-online/", "/situations/at-work/", "/situations/recording-police/", "/situations/first-time-voter/", "/situations/at-a-protest/", "/situations/turned-away-from-voting/", "/situations/immigration-agents-at-the-door/"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
 });

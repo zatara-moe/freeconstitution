@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.3 — October 1, 2026: family identity
+Brings Free Constitution into the Hope for Americans family style, keeping it American and civic. See BRAND.md.
+
+- **New mark: the page.** A parchment page with a folded corner and a red star, on a navy tile. It replaces the "f." in the header, the favicons, the home-screen icon, the share images and the search-engine logo (new `mark.svg` and `mark-512.png`).
+- **Fixed:** the red dot of the old "f." mark fell below its tile on every page.
+- **Name in Source Serif 4,** as DLC and Luther's World set theirs. Letter-spacing removed.
+- **Red has one job:** careful (Don't, Myth check, wrong answers). Section icons, numbers, phrase arrows, founding events and letter headings are now navy. The focus ring is navy with a paper halo, and light on the header.
+- **Upright text:** no italics anywhere. Case names are bold court gold (201 across the site); other emphasis is bold. The italic font files were removed.
+- **Reading settings use the family names:** Larger type · More space between lines · Easy-read letters · Focus (hide the menus) · Night mode, then How much to show. On desktop the button reads "Reading".
+- **Filled cards:** no borders or shadows on finder tiles, cards, phrases and jump links. Section headings no longer carry icons.
+- **The document as the image:** the homepage shows the Preamble's opening line large, linking to the Preamble page.
+- **Footer and About:** 13-star seal, plus "More free tools from Hope for Americans". The About page now links to Hope for Americans instead of Free Scripture. No faith-site links remain.
+- **Share images:** all 53 regenerated with a sentence-case label, a navy rule and the new mark.
+- The cache version was bumped, so returning visitors get the new styles and the offline cache refreshes.
+
 ## v2.1 — October 1, 2026: search and AI-answer optimization
 - Search-shaped titles and descriptions on all 91 pages, all within length limits. Example: "4th Amendment Explained: Search and Seizure in Plain English".
 - 245 new "Common questions" answers across amendments, articles, situation cards, the Preamble, the Declaration and the Bill of Rights. All were fact-checked; 30 fixes were made before release.

@@ -50,12 +50,20 @@ def card(path, kicker, title, line, accent=NAVY):
     im = Image.new("RGB", (1200, 630), PAPER)
     d = ImageDraw.Draw(im)
     d.rectangle([0, 0, 1200, 88], fill=NAVY)
-    d.rounded_rectangle([48, 20, 96, 68], radius=10, fill="#f7f1e3")
-    d.text((60, 14), "f", font=F("serif", 44), fill="#1f1b16")
-    d.ellipse([84, 54, 92, 62], fill="#b85436")
-    d.text((116, 26), "Free Constitution", font=F("bold", 34), fill=PAPER)
-    d.rectangle([0, 88, 10, 560], fill=RED)
-    d.text((64, 128), kicker.upper(), font=F("bold", 26), fill=GOLD)
+    # The mark: a parchment page with a folded corner and a heritage-red star (see BRAND.md)
+    d.rounded_rectangle([48, 20, 96, 68], radius=10, fill="#1e3a5f")
+    sx = lambda v: 48 + v * 48 / 64
+    d.polygon([(sx(17), sx(10) - 28), (sx(38), sx(10) - 28), (sx(47), sx(19) - 28), (sx(47), sx(54) - 28), (sx(17), sx(54) - 28)], fill="#f7f1e3")
+    d.polygon([(sx(38), sx(10) - 28), (sx(38), sx(19) - 28), (sx(47), sx(19) - 28)], fill="#d9cdb0")
+    import math
+    pts = []
+    for i in range(10):
+        a = -math.pi / 2 + i * math.pi / 5; r = 10.5 if i % 2 == 0 else 4.0
+        pts.append((sx(32) + r * 0.75 * math.cos(a), sx(33.5) - 28 + r * 0.75 * math.sin(a)))
+    d.polygon(pts, fill=RED)
+    d.text((116, 22), "Free Constitution", font=F("serif", 36), fill=PAPER)
+    d.rectangle([0, 88, 10, 560], fill="#1e3a5f")
+    d.text((64, 128), kicker, font=F("bold", 28), fill=SOFT)
     size = 76
     while True:
         tf = F("bold", size)

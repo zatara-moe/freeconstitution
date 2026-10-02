@@ -23,7 +23,7 @@
     if (prefs.focus) html.setAttribute("data-focus", "on"); else html.removeAttribute("data-focus");
     $$(".focus-exit").forEach(function (b) { b.hidden = !prefs.focus; });
     $$("[data-toggle-focus]").forEach(function (b) {
-      if (!b.classList.contains("focus-exit")) b.lastChild.textContent = prefs.focus ? " Turn off focus mode" : " Turn on focus mode";
+      if (!b.classList.contains("focus-exit")) b.lastChild.textContent = prefs.focus ? " Turn off focus" : " Turn on focus";
     });
     var deep = prefs.depth === "deep";
     $$("details[data-deep-open]").forEach(function (x) { if (deep) x.open = true; });

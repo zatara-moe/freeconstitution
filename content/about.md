@@ -37,4 +37,4 @@ Please tell us. Corrections are the most useful help you can give. Reach us thro
 
 ## Who is behind this
 
-Free Constitution is a Hope for Americans project, made in Flagstaff, Arizona. It is a sister site to [Free Scripture](https://freescripture.org). Hope for Americans builds free digital tools for everyone, the way the web used to be.
+Free Constitution is a Hope for Americans project, made in Flagstaff, Arizona. [Hope for Americans](https://hopeforamericans.net) builds free digital tools for everyone, the way the web used to be.

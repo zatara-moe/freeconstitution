@@ -34,7 +34,7 @@ SITE_URL = "https://freeconstitution.org"
 SITE_NAME = "Free Constitution"
 TAGLINE = "Know your rights. In plain English."
 CONTACT_URL = "https://hopeforamericans.net"   # where "Found a mistake?" points
-ASSET_V = "20261001"                           # bump to bust browser caches
+ASSET_V = "20261001b"                           # bump to bust browser caches
 TODAY = date.today()
 WPM = 200                                      # reading speed used for "About N min"
 
@@ -121,6 +121,13 @@ ICONS = {
 }
 
 
+MARK_SVG = ('<svg class="wm-svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">'
+            '<rect width="64" height="64" rx="14" fill="#1E3A5F"/>'
+            '<path d="M17 10H38L47 19V54H17Z" fill="#F7F1E3"/><path d="M38 10V19H47Z" fill="#D9CDB0"/>'
+            '<polygon points="32.00,23.00 34.59,30.44 42.46,30.60 36.18,35.36 38.47,42.90 32.00,38.40 25.53,42.90 27.82,35.36 21.54,30.60 29.41,30.44" fill="#9B2C24"/>'
+            '</svg>')
+
+
 def icon(name, cls="ic"):
     return (f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
             f'{ICONS.get(name, ICONS["info"])}</svg>')
@@ -203,6 +210,7 @@ def inline_md(text):
     text = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", text)
+    text = re.sub(r"<em>([^<]*(?: v\. | Cases)[^<]*)</em>", r'<em class="case">\1</em>', text)
     return text
 
 
@@ -407,7 +415,7 @@ def header_html():
     return f"""<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Free Constitution, home"><span class="wm-mark" aria-hidden="true">f<span>.</span></span><span class="wm-text">Free Constitution</span></a>
+    <a class="wordmark" href="/" aria-label="Free Constitution, home"><span class="wm-mark">{MARK_SVG}</span><span class="wm-text">Free Constitution</span></a>
     <nav class="site-nav" aria-label="Main">
       <a href="/situations/">Situations</a>
       <a href="/amendments/">Amendments</a>
@@ -416,10 +424,13 @@ def header_html():
     </nav>
     <div class="header-tools">
       <button type="button" class="tool-btn" data-open-search aria-label="Search (press /)">{icon("search")}<span class="tool-label">Search</span></button>
-      <button type="button" class="tool-btn" data-open-display aria-label="Display settings (press D)">{icon("text")}<span class="tool-label">Display</span></button>
+      <button type="button" class="tool-btn" data-open-display aria-label="Reading settings (press D)">{icon("text")}<span class="tool-label">Reading</span></button>
     </div>
   </div>
 </header>"""
+
+
+STAR_RING = '<svg class="star-ring" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><polygon points="32.0,4.0 32.9,6.8 35.8,6.8 33.5,8.5 34.4,11.2 32.0,9.5 29.6,11.2 30.5,8.5 28.2,6.8 31.1,6.8"/><polygon points="43.2,6.7 44.1,9.5 47.0,9.5 44.6,11.2 45.5,14.0 43.2,12.3 40.8,14.0 41.7,11.2 39.3,9.5 42.3,9.5"/><polygon points="51.8,14.4 52.6,17.1 55.6,17.1 53.2,18.8 54.1,21.6 51.8,19.9 49.4,21.6 50.3,18.8 47.9,17.1 50.9,17.1"/><polygon points="55.8,25.1 56.7,27.9 59.6,27.9 57.3,29.6 58.2,32.3 55.8,30.6 53.5,32.3 54.4,29.6 52.0,27.9 54.9,27.9"/><polygon points="54.4,36.5 55.3,39.3 58.2,39.3 55.9,41.0 56.8,43.7 54.4,42.0 52.1,43.7 53.0,41.0 50.6,39.3 53.5,39.3"/><polygon points="47.9,46.0 48.8,48.7 51.7,48.7 49.4,50.4 50.3,53.2 47.9,51.5 45.6,53.2 46.5,50.4 44.1,48.7 47.0,48.7"/><polygon points="37.7,51.3 38.6,54.1 41.5,54.1 39.2,55.8 40.1,58.5 37.7,56.8 35.4,58.5 36.3,55.8 33.9,54.1 36.8,54.1"/><polygon points="26.3,51.3 27.2,54.1 30.1,54.1 27.7,55.8 28.6,58.5 26.3,56.8 23.9,58.5 24.8,55.8 22.5,54.1 25.4,54.1"/><polygon points="16.1,46.0 17.0,48.7 19.9,48.7 17.5,50.4 18.4,53.2 16.1,51.5 13.7,53.2 14.6,50.4 12.3,48.7 15.2,48.7"/><polygon points="9.6,36.5 10.5,39.3 13.4,39.3 11.0,41.0 11.9,43.7 9.6,42.0 7.2,43.7 8.1,41.0 5.8,39.3 8.7,39.3"/><polygon points="8.2,25.1 9.1,27.9 12.0,27.9 9.6,29.6 10.5,32.3 8.2,30.6 5.8,32.3 6.7,29.6 4.4,27.9 7.3,27.9"/><polygon points="12.2,14.4 13.1,17.1 16.1,17.1 13.7,18.8 14.6,21.6 12.2,19.9 9.9,21.6 10.8,18.8 8.4,17.1 11.4,17.1"/><polygon points="20.8,6.7 21.7,9.5 24.7,9.5 22.3,11.2 23.2,14.0 20.8,12.3 18.5,14.0 19.4,11.2 17.0,9.5 19.9,9.5"/></svg>'
 
 
 def footer_html():
@@ -433,8 +444,10 @@ def footer_html():
     <p class="foot-legal">Plain-language explanations, not legal advice. Not reviewed by a lawyer. <a href="/about/">How we check our work</a>.</p>
     <p class="foot-updated">Last updated {fmt_date(TODAY)}</p>
     <div class="hfa">
-      <p class="hfa-madein">Made with <span aria-hidden="true">&hearts;</span> in Flagstaff</p>
-      <p class="hfa-mark">A <a href="https://hopeforamericans.net">Hope for Americans</a> tool &middot; free to use, the way the web used to be</p>
+      {STAR_RING}
+      <p class="hfa-mark">A Hope for Americans tool &middot; free to use, the way the web used to be</p>
+      <p class="hfa-more"><a class="text-link" href="https://hopeforamericans.net">More free tools from Hope for Americans {icon("right")}</a></p>
+      <p class="hfa-madein">Made in Flagstaff, Arizona</p>
     </div>
   </div>
 </footer>"""
@@ -458,17 +471,17 @@ def radio_group(name, legend, options, hint=""):
 
 def dialogs():
     display = f"""<dialog id="display-dialog" class="sheet" aria-labelledby="display-title">
-  <div class="sheet-head"><h2 id="display-title">{icon("text")} Display</h2>
+  <div class="sheet-head"><h2 id="display-title">{icon("text")} Reading settings</h2>
   <button type="button" class="icon-btn" data-close aria-label="Close">{icon("x")}</button></div>
   <form class="settings" data-display-form>
-    {radio_group("size", "Text size", [("s", "Small"), ("m", "Medium"), ("l", "Large"), ("xl", "Extra large")])}
-    {radio_group("spacing", "Line spacing", [("normal", "Normal"), ("roomy", "Roomy")])}
-    {radio_group("font", "Font", [("hyper", "Hyperlegible"), ("lexend", "Lexend"), ("serif", "Serif")], "Hyperlegible and Lexend are designed to be easier to read.")}
-    {radio_group("theme", "Page color", [("light", "Light"), ("sepia", "Sepia"), ("dark", "Dark")])}
+    {radio_group("size", "Larger type", [("s", "Small"), ("m", "Medium"), ("l", "Large"), ("xl", "Extra large")])}
+    {radio_group("spacing", "More space between lines", [("normal", "Normal"), ("roomy", "More space")])}
+    {radio_group("font", "Easy-read letters", [("hyper", "Hyperlegible"), ("lexend", "Lexend"), ("serif", "Serif")], "Hyperlegible and Lexend are designed to be easier to read.")}
+    <fieldset class="setting"><legend>Focus (hide the menus)</legend><p class="hint">Only the reading stays on screen.</p>
+    <button type="button" class="btn btn-quiet" data-toggle-focus>{icon("eye")} Turn on focus</button></fieldset>
+    {radio_group("theme", "Night mode", [("light", "Day"), ("sepia", "Sepia"), ("dark", "Night")])}
     {radio_group("depth", "How much to show", [("quick", "Quick"), ("standard", "Standard"), ("deep", "Deep")], "Quick shows the short version. Deep opens everything.")}
-    <fieldset class="setting"><legend>Focus mode</legend><p class="hint">Hides menus so only the reading is on screen.</p>
-    <button type="button" class="btn btn-quiet" data-toggle-focus>{icon("eye")} Turn on focus mode</button></fieldset>
-    <p class="hint keys">Keys: <kbd>/</kbd> search &middot; <kbd>D</kbd> display &middot; <kbd>T</kbd> page color &middot; <kbd>G</kbd> focus mode</p>
+    <p class="hint keys">Keys: <kbd>/</kbd> search &middot; <kbd>D</kbd> reading settings &middot; <kbd>T</kbd> night mode &middot; <kbd>G</kbd> focus</p>
     <p class="hint">Saved on this device only.</p>
   </form>
 </dialog>"""
@@ -487,7 +500,7 @@ def dialogs():
 
 
 ORG = {"@type": "Organization", "@id": "https://hopeforamericans.net/#org", "name": "Hope for Americans",
-       "url": "https://hopeforamericans.net", "logo": f"{SITE_URL}/static/favicon.svg",
+       "url": "https://hopeforamericans.net", "logo": f"{SITE_URL}/static/mark-512.png",
        "address": {"@type": "PostalAddress", "addressLocality": "Flagstaff", "addressRegion": "AZ", "addressCountry": "US"}}
 CRUMBS = []
 
@@ -600,7 +613,7 @@ def heads_up(ins):
 def layer(id_, title, icon_name, inner, cls="", tag=""):
     t = f'<p class="tag">{tag}</p>' if tag else ""
     return (f'<section class="layer {cls}" id="{id_}" aria-labelledby="{id_}-h">'
-            f'<h2 id="{id_}-h">{icon(icon_name)}<span>{title}</span></h2>{t}{inner}</section>')
+            f'<h2 id="{id_}-h"><span>{title}</span></h2>{t}{inner}</section>')
 
 
 def plain_and_original(plain_html, verbatim_html, orig_label, used, id_="plain-english", title="Plain English"):
@@ -697,7 +710,7 @@ def deeper_html(ins, about_html="", contested=None, extra_folds=""):
     kc = ins.get("key_cases") or []
     if kc:
         rows = "".join(
-            f'<li><span class="case-year">{escape(str(k["year"]))}</span><div><p class="case-name"><em>{escape(k["name"])}</em></p><p>{md(k["held"])}</p></div></li>'
+            f'<li><span class="case-year">{escape(str(k["year"]))}</span><div><p class="case-name"><em class="case">{escape(k["name"])}</em></p><p>{md(k["held"])}</p></div></li>'
             for k in kc)
         folds.append(fold("Key cases", f'<ol class="cases">{rows}</ol>'))
     if about_html:
@@ -1473,29 +1486,33 @@ def render_home(amendments, articles, situations, paths, all_ins, events):
 <section class="wrap home-sec" id="resume" hidden></section>
 
 <section class="wrap home-sec">
-  <h2 class="sec-title">{icon("help")}Questions people are asking</h2>
+  <a class="doc-line" href="/preamble/"><span class="doc-words">We the People of the United States, in Order to form a more perfect Union&hellip;</span><span class="doc-src">The Preamble, 1787 &middot; Read it in plain English {icon("right")}</span></a>
+</section>
+
+<section class="wrap home-sec">
+  <h2 class="sec-title">Questions people are asking</h2>
   <div class="jump-rail">{rail}</div>
 </section>
 
 <section class="wrap home-sec">
-  <h2 class="sec-title">{icon("map")}Paths</h2>
+  <h2 class="sec-title">Paths</h2>
   <p class="sec-lede">Short guided routes. Each step is one page.</p>
   <div class="path-grid">{pcards}</div>
   <p><a class="text-link" href="/paths/">All {len(paths)} paths {icon("right")}</a></p>
 </section>
 
 <section class="wrap home-sec">
-  <h2 class="sec-title">{icon("timeline")}250 years in one line</h2>
+  <h2 class="sec-title">250 years in one line</h2>
   <a class="strip" href="/timeline/" aria-label="Open the timeline"><span class="strip-line"></span>{strip}<span class="strip-l">1776</span><span class="strip-r">Today</span></a>
   <p><a class="text-link" href="/timeline/">Open the timeline {icon("right")}</a></p>
 </section>
 
 <section class="wrap home-sec" id="browse">
-  <h2 class="sec-title">{icon("scales")}The Bill of Rights</h2>
+  <h2 class="sec-title">The Bill of Rights</h2>
   <p class="sec-lede">The first ten amendments, 1791. <a href="/bill-of-rights/">The Bill of Rights explained</a>.</p>
   <div class="amend-grid">{bor}</div>
   <p><a class="text-link" href="/amendments/">All 27 amendments {icon("right")}</a></p>
-  <h2 class="sec-title">{icon("columns")}The original seven articles</h2>
+  <h2 class="sec-title">The original seven articles</h2>
   <div class="article-list">{arts}</div>
   <div class="more-row">
     <a class="mini-card" href="/preamble/">{icon("flag")}<span>The Preamble</span>{icon("right", "ic go")}</a>
@@ -1579,7 +1596,8 @@ self.addEventListener("fetch", e => {{
         "description": "The U.S. Constitution in plain English, with know-your-rights cards.",
         "icons": [
             {"src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
-            {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}
+            {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+            {"src": "/static/mark-512.png", "sizes": "512x512", "type": "image/png"}
         ]}, indent=1))
 
     bots = ["Googlebot", "Bingbot", "Applebot", "Applebot-Extended", "Google-Extended", "GPTBot", "OAI-SearchBot",
