@@ -66,3 +66,14 @@ quick_check:
     options: ["Yes, with three-fourths of states.", "Only if that state agrees.", "Yes, with a national vote."]
     answer: 1
     why: "Article V says no state can lose its equal Senate vote without its consent."
+seo_title: "Article V Explained: How the Constitution Is Amended"
+seo_description: "Article V in plain English: how the Constitution is amended. Two-thirds of Congress or a convention proposes a change. Three-fourths of the states ratify it."
+faq:
+  - q: "What does Article V say in simple terms?"
+    a: "Article V explains how to change the Constitution. Two-thirds of both houses of Congress, or a convention called by two-thirds of the states, can propose an amendment. Three-fourths of the states must then ratify it."
+  - q: "How is the Constitution amended?"
+    a: "In two steps. First, two-thirds of the House and Senate propose an amendment, or a convention called by two-thirds of the states does. Then three-fourths of the states, 38 of 50, must ratify it. Every amendment so far was proposed by Congress."
+  - q: "Does the president sign constitutional amendments?"
+    a: "No. The President has no formal role in amending the Constitution. In Hollingsworth v. Virginia (1798), the Court said a proposed amendment does not need the President's signature."
+  - q: "How many amendments have been proposed?"
+    a: "More than 11,000 amendments have been proposed in Congress since 1789. Only 27 have been ratified. The first 10, known as the Bill of Rights, were ratified together in 1791."

@@ -3,8 +3,495 @@
   "buildCommand": "",
   "outputDirectory": "public",
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/know-your-rights",
+      "destination": "/situations/",
+      "permanent": true
+    },
+    {
+      "source": "/glossary",
+      "destination": "/words/",
+      "permanent": true
+    },
+    {
+      "source": "/constitution",
+      "destination": "/full-text/",
+      "permanent": true
+    },
+    {
+      "source": "/the-bill-of-rights",
+      "destination": "/bill-of-rights/",
+      "permanent": true
+    },
+    {
+      "source": "/1st-amendment",
+      "destination": "/amendments/1/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-1",
+      "destination": "/amendments/1/",
+      "permanent": true
+    },
+    {
+      "source": "/first-amendment",
+      "destination": "/amendments/1/",
+      "permanent": true
+    },
+    {
+      "source": "/2nd-amendment",
+      "destination": "/amendments/2/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-2",
+      "destination": "/amendments/2/",
+      "permanent": true
+    },
+    {
+      "source": "/second-amendment",
+      "destination": "/amendments/2/",
+      "permanent": true
+    },
+    {
+      "source": "/3rd-amendment",
+      "destination": "/amendments/3/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-3",
+      "destination": "/amendments/3/",
+      "permanent": true
+    },
+    {
+      "source": "/third-amendment",
+      "destination": "/amendments/3/",
+      "permanent": true
+    },
+    {
+      "source": "/4th-amendment",
+      "destination": "/amendments/4/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-4",
+      "destination": "/amendments/4/",
+      "permanent": true
+    },
+    {
+      "source": "/fourth-amendment",
+      "destination": "/amendments/4/",
+      "permanent": true
+    },
+    {
+      "source": "/5th-amendment",
+      "destination": "/amendments/5/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-5",
+      "destination": "/amendments/5/",
+      "permanent": true
+    },
+    {
+      "source": "/fifth-amendment",
+      "destination": "/amendments/5/",
+      "permanent": true
+    },
+    {
+      "source": "/6th-amendment",
+      "destination": "/amendments/6/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-6",
+      "destination": "/amendments/6/",
+      "permanent": true
+    },
+    {
+      "source": "/sixth-amendment",
+      "destination": "/amendments/6/",
+      "permanent": true
+    },
+    {
+      "source": "/7th-amendment",
+      "destination": "/amendments/7/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-7",
+      "destination": "/amendments/7/",
+      "permanent": true
+    },
+    {
+      "source": "/seventh-amendment",
+      "destination": "/amendments/7/",
+      "permanent": true
+    },
+    {
+      "source": "/8th-amendment",
+      "destination": "/amendments/8/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-8",
+      "destination": "/amendments/8/",
+      "permanent": true
+    },
+    {
+      "source": "/eighth-amendment",
+      "destination": "/amendments/8/",
+      "permanent": true
+    },
+    {
+      "source": "/9th-amendment",
+      "destination": "/amendments/9/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-9",
+      "destination": "/amendments/9/",
+      "permanent": true
+    },
+    {
+      "source": "/ninth-amendment",
+      "destination": "/amendments/9/",
+      "permanent": true
+    },
+    {
+      "source": "/10th-amendment",
+      "destination": "/amendments/10/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-10",
+      "destination": "/amendments/10/",
+      "permanent": true
+    },
+    {
+      "source": "/tenth-amendment",
+      "destination": "/amendments/10/",
+      "permanent": true
+    },
+    {
+      "source": "/11th-amendment",
+      "destination": "/amendments/11/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-11",
+      "destination": "/amendments/11/",
+      "permanent": true
+    },
+    {
+      "source": "/eleventh-amendment",
+      "destination": "/amendments/11/",
+      "permanent": true
+    },
+    {
+      "source": "/12th-amendment",
+      "destination": "/amendments/12/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-12",
+      "destination": "/amendments/12/",
+      "permanent": true
+    },
+    {
+      "source": "/twelfth-amendment",
+      "destination": "/amendments/12/",
+      "permanent": true
+    },
+    {
+      "source": "/13th-amendment",
+      "destination": "/amendments/13/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-13",
+      "destination": "/amendments/13/",
+      "permanent": true
+    },
+    {
+      "source": "/thirteenth-amendment",
+      "destination": "/amendments/13/",
+      "permanent": true
+    },
+    {
+      "source": "/14th-amendment",
+      "destination": "/amendments/14/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-14",
+      "destination": "/amendments/14/",
+      "permanent": true
+    },
+    {
+      "source": "/fourteenth-amendment",
+      "destination": "/amendments/14/",
+      "permanent": true
+    },
+    {
+      "source": "/15th-amendment",
+      "destination": "/amendments/15/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-15",
+      "destination": "/amendments/15/",
+      "permanent": true
+    },
+    {
+      "source": "/fifteenth-amendment",
+      "destination": "/amendments/15/",
+      "permanent": true
+    },
+    {
+      "source": "/16th-amendment",
+      "destination": "/amendments/16/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-16",
+      "destination": "/amendments/16/",
+      "permanent": true
+    },
+    {
+      "source": "/sixteenth-amendment",
+      "destination": "/amendments/16/",
+      "permanent": true
+    },
+    {
+      "source": "/17th-amendment",
+      "destination": "/amendments/17/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-17",
+      "destination": "/amendments/17/",
+      "permanent": true
+    },
+    {
+      "source": "/seventeenth-amendment",
+      "destination": "/amendments/17/",
+      "permanent": true
+    },
+    {
+      "source": "/18th-amendment",
+      "destination": "/amendments/18/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-18",
+      "destination": "/amendments/18/",
+      "permanent": true
+    },
+    {
+      "source": "/eighteenth-amendment",
+      "destination": "/amendments/18/",
+      "permanent": true
+    },
+    {
+      "source": "/19th-amendment",
+      "destination": "/amendments/19/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-19",
+      "destination": "/amendments/19/",
+      "permanent": true
+    },
+    {
+      "source": "/nineteenth-amendment",
+      "destination": "/amendments/19/",
+      "permanent": true
+    },
+    {
+      "source": "/20th-amendment",
+      "destination": "/amendments/20/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-20",
+      "destination": "/amendments/20/",
+      "permanent": true
+    },
+    {
+      "source": "/twentieth-amendment",
+      "destination": "/amendments/20/",
+      "permanent": true
+    },
+    {
+      "source": "/21st-amendment",
+      "destination": "/amendments/21/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-21",
+      "destination": "/amendments/21/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-first-amendment",
+      "destination": "/amendments/21/",
+      "permanent": true
+    },
+    {
+      "source": "/22nd-amendment",
+      "destination": "/amendments/22/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-22",
+      "destination": "/amendments/22/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-second-amendment",
+      "destination": "/amendments/22/",
+      "permanent": true
+    },
+    {
+      "source": "/23rd-amendment",
+      "destination": "/amendments/23/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-23",
+      "destination": "/amendments/23/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-third-amendment",
+      "destination": "/amendments/23/",
+      "permanent": true
+    },
+    {
+      "source": "/24th-amendment",
+      "destination": "/amendments/24/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-24",
+      "destination": "/amendments/24/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-fourth-amendment",
+      "destination": "/amendments/24/",
+      "permanent": true
+    },
+    {
+      "source": "/25th-amendment",
+      "destination": "/amendments/25/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-25",
+      "destination": "/amendments/25/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-fifth-amendment",
+      "destination": "/amendments/25/",
+      "permanent": true
+    },
+    {
+      "source": "/26th-amendment",
+      "destination": "/amendments/26/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-26",
+      "destination": "/amendments/26/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-sixth-amendment",
+      "destination": "/amendments/26/",
+      "permanent": true
+    },
+    {
+      "source": "/27th-amendment",
+      "destination": "/amendments/27/",
+      "permanent": true
+    },
+    {
+      "source": "/amendment-27",
+      "destination": "/amendments/27/",
+      "permanent": true
+    },
+    {
+      "source": "/twenty-seventh-amendment",
+      "destination": "/amendments/27/",
+      "permanent": true
+    },
+    {
+      "source": "/article-1",
+      "destination": "/articles/1/",
+      "permanent": true
+    },
+    {
+      "source": "/article-2",
+      "destination": "/articles/2/",
+      "permanent": true
+    },
+    {
+      "source": "/article-3",
+      "destination": "/articles/3/",
+      "permanent": true
+    },
+    {
+      "source": "/article-4",
+      "destination": "/articles/4/",
+      "permanent": true
+    },
+    {
+      "source": "/article-5",
+      "destination": "/articles/5/",
+      "permanent": true
+    },
+    {
+      "source": "/article-6",
+      "destination": "/articles/6/",
+      "permanent": true
+    },
+    {
+      "source": "/article-7",
+      "destination": "/articles/7/",
+      "permanent": true
+    }
+  ],
   "headers": [
-    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
-    { "source": "/static/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/static/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/static/og/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
   ]
 }

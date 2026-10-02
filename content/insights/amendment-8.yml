@@ -77,3 +77,18 @@ quick_check:
       - "Bail that is paid in cash."
     answer: 1
     why: "The Court has said bail is excessive when it is set higher than needed to serve its purpose."
+seo_title: "8th Amendment Explained: Cruel and Unusual Punishment"
+seo_description: "The 8th Amendment in plain English: no excessive bail or fines, and no cruel and unusual punishment. What it means for the death penalty, bail, and prisons."
+faq:
+  - q: "What does the Eighth Amendment say in simple terms?"
+    a: "It means the government cannot set bail that is too high, charge fines that are too high, or use cruel and unusual punishments. It applies to state and local governments too. Courts decide in each case what counts as excessive or cruel."
+  - q: "Is the death penalty cruel and unusual punishment?"
+    a: "No, not under current Supreme Court rulings. In Gregg v. Georgia (1976), the Court held the death penalty is allowed if states use careful procedures. The question is still debated. Some argue it is always cruel. Others note that the Fifth Amendment's text mentions capital crimes. Many states no longer use it."
+  - q: "Can a minor get the death penalty?"
+    a: "No. In Roper v. Simmons (2005), the Supreme Court held the death penalty cannot be used for crimes committed by someone under 18. In Miller v. Alabama (2012), the Court also barred mandatory life without parole for people under 18."
+  - q: "Do I have a right to bail?"
+    a: "Not always. The Eighth Amendment bans excessive bail, not all detention. In United States v. Salerno (1987), the Supreme Court said some people can be held without bail. One example is when a court finds a person dangerous. Bail rules differ a lot from state to state."
+  - q: "Do prisoners have a right to medical care?"
+    a: "Yes. The Supreme Court decided this in Estelle v. Gamble (1976). Officials violate the Eighth Amendment when they show deliberate indifference to a prisoner's serious medical needs. That means knowing about the needs and ignoring them. Simple mistakes or poor care alone usually do not break this rule."
+  - q: "Is it cruel and unusual to punish homeless people for camping outside?"
+    a: "No, according to the Supreme Court. The Court decided City of Grants Pass v. Johnson in 2024. It held that enforcing general bans on camping on public property is not cruel and unusual punishment, even against homeless people. Three justices disagreed, saying it punishes people for being homeless. State and local laws may add limits."

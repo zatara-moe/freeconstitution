@@ -30,6 +30,24 @@ help:
     value: "aclu.org/know-your-rights"
     href: "https://www.aclu.org/know-your-rights"
 state_varies: "Rules about phone searches and police questioning at school differ by state and school district."
+h1: "Your rights at school: searches, phones, speech"
+seo_title: "Can My School Search My Phone? Student Rights Explained"
+seo_description: "It depends. Public schools need reasonable suspicion to search you, your bag, or your phone. Here's what to say, plus your rights to speech and silence."
+faq:
+  - q: "Can my school search my phone?"
+    a: "It depends. The Supreme Court has not decided a case about schools searching phones. Many courts use the reasonable suspicion test from New Jersey v. T.L.O. (1985), meaning a specific reason to think you broke a law or rule. Some states have laws that limit phone searches at school."
+  - q: "Can a school search my backpack?"
+    a: "Yes, at a public school, if staff have reasonable suspicion. They do not need a warrant. The Supreme Court decided this in New Jersey v. T.L.O. (1985). The search must fit the reason and cannot be much more invasive than needed. Private schools mostly follow their own rules."
+  - q: "Can I be punished for something I posted off campus?"
+    a: "Sometimes, but schools have less power over off-campus speech. In Mahanoy Area School District v. B.L. (2021), the Supreme Court said a public school could not punish a student for a vulgar weekend Snapchat post. Schools may still act on threats, bullying, or harassment."
+  - q: "Do I have to talk to a police officer at school?"
+    a: "No. You have the right to remain silent with police, including school resource officers. Say clearly: \"I want to remain silent. I want a lawyer.\" Asking only for a parent may not count as using your rights. Some states require police to contact a parent first."
+  - q: "Do I have to answer the principal's questions?"
+    a: "You generally cannot be forced to, but refusing can lead to school discipline. Teachers, principals, and counselors can question you without reading you your rights. What you tell them can be shared with police. You can ask: \"Can I call my parent or guardian first?\""
+  - q: "Can a school strip search a student?"
+    a: "Only in very limited cases. In Safford Unified School District v. Redding (2009), the Supreme Court said a strip search of a student for pain pills went too far. A school search must fit its reason and cannot be much more invasive than needed."
+  - q: "Do students have free speech at school?"
+    a: "Yes, at public schools, with limits. In Tinker v. Des Moines (1969), the Supreme Court said students keep free speech rights at school. A school can limit speech that would seriously disrupt school or invade others' rights. Schools have more control over school-sponsored speech."
 ---
 
 ## Public schools and private schools are different

@@ -74,3 +74,16 @@ quick_check:
       - "It created a new right to vote."
     answer: 1
     why: "The Court said the coverage formula was outdated. The rest of the law stayed in place."
+seo_title: "15th Amendment Explained: Race and the Right to Vote"
+seo_description: "The 15th Amendment in plain English: no government can deny the vote because of race or color. What it says, why it passed in 1870, and what it means today."
+faq:
+  - q: "What does the 15th Amendment say in simple terms?"
+    a: "It says no government can deny or limit a citizen's right to vote because of race, color, or having once been enslaved. It applies to the federal government and every state. Congress can enforce it with laws such as the Voting Rights Act."
+  - q: "When was the 15th Amendment ratified?"
+    a: "February 3, 1870. It was the last of the three Reconstruction Amendments passed after the Civil War. It followed the 13th, which ended slavery, and the 14th, which covers citizenship and equal protection."
+  - q: "Did the 15th Amendment give women the right to vote?"
+    a: "No. It bans race discrimination in voting, but it says nothing about sex. Women won national protection for their vote in 1920, through the 19th Amendment."
+  - q: "Why couldn't Black people vote after the 15th Amendment?"
+    a: "After Reconstruction, many states used poll taxes, literacy tests, grandfather clauses, threats, and violence to block Black voters. These tactics lasted for nearly 100 years. The Voting Rights Act of 1965 finally put the amendment into practice on a large scale."
+  - q: "Is the Voting Rights Act still in effect?"
+    a: "Yes, but parts of it are narrower now. In Shelby County v. Holder (2013), the Court stopped the use of the formula for federal preapproval. In Louisiana v. Callais (2026), it read Section 2 more narrowly. Section 2 and other parts still apply."

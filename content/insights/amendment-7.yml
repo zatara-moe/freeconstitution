@@ -56,3 +56,16 @@ quick_check:
       - "The lawyers."
     answer: 0
     why: "The jury decides questions of fact. The judge decides questions of law."
+seo_title: "7th Amendment Explained: Right to a Jury in Civil Cases"
+seo_description: "The 7th Amendment in plain English: in many federal civil lawsuits, you can have a jury decide the facts. What the $20 rule means and when the right applies."
+faq:
+  - q: "What does the Seventh Amendment say in simple terms?"
+    a: "It means that in many federal civil lawsuits, you can have a jury decide the facts. Civil lawsuits are cases about money or rights, not crimes. The right applies when more than twenty dollars is at stake. Courts generally cannot overturn a jury's findings of fact except under old common-law rules."
+  - q: "Does the Seventh Amendment apply in state court?"
+    a: "No. In Minneapolis & St. Louis Railroad Co. v. Bombolis (1916), the Supreme Court held it applies only in federal courts. State courts follow their own constitutions and laws, and most of them offer juries in many civil cases."
+  - q: "Do I get a jury in every civil case?"
+    a: "No. The right covers \"suits at common law,\" mainly cases seeking money damages. Cases asking a court to order someone to do or stop doing something generally have no jury right. In Curtis v. Loether (1974), the Court said the right also covers new money-damage lawsuits created by Congress."
+  - q: "Is the Seventh Amendment's $20 rule still in effect?"
+    a: "Yes. The twenty-dollar amount in the text has never been changed. Almost every federal lawsuit today involves more than that. Separate federal laws set other limits on which cases federal courts can hear."
+  - q: "Do I get a jury if a government agency fines me?"
+    a: "Sometimes. The Supreme Court decided SEC v. Jarkesy in 2024. It held that when the Securities and Exchange Commission seeks civil penalties for securities fraud, the accused gets a jury trial. How far this ruling reaches for other agencies is still being worked out."

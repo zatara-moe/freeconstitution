@@ -50,3 +50,18 @@ quick_check:
       - "There is a special national election."
     answer: 1
     why: "Section 2 sets this process. It was used for Gerald Ford in 1973 and Nelson Rockefeller in 1974."
+seo_title: "25th Amendment Explained: Presidential Succession"
+seo_description: "The 25th Amendment in plain English: who takes over if the president dies, resigns, or cannot serve, and how a new vice president is chosen. How it works."
+faq:
+  - q: "What does the 25th Amendment say in simple terms?"
+    a: "If the President dies, resigns, or is removed, the Vice President becomes President. It also explains how to fill an empty vice presidency. And it sets rules for when a President cannot do the job, even for a short time."
+  - q: "What happens if the president dies?"
+    a: "The Vice President becomes President. Section 1 of the 25th Amendment says this directly. The new President then nominates a new Vice President, who takes office once a majority of both houses of Congress approves."
+  - q: "How does the 25th Amendment work?"
+    a: "It has four parts. Section 1 makes the Vice President President if the office opens. Section 2 fills an empty vice presidency. Section 3 lets a President hand over power for a time. Section 4 lets the Vice President and Cabinet act if the President cannot."
+  - q: "Can the 25th Amendment remove a president?"
+    a: "Not exactly, and Section 4 has never been used. Under it, the Vice President and most of the Cabinet can declare the President unable to serve. The Vice President becomes Acting President. If the President objects, two-thirds of both houses must agree, or the President returns."
+  - q: "Has the 25th Amendment ever been used?"
+    a: "Yes, several times. Gerald Ford became Vice President in 1973 and President in 1974 under it. George W. Bush and Joe Biden used Section 3 to hand over power briefly during medical procedures. Section 4 has never been used."
+  - q: "What happens if the vice president dies or resigns?"
+    a: "The President nominates a new Vice President. That person takes office after a majority of both the House and the Senate votes to confirm. This happened with Gerald Ford in 1973 and Nelson Rockefeller in 1974."

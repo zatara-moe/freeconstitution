@@ -1,5 +1,7 @@
 ---
 type: page
+seo_title: "Sources: Where Our Constitution Text Comes From"
+seo_description: "The original text comes from the National Archives. Learn how our plain-English explanations are written, fact-checked against Supreme Court cases, and licensed."
 slug: sources
 title: Sources and how we check
 summary: Where the text comes from, how the plain-language layers are written, and how we check them.

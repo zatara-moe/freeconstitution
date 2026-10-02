@@ -57,3 +57,14 @@ quick_check:
     options: ["The king.", "The military.", "The consent of the governed."]
     answer: 2
     why: "The Declaration says governments get their just powers from the consent of the governed."
+seo_title: "Declaration of Independence in Plain English"
+seo_description: "The Declaration of Independence in plain English: what it says, why the 13 colonies broke from Britain in 1776, who wrote it, and why it is not law today."
+faq:
+  - q: "What does the Declaration of Independence say in simple terms?"
+    a: "It says the 13 colonies are free and independent states, no longer ruled by Britain. It says \"all men are created equal,\" with rights to life, liberty, and the pursuit of happiness. It then lists the King's abuses as reasons."
+  - q: "Is the Declaration of Independence law?"
+    a: "No. It is not law and not part of the Constitution. Courts do not enforce it, and you cannot sue under it. Your legal rights come from the Constitution and other laws."
+  - q: "Who wrote the Declaration of Independence?"
+    a: "Thomas Jefferson wrote the first draft. Benjamin Franklin, John Adams, and others made edits. The Second Continental Congress approved it on July 4, 1776, in Philadelphia."
+  - q: "What is the difference between the Declaration of Independence and the Constitution?"
+    a: "The Declaration announced independence in 1776 and explained why. The Constitution, written in 1787 and ratified in 1788, set up the government and is the supreme law. Only the Constitution is law that courts enforce."

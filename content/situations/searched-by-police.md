@@ -30,6 +30,24 @@ help:
     value: "aclu.org/know-your-rights"
     href: "https://www.aclu.org/know-your-rights"
 state_varies: "Rules about giving your name and unlocking your phone differ by state."
+h1: "Your rights when police want to search you"
+seo_title: "Can Police Search My Car Without a Warrant? Know Your Rights"
+seo_description: "Often, yes, if they have probable cause. Here's when police need a warrant to search your car, phone, bag, or home, and exactly what to say to them."
+faq:
+  - q: "Can police search my car without a warrant?"
+    a: "Often, yes, if they have probable cause, meaning good reason to believe there is evidence in the car. This rule comes from Carroll v. United States (1925). Police can also search if you agree. You can say: \"I do not consent to a search of this vehicle.\" That helps protect your rights if the case goes to court."
+  - q: "Can police search my phone without a warrant?"
+    a: "Generally, no. Police need a warrant to search your phone, even after arresting you. The Supreme Court decided this in Riley v. California (2014). Real emergencies are a narrow exception. You do not have to tell police your passcode because they ask."
+  - q: "Do I have to let police in my house?"
+    a: "Generally, no, unless they have a warrant or there is an emergency. You do not have to open the door. If police say they have a warrant, ask them to slide it under the door. It should be signed by a judge and list your address."
+  - q: "What is probable cause?"
+    a: "Probable cause means good reason, based on facts, to believe a crime happened or that evidence is in a certain place. It is more than a hunch. Police usually need it to get a warrant, to arrest you, or to search your car without a warrant."
+  - q: "Can police search my bag?"
+    a: "Generally, not without a warrant, your consent, or another exception. Exceptions include an arrest, an emergency, or something illegal in plain view. You do not have to agree to a search of your bag. You can say: \"I do not consent to this search.\""
+  - q: "Can police pat me down?"
+    a: "Yes, in some cases. If police reasonably suspect you are involved in a crime and may be armed, they can pat down your outer clothes for weapons. The Supreme Court allowed this in Terry v. Ohio (1968). They generally cannot reach into your pockets unless they feel something clearly a weapon or clearly illegal."
+  - q: "Does saying no to a search matter?"
+    a: "Yes. Saying \"I do not consent to this search\" out loud helps protect your rights later in court, even if police search anyway. Do not physically resist or block the officer. A lawyer can challenge the search later."
 ---
 
 ## Why saying "no" matters

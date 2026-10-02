@@ -83,3 +83,16 @@ quick_check:
       - "Only if Congress gives permission."
     answer: 1
     why: "The Constitution sets a minimum level of protection. States add their own laws on top, and those laws vary a lot."
+seo_title: "2nd Amendment Explained: The Right to Bear Arms"
+seo_description: "The 2nd Amendment in plain English: you have an individual right to keep and carry guns, but some gun laws are allowed. What Heller, Bruen, and Rahimi say."
+faq:
+  - q: "What does the Second Amendment say in simple terms?"
+    a: "It means people have a right to keep and carry guns. In District of Columbia v. Heller (2008), the Supreme Court held this is an individual right for self-defense, not tied to militia service. Some scholars still argue for a militia-based reading."
+  - q: "Does the Second Amendment allow any gun restrictions?"
+    a: "Yes. The Supreme Court has said the right has limits. Under New York State Rifle & Pistol Association v. Bruen (2022), a gun law must fit the nation's historical tradition of gun regulation. In United States v. Rahimi (2024), the Court upheld disarming people under certain domestic-violence restraining orders."
+  - q: "Can I carry a gun in public?"
+    a: "Often, but state rules differ. In New York State Rifle & Pistol Association v. Bruen (2022), the Supreme Court held that law-abiding adults have a right to carry a handgun in public for self-defense. States may still require permits, bar some people from having guns, and ban guns in some places."
+  - q: "Does the Second Amendment apply to states?"
+    a: "Yes. In McDonald v. City of Chicago (2010), the Supreme Court held the Second Amendment limits state and local governments, not only the federal government. States can still pass gun laws within the limits the Court has set."
+  - q: "Why is the Second Amendment so debated?"
+    a: "People disagree about how far the right reaches. Some read it as a broad individual right that blocks most gun laws. Others read it as tied to militias or as allowing strong regulation. Since District of Columbia v. Heller (2008), the Court has recognized an individual right, but its limits are still argued."

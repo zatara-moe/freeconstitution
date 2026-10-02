@@ -363,7 +363,7 @@ def year_of(d):
 # ============================================================
 # Shared chrome
 # ============================================================
-def head(title, description, canonical, og_image, og_type, jsonld):
+def head(title, description, canonical, og_image, og_type, jsonld, robots="index, follow, max-image-preview:large, max-snippet:-1"):
     full_url = f"{SITE_URL}{canonical}"
     jld = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
     return f"""<meta charset="utf-8">
@@ -371,7 +371,7 @@ def head(title, description, canonical, og_image, og_type, jsonld):
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">
 <link rel="canonical" href="{full_url}">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="{robots}">
 <meta name="author" content="Hope for Americans">
 <meta name="theme-color" content="#14283f">
 <meta property="og:type" content="{og_type}">
@@ -382,6 +382,7 @@ def head(title, description, canonical, og_image, og_type, jsonld):
 <meta property="og:image" content="{SITE_URL}{og_image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{escape(title)}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(title)}">
@@ -423,7 +424,7 @@ def footer_html():
     return f"""<footer class="site-footer">
   <div class="wrap">
     <nav class="foot-nav" aria-label="More">
-      <a href="/timeline/">Timeline</a><a href="/words/">Words</a><a href="/memorize/">Know it by heart</a>
+      <a href="/bill-of-rights/">Bill of Rights</a><a href="/timeline/">Timeline</a><a href="/words/">Words</a><a href="/memorize/">Know it by heart</a>
       <a href="/full-text/">Full text</a><a href="/preamble/">Preamble</a><a href="/declaration/">Declaration</a>
       <a href="/about/">About</a><a href="/sources/">Sources</a>
     </nav>
@@ -483,13 +484,66 @@ def dialogs():
     return display + search + extras
 
 
+ORG = {"@type": "Organization", "@id": "https://hopeforamericans.net/#org", "name": "Hope for Americans",
+       "url": "https://hopeforamericans.net", "logo": f"{SITE_URL}/static/favicon.svg",
+       "address": {"@type": "PostalAddress", "addressLocality": "Flagstaff", "addressRegion": "AZ", "addressCountry": "US"}}
+CRUMBS = []
+
+
+def seo_title(t):
+    """Add the brand only when the whole title still fits in about 60 characters."""
+    return t if len(t) + len(SITE_NAME) + 3 > 62 or SITE_NAME in t else f"{t} | {SITE_NAME}"
+
+
+def seo_desc(text, extra=""):
+    t = re.sub(r"\s+", " ", plain_text(md(text)) + (" " + extra if extra else "")).strip()
+    if len(t) <= 158:
+        return t
+    cut = t[:157].rsplit(" ", 1)[0].rstrip(",;:")
+    return cut + "…"
+
+
+def article_ld(url, headline, description, image, about=None):
+    d = {"@type": "Article", "@id": f"{SITE_URL}{url}#article", "headline": headline[:110], "description": description,
+         "url": f"{SITE_URL}{url}", "mainEntityOfPage": f"{SITE_URL}{url}", "image": f"{SITE_URL}{image}",
+         "inLanguage": "en-US", "isAccessibleForFree": True, "dateModified": TODAY.isoformat(),
+         "author": {"@id": ORG["@id"]}, "publisher": {"@id": ORG["@id"]},
+         "isPartOf": {"@id": f"{SITE_URL}/#website"}}
+    if about:
+        d["about"] = about
+    return d
+
+
+def faq_ld(items):
+    if not items:
+        return None
+    return {"@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": plain_text(md(q["a"]))}}
+        for q in items]}
+
+
 def page_shell(title, description, body, url, og_image="/static/og/home.jpg",
-               og_type="website", jsonld=None, page_title=None, body_class=""):
+               og_type="website", jsonld=None, page_title=None, body_class="", robots=None):
+    global CRUMBS
     pt = escape(page_title or title.split(" | ")[0])
+    graph = []
+    for item in (jsonld if isinstance(jsonld, list) else [jsonld]):
+        if not item:
+            continue
+        item = dict(item)
+        item.pop("@context", None)
+        graph.extend(item["@graph"] if "@graph" in item else [item])
+    if CRUMBS:
+        graph.append({"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": n, "item": f"{SITE_URL}{h or url}"} for i, (n, h) in enumerate(CRUMBS)]})
+    CRUMBS = []
+    if graph and not any(g.get("@type") == "Organization" for g in graph):
+        graph.append(ORG)
+    jsonld = {"@context": "https://schema.org", "@graph": graph} if graph else None
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-{head(title, description, url, og_image, og_type, jsonld)}
+{head(title, description, url, og_image, og_type, jsonld, robots or "index, follow, max-image-preview:large, max-snippet:-1")}
 </head>
 <body class="{body_class}" data-page="{escape(url)}" data-page-title="{pt}">
 {header_html()}
@@ -507,7 +561,9 @@ def page_shell(title, description, body, url, og_image="/static/og/home.jpg",
 # ============================================================
 # Components
 # ============================================================
-def crumbs(*pairs):
+def crumbs(*pairs, url=None):
+    global CRUMBS
+    CRUMBS = [("Home", "/")] + [(label, href or url or "") for label, href in pairs]
     bits = ['<a href="/">Home</a>']
     for label, href in pairs:
         bits.append(f'<a href="{href}">{escape(label)}</a>' if href else f'<span aria-current="page">{escape(label)}</span>')
@@ -546,6 +602,7 @@ def layer(id_, title, icon_name, inner, cls="", tag=""):
 
 
 def plain_and_original(plain_html, verbatim_html, orig_label, used, id_="plain-english", title="Plain English"):
+    """`title` becomes the H2, e.g. "The Fourth Amendment in plain English"."""
     linked = TERMS.link(plain_html, used)
     inner = f"""<div class="compare" data-compare>
   <div class="plain-col">{linked}</div>
@@ -602,6 +659,13 @@ def myths_html(ins):
         f'<p class="myth-a"><span class="pill pill-fact">Fact</span>{md(m["fact"])}</p></div>'
         for m in items)
     return layer("myth-check", "Myth check", "help", rows)
+
+
+def faq_html(items, used=None):
+    if not items:
+        return ""
+    rows = "".join(f'<div class="faq"><h3>{md(q["q"])}</h3><p>{md(q["a"])}</p></div>' for q in items)
+    return layer("common-questions", "Common questions", "search", rows)
 
 
 def fold(title, inner, open_deep=True):
@@ -721,11 +785,12 @@ def render_amendment(a, prev_a, next_a, all_ins):
 {doc_head(f"Amendment {n} of 27{part} &middot; {yr}", title, subject, mins, crumbs(("Amendments", "/amendments/"), (str(n), None)), "scales")}
 {heads_up(ins)}
 {one_line_html(ins)}
-{plain_and_original(plain_html, verb_html, f"Original text, {yr}", used)}
+{plain_and_original(plain_html, verb_html, f"Original text, {yr}", used, title=f"The {title} in plain English")}
 {phrases_html(ins)}
 {picture_html(ins)}
 {cards_html(meaning_md, used)}
 {myths_html(ins)}
+{faq_html(ins.get("faq"))}
 {deeper_html(ins, about_html, f.get("contested"))}
 {quiz_html(ins)}
 {related_situations_html(f.get("related_situations"), SITUATIONS)}
@@ -733,17 +798,26 @@ def render_amendment(a, prev_a, next_a, all_ins):
 {pager((f"{ORDINALS[prev_a]} Amendment", "", f"/amendments/{prev_a}/") if prev_a else None,
        (f"{ORDINALS[next_a]} Amendment", "", f"/amendments/{next_a}/") if next_a else None)}
 </article>"""
-    desc = f"The {title} in plain English: {ins.get('one_line', '')}".strip()[:300]
-    jld = {"@context": "https://schema.org", "@type": "Article", "headline": f"{title}: {subject}",
-           "description": desc, "url": f"{SITE_URL}{url}", "dateModified": TODAY.isoformat(),
-           "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-           "about": {"@type": "Legislation", "name": title, "legislationIdentifier": f"US-Const-Amend-{n}"}}
-    write(url, page_shell(f"{title}: {subject} in Plain English | {SITE_NAME}", desc, body_html, url,
-                          og_image=f"/static/og/amendment-{n}.jpg", og_type="article", jsonld=jld, page_title=title))
+    desc = ins.get("seo_description") or seo_desc(f"The {title} in plain English: {ins.get('one_line', '')}")
+    stitle = ins.get("seo_title") or f"{title}: {subject} in Plain English"
+    og = f"/static/og/amendment-{n}.jpg"
+    jld = [article_ld(url, stitle, desc, og, {"@type": "Legislation", "name": f"{title} to the United States Constitution",
+                                               "alternateName": f"Amendment {n}", "legislationIdentifier": f"U.S. Const. amend. {roman_num(n)}"}),
+           faq_ld(ins.get("faq"))]
+    write(url, page_shell(seo_title(stitle), desc, body_html, url, og_image=og, og_type="article", jsonld=jld, page_title=title))
     register(url, f"{title}: {subject}" if subject else title, "Amendment", mins, ins.get("one_line", ""),
-             " ".join([subject, plain_text(plain_html), plain_text(md_to_html(meaning_md))]), "scales",
+             " ".join([subject, plain_text(plain_html), plain_text(md_to_html(meaning_md))] + [q["q"] + " " + q["a"] for q in ins.get("faq") or []]), "scales",
              quick=minutes_for(ins.get("one_line"), plain_html, " ".join(m["myth"] + " " + m["fact"] for m in ins.get("myths") or [])))
     return url
+
+
+def roman_num(n):
+    vals = [(10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")]
+    out = ""
+    for v, r in vals:
+        while n >= v:
+            out += r; n -= v
+    return out
 
 
 def split_article(body):
@@ -805,16 +879,19 @@ def render_article(art, prev_n, next_n):
 {phrases_html(ins)}
 {picture_html(ins)}
 {myths_html(ins)}
+{faq_html(ins.get("faq"))}
 {deeper_html(ins, about_html, f.get("contested"))}
 {quiz_html(ins)}
 {accuracy_note(f.get("source_url"))}
 {pager((f"Article {ROMAN[prev_n]}", "", f"/articles/{prev_n}/") if prev_n else ("Preamble", "", "/preamble/"),
        (f"Article {ROMAN[next_n]}", "", f"/articles/{next_n}/") if next_n else ("First Amendment", "", "/amendments/1/"))}
 </article>"""
-    desc = f"Article {ROMAN[n]} of the Constitution ({name}) in plain English. {ins.get('one_line', '')}"[:300]
-    write(url, page_shell(f"{title} in Plain English | {SITE_NAME}", desc, body_html, url, og_type="article",
-                          jsonld={"@context": "https://schema.org", "@type": "Article", "headline": title,
-                                  "url": f"{SITE_URL}{url}", "description": desc}, page_title=f"Article {ROMAN[n]}"))
+    desc = ins.get("seo_description") or seo_desc(f"Article {ROMAN[n]} of the Constitution ({name}) in plain English. {ins.get('one_line', '')}")
+    stitle = ins.get("seo_title") or f"{title} in Plain English"
+    og = f"/static/og/article-{n}.jpg"
+    jld = [article_ld(url, stitle, desc, og, {"@type": "Legislation", "name": f"Article {ROMAN[n]} of the United States Constitution",
+                                               "legislationIdentifier": f"U.S. Const. art. {ROMAN[n]}"}), faq_ld(ins.get("faq"))]
+    write(url, page_shell(seo_title(stitle), desc, body_html, url, og_image=og, og_type="article", jsonld=jld, page_title=f"Article {ROMAN[n]}"))
     register(url, title, "Article", mins, ins.get("one_line", ""), " ".join([name, plain_text(md_to_html(p))]), "columns")
 
     # one page per section
@@ -831,14 +908,21 @@ def render_article(art, prev_n, next_n):
 {doc_head(f"Article {ROMAN[n]} &middot; Section {num} of {len(secs)}", stitle, f"Article {ROMAN[n]}: {name}", smins, crumbs(("Articles", "/articles/"), (f"Article {ROMAN[n]}", url), (f"Section {num}", None)), "columns")}
 {heads_up(ins) if (num == 2 and n in (1, 4)) or (num == 9 and n == 1) else ""}
 {f'<section class="one-line"><p class="label">{icon("star")}The one-line version</p><p class="one-line-text">{md(ol)}</p></section>' if ol else ""}
-{plain_and_original(md_to_html(pm, 1), md_to_html(vm_clean, 1), f"Original text, {yr}", used_s)}
+{plain_and_original(md_to_html(pm, 1), md_to_html(vm_clean, 1), f"Original text, {yr}", used_s, title=f"Section {num} in plain English")}
 <div class="sec-progress" aria-label="Sections in this article">{"".join(f'<a href="{u}" class="{"on" if j == i else ""}" aria-label="Section {secs[j][0]}">{secs[j][0]}</a>' for j, u in enumerate(sec_urls))}</div>
 {accuracy_note(f.get("source_url"))}
 {pager(prev_s, next_s)}
 </article>"""
-        sdesc = f"Article {ROMAN[n]}, Section {num} of the Constitution in plain English: {ol}"[:300]
-        write(surl, page_shell(f"Article {ROMAN[n]}, Section {num}: {stitle} | {SITE_NAME}", sdesc, sbody, surl,
-                               og_type="article", page_title=f"Article {ROMAN[n]}, Section {num}"))
+        sdesc = seo_desc(f"Article {ROMAN[n]}, Section {num} of the U.S. Constitution in plain English: {ol}", "Original text and a simple explanation.")
+        small = {"a", "an", "and", "the", "of", "to", "in", "on", "for", "by", "or", "at", "is", "are", "they"}
+        tt = " ".join(w if (i and w.lower() in small) else w[:1].upper() + w[1:] for i, w in enumerate(stitle.split()))
+        st = f"Article {ROMAN[n]}, Section {num} Explained: {tt}"
+        if len(st) > 60:
+            st = f"Art. {ROMAN[n]}, Sec. {num} Explained: {tt}"
+        jld = article_ld(surl, st, sdesc, f"/static/og/article-{n}.jpg",
+                         {"@type": "Legislation", "name": f"Article {ROMAN[n]}, Section {num} of the United States Constitution"})
+        write(surl, page_shell(seo_title(st), sdesc, sbody, surl, og_image=f"/static/og/article-{n}.jpg",
+                               og_type="article", jsonld=jld, page_title=f"Article {ROMAN[n]}, Section {num}"))
         register(surl, f"Article {ROMAN[n]}, Section {num}: {stitle}", "Article section", smins, ol,
                  plain_text(md_to_html(pm)), "columns")
     return url
@@ -856,19 +940,23 @@ def render_preamble():
     body_html = f"""<article class="doc wrap">
 {doc_head("The Constitution &middot; 1787", "The Preamble", ins.get("subject", "Why the Constitution exists"), mins, crumbs(("Preamble", None)), "flag")}
 {one_line_html(ins)}
-{plain_and_original(plain_html, md_to_html(sec(S, "Verbatim"), 1), "Original text, 1787", used)}
+{plain_and_original(plain_html, md_to_html(sec(S, "Verbatim"), 1), "Original text, 1787", used, title="The Preamble in plain English")}
 {phrases_html(ins)}
 {picture_html(ins)}
 {myths_html(ins)}
+{faq_html(ins.get("faq"))}
 {deeper_html(ins, about_html)}
 {quiz_html(ins)}
 <p class="inline-cta"><a class="btn btn-quiet" href="/memorize/#preamble">{icon("brain")} Learn it by heart</a></p>
 {accuracy_note(f.get("source_url"))}
 {pager(None, ("Article I: Congress", "", "/articles/1/"))}
 </article>"""
-    desc = "The Preamble to the U.S. Constitution in plain English, phrase by phrase."
-    write(url, page_shell(f"The Preamble in Plain English | {SITE_NAME}", desc, body_html, url, og_type="article",
-                          page_title="The Preamble"))
+    desc = ins.get("seo_description") or "The Preamble to the U.S. Constitution in plain English, phrase by phrase."
+    stitle = ins.get("seo_title") or "The Preamble in Plain English"
+    jld = [article_ld(url, stitle, desc, "/static/og/preamble.jpg", {"@type": "Legislation", "name": "Preamble to the United States Constitution"}),
+           faq_ld(ins.get("faq"))]
+    write(url, page_shell(seo_title(stitle), desc, body_html, url, og_image="/static/og/preamble.jpg", og_type="article",
+                          jsonld=jld, page_title="The Preamble"))
     register(url, "The Preamble", "Preamble", mins, ins.get("one_line", ""), plain_text(plain_html), "flag")
 
 
@@ -901,14 +989,18 @@ def render_declaration():
 {phrases_html(ins)}
 {picture_html(ins)}
 {myths_html(ins)}
+{faq_html(ins.get("faq"))}
 {deeper_html(ins, "", None, "".join(about_bits))}
 {quiz_html(ins)}
 {accuracy_note("https://www.archives.gov/founding-docs/declaration-transcript")}
 {pager(None, ("The Preamble", "", "/preamble/"))}
 </article>"""
-    desc = "The Declaration of Independence in plain English, with the original text one tap away."
-    write(url, page_shell(f"The Declaration of Independence in Plain English | {SITE_NAME}", desc, body_html, url,
-                          og_type="article", page_title="The Declaration of Independence"))
+    desc = ins.get("seo_description") or "The Declaration of Independence in plain English, with the original text one tap away."
+    stitle = ins.get("seo_title") or "The Declaration of Independence in Plain English"
+    jld = [article_ld(url, stitle, desc, "/static/og/declaration.jpg", {"@type": "CreativeWork", "name": "Declaration of Independence", "dateCreated": "1776-07-04"}),
+           faq_ld(ins.get("faq"))]
+    write(url, page_shell(seo_title(stitle), desc, body_html, url, og_image="/static/og/declaration.jpg", og_type="article",
+                          jsonld=jld, page_title="The Declaration of Independence"))
     register(url, "The Declaration of Independence", "Founding document", mins, ins.get("one_line", ""),
              " ".join(plain_text(x) for x in all_plain), "flag")
 
@@ -949,7 +1041,7 @@ def render_situation(s, prev_s, next_s):
     mins = minutes_for(" ".join(ten), " ".join(f.get("do") or []), " ".join(f.get("dont") or []), md_to_html(body))
     wallet = escape(json.dumps({"title": f["title"], "lines": ten}))
     body_html = f"""<article class="doc wrap situation">
-{doc_head("Situation card", f["title"], f.get("summary", ""), mins, crumbs(("Situations", "/situations/"), (f["title"], None)), f.get("icon", "shield"))}
+{doc_head("Situation card &middot; Know your rights", f.get("h1") or f["title"], f.get("summary", ""), mins, crumbs(("Know your rights", "/situations/"), (f["title"], None)), f.get("icon", "shield"))}
 <section class="ten-second" aria-labelledby="ten-h" data-wallet="{wallet}">
   <p class="label" id="ten-h">{icon("clock")}The 10-second version: say this</p>
   <ol class="ten-lines">{ten_html}</ol>
@@ -967,6 +1059,7 @@ def render_situation(s, prev_s, next_s):
 </section>
 {varies}
 {"".join(sections)}
+{faq_html(f.get("faq"))}
 {f'<section class="layer depth-std">{law}</section>' if law else ""}
 {helps}
 {rel_html}
@@ -978,13 +1071,13 @@ def render_situation(s, prev_s, next_s):
   <button type="button" class="screen-close" data-screen-close>{icon("x")} Close</button>
   <ol>{ten_html}</ol>
 </div>"""
-    desc = f.get("summary", "")
-    jld = {"@context": "https://schema.org", "@type": "HowTo", "name": f["title"], "description": desc,
-           "url": f"{SITE_URL}{url}", "step": [{"@type": "HowToStep", "text": plain_text(md(t))} for t in ten]}
-    write(url, page_shell(f"{f['title']}: Know Your Rights | {SITE_NAME}", desc, body_html, url,
-                          og_image="/static/og/situation-default.jpg", og_type="article", jsonld=jld,
+    desc = f.get("seo_description") or seo_desc(f.get("summary", ""))
+    stitle = f.get("seo_title") or f"{f['title']}: Know Your Rights"
+    og = f"/static/og/situation-{slug}.jpg"
+    jld = [article_ld(url, stitle, desc, og), faq_ld(f.get("faq"))]
+    write(url, page_shell(seo_title(stitle), desc, body_html, url, og_image=og, og_type="article", jsonld=jld,
                           page_title=f["title"], body_class="is-situation"))
-    register(url, f["title"], "Situation", mins, desc, " ".join([desc, " ".join(ten), plain_text(md_to_html(body))]),
+    register(url, f.get("h1") or f["title"], "Situation", mins, desc, " ".join([desc, " ".join(ten), plain_text(md_to_html(body))] + [q["q"] + " " + q["a"] for q in f.get("faq") or []]),
              f.get("icon", "shield"))
     return url
 
@@ -1002,16 +1095,20 @@ def render_situations_index(situations):
     cards = "".join(sit_card(s["front"]) for s in situations)
     url = "/situations/"
     body = f"""<section class="wrap page">
-  {crumbs(("Situations", None))}
-  <h1>Situation cards</h1>
-  <p class="lede">Pocket cards for the moments when your rights matter. Each one starts with exactly what to say, then what to do and not do.</p>
+  {crumbs(("Know your rights", None))}
+  <h1>Know your rights: what to say when it matters</h1>
+  <p class="lede">Pocket cards for the moments when your rights matter: police stops, searches, school, posting online, work, protests, voting, and immigration agents. Each card starts with exactly what to say, then what to do and not do.</p>
   <p class="hint">{icon("download")} Every card works offline after you open it once.</p>
   <div class="sit-grid">{cards}</div>
   <p class="legal-note">These cards explain the law in general. They are not legal advice and have not been reviewed by a lawyer.</p>
 </section>"""
-    write(url, page_shell(f"Know Your Rights: Situation Cards | {SITE_NAME}",
-                          "What to say and do when police question or search you, at school, online, at work, at a protest, or at the polls.",
-                          body, url, og_image="/static/og/situation-default.jpg", page_title="Situation cards"))
+    items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE_URL}/situations/{x['front']['slug']}/", "name": x["front"].get("h1") or x["front"]["title"]}
+             for i, x in enumerate(situations)]
+    jld = {"@type": "CollectionPage", "name": "Know your rights: situation cards", "url": f"{SITE_URL}{url}",
+           "mainEntity": {"@type": "ItemList", "itemListElement": items}}
+    write(url, page_shell("Know Your Rights: What to Say to Police, at School & More",
+                          "Plain-English know-your-rights cards: what to say if police question or search you, and your rights at school, online, at work, at protests, and voting.",
+                          body, url, og_image="/static/og/situation-default.jpg", page_title="Know your rights", jsonld=jld))
     register(url, "Situation cards", "Index", 1, "What to say when it matters.", "", "shield")
 
 
@@ -1028,18 +1125,73 @@ def render_amendments_index(amendments, all_ins):
     url = "/amendments/"
     body = f"""<section class="wrap page">
   {crumbs(("Amendments", None))}
-  <h1>The 27 amendments</h1>
-  <p class="lede">Changes added to the Constitution since 1787. The first ten are the Bill of Rights.</p>
+  <h1>All 27 amendments, explained</h1>
+  <p class="lede">Every change added to the Constitution since 1787, in plain English. The first ten are the <a href="/bill-of-rights/">Bill of Rights</a>.</p>
   <p class="progress-line" data-progress-count data-of="27" data-prefix="/amendments/" hidden></p>
   <h2 class="grid-label">Bill of Rights, 1791</h2>
   <div class="amend-grid">{bor}</div>
   <h2 class="grid-label">Later amendments, 1795 to 1992</h2>
   <div class="amend-grid">{rest}</div>
 </section>"""
-    write(url, page_shell(f"All 27 Amendments in Plain English | {SITE_NAME}",
-                          "Every amendment to the U.S. Constitution, from the Bill of Rights to the 27th, in plain English.",
-                          body, url, page_title="Amendments"))
+    items = [{"@type": "ListItem", "position": a["front"]["number"], "url": f"{SITE_URL}/amendments/{a['front']['number']}/",
+              "name": f"{ORDINALS[a['front']['number']]} Amendment: {all_ins[a['front']['number']].get('subject', '')}"} for a in amendments]
+    jld = {"@type": "CollectionPage", "name": "All 27 amendments to the U.S. Constitution", "url": f"{SITE_URL}{url}",
+           "mainEntity": {"@type": "ItemList", "itemListElement": items}}
+    write(url, page_shell("All 27 Amendments Explained in Plain English | Free Constitution",
+                          "All 27 amendments to the U.S. Constitution explained in plain English, from free speech and the Bill of Rights to voting rights and term limits.",
+                          body, url, og_image="/static/og/amendment-default.jpg", page_title="Amendments", jsonld=jld))
     register(url, "All 27 amendments", "Index", 1, "", "", "scales")
+
+
+BOR_FAQ = [
+    {"q": "What is the Bill of Rights in simple terms?",
+     "a": "It is the first ten amendments to the U.S. Constitution. They list freedoms the government cannot take away, like free speech, freedom of religion, protection from unreasonable searches, and the right to a fair trial."},
+    {"q": "What are the 10 amendments in the Bill of Rights?",
+     "a": "1st: religion, speech, press, assembly, petition. 2nd: keep and bear arms. 3rd: no forced housing of soldiers. 4th: no unreasonable searches. 5th: due process and the right to silence. 6th: a fair criminal trial and a lawyer. 7th: juries in civil cases. 8th: no excessive bail or cruel punishment. 9th: other rights exist. 10th: powers kept by states and people."},
+    {"q": "When was the Bill of Rights ratified?",
+     "a": "December 15, 1791. That day, Virginia's approval gave the amendments the three-fourths of states they needed to become part of the Constitution. Two other amendments Congress proposed with them were not ratified at that time."},
+    {"q": "Who wrote the Bill of Rights?",
+     "a": "James Madison drafted it. He drew on state declarations of rights, especially Virginia's, written by George Mason. Congress revised Madison's proposals and sent 12 amendments to the states in 1789. Ten were approved."},
+    {"q": "Why was the Bill of Rights added to the Constitution?",
+     "a": "To win support for the new Constitution. Anti-Federalists feared a strong national government would trample personal freedoms. Supporters promised to add a list of rights after ratification, and Madison followed through in 1789."},
+    {"q": "Does the Bill of Rights apply to states?",
+     "a": "Mostly, yes, today. At first it limited only the federal government (Barron v. Baltimore, 1833). Through the 14th Amendment, the Supreme Court has applied most of its protections to states and cities. This is called incorporation."},
+]
+
+
+def render_bill_of_rights(amendments, all_ins):
+    url = "/bill-of-rights/"
+    used = set()
+    rows = "".join(
+        f'<a class="sec-card" href="/amendments/{n}/" data-progress-url="/amendments/{n}/"><span class="sec-num">{n}</span>'
+        f'<span class="sec-body"><span class="sec-title">{ORDINALS[n]} Amendment: {escape(all_ins[n].get("subject", ""))}</span>'
+        f'<span class="sec-line">{md(all_ins[n].get("one_line", ""))}</span></span>{icon("check", "ic done")}</a>'
+        for n in range(1, 11))
+    why = TERMS.link(md_to_html(
+        "The original Constitution of 1787 set up the government but listed few personal rights. Many Americans, called Anti-Federalists, would not support it without a list of rights.\n\n"
+        "James Madison drafted amendments in 1789. Congress sent 12 to the states. Ten were ratified on December 15, 1791. One of the other two became the 27th Amendment in 1992."), used)
+    who = TERMS.link(md_to_html(
+        "At first, the Bill of Rights limited only the federal government. The Supreme Court said so in *Barron v. Baltimore* (1833).\n\n"
+        "After the 14th Amendment (1868), the Court applied most of the Bill of Rights to state and local governments too, one right at a time. This is called incorporation. "
+        "The Bill of Rights still does not limit private companies, stores, or employers."), used)
+    body = f"""<article class="doc wrap">
+{doc_head("The first ten amendments &middot; 1791", "The Bill of Rights in plain English", "What each of the first ten amendments protects", 4,
+          crumbs(("Amendments", "/amendments/"), ("Bill of Rights", None)), "scales")}
+<section class="one-line"><p class="label">{icon("star")}The one-line version</p><p class="one-line-text">The Bill of Rights is the first ten amendments to the Constitution. Ratified in 1791, it protects freedoms like speech, religion, and a fair trial from the government.</p></section>
+{layer("the-ten", "The ten amendments at a glance", "list", f'<div class="sec-cards">{rows}</div>')}
+{layer("why-it-was-added", "Why it was added", "flag", why)}
+{layer("who-it-protects-you-from", "Who it protects you from", "shield", who)}
+{faq_html(BOR_FAQ)}
+{accuracy_note("https://www.archives.gov/founding-docs/bill-of-rights-transcript")}
+{pager(("All 27 amendments", "", "/amendments/"), ("First Amendment", "", "/amendments/1/"))}
+</article>"""
+    desc = "The Bill of Rights in plain English: what each of the first ten amendments protects, why it was added in 1791, and whether it applies to your state."
+    jld = [article_ld(url, "The Bill of Rights in Plain English", desc, "/static/og/bill-of-rights.jpg",
+                      {"@type": "Legislation", "name": "Bill of Rights", "legislationIdentifier": "U.S. Const. amends. I-X"}), faq_ld(BOR_FAQ)]
+    write(url, page_shell("The Bill of Rights in Plain English: All 10 Amendments", desc, body, url,
+                          og_image="/static/og/bill-of-rights.jpg", og_type="article", jsonld=jld, page_title="The Bill of Rights"))
+    register(url, "The Bill of Rights", "Bill of Rights", 4, "The first ten amendments, explained.",
+             " ".join(q["q"] + " " + q["a"] for q in BOR_FAQ).lower() + " bill of rights first ten amendments", "scales")
 
 
 def render_articles_index(articles):
@@ -1054,13 +1206,13 @@ def render_articles_index(articles):
     url = "/articles/"
     body = f"""<section class="wrap page">
   {crumbs(("Articles", None))}
-  <h1>The original Constitution</h1>
+  <h1>The 7 articles of the Constitution, explained</h1>
   <p class="lede">Seven articles, approved in 1788. They set up the government. Start with the <a href="/preamble/">Preamble</a>, the one-sentence mission statement.</p>
   <div class="article-list">{rows}</div>
   <p><a class="btn btn-quiet" href="/full-text/">{icon("book")} Read the whole Constitution on one page</a></p>
 </section>"""
-    write(url, page_shell(f"The Seven Articles of the Constitution in Plain English | {SITE_NAME}",
-                          "The seven articles of the U.S. Constitution in plain English: Congress, the President, the courts, and more.",
+    write(url, page_shell("The 7 Articles of the Constitution Explained Simply",
+                          "The seven articles of the U.S. Constitution in plain English: Congress, the President, the courts, the states, amendments, and the supreme law.",
                           body, url, page_title="Articles"))
     register(url, "The seven articles", "Index", 1, "", "", "columns")
 
@@ -1087,9 +1239,9 @@ def render_paths(paths):
   <p class="lede">Short guided routes through the Constitution. Each step is one page. Your progress stays on this device.</p>
   <div class="path-grid">{cards}</div>
 </section>"""
-    write(url, page_shell(f"Guided Paths Through the Constitution | {SITE_NAME}",
-                          "Short guided reading paths: your rights in 10 minutes, getting pulled over, rights at school, first-time voter, and more.",
-                          body, url, page_title="Paths"))
+    write(url, page_shell("Learn Your Rights Step by Step: Guided Paths | Free Constitution",
+                          "Short guided reading paths: your rights in 10 minutes, getting pulled over, rights at school, first-time voter, and how the government works.",
+                          body, url, og_image="/static/og/paths.jpg", page_title="Paths"))
     register(url, "Paths", "Index", 1, "", "", "map")
     for p in paths:
         steps = ""
@@ -1114,7 +1266,8 @@ def render_paths(paths):
   <ol class="steps">{steps}</ol>
   <div class="path-done" data-path-done hidden>{icon("star")}<p><strong>Path finished.</strong> Nice work. Try another path or take a Quick check on any page.</p></div>
 </section>"""
-        write(purl, page_shell(f"{p['title']} | {SITE_NAME}", p["blurb"], pbody, purl, page_title=p["title"]))
+        pdesc = seo_desc(f"{p['blurb']} {len(p['steps'])} short steps, about {path_minutes(p)} minutes, in plain English. Free, no account needed.")
+        write(purl, page_shell(seo_title(f"{p['title']}: Guided Path"), pdesc, pbody, purl, og_image="/static/og/paths.jpg", page_title=p["title"]))
         register(purl, p["title"], "Path", path_minutes(p), p["blurb"], " ".join(s["label"] + " " + s["why"] for s in p["steps"]), "map")
 
 
@@ -1160,9 +1313,9 @@ def render_timeline(events):
   <fieldset class="setting tl-filter"><legend>Show</legend><div class="segs">{filt}</div></fieldset>
   {blocks}
 </section>"""
-    write(url, page_shell(f"Constitution Timeline, 1776 to Today | {SITE_NAME}",
-                          "A timeline of the U.S. Constitution: the founding, all 27 amendments, and landmark Supreme Court cases.",
-                          body, url, page_title="Timeline"))
+    write(url, page_shell("U.S. Constitution Timeline: 1776 to Today | Free Constitution",
+                          "A timeline of the U.S. Constitution from 1776 to today: the founding, when all 27 amendments were ratified, and landmark Supreme Court cases.",
+                          body, url, og_image="/static/og/timeline.jpg", page_title="Timeline"))
     register(url, "Timeline", "Timeline", 4, "From 1776 to today.", " ".join(e["title"] + " " + e["line"] for e in events), "timeline")
 
 
@@ -1188,9 +1341,11 @@ def render_words(gloss):
   <nav class="letters" aria-label="Jump to letter">{nav}</nav>
   {blocks}
 </section>"""
-    write(url, page_shell(f"Constitution Glossary: Legal Words in Plain English | {SITE_NAME}",
-                          "Plain-English definitions of legal words in the Constitution: probable cause, due process, equal protection, and more.",
-                          body, url, page_title="Words"))
+    terms = [{"@type": "DefinedTerm", "name": g["term"], "description": g["def"], "url": f"{SITE_URL}/words/#{slugify(g['term'])}"} for g in gloss]
+    jld = {"@type": "DefinedTermSet", "name": "Constitution glossary", "url": f"{SITE_URL}{url}", "hasDefinedTerm": terms}
+    write(url, page_shell("Constitution Glossary: Legal Terms in Plain English",
+                          "Plain-English definitions of 60 legal terms in the Constitution: probable cause, due process, equal protection, Miranda warnings, and more.",
+                          body, url, og_image="/static/og/words.jpg", page_title="Words", jsonld=jld))
     register(url, "Words", "Glossary", 3, "Legal words in plain English.", "", "words")
 
 
@@ -1216,8 +1371,8 @@ def render_memorize(items):
   {cards}
   <script type="application/json" id="mem-data">{data}</script>
 </section>"""
-    write(url, page_shell(f"Memorize the Preamble and First Amendment | {SITE_NAME}",
-                          "Practice the Preamble, the First Amendment, the five freedoms, and the three sentences that protect you.",
+    write(url, page_shell("Memorize the Preamble and First Amendment | Free Constitution",
+                          "Memorize the Preamble, the First Amendment, the five freedoms, and the three sentences to say to police, with first-letter and put-in-order practice.",
                           body, url, page_title="Know it by heart"))
     register(url, "Know it by heart", "Practice", 5, "Memorize the Preamble, the five freedoms, and more.", "", "brain")
 
@@ -1245,8 +1400,8 @@ def render_full_text(amendments, articles):
   {"".join(parts)}
   {accuracy_note("https://www.archives.gov/founding-docs/constitution-transcript")}
 </section>"""
-    write(url, page_shell(f"The Full Text of the U.S. Constitution | {SITE_NAME}",
-                          "The complete original text of the U.S. Constitution and all 27 amendments on one page.",
+    write(url, page_shell("Full Text of the U.S. Constitution and All 27 Amendments",
+                          "Read the complete original text of the U.S. Constitution, the Preamble, all seven articles, and all 27 amendments on one page, from the National Archives.",
                           body, url, page_title="Full text"))
     register(url, "The whole Constitution (original text)", "Full text", 45, "Every word of the original on one page.", "", "book")
 
@@ -1260,7 +1415,7 @@ def render_simple(name, url):
   <p class="lede">{escape(f.get("summary", ""))}</p>
   <div class="prose">{html}</div>
 </article>"""
-    write(url, page_shell(f"{f['title']} | {SITE_NAME}", f.get("summary", f["title"]), page, url, page_title=f["title"]))
+    write(url, page_shell(seo_title(f.get("seo_title") or f["title"]), f.get("seo_description") or f.get("summary", f["title"]), page, url, page_title=f["title"]))
     register(url, f["title"], "Page", minutes_for(html), f.get("summary", ""), plain_text(html), "info")
 
 
@@ -1273,7 +1428,7 @@ def render_search_page():
   <input type="search" data-search-input data-search-inline placeholder="Try: phone search, vote, speech at school" autocomplete="off"></label>
   <div class="search-results" data-search-results data-search-inline-results aria-live="polite"></div>
 </section>"""
-    write(url, page_shell(f"Search | {SITE_NAME}", "Search the Constitution, amendments, situation cards, and legal words.", body, url, page_title="Search"))
+    write(url, page_shell(f"Search | {SITE_NAME}", "Search the Constitution, amendments, situation cards, and legal words.", body, url, page_title="Search", robots="noindex, follow"))
 
 
 def render_offline():
@@ -1283,7 +1438,7 @@ def render_offline():
   <p class="lede">This page isn't saved on your phone yet. Situation cards you've opened before still work.</p>
   <p><a class="btn btn-primary" href="/situations/">Open situation cards</a></p>
 </section>"""
-    write(url, page_shell(f"Offline | {SITE_NAME}", "You're offline.", body, url, page_title="Offline"))
+    write(url, page_shell(f"Offline | {SITE_NAME}", "You're offline.", body, url, page_title="Offline", robots="noindex, follow"))
 
 
 def render_home(amendments, articles, situations, paths, all_ins, events):
@@ -1304,8 +1459,8 @@ def render_home(amendments, articles, situations, paths, all_ins, events):
     body = f"""<div class="hero-band">
 <section class="hero wrap">
   <a href="https://hopeforamericans.net" class="hfa-eyebrow">A Hope for Americans project</a>
-  <h1>Know your rights.<br><span class="accent">In plain English.</span></h1>
-  <p class="lede">The whole U.S. Constitution, explained one short page at a time. Free, no ads, no account.</p>
+  <h1>Know your rights.<br><span class="accent">The Constitution in plain English.</span></h1>
+  <p class="lede">The whole U.S. Constitution and all 27 amendments, explained one short page at a time. Free, no ads, no account.</p>
   <h2 class="finder-q" id="finder-q">What's going on?</h2>
   <button type="button" class="hero-search" data-open-search>{icon("search")}<span>Search: phone search, voting, speech at school&hellip;</span></button>
   <div class="finder" aria-labelledby="finder-q">{finder}</div>
@@ -1335,7 +1490,7 @@ def render_home(amendments, articles, situations, paths, all_ins, events):
 
 <section class="wrap home-sec" id="browse">
   <h2 class="sec-title">{icon("scales")}The Bill of Rights</h2>
-  <p class="sec-lede">The first ten amendments, 1791.</p>
+  <p class="sec-lede">The first ten amendments, 1791. <a href="/bill-of-rights/">The Bill of Rights explained</a>.</p>
   <div class="amend-grid">{bor}</div>
   <p><a class="text-link" href="/amendments/">All 27 amendments {icon("right")}</a></p>
   <h2 class="sec-title">{icon("columns")}The original seven articles</h2>
@@ -1347,13 +1502,17 @@ def render_home(amendments, articles, situations, paths, all_ins, events):
     <a class="mini-card" href="/words/">{icon("words")}<span>Words, explained</span>{icon("right", "ic go")}</a>
   </div>
 </section>"""
-    jld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebSite", "@id": f"{SITE_URL}/#website", "url": SITE_URL, "name": SITE_NAME,
-         "description": "The U.S. Constitution in plain English, with know-your-rights situation cards.",
-         "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-         "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE_URL}/search/?q={{q}}"}, "query-input": "required name=q"}}]}
-    write("/", page_shell(f"Free Constitution: Know Your Rights in Plain English",
-                          "The whole U.S. Constitution in plain English, plus situation cards for what to say when police stop you, at school, online, and at the polls. Free, no ads.",
+    jld = [{"@type": "WebSite", "@id": f"{SITE_URL}/#website", "url": f"{SITE_URL}/", "name": SITE_NAME,
+            "alternateName": "freeconstitution.org", "inLanguage": "en-US",
+            "description": "The U.S. Constitution and all 27 amendments in plain English, with know-your-rights situation cards.",
+            "publisher": {"@id": ORG["@id"]},
+            "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE_URL}/search/?q={{search_term_string}}"},
+                                "query-input": "required name=search_term_string"}},
+           {"@type": "WebPage", "@id": f"{SITE_URL}/#webpage", "url": f"{SITE_URL}/", "name": "The U.S. Constitution in plain English",
+            "isPartOf": {"@id": f"{SITE_URL}/#website"}, "about": {"@type": "Legislation", "name": "Constitution of the United States"},
+            "dateModified": TODAY.isoformat()}, ORG]
+    write("/", page_shell("U.S. Constitution in Plain English | Know Your Rights",
+                          "The U.S. Constitution and all 27 amendments explained in plain English, plus what to say if police stop you, at school, online, and at the polls. Free.",
                           body, "/", jsonld=jld, page_title="Home", body_class="is-home"))
 
 
@@ -1363,7 +1522,7 @@ def render_404():
   <p class="lede">That page isn't here. The Constitution still is.</p>
   <p><a class="btn btn-primary" href="/">Go to the front page</a> <button type="button" class="btn btn-quiet" data-open-search>{icon("search")} Search</button></p>
 </section>"""
-    write("/404.html", page_shell(f"Page not found | {SITE_NAME}", "Page not found.", body, "/404.html", page_title="Not found"))
+    write("/404.html", page_shell(f"Page not found | {SITE_NAME}", "Page not found.", body, "/404.html", page_title="Not found", robots="noindex, follow"))
 
 
 # ============================================================
@@ -1418,10 +1577,15 @@ self.addEventListener("fetch", e => {{
         "description": "The U.S. Constitution in plain English, with know-your-rights cards.",
         "icons": [{"src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}, indent=1))
 
-    write("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+    bots = ["Googlebot", "Bingbot", "Applebot", "Applebot-Extended", "Google-Extended", "GPTBot", "OAI-SearchBot",
+            "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "DuckAssistBot"]
+    robots = "# Free Constitution welcomes search engines and AI answer engines.\nUser-agent: *\nAllow: /\nDisallow: /search/\nDisallow: /offline/\n\n"
+    robots += "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)
+    robots += f"Sitemap: {SITE_URL}/sitemap.xml\n"
+    write("/robots.txt", robots)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in sorted(x for x in WRITTEN if x.endswith("/") and x not in ("/offline/",)):
-        pr = "1.0" if u == "/" else ("0.9" if u.startswith("/situations/") else "0.7")
+    for u in sorted(x for x in WRITTEN if x.endswith("/") and x not in ("/offline/", "/search/")):
+        pr = "1.0" if u == "/" else ("0.9" if u.startswith("/situations/") or u in ("/bill-of-rights/", "/amendments/") else "0.7")
         sm.append(f"  <url><loc>{SITE_URL}{u}</loc><lastmod>{TODAY.isoformat()}</lastmod><priority>{pr}</priority></url>")
     sm.append("</urlset>")
     write("/sitemap.xml", "\n".join(sm))
@@ -1430,33 +1594,89 @@ self.addEventListener("fetch", e => {{
         f"- [{ORDINALS[a['front']['number']]} Amendment]({SITE_URL}/amendments/{a['front']['number']}/): "
         f"{PAGES['/amendments/%d/' % a['front']['number']]['summary']}" for a in amendments)
     sit_lines = "\n".join(f"- [{s['front']['title']}]({SITE_URL}/situations/{s['front']['slug']}/): {s['front'].get('summary', '')}" for s in situations)
+    paths_lines = "\n".join(f"- [{p['title']}]({SITE_URL}/paths/{p['slug']}/): {p['blurb']}" for p in paths)
     write("/llms.txt", f"""# Free Constitution
 
-> {TAGLINE}
+> The U.S. Constitution and all 27 amendments in plain English, plus know-your-rights cards for police stops, searches, school, posting online, work, protests, voting, and immigration agents.
 
-freeconstitution.org is a free plain-English guide to the United States Constitution, published by Hope for Americans (Flagstaff, Arizona). No ads, no tracking, no accounts.
+freeconstitution.org is free, with no ads, accounts, or tracking. It is published by Hope for Americans, a nonprofit civic-tech project in Flagstaff, Arizona. Every amendment page has: a one-line summary, the plain-English version, the original text (National Archives), a phrase-by-phrase explanation, what it means for you, myths vs. facts, common questions, key Supreme Court cases, and what is still contested.
 
-## Content policy
-- Original text of the Constitution, all 27 amendments, and the Declaration of Independence comes from the National Archives (public domain).
-- Plain-language explanations and situation cards are original work by Hope for Americans, licensed CC BY 4.0.
-- Legal claims are checked against the text and named Supreme Court decisions. The site has not been reviewed by a lawyer and is not legal advice.
+## How to cite
+- Cite the specific page URL. Plain-language text is CC BY 4.0: credit "Free Constitution (freeconstitution.org)".
+- Legal claims name the Supreme Court case and year. The site is not legal advice and has not been reviewed by a lawyer.
+- Last updated {TODAY.isoformat()}. Full plain-English text of every page: {SITE_URL}/llms-full.txt
 
-## Amendments
-{amend_lines}
-
-## Situation cards
+## Know your rights (situation cards)
 {sit_lines}
 
-## Key pages
-- [Home]({SITE_URL}/)
-- [All amendments]({SITE_URL}/amendments/)
-- [The seven articles]({SITE_URL}/articles/)
-- [Paths]({SITE_URL}/paths/)
-- [Timeline]({SITE_URL}/timeline/)
-- [Glossary]({SITE_URL}/words/)
+## Amendments
+- [The Bill of Rights (Amendments 1–10)]({SITE_URL}/bill-of-rights/)
+{amend_lines}
+
+## The original Constitution
+- [Preamble]({SITE_URL}/preamble/)
+{chr(10).join(f"- [Article {ROMAN[n]}: {ARTICLE_NAMES[n]}]({SITE_URL}/articles/{n}/)" for n in range(1, 8))}
+- [Declaration of Independence]({SITE_URL}/declaration/)
 - [Full original text]({SITE_URL}/full-text/)
-- [About and how we check]({SITE_URL}/about/)
+
+## Guided paths
+{paths_lines}
+
+## Reference
+- [Glossary of legal terms]({SITE_URL}/words/)
+- [Timeline, 1776 to today]({SITE_URL}/timeline/)
+- [About and how we check accuracy]({SITE_URL}/about/)
+- [Sources]({SITE_URL}/sources/)
 """)
+    # llms-full.txt: the plain-English answer layer of every main page, for AI answer engines
+    full = [f"# Free Constitution — full plain-English text\n\nSource: {SITE_URL} · Updated {TODAY.isoformat()} · CC BY 4.0 · Not legal advice; not reviewed by a lawyer.\n"]
+    for s_ in situations:
+        f = s_["front"]
+        full.append(f"\n## {f.get('h1') or f['title']}\nURL: {SITE_URL}/situations/{f['slug']}/\n\n{f.get('summary', '')}\n\nWhat to say:\n"
+                    + "\n".join(f"- {t}" for t in f.get("ten_second") or [])
+                    + "\n\nDo:\n" + "\n".join(f"- {t}" for t in f.get("do") or [])
+                    + "\n\nDon't:\n" + "\n".join(f"- {t}" for t in f.get("dont") or [])
+                    + ("\n\nCommon questions:\n" + "\n".join(f"Q: {q['q']}\nA: {q['a']}" for q in f.get("faq") or []) if f.get("faq") else ""))
+    full.append(f"\n## The Bill of Rights\nURL: {SITE_URL}/bill-of-rights/\n\n" + "\n".join(f"Q: {q['q']}\nA: {q['a']}" for q in BOR_FAQ))
+    for a in amendments:
+        n = a["front"]["number"]
+        i_ = load_insight(f"amendment-{n}")
+        plain = sec(split_h2(a["body"]), "Plain English")
+        full.append(f"\n## {ORDINALS[n]} Amendment: {i_.get('subject', '')}\nURL: {SITE_URL}/amendments/{n}/\nRatified: {a['front'].get('ratified', '')}\n\n"
+                    f"In one line: {i_.get('one_line', '')}\n\nPlain English: {plain_text(md_to_html(plain))}\n"
+                    + ("\nMyths vs. facts:\n" + "\n".join(f"- Myth: {m['myth']} Fact: {m['fact']}" for m in i_.get("myths") or []) if i_.get("myths") else "")
+                    + ("\n\nKey cases:\n" + "\n".join(f"- {k['name']} ({k['year']}): {k['held']}" for k in i_.get("key_cases") or []) if i_.get("key_cases") else "")
+                    + ("\n\nCommon questions:\n" + "\n".join(f"Q: {q['q']}\nA: {q['a']}" for q in i_.get("faq") or []) if i_.get("faq") else ""))
+    for n in range(1, 8):
+        i_ = load_insight(f"article-{n}")
+        secs = i_.get("sections") or {}
+        full.append(f"\n## Article {ROMAN[n]}: {ARTICLE_NAMES[n]}\nURL: {SITE_URL}/articles/{n}/\n\nIn one line: {i_.get('one_line', '')}\n"
+                    + ("\nSections:\n" + "\n".join(f"- Section {k}: {v}" for k, v in secs.items()) if secs else "")
+                    + ("\n\nCommon questions:\n" + "\n".join(f"Q: {q['q']}\nA: {q['a']}" for q in i_.get("faq") or []) if i_.get("faq") else ""))
+    for stem, name, u in (("preamble", "The Preamble", "/preamble/"), ("declaration", "The Declaration of Independence", "/declaration/")):
+        i_ = load_insight(stem)
+        full.append(f"\n## {name}\nURL: {SITE_URL}{u}\n\nIn one line: {i_.get('one_line', '')}\n"
+                    + ("\nCommon questions:\n" + "\n".join(f"Q: {q['q']}\nA: {q['a']}" for q in i_.get("faq") or []) if i_.get("faq") else ""))
+    write("/llms-full.txt", "\n".join(full) + "\n")
+
+    # vercel.json (repo root): serve public/, short URLs people type, cache rules
+    redirects = [{"source": "/know-your-rights", "destination": "/situations/", "permanent": True},
+                 {"source": "/glossary", "destination": "/words/", "permanent": True},
+                 {"source": "/constitution", "destination": "/full-text/", "permanent": True},
+                 {"source": "/the-bill-of-rights", "destination": "/bill-of-rights/", "permanent": True}]
+    for n in range(1, 28):
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(n % 10 if n not in (11, 12, 13) else 0, "th")
+        for alias in (f"/{n}{suffix}-amendment", f"/amendment-{n}", f"/{ORDINALS[n].lower()}-amendment"):
+            redirects.append({"source": alias, "destination": f"/amendments/{n}/", "permanent": True})
+    for n in range(1, 8):
+        redirects.append({"source": f"/article-{n}", "destination": f"/articles/{n}/", "permanent": True})
+    vercel = {"framework": None, "buildCommand": "", "outputDirectory": "public", "trailingSlash": True,
+              "redirects": redirects,
+              "headers": [{"source": "/sw.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+                          {"source": "/static/fonts/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
+                          {"source": "/static/og/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=604800"}]}]}
+    (ROOT / "vercel.json").write_text(json.dumps(vercel, indent=2) + "\n", encoding="utf-8")
+
 
 
 # ============================================================
@@ -1530,6 +1750,7 @@ def main():
     render_declaration()
     render_situations_index(situations)
     render_amendments_index(amendments, all_ins)
+    render_bill_of_rights(amendments, all_ins)
     render_articles_index(articles)
     render_simple("about", "/about/")
     render_simple("sources", "/sources/")

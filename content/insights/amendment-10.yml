@@ -67,3 +67,16 @@ quick_check:
       - "Whichever law is newer."
     answer: 1
     why: "Article VI makes valid federal law the supreme law of the land."
+seo_title: "10th Amendment Explained: States' Rights and Federal Power"
+seo_description: "The 10th Amendment in plain English: the federal government has only the powers the Constitution gives it. Other powers belong to the states or the people."
+faq:
+  - q: "What does the Tenth Amendment say in simple terms?"
+    a: "It means the federal government has only the powers the Constitution gives it. Powers not given to the federal government, and not banned for the states, belong to the states or to the people."
+  - q: "What powers do states have under the Tenth Amendment?"
+    a: "It means states keep the powers not given to the federal government. These cover much of daily life, such as running public schools, writing most criminal laws, and issuing driver's licenses. In McCulloch v. Maryland (1819), the Court said federal powers also include what is necessary and proper to carry out the listed ones."
+  - q: "Can the federal government force states to enforce federal law?"
+    a: "Generally, no. Congress cannot order state legislatures to pass laws or order state officials to carry out a federal program. The Supreme Court held this in New York v. United States (1992) and Printz v. United States (1997). This is called the anti-commandeering rule. Congress can still offer money with conditions."
+  - q: "If my state allows something, can federal law still ban it?"
+    a: "Yes. When a valid federal law and a state law conflict, the federal law wins under the Supremacy Clause in Article VI. In Gonzales v. Raich (2005), the Supreme Court held Congress could ban growing marijuana at home even where a state allowed medical use."
+  - q: "Why is the drinking age 21 in every state?"
+    a: "Because Congress tied it to highway money. In South Dakota v. Dole (1987), the Supreme Court allowed this. Congress can withhold part of a state's federal highway funds if the state sets a lower drinking age. Each state passes its own drinking-age law."

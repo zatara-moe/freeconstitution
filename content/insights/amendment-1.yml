@@ -78,3 +78,18 @@ quick_check:
       - "An offensive protest sign about a public issue."
     answer: 0
     why: "True threats are one of the narrow categories outside First Amendment protection. Rude and offensive opinions are generally protected."
+seo_title: "1st Amendment Explained: Free Speech, Religion, and Press"
+seo_description: "The 1st Amendment in plain English: the government generally cannot punish your speech, religion, press, or protest. Key cases on school and online speech."
+faq:
+  - q: "What does the First Amendment say in simple terms?"
+    a: "It means the government generally cannot punish you for your religion, your speech, what you publish, peaceful protest, or asking officials to fix problems. It limits the government, not private companies or private people."
+  - q: "Can my school punish me for a social media post?"
+    a: "Sometimes, but a public school's power is limited. In Mahanoy Area School District v. B.L. (2021), the Supreme Court said a school violated a student's rights by punishing her off-campus Snapchat post. Schools may still act on things like serious threats or bullying. Private schools are not bound by the First Amendment."
+  - q: "Is hate speech protected by the First Amendment?"
+    a: "Generally, yes. There is no general hate speech exception. Narrow categories are not protected, such as true threats and speech meant and likely to cause immediate violence. In Snyder v. Phelps (2011), the Supreme Court protected deeply offensive protest signs shown near a funeral."
+  - q: "Can a private company fire me for what I say?"
+    a: "Generally, yes, as far as the First Amendment goes. It limits only the government, so private employers and apps can set their own speech rules. Some state laws and federal labor laws protect certain kinds of speech at work. Government employers have more limits."
+  - q: "Can I get in trouble for a threat I post online?"
+    a: "Yes, if it is a true threat. True threats are not protected speech. The Supreme Court set the test in Counterman v. Colorado (2023). The government must show the speaker knowingly ignored a real risk that the words would be seen as threatening violence."
+  - q: "Does the First Amendment protect protests?"
+    a: "Yes, it protects peaceful protest. The government can set neutral rules on the time, place, and manner of a protest, such as permits or noise limits. The Supreme Court approved such rules in Ward v. Rock Against Racism (1989). The government cannot ban a protest because it dislikes the message."

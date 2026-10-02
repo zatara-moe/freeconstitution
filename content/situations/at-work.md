@@ -29,6 +29,24 @@ help:
     value: "1-800-669-4000"
     href: "https://www.eeoc.gov/how-file-charge-employment-discrimination"
 state_varies: "Many states add their own worker protections, like rules about pay, breaks, and off-duty conduct."
+h1: "Free speech and your rights at work"
+seo_title: "Can I Get Fired for My Political Opinions? Rights at Work"
+seo_description: "Often, yes, at a private job. The First Amendment limits the government, not private employers. Here's which laws protect your speech, pay talk, and job."
+faq:
+  - q: "Can I get fired for my political opinions?"
+    a: "Often, yes, at a private job. The First Amendment limits the government, not private employers. Most jobs are at-will, meaning you can be fired for many reasons. A few states protect legal off-duty political activity. Government workers have some First Amendment protection."
+  - q: "Can my employer stop me from talking about pay?"
+    a: "Generally, no. The National Labor Relations Act protects most private-sector workers who talk with coworkers about pay, hours, and working conditions. It does not cover supervisors, independent contractors, farm workers, domestic workers, or government employees."
+  - q: "Does the First Amendment protect me at work?"
+    a: "Only if you work for the government. Public employees speaking as citizens on public issues can be protected, under Pickering v. Board of Education (1968). Speech made as part of your job duties is not protected, under Garcetti v. Ceballos (2006). The First Amendment does not limit private employers."
+  - q: "Can I be fired for joining a union?"
+    a: "Generally, no, for most private-sector workers. The National Labor Relations Act protects joining or forming a union. It does not cover supervisors, independent contractors, farm workers, domestic workers, or government employees. Many states have their own rules for government workers."
+  - q: "Is it illegal to fire someone because of their race, religion, or sex?"
+    a: "Yes, at most employers. Title VII, a federal law, bans job discrimination based on race, color, religion, sex, or national origin. It generally covers employers with 15 or more workers. Other federal laws cover age (40 and older) and disability."
+  - q: "How long do I have to file a discrimination complaint?"
+    a: "Usually 180 days. You generally have 180 days to file a charge with the EEOC, the federal agency for job discrimination. In many states, the deadline is 300 days. You can call the EEOC at 1-800-669-4000."
+  - q: "Can my boss see what I do on my work phone?"
+    a: "Often, yes. A private employer can often see what you do on a work device or work account. Read your employee handbook for the company's policy. Private employers can usually discipline you for public posts, though posts with coworkers about pay or working conditions may be protected."
 ---
 
 ## Myth check: "My boss can't fire me for what I say. Free speech."
@@ -62,7 +80,7 @@ Public employees work for the government. Examples are public school staff, city
 ## Your phone and your posts
 
 - A private employer can often see what you do on a work device or work account.
-- A private employer can usually discipline you for public posts.
+- A private employer can usually discipline you for public posts. Posts with coworkers about pay or working conditions may be protected by federal labor law.
 - Posts that talk with coworkers about pay or working conditions may be protected under the NLRA.
 - A few states protect legal off-duty activity, like political activity. Most states do not go that far.
 

@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.1 — October 1, 2026: search and AI-answer optimization
+- Search-shaped titles and descriptions on all 91 pages, all within length limits. Example: "4th Amendment Explained: Search and Seizure in Plain English".
+- 245 new "Common questions" answers across amendments, articles, situation cards, the Preamble, the Declaration and the Bill of Rights. All were fact-checked; 30 fixes were made before release.
+- New Bill of Rights page (`/bill-of-rights/`), a high-volume search topic.
+- Clearer page headings on situation cards ("Can ICE enter my home? Your rights at the door"). The homepage heading now includes "the Constitution in plain English".
+- Structured data on every page: Article, FAQPage, BreadcrumbList, Organization, WebSite with search, DefinedTermSet, and ItemList.
+- 53 new share images that use the page title.
+- `robots.txt` names AI crawlers. `/llms.txt` was expanded and `/llms-full.txt` added. Utility pages are set to noindex, and the sitemap was cleaned up.
+- `vercel.json` adds 92 short-link redirects (for example `/4th-amendment` and `/know-your-rights`).
+- Removed the vote count for *Trump v. Barbara*, because sources disagree on how to count it. Pages now state the holding only.
+
 ## v2.0 — October 1, 2026: rebuilt for neurodivergent and young adult readers
 
 ### Trust and accuracy

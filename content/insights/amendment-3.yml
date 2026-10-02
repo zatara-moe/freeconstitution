@@ -48,3 +48,14 @@ quick_check:
       - "Soldiers can be housed only following rules set by law."
     answer: 2
     why: "In wartime, quartering must happen \"in a manner to be prescribed by law.\""
+seo_title: "3rd Amendment Explained: Quartering Soldiers in Your Home"
+seo_description: "The 3rd Amendment in plain English: in peacetime, the government cannot make you house soldiers in your home without consent. History and court cases inside."
+faq:
+  - q: "What does the Third Amendment say in simple terms?"
+    a: "It means the government cannot force you to let soldiers live in your home during peacetime without your consent. In wartime, soldiers can be housed in homes only under rules set by law."
+  - q: "Has the Third Amendment ever been used in court?"
+    a: "Rarely. The Supreme Court has never decided a case mainly about it. In Griswold v. Connecticut (1965), the Court named it as one source of a right to privacy. A federal appeals court applied it in Engblom v. Carey (1982)."
+  - q: "Why is the Third Amendment in the Constitution?"
+    a: "Because colonists objected to British troops living among them. In the 1760s and 1770s, British laws called the Quartering Acts required the colonies to house and supply soldiers. The Declaration of Independence listed quartering troops as a complaint against the King."
+  - q: "Can the military use my house during a war?"
+    a: "Only under rules set by law. In wartime, the text allows quartering only \"in a manner to be prescribed by law.\" The military cannot simply decide this on its own."

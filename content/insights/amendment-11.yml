@@ -54,3 +54,14 @@ quick_check:
       - "No. It only applies to lawsuits from other countries."
     answer: 1
     why: "There are exceptions, including state consent and the rule from Ex parte Young (1908)."
+seo_title: "11th Amendment Explained: Can You Sue a State?"
+seo_description: "The 11th Amendment in plain English: a state generally cannot be sued in federal court without its consent. What sovereign immunity means and where it ends."
+faq:
+  - q: "What does the Eleventh Amendment say in simple terms?"
+    a: "It means federal courts cannot hear certain lawsuits against a state brought by people from another state or another country. The Supreme Court reads it, along with the idea of sovereign immunity, to block most lawsuits against a state without its consent."
+  - q: "Can I sue a state government?"
+    a: "Sometimes. A state generally cannot be sued in federal court without its consent, but many states agree to some lawsuits through claims offices or special courts. In Ex parte Young (1908), the Supreme Court also allowed suits against state officials to stop them from breaking federal law."
+  - q: "Can I sue my own state in federal court?"
+    a: "Generally, no. In Hans v. Louisiana (1890), the Supreme Court held that a state cannot be sued in federal court by its own citizens without its consent. This is true even though the text mentions only citizens of other states and countries."
+  - q: "Does the Eleventh Amendment protect cities and counties?"
+    a: "No. It protects states and state agencies. Cities, counties, and school districts do not get the same immunity. In Mt. Healthy City School District v. Doyle (1977), the Supreme Court held that a local school board was not protected by the Eleventh Amendment."

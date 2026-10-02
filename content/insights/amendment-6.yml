@@ -78,3 +78,18 @@ quick_check:
       - "Two-thirds."
     answer: 0
     why: "Ramos v. Louisiana (2020) requires a unanimous jury verdict to convict of a serious crime."
+seo_title: "6th Amendment Explained: Right to a Lawyer and a Fair Trial"
+seo_description: "The 6th Amendment in plain English: if charged with a crime, you get a lawyer, a speedy public trial, a fair jury, and the right to question witnesses."
+faq:
+  - q: "What does the Sixth Amendment say in simple terms?"
+    a: "It means that if you are charged with a crime, you get a speedy and public trial and a fair jury. You also get a lawyer and the chance to question witnesses against you. You must be told what you are charged with."
+  - q: "Do I get a free lawyer if I can't afford one?"
+    a: "Yes, in many criminal cases. In Gideon v. Wainwright (1963), the Supreme Court said states must provide a lawyer in felony cases. For lesser crimes, you cannot be sentenced to jail unless you had a lawyer or gave up that right. This right does not cover most civil cases."
+  - q: "How fast is a speedy trial?"
+    a: "The Constitution sets no fixed deadline. In Barker v. Wingo (1972), the Supreme Court set a balancing test. Courts weigh the delay's length and reason, whether the accused asked for a speedy trial, and the harm caused. Federal and state laws add their own time limits."
+  - q: "Does a jury have to be unanimous?"
+    a: "Yes, to convict someone of a serious crime. In Ramos v. Louisiana (2020), the Supreme Court held that juries in state and federal courts must be unanimous to convict for a serious offense."
+  - q: "Can a witness testify against me without showing up in court?"
+    a: "Generally, no. In Crawford v. Washington (2004), the Supreme Court said testimony-like statements from a witness who does not appear at trial generally cannot be used. An exception applies when the witness is unavailable and the accused had an earlier chance to question them."
+  - q: "Is a public defender a real lawyer?"
+    a: "Yes. Public defenders are licensed lawyers whose job is to defend people charged with crimes. They have the same duties to you as a lawyer you pay. Since Gideon v. Wainwright (1963), states must provide lawyers in felony cases for people who cannot afford one."

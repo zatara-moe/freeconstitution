@@ -27,6 +27,22 @@ help:
     value: "If you are charged with a crime and cannot pay, ask for a public defender."
     href: ""
 state_varies: "Some states protect workers from being fired for legal off-duty activity. Most do not go that far."
+h1: "Free speech and your rights when posting online"
+seo_title: "Can I Get Fired for a Social Media Post? Free Speech Online"
+seo_description: "Often, yes. The First Amendment limits the government, not apps or private employers. Here's what free speech protects online and what it does not."
+faq:
+  - q: "Is it illegal to post threats online?"
+    a: "Yes, true threats are not protected speech. A true threat is a serious statement that you intend to commit violence against someone. In Counterman v. Colorado (2023), the Supreme Court said the government must prove at least recklessness about how the words would be seen. \"I was joking\" does not always protect you."
+  - q: "Can I get fired for a social media post?"
+    a: "Often, yes, at a private job. The First Amendment limits the government, not private employers. Some laws protect some posts, like talking with coworkers about pay. A few states protect legal off-duty activity. Government workers have some First Amendment protection."
+  - q: "Can a government official block me on social media?"
+    a: "It depends. In Lindke v. Freed (2024), the Supreme Court said blocking can violate the First Amendment if the official had real authority to speak for the government on that topic and was using it in those posts. If the account is personal, blocking is usually allowed."
+  - q: "Does free speech apply to social media apps?"
+    a: "Generally, no. The First Amendment limits the government, not private companies. An app can remove your post or ban your account without violating the First Amendment. Government officials and agencies are still limited by it when they act for the government online."
+  - q: "Can police use my social media posts?"
+    a: "Yes. Public posts can be used as evidence in court. Police can sometimes get records from apps with a court order or warrant. Police generally need a warrant to search your phone itself."
+  - q: "Is it illegal to delete posts during an investigation?"
+    a: "It can be. Deleting posts after you learn of an investigation can be a separate crime. If police contact you about a post, you can say: \"I want to remain silent. I want a lawyer.\" Then stop talking."
 ---
 
 ## Myth check: "Free speech means no one can remove my post"
@@ -43,7 +59,7 @@ The government, including police, public schools, and public officials, is limit
 
 Most speech is protected, even speech that is rude or unpopular. Some kinds are not:
 
-- **True threats.** A true threat is a serious statement that you intend to harm someone. In *Counterman v. Colorado* (2023), the Court said the government must prove at least recklessness. That means the speaker consciously ignored a substantial risk the words would be seen as threatening violence.
+- **True threats.** A true threat is a serious statement that you mean to commit violence against someone. In *Counterman v. Colorado* (2023), the Court said the government must prove at least recklessness. That means the speaker consciously ignored a substantial risk the words would be seen as threatening violence.
 - **Inciting violence.** Speech meant to cause, and likely to cause, immediate illegal action.
 - **Defamation.** False statements of fact that harm someone's reputation.
 - **Harassment and stalking** that target a specific person.

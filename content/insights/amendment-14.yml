@@ -83,3 +83,18 @@ quick_check:
       - "Any person within a state's jurisdiction."
     answer: 2
     why: "The text says 'any person,' not 'any citizen.'"
+seo_title: "14th Amendment Explained: Citizenship and Equal Protection"
+seo_description: "The 14th Amendment in plain English: people born here are citizens, and states must give everyone due process and equal protection. Includes Trump v. Barbara."
+faq:
+  - q: "What does the 14th Amendment say in simple terms?"
+    a: "It means people born or naturalized in the United States are citizens. It also requires states to follow fair legal process and to give every person equal protection of the laws. Through it, most of the Bill of Rights now limits state and local governments."
+  - q: "Is everyone born in the US a citizen?"
+    a: "Almost everyone. The Citizenship Clause covers people born here and \"subject to the jurisdiction thereof.\" In Trump v. Barbara (2026), the Supreme Court held that this includes children of parents here temporarily or unlawfully. Narrow exceptions exist, such as children of foreign diplomats."
+  - q: "What is equal protection?"
+    a: "It means a state must treat people equally under the law. The Equal Protection Clause covers any person, not only citizens. It is the basis for Brown v. Board of Education (1954), which held that racially segregated public schools are unconstitutional. The Fifth Amendment gives similar protection against the federal government."
+  - q: "What is due process?"
+    a: "It means the government must follow fair steps before taking your life, freedom, or property. Usually that includes notice and a chance to be heard. In Goss v. Lopez (1975), the Supreme Court said a public school student facing a short suspension must be told why and get to respond."
+  - q: "Does the Bill of Rights apply to the states?"
+    a: "Yes, mostly. At first it limited only the federal government. Through the Fourteenth Amendment, courts have applied most of it to state and local governments. This is called incorporation. For example, McDonald v. City of Chicago (2010) applied the Second Amendment to the states."
+  - q: "What does Section 3 of the 14th Amendment mean?"
+    a: "It means some people cannot hold office if they swore an oath to support the Constitution and then engaged in insurrection or rebellion. In Trump v. Anderson (2024), the Supreme Court held that states cannot enforce this rule against candidates for federal office. The Court said that role belongs to Congress."

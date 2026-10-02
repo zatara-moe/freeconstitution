@@ -61,3 +61,14 @@ quick_check:
       - "The Senate, with one vote per senator."
     answer: 1
     why: "The House chooses from the top three, and each state's delegation casts one vote."
+seo_title: "12th Amendment Explained: How the Electoral College Votes"
+seo_description: "The 12th Amendment in plain English: electors cast separate votes for President and Vice President. If no one wins a majority, Congress makes the choice."
+faq:
+  - q: "What does the 12th Amendment say in simple terms?"
+    a: "It means electors cast one vote for President and a separate vote for Vice President. If no candidate wins a majority of electoral votes, the House picks the President and the Senate picks the Vice President."
+  - q: "What happens if no one gets 270 electoral votes?"
+    a: "The House of Representatives chooses the President from the top three candidates. Each state delegation gets one vote, and the winner needs a majority of the states. The Senate chooses the Vice President from the top two candidates."
+  - q: "Can electors vote for someone other than who won the state?"
+    a: "It depends on state law. In Chiafalo v. Washington (2020), the Supreme Court held that a state can require electors to vote for the winner of the state's popular vote. Many states have such laws, but not all do."
+  - q: "Why was the 12th Amendment created?"
+    a: "Because the 1800 election ended in a tie. Under the original rules, each elector cast two votes for President. Thomas Jefferson and his running mate, Aaron Burr, tied, and the House needed 36 ballots to choose Jefferson. The 12th Amendment, ratified in 1804, separated the two votes."

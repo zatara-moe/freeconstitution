@@ -54,3 +54,16 @@ quick_check:
       - "Each state's governor."
     answer: 1
     why: "In Harper, the Supreme Court held state poll taxes violate the Equal Protection Clause."
+seo_title: "24th Amendment Explained: Ban on Poll Taxes"
+seo_description: "The 24th Amendment in plain English: no one can be charged a poll tax to vote in federal elections. What it says, why it passed in 1964, and what it means."
+faq:
+  - q: "What does the 24th Amendment say in simple terms?"
+    a: "No one can be denied the vote in a federal election for failing to pay a poll tax or any other tax. Federal elections include those for President, Vice President, and Congress, and their primaries."
+  - q: "What is a poll tax?"
+    a: "A poll tax is a fee a person must pay to be allowed to vote. After Reconstruction, many Southern states used poll taxes to keep Black citizens and poor citizens from voting. In 1964, five states still charged one."
+  - q: "Are poll taxes illegal in state elections?"
+    a: "Yes. The 24th Amendment covers only federal elections. In Harper v. Virginia State Board of Elections (1966), the Court held that poll taxes in state elections violate the 14th Amendment. Together, they ended poll taxes in all U.S. elections."
+  - q: "When was the 24th Amendment ratified?"
+    a: "January 23, 1964, during the civil rights movement. At that time, Alabama, Arkansas, Mississippi, Texas, and Virginia still charged poll taxes in federal elections. The amendment ended those taxes right away."
+  - q: "Is voter ID a poll tax?"
+    a: "The Supreme Court has not ruled that it is. In Crawford v. Marion County Election Board (2008), the Court upheld Indiana's photo ID law for voting. It noted that Indiana offered free IDs. Critics say the papers needed to get an ID can cost money and burden voters. Supporters say free IDs mean no one pays to vote."

@@ -83,3 +83,18 @@ quick_check:
       - "The government must get permission from every neighbor."
     answer: 1
     why: "The Takings Clause requires \"just compensation\" when private property is taken for public use."
+seo_title: "5th Amendment Explained: Right to Remain Silent and More"
+seo_description: "The 5th Amendment in plain English: you can't be forced to testify against yourself or tried twice for one crime, and you get due process. Miranda explained."
+faq:
+  - q: "What does the Fifth Amendment say in simple terms?"
+    a: "It means you cannot be forced to be a witness against yourself in a criminal case. It also bans trying you twice for the same crime, requires fair legal process, and requires payment when the government takes your property."
+  - q: "What does pleading the Fifth mean?"
+    a: "It means refusing to answer a question because the answer could help prove you committed a crime. Using this right is not proof of guilt. In Griffin v. California (1965), the Supreme Court said a prosecutor cannot tell a jury that a defendant's choice not to testify shows guilt."
+  - q: "Do police have to read me my Miranda rights?"
+    a: "Only before questioning you while you are in custody. Miranda v. Arizona (1966) requires warnings about the right to stay silent and to have a lawyer. If police skip them, your answers generally cannot be used to prove the case against you. The case is not automatically dismissed."
+  - q: "Is staying quiet enough to use my right to remain silent?"
+    a: "No. In Berghuis v. Thompkins (2010), the Supreme Court said a person being questioned must clearly say they are using the right. Simply staying quiet is not enough by itself to make police stop asking questions."
+  - q: "What is double jeopardy?"
+    a: "It means the same government cannot try you twice for the same crime after you are found not guilty or convicted. But in Gamble v. United States (2019), the Supreme Court said a state and the federal government are separate. Each can charge you for the same act."
+  - q: "Can the government take my house?"
+    a: "Yes, but it must pay you. The Fifth Amendment allows taking private property for public use with just compensation, meaning a fair price. In Kelo v. City of New London (2005), the Supreme Court said economic development counted as public use. Many states then passed laws limiting such takings."

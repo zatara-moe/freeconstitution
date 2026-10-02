@@ -1,15 +1,28 @@
 # Free Constitution
 
-> Know your rights. In plain English.
+> The U.S. Constitution and all 27 amendments in plain English, plus know-your-rights cards for police stops, searches, school, posting online, work, protests, voting, and immigration agents.
 
-freeconstitution.org is a free plain-English guide to the United States Constitution, published by Hope for Americans (Flagstaff, Arizona). No ads, no tracking, no accounts.
+freeconstitution.org is free, with no ads, accounts, or tracking. It is published by Hope for Americans, a nonprofit civic-tech project in Flagstaff, Arizona. Every amendment page has: a one-line summary, the plain-English version, the original text (National Archives), a phrase-by-phrase explanation, what it means for you, myths vs. facts, common questions, key Supreme Court cases, and what is still contested.
 
-## Content policy
-- Original text of the Constitution, all 27 amendments, and the Declaration of Independence comes from the National Archives (public domain).
-- Plain-language explanations and situation cards are original work by Hope for Americans, licensed CC BY 4.0.
-- Legal claims are checked against the text and named Supreme Court decisions. The site has not been reviewed by a lawyer and is not legal advice.
+## How to cite
+- Cite the specific page URL. Plain-language text is CC BY 4.0: credit "Free Constitution (freeconstitution.org)".
+- Legal claims name the Supreme Court case and year. The site is not legal advice and has not been reviewed by a lawyer.
+- Last updated 2026-10-01. Full plain-English text of every page: https://freeconstitution.org/llms-full.txt
+
+## Know your rights (situation cards)
+- [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What to say and do if police are asking you questions on the street, in a car, or at a station.
+- [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What to say and do if police want to search you, your bag, your car, your phone, or your home.
+- [At school](https://freeconstitution.org/situations/at-school/): Your rights at a public school when staff want to search you, question you, or punish you for something you said.
+- [Posting online](https://freeconstitution.org/situations/posting-online/): What the First Amendment does and does not protect when you post online, and who it limits.
+- [At work](https://freeconstitution.org/situations/at-work/): Which rights you have at work, why the Constitution mostly does not limit private employers, and which laws may help.
+- [Recording police](https://freeconstitution.org/situations/recording-police/): What courts have said about recording police in public, how to do it without interfering, and what police can do with your phone.
+- [First-time voter](https://freeconstitution.org/situations/first-time-voter/): How to register, what ID you may need, and your rights at the polls when you vote for the first time.
+- [At a protest](https://freeconstitution.org/situations/at-a-protest/): What to say and do if you are stopped, questioned, or threatened with arrest at a protest.
+- [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you lack the right ID.
+- [Immigration agents at the door](https://freeconstitution.org/situations/immigration-agents-at-the-door/): What to say and do if immigration agents knock on your door, whatever your immigration status.
 
 ## Amendments
+- [The Bill of Rights (Amendments 1–10)](https://freeconstitution.org/bill-of-rights/)
 - [First Amendment](https://freeconstitution.org/amendments/1/): The government cannot punish you for your religion, your speech, what you publish, peaceful protest, or asking officials to fix things.
 - [Second Amendment](https://freeconstitution.org/amendments/2/): The Supreme Court says you have an individual right to keep and carry guns, but governments can still pass some gun laws.
 - [Third Amendment](https://freeconstitution.org/amendments/3/): In peacetime, the government cannot make you house soldiers in your home without your consent.
@@ -38,24 +51,31 @@ freeconstitution.org is a free plain-English guide to the United States Constitu
 - [Twenty-sixth Amendment](https://freeconstitution.org/amendments/26/): If you are a U.S. citizen and 18 or older, no government can stop you from voting because of your age.
 - [Twenty-seventh Amendment](https://freeconstitution.org/amendments/27/): If Congress votes to change its own pay, the change cannot start until after the next House election.
 
-## Situation cards
-- [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What to say and do if police are asking you questions on the street, in a car, or at a station.
-- [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What to say and do if police want to search you, your bag, your car, your phone, or your home.
-- [At school](https://freeconstitution.org/situations/at-school/): Your rights at a public school when staff want to search you, question you, or punish you for something you said.
-- [Posting online](https://freeconstitution.org/situations/posting-online/): What the First Amendment does and does not protect when you post online, and who it limits.
-- [At work](https://freeconstitution.org/situations/at-work/): Which rights you have at work, why the Constitution mostly does not limit private employers, and which laws may help.
-- [Recording police](https://freeconstitution.org/situations/recording-police/): What courts have said about recording police in public, how to do it without interfering, and what police can do with your phone.
-- [First-time voter](https://freeconstitution.org/situations/first-time-voter/): How to register, what ID you may need, and your rights at the polls when you vote for the first time.
-- [At a protest](https://freeconstitution.org/situations/at-a-protest/): What to say and do if you are stopped, questioned, or threatened with arrest at a protest.
-- [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you lack the right ID.
-- [Immigration agents at the door](https://freeconstitution.org/situations/immigration-agents-at-the-door/): What to say and do if immigration agents knock on your door, whatever your immigration status.
-
-## Key pages
-- [Home](https://freeconstitution.org/)
-- [All amendments](https://freeconstitution.org/amendments/)
-- [The seven articles](https://freeconstitution.org/articles/)
-- [Paths](https://freeconstitution.org/paths/)
-- [Timeline](https://freeconstitution.org/timeline/)
-- [Glossary](https://freeconstitution.org/words/)
+## The original Constitution
+- [Preamble](https://freeconstitution.org/preamble/)
+- [Article I: Congress](https://freeconstitution.org/articles/1/)
+- [Article II: The President](https://freeconstitution.org/articles/2/)
+- [Article III: The courts](https://freeconstitution.org/articles/3/)
+- [Article IV: The states](https://freeconstitution.org/articles/4/)
+- [Article V: Changing the Constitution](https://freeconstitution.org/articles/5/)
+- [Article VI: The supreme law](https://freeconstitution.org/articles/6/)
+- [Article VII: Approving the Constitution](https://freeconstitution.org/articles/7/)
+- [Declaration of Independence](https://freeconstitution.org/declaration/)
 - [Full original text](https://freeconstitution.org/full-text/)
-- [About and how we check](https://freeconstitution.org/about/)
+
+## Guided paths
+- [Your rights in 10 minutes](https://freeconstitution.org/paths/rights-in-10-minutes/): The five protections people use most, in plain English.
+- [Getting pulled over or stopped](https://freeconstitution.org/paths/pulled-over-or-stopped/): What the law generally says when police stop, question, or search you.
+- [Rights at school](https://freeconstitution.org/paths/rights-at-school/): Speech, searches, and equal treatment for students in public schools.
+- [First-time voter](https://freeconstitution.org/paths/first-time-voter/): Who can vote, what is protected, and what to do if turned away.
+- [How the government works: the three branches](https://freeconstitution.org/paths/three-branches/): Who makes laws, who carries them out, and who interprets them.
+- [How a law gets made](https://freeconstitution.org/paths/how-a-law-gets-made/): From a bill in Congress to a law that courts can review.
+- [The Reconstruction amendments](https://freeconstitution.org/paths/reconstruction-amendments/): Three amendments after the Civil War that ended slavery and redefined citizenship.
+- [How the vote grew](https://freeconstitution.org/paths/how-the-vote-grew/): Six amendments that changed who votes and how leaders are chosen.
+- [Citizenship test basics](https://freeconstitution.org/paths/citizenship-test-basics/): The founding documents and big ideas that civics tests ask about most.
+
+## Reference
+- [Glossary of legal terms](https://freeconstitution.org/words/)
+- [Timeline, 1776 to today](https://freeconstitution.org/timeline/)
+- [About and how we check accuracy](https://freeconstitution.org/about/)
+- [Sources](https://freeconstitution.org/sources/)

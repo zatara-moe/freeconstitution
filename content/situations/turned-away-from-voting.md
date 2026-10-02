@@ -31,6 +31,24 @@ help:
     value: "1-800-253-3931"
     href: "tel:18002533931"
 state_varies: "ID rules, same-day registration, and how provisional ballots are counted depend on your state."
+h1: "What to do if you're turned away from voting"
+seo_title: "Turned Away From Voting? What to Do and Who to Call"
+seo_description: "Ask for a provisional ballot before you leave. Here's what to say if your name isn't on the list or you lack ID, and which free voting hotlines to call."
+faq:
+  - q: "What should I do if I'm turned away from voting?"
+    a: "Ask for a provisional ballot before you leave. First, ask the poll worker to check the list again and ask if you are at the right polling place. You can also call the Election Protection Hotline at 1-866-OUR-VOTE (1-866-687-8683) for free help."
+  - q: "What is a provisional ballot?"
+    a: "A provisional ballot is a ballot set aside and counted later, after officials check whether you were eligible. In most states, federal law lets you cast one if a poll worker says you cannot vote a regular ballot. Most states let you check online whether it was counted."
+  - q: "Who do I call if someone stops me from voting?"
+    a: "Call or text the Election Protection Hotline at 1-866-OUR-VOTE (1-866-687-8683). It is free, and trained volunteers answer, including lawyers. You can also contact your state attorney general or the U.S. Department of Justice at 1-800-253-3931."
+  - q: "Can I vote without ID?"
+    a: "It depends on your state. Some states require photo ID, some accept other ID, and some do not ask for ID. If you do not have the right ID, ask for a provisional ballot. In some states, you can bring ID to the election office within a few days."
+  - q: "What if I'm told I'm not registered?"
+    a: "Ask if your state allows same-day registration. If it does, ask what you need, which often includes proof of where you live. If it does not, ask for a provisional ballot. It may or may not count, but it creates a record that you tried."
+  - q: "Does a provisional ballot count?"
+    a: "It counts if officials confirm you were eligible. Rules for counting differ by state. In many states, you must vote at your assigned polling place for your ballot to count. Ask how to check later whether your ballot was counted."
+  - q: "Is there a voting hotline in Spanish?"
+    a: "Yes. The Spanish-language Election Protection Hotline is 1-888-VE-Y-VOTA (1-888-839-8682). Other lines include 1-888-API-VOTE (1-888-274-8683) for Asian languages and 1-844-YALLA-US (1-844-925-5287) for Arabic. Trained volunteers can help you while you are at the polling place."
 ---
 
 ## What a provisional ballot is

@@ -69,3 +69,14 @@ quick_check:
     options: ["Federal and state officials.", "Only the President.", "Every citizen."]
     answer: 0
     why: "Article VI covers members of Congress, state lawmakers, and federal and state officers."
+seo_title: "Article VI Explained: The Supremacy Clause"
+seo_description: "Article VI in plain English: the Constitution, federal laws, and treaties are the supreme law of the land. It also requires an oath and bans religious tests."
+faq:
+  - q: "What does Article VI say in simple terms?"
+    a: "Article VI makes the Constitution, federal laws, and treaties the supreme law of the land. It keeps debts from before the Constitution. It requires officials to swear or affirm support for the Constitution and bans religious tests for federal office."
+  - q: "What is the supremacy clause?"
+    a: "It is the part of Article VI that makes the Constitution, valid federal laws, and treaties the supreme law of the land. When a valid federal law conflicts with a state law, the federal law wins. State judges must follow it."
+  - q: "Can a state ignore federal law?"
+    a: "No. States cannot nullify valid federal law. In Cooper v. Aaron (1958), the Court said state officials are bound by its rulings on the Constitution. But in Printz v. United States (1997), it said Congress cannot order state officers to carry out federal programs."
+  - q: "What is the No Religious Test Clause?"
+    a: "It says no one can be required to pass a religious test to hold federal office. A religious test is a rule that you must belong to, or swear to, a certain faith. Officials may also affirm instead of swear."

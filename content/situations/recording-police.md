@@ -30,6 +30,22 @@ help:
     value: "aclu.org/know-your-rights"
     href: "https://www.aclu.org/know-your-rights"
 state_varies: "Some states have rules about how close you can stand or about recording sound. Check your state."
+h1: "Is it legal to record police? Your rights"
+seo_title: "Is It Legal to Record Police? Know Your Rights"
+seo_description: "Yes, in public, many federal courts say the First Amendment protects it. Here's how to record without interfering and what police can do with your phone."
+faq:
+  - q: "Is it legal to record police?"
+    a: "Yes, in public, according to many federal appeals courts. They have said the First Amendment protects recording police doing their jobs in public. The Supreme Court has not ruled on this directly. Police can set reasonable rules about where you stand, and some states add rules."
+  - q: "Can police take my phone if I record them?"
+    a: "Sometimes. In some cases, police can hold your phone while they ask a judge for a warrant. They generally need a warrant to look through it, even after an arrest, under Riley v. California (2014). You can say: \"I do not consent to a search of my phone.\" Do not physically resist."
+  - q: "Can police make me delete a video?"
+    a: "Generally, no. Police are not allowed to delete your photos or videos. They generally need a warrant to search your phone, under Riley v. California (2014). Many phones and apps can upload video to the cloud automatically, which keeps a copy."
+  - q: "Is it legal to record police with sound?"
+    a: "Usually, if you record openly in a public place. Some states have stricter rules about recording sound. Recording openly, not secretly, is less likely to raise legal questions. Rules can change, so search \"recording police\" plus your state."
+  - q: "How close can I stand when recording police?"
+    a: "It depends on your state and the scene. Police can set reasonable rules about where you stand, especially at an active scene. A few states have laws that require a set distance from officers, and some have been challenged in court. If an officer tells you to step back, step back."
+  - q: "What should I say if police ask why I am recording?"
+    a: "You can say calmly: \"I am not interfering. I am recording from here.\" Keep your hands and phone where officers can see them. Do not argue while you record. If an officer tells you to move back, move back and keep recording if you can."
 ---
 
 ## What courts have said

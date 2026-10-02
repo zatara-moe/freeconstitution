@@ -70,6 +70,21 @@ for stem in stems:
             problems.append(f"{stem}: quick_check {i+1} bad answer index")
         if not qc.get("why"):
             problems.append(f"{stem}: quick_check {i+1} missing why")
+    st = d.get("seo_title") or ""
+    if not st:
+        warnings.append(f"{stem}: missing seo_title")
+    elif len(st) > 60:
+        warnings.append(f"{stem}: seo_title is {len(st)} chars (max 60)")
+    sd = d.get("seo_description") or ""
+    if not sd:
+        warnings.append(f"{stem}: missing seo_description")
+    elif not 120 <= len(sd) <= 160:
+        warnings.append(f"{stem}: seo_description is {len(sd)} chars (aim 140-158)")
+    for qa in d.get("faq") or []:
+        if not (qa.get("q") and qa.get("a")):
+            problems.append(f"{stem}: faq item incomplete")
+        elif len(qa["a"].split()) > 70:
+            warnings.append(f"{stem}: faq answer over 70 words: {qa['q'][:40]!r}")
     for k in d.get("key_cases") or []:
         if not (k.get("name") and k.get("year") and k.get("held")):
             problems.append(f"{stem}: key case incomplete {k}")
@@ -77,6 +92,20 @@ for stem in stems:
         pass
     if d.get("who_argued") is not None and len(d["who_argued"]) < 2:
         problems.append(f"{stem}: who_argued needs 2+ sides")
+
+# situation cards: seo fields and faq
+for sp in sorted((C / "situations").glob("*.md")):
+    front, _ = body_of(sp)
+    st, sd = front.get("seo_title") or "", front.get("seo_description") or ""
+    if not st or len(st) > 60:
+        warnings.append(f"situation {sp.stem}: seo_title missing or over 60 chars ({len(st)})")
+    if not sd or not 120 <= len(sd) <= 160:
+        warnings.append(f"situation {sp.stem}: seo_description missing or not 120-160 chars ({len(sd)})")
+    for qa in front.get("faq") or []:
+        if not (qa.get("q") and qa.get("a")):
+            problems.append(f"situation {sp.stem}: faq item incomplete")
+        elif len(qa["a"].split()) > 70:
+            warnings.append(f"situation {sp.stem}: faq answer over 70 words: {qa['q'][:40]!r}")
 
 # verbatim must be unchanged from the original import
 ORIG = Path("/tmp/claude-0/-home-claude/68854712-071e-5fb7-817f-355110082800/scratchpad/orig/content")

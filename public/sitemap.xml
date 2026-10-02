@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://freeconstitution.org/</loc><lastmod>2026-10-01</lastmod><priority>1.0</priority></url>
   <url><loc>https://freeconstitution.org/about/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
-  <url><loc>https://freeconstitution.org/amendments/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://freeconstitution.org/amendments/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>
   <url><loc>https://freeconstitution.org/amendments/1/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/amendments/10/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/amendments/11/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
@@ -59,6 +59,7 @@
   <url><loc>https://freeconstitution.org/articles/5/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/articles/6/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/articles/7/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://freeconstitution.org/bill-of-rights/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>
   <url><loc>https://freeconstitution.org/declaration/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/full-text/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/memorize/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
@@ -73,7 +74,6 @@
   <url><loc>https://freeconstitution.org/paths/rights-in-10-minutes/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/paths/three-branches/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/preamble/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
-  <url><loc>https://freeconstitution.org/search/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
   <url><loc>https://freeconstitution.org/situations/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>
   <url><loc>https://freeconstitution.org/situations/at-a-protest/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>
   <url><loc>https://freeconstitution.org/situations/at-school/</loc><lastmod>2026-10-01</lastmod><priority>0.9</priority></url>

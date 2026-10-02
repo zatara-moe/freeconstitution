@@ -51,3 +51,14 @@ quick_check:
       - "Only for people under 21."
     answer: 1
     why: "The Sixteenth Amendment gives Congress this power, and courts have consistently rejected claims that the tax is voluntary."
+seo_title: "16th Amendment Explained: The Federal Income Tax"
+seo_description: "The 16th Amendment in plain English: Congress can tax income from any source without dividing it among states by population. What it says and why it passed."
+faq:
+  - q: "What does the 16th Amendment say in simple terms?"
+    a: "Congress can tax people's income, from any source. It does not have to divide the tax among the states by population. Ratified in 1913, it made a practical federal income tax possible."
+  - q: "Is the income tax constitutional?"
+    a: "Yes. The 16th Amendment gives Congress the power to tax income. The Supreme Court upheld the federal income tax in Brushaber v. Union Pacific Railroad Co. (1916). Courts have rejected claims that the tax is unconstitutional or voluntary many times."
+  - q: "Did the 16th Amendment create the income tax?"
+    a: "No. It gave Congress the power to tax income without dividing the tax among the states. Congress created the modern income tax by passing a law later in 1913."
+  - q: "Why was the 16th Amendment passed?"
+    a: "To overcome a Supreme Court ruling. In Pollock v. Farmers' Loan & Trust Co. (1895), the Court said a tax on income from property had to be divided among the states by population. That made a practical income tax impossible."

@@ -33,6 +33,22 @@ help:
     value: "If you are charged with a crime and cannot pay, ask for a public defender."
     href: ""
 state_varies: "Permit rules, curfews, and mask laws depend on your state and city."
+h1: "Your rights at a protest"
+seo_title: "What Are My Rights at a Protest? A Plain-English Guide"
+seo_description: "You can protest peacefully on public sidewalks and in parks. Here's when cities can require a permit, what is not protected, and what to say if stopped."
+faq:
+  - q: "Is it legal to protest?"
+    a: "Yes. The First Amendment protects your right to speak and to gather peacefully. Public sidewalks, parks, and plazas are generally protected places to protest. Blocking traffic without a permit, trespassing, damaging property, and threats of violence are not protected."
+  - q: "Do I need a permit to protest?"
+    a: "It depends on your city and the kind of protest. Cities can require permits for marches that block streets. Cities can also set rules about time, place, and manner, but these rules cannot be based on what you are saying. Check your city's rules."
+  - q: "Can police arrest me at a protest?"
+    a: "Yes, if police have probable cause that you broke a law, such as blocking traffic or staying after an order to leave. If you are arrested, do not physically resist. Say: \"I want to remain silent. I want a lawyer.\" A lawyer can challenge the arrest later."
+  - q: "Can I record at a protest?"
+    a: "Yes, in most cases. Many federal appeals courts have said you have a right to record police in public. Do not get in their way while you record. Police generally need a warrant to search your phone."
+  - q: "What is a dispersal order?"
+    a: "A dispersal order is an order from police for a crowd to leave an area. Staying after a lawful dispersal order can be a separate crime. Leave by the route police give, if they give one. You can challenge the order later with a lawyer."
+  - q: "Can I protest on private property?"
+    a: "Generally, no, not without the owner's permission. The First Amendment limits the government, not private owners. The owner can ask you to leave, and staying can be trespassing. Public sidewalks, parks, and plazas are the most protected places to protest."
 ---
 
 ## Where and how you can protest

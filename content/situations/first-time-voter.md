@@ -29,6 +29,24 @@ help:
     value: "1-866-OUR-VOTE (1-866-687-8683)"
     href: "tel:18666878683"
 state_varies: "Registration deadlines, ID rules, and early voting all depend on your state."
+h1: "Voting for the first time: what you need"
+seo_title: "What Do I Need to Vote for the First Time? A Simple Guide"
+seo_description: "It depends on your state. Here's how to register, what ID to bring the first time you vote, and your rights at the polls if something goes wrong."
+faq:
+  - q: "What do I need to bring to vote for the first time?"
+    a: "It depends on your state. Some states require photo ID, some accept other ID, and some do not ask. If you registered by mail and this is your first federal election, federal law may require ID or a current bill or bank statement. Check vote.gov before you go."
+  - q: "How do I register to vote?"
+    a: "Go to vote.gov and choose your state. It shows you how to register where you live. Deadlines differ by state, and some are about a month before Election Day. Some states let you register on Election Day."
+  - q: "What if my name isn't on the voter list?"
+    a: "You can usually cast a provisional ballot. First, ask the poll worker to check again, and ask if you are at the right polling place. If it is not fixed, say: \"I would like to cast a provisional ballot.\" Officials check later whether you were eligible."
+  - q: "Can I vote if I'm in line when polls close?"
+    a: "Yes, in most states. If you are in line when the polls close, you can still vote. Stay in line. If someone tells you to leave, call the Election Protection Hotline at 1-866-OUR-VOTE (1-866-687-8683)."
+  - q: "How old do you have to be to vote?"
+    a: "You must be 18 by Election Day. The Twenty-sixth Amendment (1971) protects the vote for citizens 18 and older. Some states let you pre-register at 16 or 17. Some let 17-year-olds vote in a primary if they will be 18 by the general election."
+  - q: "Can college students vote where they go to school?"
+    a: "Yes, generally. College students can usually register at their school address or their home address. Pick one, not both. Do not register in two places at once. Check your state's rules at vote.gov."
+  - q: "Can someone help me vote?"
+    a: "Yes, if you need help because of a disability or because you have trouble reading. Section 208 of the Voting Rights Act lets you bring a person of your choice. That person cannot be your employer or an officer of your union."
 ---
 
 ## Who can vote

@@ -76,3 +76,18 @@ quick_check:
       - "Yes. Schools can search anyone, anytime, for any reason."
     answer: 1
     why: "New Jersey v. T.L.O. (1985) set a lower standard for public schools, but they still need a reason."
+seo_title: "4th Amendment Explained: Search and Seizure in Plain English"
+seo_description: "The 4th Amendment in plain English: police generally need a warrant, your consent, or an exception to search you, your phone, or your home. Key cases inside."
+faq:
+  - q: "What does the Fourth Amendment say in simple terms?"
+    a: "It means the government cannot search you or take your things without a good legal reason. Police generally need a warrant, your consent, or a legal exception to search you, your home, your phone, or your belongings."
+  - q: "Can police search my phone without a warrant?"
+    a: "Generally, no. In Riley v. California (2014), the Supreme Court said police usually need a warrant to search a phone, even after an arrest. There are narrow emergency exceptions."
+  - q: "Can police search my car without a warrant?"
+    a: "Sometimes. If police have probable cause, meaning good reason to believe the car holds evidence of a crime, they can generally search it without a warrant. The Supreme Court allowed this in Carroll v. United States (1925). Police can also search if you consent."
+  - q: "Can I say no to a police search?"
+    a: "Yes. You can refuse to consent to a search. Consent is one exception to the warrant rule, so agreeing generally makes a search legal. In Schneckloth v. Bustamonte (1973), the Supreme Court said police do not have to tell you that you can refuse. Police may still search with a warrant or another exception."
+  - q: "Can my school search my backpack?"
+    a: "Yes, if officials have reasonable suspicion. In New Jersey v. T.L.O. (1985), the Supreme Court said public school officials need reasonable suspicion, a lower standard than the probable cause police need. The search must also fit its purpose. Private schools are not bound by the Fourth Amendment."
+  - q: "What happens if police search me illegally?"
+    a: "Evidence from an illegal search generally cannot be used against you at a criminal trial. This is called the exclusionary rule. The Supreme Court applied it to state courts in Mapp v. Ohio (1961). There are exceptions, such as when police relied in good faith on a warrant."

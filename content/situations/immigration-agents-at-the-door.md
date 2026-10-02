@@ -31,6 +31,24 @@ help:
     value: "aclu.org/know-your-rights/immigrants-rights"
     href: "https://www.aclu.org/know-your-rights/immigrants-rights"
 state_varies: null
+h1: "Can ICE enter my home? Your rights at the door"
+seo_title: "Can ICE Enter My Home Without a Warrant? Know Your Rights"
+seo_description: "Generally, not without your consent or a judge's warrant, though this is being tested in court. Here's how to check a warrant and what to say at the door."
+faq:
+  - q: "Can ICE enter my home without a warrant?"
+    a: "Generally, no, not without your consent or a warrant signed by a judge. In 2025, ICE told its officers they could enter some homes using an administrative warrant. At least one federal judge ruled that an entry like this violated the Fourth Amendment. Court challenges are ongoing."
+  - q: "What is the difference between an ICE warrant and a judicial warrant?"
+    a: "A judicial warrant is signed by a judge and names a court. An ICE administrative warrant, such as Form I-200 or I-205, is signed by an immigration officer, not a judge. Know-your-rights groups say an administrative warrant does not by itself allow agents to enter your home."
+  - q: "Do I have to answer ICE questions?"
+    a: "Generally, no. You have the right to remain silent, whatever your immigration status. You can refuse to answer questions about where you were born or your status. Do not lie or show false documents, because both can be crimes. Adults with valid immigration papers generally must carry them. You can ask for a lawyer."
+  - q: "Do undocumented people have constitutional rights?"
+    a: "Yes, many of them. The Fifth and Fourteenth Amendments protect every \"person,\" not only citizens. In Zadvydas v. Davis (2001), the Supreme Court said due process applies to everyone in the U.S., whatever their status. Courts generally apply the right to remain silent to everyone."
+  - q: "Do I have to open the door for ICE?"
+    a: "No. You do not have to open the door. Opening it can make it harder to keep agents from coming in. You can speak through the door and ask them to slide any warrant under it or hold it to a window."
+  - q: "What if ICE comes in without a judge's warrant?"
+    a: "Do not physically resist. You can say: \"I do not consent to you entering my home. I do not consent to a search.\" You can also say you are using your right to remain silent. Write down names, badge numbers, and what happened as soon as you can."
+  - q: "Do I have to sign papers ICE gives me?"
+    a: "No. Do not sign anything you do not understand. Some forms can give up your right to see a judge. You can ask to speak to a lawyer first. Free or low-cost immigration legal help is listed in the National Immigration Legal Services Directory."
 ---
 
 ## These rights apply to everyone

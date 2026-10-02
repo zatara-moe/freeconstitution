@@ -560,3 +560,9 @@ html[data-depth="quick"] .depth-std { display: none !important; }
   body.print-wallet .ten-lines li::before { width: .2in; height: .2in; font-size: 8pt; top: .06in; }
   body.print-wallet .ten-second .label, body.print-wallet .ten-note { color: #000; font-size: 9pt; }
 }
+
+/* ---- Common questions ---- */
+.faq { padding: .8rem 0 .3rem; border-bottom: 1px solid var(--rule-soft); }
+.faq:last-child { border-bottom: 0; }
+.faq h3 { font-size: 1.05rem; margin-bottom: .35rem; color: var(--navy); }
+.faq p { margin-bottom: .5rem; }

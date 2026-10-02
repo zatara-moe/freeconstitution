@@ -41,3 +41,14 @@ quick_check:
       - "The Senate picks a replacement."
     answer: 1
     why: "The text lets states allow the governor to appoint someone until voters fill the seat."
+seo_title: "17th Amendment Explained: Electing U.S. Senators"
+seo_description: "The 17th Amendment in plain English: voters in each state elect their two U.S. senators directly. Why it passed in 1913, and how empty seats get filled."
+faq:
+  - q: "What does the 17th Amendment say in simple terms?"
+    a: "Voters in each state elect their two U.S. senators directly, for six-year terms. Before 1913, state legislatures chose senators. The amendment also explains how to fill a Senate seat that opens up."
+  - q: "How were senators chosen before the 17th Amendment?"
+    a: "State legislatures chose them. The original Constitution set up this system in Article I. Some seats were won by bribing lawmakers, and others stayed empty when lawmakers could not agree."
+  - q: "What happens when a senator dies or resigns?"
+    a: "The governor calls a special election to fill the seat. A state legislature can also let the governor appoint someone to serve until that election. The 17th Amendment allows both, and rules differ by state."
+  - q: "When was the 17th Amendment ratified?"
+    a: "April 8, 1913. It came about two months after the 16th Amendment, during a period of reform. Many states had already held unofficial popular votes for senator before then."

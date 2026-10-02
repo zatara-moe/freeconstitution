@@ -37,3 +37,14 @@ quick_check:
       - "Yes, but only in the House."
     answer: 1
     why: "The amendment is only about presidential electors. D.C. has a non-voting House delegate and no senators."
+seo_title: "23rd Amendment Explained: D.C. Votes for President"
+seo_description: "The 23rd Amendment in plain English: people in Washington, D.C., can vote for president, and D.C. gets 3 electoral votes. What it says and its limits."
+faq:
+  - q: "What does the 23rd Amendment say in simple terms?"
+    a: "People who live in Washington, D.C., can vote for President and Vice President. D.C. gets as many electoral votes as it would if it were a state, but never more than the smallest state. Today that is 3."
+  - q: "How many electoral votes does Washington, D.C., have?"
+    a: "Three. The 23rd Amendment gives D.C. no more electoral votes than the least populous state, which has 3. D.C. voters first voted for President in 1964."
+  - q: "Does D.C. have senators or a vote in Congress?"
+    a: "No. D.C. has no senators. It elects one delegate to the House, who can speak and work on committees but cannot vote to pass laws. The 23rd Amendment covers only presidential elections."
+  - q: "Why couldn't D.C. vote for president before 1961?"
+    a: "The original Constitution gave electoral votes only to states. Washington, D.C., is not part of any state. The 23rd Amendment, ratified on March 29, 1961, gave D.C. electoral votes."

@@ -30,6 +30,24 @@ help:
     value: "aclu.org/know-your-rights"
     href: "https://www.aclu.org/know-your-rights"
 state_varies: "Some rules, like whether you must give your name, depend on your state."
+h1: "Your rights when police question you"
+seo_title: "Do I Have to Answer Police Questions? Know Your Rights"
+seo_description: "No, you generally don't have to answer police questions. Here's exactly what to say, what you must give police, and when Miranda rules apply."
+faq:
+  - q: "Do I have to answer police questions?"
+    a: "Generally, no. The Fifth Amendment protects your right to remain silent. In Berghuis v. Thompkins (2010), the Supreme Court said you must say clearly that you are using it. You can say: \"I am exercising my right to remain silent. I want a lawyer.\""
+  - q: "Do I have to tell police my name?"
+    a: "It depends on your state. About half of states have stop-and-identify laws. These laws can require your name if police reasonably suspect you of a crime. If you are driving, you must show your license, registration, and proof of insurance."
+  - q: "What should I say if police stop me?"
+    a: "Ask calmly: \"Am I being detained, or am I free to leave?\" If you are free to leave, leave calmly. If not, you can say: \"I am exercising my right to remain silent. I want a lawyer.\" Then stop talking. Do not run, argue, or resist."
+  - q: "Can police lie to you?"
+    a: "Yes, generally. During questioning, police are allowed to use some lies, such as saying they have evidence they do not have. The Supreme Court allowed this in Frazier v. Cupp (1969). Some states, such as Illinois and Oregon, now limit this when police question young people."
+  - q: "Do police have to read me my rights?"
+    a: "Only if you are in custody and being questioned. Then police must give Miranda warnings, or your answers generally cannot be used against you at trial. Miranda v. Arizona (1966) set this rule. If you are not in custody, what you say can be used even without warnings."
+  - q: "Do I have to go to the police station to talk?"
+    a: "No, not unless you are under arrest. \"Come down to the station to talk\" is a request, not an order. You can say no. If you are arrested, you can say you are staying silent and want a lawyer. Then stop talking."
+  - q: "Can I get a free lawyer?"
+    a: "Yes, if you cannot pay and are charged with a crime that could lead to jail. A court generally must give you a lawyer, often called a public defender, before it can sentence you to jail. Gideon v. Wainwright (1963) and later cases set this rule."
 ---
 
 ## You can use these rights at any time
@@ -67,7 +85,7 @@ You generally do not have to say where you are going, where you came from, or wh
 - Say: "I am exercising my right to remain silent. I want a lawyer." Then stop talking.
 - Do not try to explain your way out. Anything you say can be used against you.
 - Do not lie to police. Lying to a federal officer is a separate crime. Many states have similar laws.
-- If you are charged with a crime that could mean jail and cannot pay a lawyer, the court must give you one. Ask for a public defender.
+- If you are charged with a crime and cannot pay a lawyer, ask for a public defender. A court generally must give you a lawyer before it can sentence you to jail.
 
 ## Miranda warnings
 

@@ -1,5 +1,7 @@
 ---
 type: page
+seo_title: "About Free Constitution: Who We Are and How We Check"
+seo_description: "Free Constitution explains the U.S. Constitution in plain English for everyone. Who makes it, how every legal claim is checked, and how to report a mistake."
 slug: about
 title: About Free Constitution
 summary: What this site is, who made it, and how we check our work.
