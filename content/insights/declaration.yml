@@ -1,0 +1,59 @@
+one_line: >-
+  The Declaration announced in 1776 that the colonies were independent from Britain. It explains why, but it is not law.
+subject: Independence
+content_note: "The full Declaration calls Native Americans \"merciless Indian Savages,\" and it does not address slavery directly. Both are explained below."
+scene:
+  when: "1776"
+  text: >-
+    In the summer of 1776, the colonies had been fighting Britain for more than a year. On July 2, the Second Continental Congress in Philadelphia voted for independence. On July 4, it approved the Declaration explaining why. Thomas Jefferson wrote the first draft.
+phrases:
+  - quote: "We hold these truths to be self-evident"
+    plain: "We believe these things are so clear they need no proof."
+  - quote: "all men are created equal"
+    plain: "All people are born equal."
+  - quote: "certain unalienable Rights"
+    plain: "Rights that cannot be taken away or given up."
+  - quote: "Life, Liberty and the pursuit of Happiness"
+    plain: "The right to live, to be free, and to seek a good life."
+  - quote: "deriving their just powers from the consent of the governed"
+    plain: "A government's power is fair only when the people agree to it."
+  - quote: "it is the Right of the People to alter or to abolish it"
+    plain: "When a government destroys these rights, the people can change or replace it."
+  - quote: "a long train of abuses and usurpations"
+    plain: "Many harms and unlawful grabs of power, one after another."
+  - quote: "we mutually pledge to each other our Lives, our Fortunes and our sacred Honor"
+    plain: "The signers promised to risk their lives, their wealth, and their honor for independence."
+picture_it: >-
+  You hear a speaker quote "all men are created equal" at a rally. That line comes from the Declaration, not the Constitution. It states an idea people still argue about and build on, but it is not a law a court enforces.
+myths:
+  - myth: "The Declaration of Independence is law."
+    fact: "It is not law and not part of the Constitution. Courts do not enforce it. Your legal rights come from the Constitution and other laws."
+  - myth: "Everyone signed the Declaration on July 4, 1776."
+    fact: "Congress approved it on July 4. Most delegates signed the official copy on August 2, 1776, and some signed later."
+  - myth: "The Declaration set up the U.S. government."
+    fact: "It announced independence. The Articles of Confederation, and later the Constitution, set up the government."
+words_changed:
+  - word: "unalienable"
+    then: "Cannot be taken away or given up."
+    now: "Usually spelled \"inalienable\" today. The meaning is the same."
+  - word: "self-evident"
+    then: "So clear it needs no proof."
+    now: "The same meaning."
+  - word: "men"
+    then: "In 1776, political rights were mostly limited to white men, often only those with property."
+    now: "Today the phrase is often quoted as a promise of equality for all people."
+back_then: >-
+  Britain had taxed the colonies without their consent and sent troops to enforce its laws. Fighting began in 1775. By 1776, many colonists believed they had to break away completely. Congress wanted to explain its reasons to the world and win foreign allies.
+quick_check:
+  - q: "Is the Declaration of Independence law?"
+    options: ["Yes.", "No.", "Only in some states."]
+    answer: 1
+    why: "The Declaration announced independence and explained why. It is not law and courts do not enforce it."
+  - q: "What does \"unalienable\" mean?"
+    options: ["Cannot be taken away.", "Foreign.", "Temporary."]
+    answer: 0
+    why: "Unalienable rights are rights that cannot be taken away or given up."
+  - q: "According to the Declaration, where does a government's fair power come from?"
+    options: ["The king.", "The military.", "The consent of the governed."]
+    answer: 2
+    why: "The Declaration says governments get their just powers from the consent of the governed."

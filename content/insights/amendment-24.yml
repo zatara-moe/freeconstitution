@@ -1,0 +1,56 @@
+one_line: >-
+  No one can be charged a fee to vote in a federal election. A 1966 Supreme Court ruling extended this to state elections.
+subject: No poll taxes
+content_note: >-
+  This page discusses poll taxes, which were used to keep Black Americans and poor voters from voting.
+scene:
+  when: "1964"
+  text: >-
+    After Reconstruction, many Southern states made people pay a yearly poll tax before they could vote. In some states, unpaid taxes added up year after year. The fee kept many Black citizens and poor white citizens from voting. By 1964, five states still charged it, and the Twenty-Fourth Amendment ended it in federal elections.
+phrases:
+  - quote: "to vote in any primary or other election for President or Vice President"
+    plain: "Voting in federal elections, including primaries, such as for President and Vice President,"
+  - quote: "or for Senator or Representative in Congress"
+    plain: "and for members of Congress"
+  - quote: "by reason of failure to pay any poll tax or other tax"
+    plain: "cannot be blocked because you did not pay a voting fee or any other tax."
+  - quote: "The Congress shall have power to enforce this article by appropriate legislation."
+    plain: "Congress can pass laws to enforce this."
+picture_it: >-
+  You go to vote for the first time. No one at the polling place can ask you to pay money before you get your ballot. Charging a fee to vote is not allowed in any U.S. election today. If it happens, you can ask for an election official or call the Election Protection hotline at 866-687-8683.
+myths:
+  - myth: "The Twenty-Fourth Amendment bans poll taxes in every election."
+    fact: "The text covers only federal elections. Harper v. Virginia State Board of Elections (1966) banned poll taxes in state and local elections under the Fourteenth Amendment."
+  - myth: "Poll taxes were just small fees that did not stop anyone."
+    fact: "For many poor families, the fee was a real cost, and in some states unpaid fees added up. That is why the tax kept many people from voting."
+words_changed:
+  - word: "poll tax"
+    then: "A fee for voting. 'Poll' once meant 'head,' so a poll tax was a tax on each person."
+    now: "Today 'poll' usually means voting or a survey. Poll taxes are banned in all U.S. elections."
+back_then: >-
+  Poll taxes spread across the South in the late 1800s and early 1900s, along with reading tests. Congress debated banning them for years. In 1962, Congress proposed this amendment, and enough states ratified it by January 1964.
+key_cases:
+  - name: "Breedlove v. Suttles"
+    year: 1937
+    held: "Georgia's poll tax did not violate the Constitution; this ruling was later overruled."
+  - name: "Harman v. Forssenius"
+    year: 1965
+    held: "Virginia could not make federal voters choose between paying a poll tax and filing a special residence certificate."
+  - name: "Harper v. Virginia State Board of Elections"
+    year: 1966
+    held: "Poll taxes in state elections violate the Equal Protection Clause of the Fourteenth Amendment."
+quick_check:
+  - q: "What is a poll tax?"
+    options:
+      - "A fee charged to vote."
+      - "A tax on survey companies."
+      - "A tax on polling places."
+    answer: 0
+    why: "A poll tax is a fee a person must pay to be allowed to vote."
+  - q: "The Twenty-Fourth Amendment covers federal elections. What banned poll taxes in state elections?"
+    options:
+      - "The Twenty-Sixth Amendment."
+      - "Harper v. Virginia State Board of Elections (1966)."
+      - "Each state's governor."
+    answer: 1
+    why: "In Harper, the Supreme Court held state poll taxes violate the Equal Protection Clause."

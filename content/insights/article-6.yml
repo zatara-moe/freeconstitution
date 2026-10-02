@@ -1,0 +1,71 @@
+one_line: >-
+  The Constitution, federal laws, and treaties are the supreme law. Officials must swear to support the Constitution, and no religious test is allowed.
+subject: Supreme law
+content_note: null
+scene:
+  when: "1787"
+  text: >-
+    Under the Articles of Confederation, states often ignored national laws and treaties. The new country also owed large debts from the Revolutionary War. The delegates wanted national law to come first and old debts to be paid. Article VI did both.
+phrases:
+  - quote: "All Debts contracted and Engagements entered into, before the Adoption of this Constitution"
+    plain: "Debts and agreements from before the Constitution still count."
+  - quote: "shall be the supreme Law of the Land"
+    plain: "The Constitution, federal laws, and treaties are the highest law in the country."
+  - quote: "the Judges in every State shall be bound thereby"
+    plain: "State judges must follow federal law, even over their own state's laws."
+  - quote: "shall be bound by Oath or Affirmation, to support this Constitution"
+    plain: "Federal and state officials must promise to support the Constitution."
+  - quote: "no religious Test shall ever be required as a Qualification to any Office or public Trust under the United States"
+    plain: "You can never be required to pass a religious test to hold a federal office."
+picture_it: >-
+  A state passes a law that conflicts with a valid federal law. Someone challenges it in court. If the judge finds a real conflict, the federal law wins and the state law cannot be enforced.
+myths:
+  - myth: "A state can cancel a federal law it disagrees with."
+    fact: "States cannot nullify federal law. In Cooper v. Aaron (1958), the Court said states are bound by its rulings on the Constitution."
+  - myth: "Supremacy means Congress can order state officials to enforce federal laws."
+    fact: "In Printz v. United States (1997), the Court said Congress cannot order state officers to carry out a federal program."
+  - myth: "Officials must swear on a Bible."
+    fact: "The text allows an affirmation, a promise with no religious words. No religious test is allowed for federal office."
+words_changed:
+  - word: "Affirmation"
+    then: "A formal promise made without swearing to God."
+    now: "The same. It is still offered in courts and oaths of office."
+  - word: "Engagements"
+    then: "Agreements or promises, like contracts."
+    now: "Usually means a promise to marry. Here it means official agreements."
+  - word: "religious Test"
+    then: "A rule that you must belong to, or swear to, a certain faith to hold office."
+    now: "Banned for federal office by this clause."
+back_then: >-
+  States had passed laws that clashed with national treaties, including the peace treaty with Britain. Several states also had religious tests for state office. The writers made national law supreme and banned religious tests for federal office.
+who_argued:
+  - side: "Anti-Federalists"
+    view: "Making federal law supreme would let the national government overpower the states and their own constitutions."
+  - side: "Federalists"
+    view: "Without it, each state could ignore national laws, and the Constitution would mean nothing."
+key_cases:
+  - name: "Ware v. Hylton"
+    year: 1796
+    held: "The peace treaty with Britain overrode a Virginia law about debts owed to British creditors."
+  - name: "McCulloch v. Maryland"
+    year: 1819
+    held: "A state cannot tax a national bank, because federal law is supreme."
+  - name: "Cooper v. Aaron"
+    year: 1958
+    held: "State officials are bound by the Supreme Court's rulings on the Constitution and could not resist school desegregation."
+  - name: "Printz v. United States"
+    year: 1997
+    held: "Congress cannot order state officers to carry out a federal program."
+quick_check:
+  - q: "A valid federal law and a state law conflict. Which one wins?"
+    options: ["The state law.", "The federal law.", "Whichever was passed first."]
+    answer: 1
+    why: "The Supremacy Clause makes valid federal law the supreme law of the land."
+  - q: "Can you be required to belong to a religion to hold federal office?"
+    options: ["Yes, for some offices.", "Only for the President.", "No. Religious tests are banned."]
+    answer: 2
+    why: "Article VI says no religious test shall ever be required for federal office."
+  - q: "Who must swear or affirm to support the Constitution?"
+    options: ["Federal and state officials.", "Only the President.", "Every citizen."]
+    answer: 0
+    why: "Article VI covers members of Congress, state lawmakers, and federal and state officers."

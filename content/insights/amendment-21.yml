@@ -1,0 +1,50 @@
+one_line: >-
+  This amendment ended national Prohibition in 1933 and lets each state make its own alcohol laws.
+subject: Ending Prohibition
+content_note: null
+scene:
+  when: "1933"
+  text: >-
+    By the early 1930s, Prohibition had lasted more than 10 years. Illegal alcohol was easy to find, and the Great Depression made many people want the jobs and tax money a legal alcohol industry could bring. Congress proposed repeal in February 1933. The states approved it in less than 10 months.
+phrases:
+  - quote: "The eighteenth article of amendment to the Constitution of the United States is hereby repealed."
+    plain: "The Eighteenth Amendment is canceled."
+  - quote: "for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited"
+    plain: "Bringing alcohol into a state or territory in a way that breaks its laws is banned."
+  - quote: "by conventions in the several States"
+    plain: "Special state conventions, not state legislatures, would approve it."
+picture_it: >-
+  You visit a friend in another state. Their grocery store sells wine, but back home you only see it in special liquor stores. Some counties do not allow alcohol sales at all. Section 2 is the reason: each state makes its own alcohol rules.
+myths:
+  - myth: "The Twenty-First Amendment lets states do anything they want with alcohol."
+    fact: "States still must follow the rest of the Constitution. In Granholm v. Heald (2005), the Court said states cannot treat out-of-state wineries worse than in-state ones."
+  - myth: "Prohibition was ended by a court."
+    fact: "It was ended by this amendment, which states approved through special conventions."
+words_changed:
+  - word: "conventions"
+    then: "Meetings of delegates chosen for one purpose."
+    now: "Same meaning. This is the only amendment ever ratified this way."
+back_then: >-
+  Congress chose state conventions instead of state legislatures to ratify this amendment. Many people believed legislators were more open to pressure from groups that supported Prohibition. Voters elected convention delegates who had mostly promised in advance how they would vote.
+key_cases:
+  - name: "Craig v. Boren"
+    year: 1976
+    held: "Oklahoma could not set a higher age for men than for women to buy low-alcohol beer, because that violated equal protection."
+  - name: "Granholm v. Heald"
+    year: 2005
+    held: "States cannot let in-state wineries ship directly to customers while blocking out-of-state wineries from doing the same."
+quick_check:
+  - q: "What did Section 1 of the Twenty-First Amendment do?"
+    options:
+      - "Repealed the Eighteenth Amendment."
+      - "Banned alcohol in every state."
+      - "Set the drinking age at 21."
+    answer: 0
+    why: "Section 1 ended national Prohibition. The drinking age comes from state laws, not this amendment."
+  - q: "Why do alcohol laws differ from state to state?"
+    options:
+      - "Because Section 2 lets each state control alcohol coming into it."
+      - "Because Congress sets different rules for each state."
+      - "Because of the Tenth Amendment only."
+    answer: 0
+    why: "Section 2 gives states strong power over alcohol within their borders."

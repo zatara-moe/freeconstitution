@@ -1,0 +1,209 @@
+# Guided reading paths. Every href must be a real page.
+# blurb: 15 words or fewer. label: 5 words or fewer. why: 12 words or fewer.
+
+- slug: rights-in-10-minutes
+  title: "Your rights in 10 minutes"
+  blurb: "The five protections people use most, in plain English."
+  icon: shield
+  steps:
+    - href: /amendments/1/
+      label: "Speak, believe, protest"
+      why: "The five freedoms in one sentence."
+    - href: /amendments/4/
+      label: "Searches and warrants"
+      why: "When police can search you, your car, or your phone."
+    - href: /amendments/5/
+      label: "The right to stay silent"
+      why: "You cannot be forced to testify against yourself."
+    - href: /amendments/6/
+      label: "A fair trial"
+      why: "A lawyer, a jury, and a speedy, public trial."
+    - href: /amendments/14/
+      label: "Equal protection and citizenship"
+      why: "Applies most rights to states and defines who is a citizen."
+
+- slug: pulled-over-or-stopped
+  title: "Getting pulled over or stopped"
+  blurb: "What the law generally says when police stop, question, or search you."
+  icon: car
+  steps:
+    - href: /situations/being-questioned-by-police/
+      label: "Being questioned"
+      why: "What you can say, and when you can stay silent."
+    - href: /situations/searched-by-police/
+      label: "Being searched"
+      why: "Consent, warrants, and what police generally may search."
+    - href: /situations/recording-police/
+      label: "Recording police"
+      why: "What the law generally says about filming officers in public."
+    - href: /amendments/4/
+      label: "The 4th Amendment"
+      why: "The rule behind stops, searches, and warrants."
+    - href: /amendments/5/
+      label: "The 5th Amendment"
+      why: "The rule behind the right to remain silent."
+
+- slug: rights-at-school
+  title: "Rights at school"
+  blurb: "Speech, searches, and equal treatment for students in public schools."
+  icon: school
+  steps:
+    - href: /situations/at-school/
+      label: "Your rights at school"
+      why: "What students can generally say, wear, and refuse."
+    - href: /amendments/1/
+      label: "Free speech for students"
+      why: "Students keep free speech rights, with some school limits."
+    - href: /situations/posting-online/
+      label: "Posting online"
+      why: "When schools can and cannot act on off-campus posts."
+    - href: /amendments/4/
+      label: "School searches"
+      why: "Schools need less proof than police to search students."
+    - href: /amendments/14/
+      label: "Equal treatment"
+      why: "The basis for ending racial segregation in public schools."
+
+- slug: first-time-voter
+  title: "First-time voter"
+  blurb: "Who can vote, what is protected, and what to do if turned away."
+  icon: ballot
+  steps:
+    - href: /situations/first-time-voter/
+      label: "Voting for the first time"
+      why: "Registering, ID rules, and what happens at the polls."
+    - href: /amendments/26/
+      label: "Voting at 18"
+      why: "Citizens 18 and older cannot be denied the vote for age."
+    - href: /amendments/15/
+      label: "No race barrier"
+      why: "Bars denying the vote because of race or color."
+    - href: /amendments/19/
+      label: "No sex barrier"
+      why: "Bars denying the vote because of sex."
+    - href: /amendments/24/
+      label: "No poll taxes"
+      why: "You cannot be charged a fee to vote in federal elections."
+    - href: /articles/1/section-4/
+      label: "Who runs elections"
+      why: "States set election rules, and Congress can change some of them."
+    - href: /situations/turned-away-from-voting/
+      label: "If you are turned away"
+      why: "Provisional ballots, hotlines, and what the law generally says."
+
+- slug: three-branches
+  title: "How the government works: the three branches"
+  blurb: "Who makes laws, who carries them out, and who interprets them."
+  icon: columns
+  steps:
+    - href: /articles/1/section-1/
+      label: "Congress makes laws"
+      why: "All federal lawmaking power goes to Congress."
+    - href: /articles/2/section-1/
+      label: "The president carries out laws"
+      why: "Executive power and how the president is chosen."
+    - href: /articles/3/section-1/
+      label: "Courts interpret laws"
+      why: "Judicial power and the Supreme Court."
+    - href: /articles/1/section-8/
+      label: "What Congress can do"
+      why: "The list of powers Congress has."
+    - href: /articles/1/section-7/
+      label: "The veto"
+      why: "How the president and Congress check each other on laws."
+    - href: /articles/2/section-4/
+      label: "Impeachment"
+      why: "How officials can be removed for serious wrongdoing."
+
+- slug: how-a-law-gets-made
+  title: "How a law gets made"
+  blurb: "From a bill in Congress to a law that courts can review."
+  icon: book
+  steps:
+    - href: /articles/1/section-1/
+      label: "Congress has the power"
+      why: "Only Congress can make federal laws."
+    - href: /articles/1/section-7/
+      label: "Bill to law"
+      why: "Both houses pass it, then the president signs or vetoes."
+    - href: /articles/1/section-8/
+      label: "What laws are allowed"
+      why: "The topics Congress is allowed to make laws about."
+    - href: /articles/1/section-9/
+      label: "What Congress cannot do"
+      why: "Limits on Congress, like protecting habeas corpus."
+    - href: /articles/6/
+      label: "The supreme law"
+      why: "Federal law made under the Constitution overrides conflicting state law."
+    - href: /articles/3/
+      label: "Courts can review it"
+      why: "Courts can strike down laws that conflict with the Constitution."
+
+- slug: reconstruction-amendments
+  title: "The Reconstruction amendments"
+  blurb: "Three amendments after the Civil War that ended slavery and redefined citizenship."
+  icon: star
+  steps:
+    - href: /timeline/
+      label: "The road to war"
+      why: "From Dred Scott to the end of the Civil War."
+    - href: /amendments/13/
+      label: "Ending slavery"
+      why: "Abolishes slavery, except as punishment for a crime."
+    - href: /amendments/14/
+      label: "Citizenship and equal protection"
+      why: "Defines citizens and requires states to treat people equally."
+    - href: /amendments/15/
+      label: "The right to vote"
+      why: "Bars denying the vote because of race or color."
+
+- slug: how-the-vote-grew
+  title: "How the vote grew"
+  blurb: "Six amendments that changed who votes and how leaders are chosen."
+  icon: flag
+  steps:
+    - href: /amendments/15/
+      label: "Race (1870)"
+      why: "Bars denying the vote because of race or color."
+    - href: /amendments/17/
+      label: "Electing senators (1913)"
+      why: "Voters, not state legislatures, now choose senators."
+    - href: /amendments/19/
+      label: "Sex (1920)"
+      why: "Bars denying the vote because of sex."
+    - href: /amendments/23/
+      label: "Washington, D.C. (1961)"
+      why: "D.C. residents get electoral votes for president."
+    - href: /amendments/24/
+      label: "Poll taxes (1964)"
+      why: "Bans fees to vote in federal elections."
+    - href: /amendments/26/
+      label: "Age 18 (1971)"
+      why: "Lowers the voting age to 18."
+
+- slug: citizenship-test-basics
+  title: "Citizenship test basics"
+  blurb: "The founding documents and big ideas that civics tests ask about most."
+  icon: scales
+  steps:
+    - href: /declaration/
+      label: "Declaration of Independence"
+      why: "Why the colonies broke from Britain in 1776."
+    - href: /preamble/
+      label: "The Preamble"
+      why: "\"We the People\" and the goals of the Constitution."
+    - href: /articles/1/section-1/
+      label: "Legislative branch"
+      why: "Congress: the Senate and the House."
+    - href: /articles/2/section-1/
+      label: "Executive branch"
+      why: "The president and vice president."
+    - href: /articles/3/section-1/
+      label: "Judicial branch"
+      why: "The Supreme Court and federal courts."
+    - href: /amendments/1/
+      label: "The Bill of Rights"
+      why: "The first 10 amendments, starting with five freedoms."
+    - href: /amendments/14/
+      label: "Who is a citizen"
+      why: "Citizenship by birth or naturalization, and equal protection."

@@ -1,0 +1,45 @@
+one_line: >-
+  New Presidents start on January 20, and new members of Congress start on January 3, after the November election.
+subject: When terms begin
+content_note: null
+scene:
+  when: "1933"
+  text: >-
+    Before this amendment, officials elected in November did not take office until March 4. In the winter of 1932 to 1933, the Great Depression was getting worse. President Herbert Hoover had lost the election, but Franklin Roosevelt had to wait four months to take over. The Twentieth Amendment, ratified in January 1933, shortened that wait for future elections.
+phrases:
+  - quote: "The terms of the President and Vice President shall end at noon on the 20th day of January"
+    plain: "The President's and Vice President's terms end at noon on January 20."
+  - quote: "the terms of Senators and Representatives at noon on the 3d day of January"
+    plain: "Members of Congress end their terms at noon on January 3."
+  - quote: "The Congress shall assemble at least once in every year"
+    plain: "Congress must meet at least once a year."
+  - quote: "the President elect shall have died, the Vice President elect shall become President"
+    plain: "If the President-elect dies before the term starts, the Vice President-elect becomes President."
+  - quote: "the Vice President elect shall act as President until a President shall have qualified"
+    plain: "If no President is ready on time, the Vice President-elect fills in."
+picture_it: >-
+  Picture the winner of a presidential election dying on January 10, after Congress has counted the electoral votes but before Inauguration Day. This amendment answers what happens next. The Vice President-elect becomes President at noon on January 20. Before 1933, the Constitution did not clearly say.
+myths:
+  - myth: "A President who loses the election leaves office right away."
+    fact: "The outgoing President keeps full power until noon on January 20. This time between the election and the handover is often called the lame-duck period."
+words_changed:
+  - word: "lame duck"
+    then: "An old business term for someone who could not pay their debts."
+    now: "An official who is still in office after someone else has been chosen to replace them."
+back_then: >-
+  In 1788, the old Congress set March 4, 1789, as the day the new government would start. That long gap made sense when travel and vote counting were slow. By the 1930s, trains, telegraphs, and radio made the four-month wait unnecessary. A long lame-duck period also meant outgoing officials stayed in power after voters rejected them.
+quick_check:
+  - q: "When does a new President take office?"
+    options:
+      - "Noon on January 20."
+      - "March 4."
+      - "The day after the election."
+    answer: 0
+    why: "The Twentieth Amendment moved the start of the President's term from March 4 to January 20."
+  - q: "The President-elect dies before Inauguration Day. Who becomes President?"
+    options:
+      - "The current President stays on."
+      - "The Vice President-elect."
+      - "The Speaker of the House."
+    answer: 1
+    why: "Section 3 says the Vice President-elect becomes President."

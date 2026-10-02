@@ -1,0 +1,69 @@
+one_line: >-
+  The federal government has only the powers the Constitution gives it. Other powers belong to the states or to the people.
+subject: Powers of the states
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In 1787, many Americans feared a strong national government. They had just fought a war against a distant government they could not control. States wanted a clear promise that the new federal government would stay limited. The Tenth Amendment, ratified in 1791, put that promise in writing.
+phrases:
+  - quote: "The powers not delegated to the United States by the Constitution"
+    plain: "Powers the Constitution does not give to the federal government,"
+  - quote: "nor prohibited by it to the States"
+    plain: "and does not forbid the states from using,"
+  - quote: "are reserved to the States respectively, or to the people."
+    plain: "belong to each state or to the people."
+picture_it: >-
+  You want to know the driving age or the rules for getting married. Most of those rules come from your state, not from Washington, D.C. That is why they can change when you cross a state line. The drinking age is 21 everywhere mainly because Congress tied highway money to it, and the Supreme Court allowed that.
+myths:
+  - myth: "The federal government can make any law it wants."
+    fact: "Congress can act only under powers the Constitution gives it, such as taxing and regulating trade between states. Courts decide where those limits are."
+  - myth: "If my state allows something, federal law can't ban it."
+    fact: "When a valid federal law and a state law conflict, the federal law wins. This rule comes from the Supremacy Clause in Article VI. Something can be legal under state law and still illegal under federal law."
+words_changed:
+  - word: "delegated"
+    then: "Handed over by the people to the government."
+    now: "Same meaning. It refers to the powers the Constitution gives the federal government."
+  - word: "reserved"
+    then: "Kept back or set aside."
+    now: "Same meaning. Here it means powers kept by the states and the people."
+back_then: >-
+  The Articles of Confederation, the first national plan, said each state kept every power not "expressly delegated" to the national government. The Tenth Amendment left out the word "expressly." In McCulloch v. Maryland (1819), Chief Justice John Marshall pointed to that missing word. He said federal power can include more than what is listed word for word.
+key_cases:
+  - name: "McCulloch v. Maryland"
+    year: 1819
+    held: "Congress can use powers that are necessary and proper to carry out its listed powers, such as creating a national bank."
+  - name: "South Dakota v. Dole"
+    year: 1987
+    held: "Congress can encourage states to set a drinking age of 21 by withholding part of their federal highway money."
+  - name: "New York v. United States"
+    year: 1992
+    held: "Congress cannot order state legislatures to pass laws that carry out a federal program."
+  - name: "Printz v. United States"
+    year: 1997
+    held: "The federal government cannot order local officials, such as sheriffs, to carry out a federal program."
+  - name: "Murphy v. NCAA"
+    year: 2018
+    held: "Congress cannot order states to keep their bans on sports betting, so states can choose to allow it."
+quick_check:
+  - q: "Who holds powers the Constitution does not give the federal government or forbid to the states?"
+    options:
+      - "The President."
+      - "The states or the people."
+      - "The Supreme Court."
+    answer: 1
+    why: "The Tenth Amendment says those powers are reserved to the states or to the people."
+  - q: "Why are the driving age and marriage rules different from state to state?"
+    options:
+      - "Because these areas are mostly left to the states."
+      - "Because the Constitution sets different ages for each state."
+      - "Because Congress assigns each state its own rules."
+    answer: 0
+    why: "The Constitution does not give these areas to the federal government, so states make most of these rules."
+  - q: "A valid federal law and a state law conflict. Which one wins?"
+    options:
+      - "The state law, because of the Tenth Amendment."
+      - "The federal law, because of the Supremacy Clause."
+      - "Whichever law is newer."
+    answer: 1
+    why: "Article VI makes valid federal law the supreme law of the land."

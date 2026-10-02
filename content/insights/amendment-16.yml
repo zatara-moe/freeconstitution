@@ -1,0 +1,53 @@
+one_line: >-
+  Congress can tax your income, from any source, without dividing the tax among the states by population.
+subject: Income tax
+content_note: null
+scene:
+  when: "1913"
+  text: >-
+    In 1895, the Supreme Court struck down a federal income tax. It said the tax had to be divided among the states by population, which does not work for a tax on income. At the time, the government got much of its money from tariffs, which raised prices on goods everyone bought. Reformers wanted a tax based on what people earned, and the Sixteenth Amendment was ratified in 1913.
+phrases:
+  - quote: "The Congress shall have power to lay and collect taxes on incomes"
+    plain: "Congress can set and collect taxes on income."
+  - quote: "from whatever source derived"
+    plain: "This covers income from any source, such as a job, a business, or investments."
+  - quote: "without apportionment among the several States"
+    plain: "The tax does not have to be divided among the states based on how many people live in each one."
+picture_it: >-
+  You get your first paycheck from a summer job, and it is smaller than you expected. Part of it went to taxes, including federal income tax, which this amendment allows. If you earned only a little, you may get some or all of the income tax back after you file a tax return.
+myths:
+  - myth: "The income tax is unconstitutional, or paying it is voluntary."
+    fact: "Courts have rejected these claims many times. The Supreme Court upheld the income tax under this amendment in Brushaber v. Union Pacific Railroad (1916)."
+  - myth: "The Sixteenth Amendment created the income tax."
+    fact: "It gave Congress the power to tax income. Congress created the modern income tax by passing a law later in 1913."
+words_changed:
+  - word: "apportionment"
+    then: "Dividing something among the states by population, as with seats in the House."
+    now: "Same meaning. A tax divided this way would charge more total to states with more people, no matter how much those people earned."
+back_then: >-
+  Congress taxed income during the Civil War, then let the tax end. In 1894 it passed a new income tax, and the Supreme Court struck it down the next year. For almost 20 years after that ruling, Congress could not tax income in a practical way.
+key_cases:
+  - name: "Pollock v. Farmers' Loan & Trust Co."
+    year: 1895
+    held: "A federal tax on income from property, such as rent and investments, had to be divided among the states by population."
+  - name: "Brushaber v. Union Pacific Railroad Co."
+    year: 1916
+    held: "The federal income tax law of 1913 was constitutional under the Sixteenth Amendment."
+  - name: "Moore v. United States"
+    year: 2024
+    held: "Congress could tax American shareholders on a foreign company's income that the company earned but did not pay out to them."
+quick_check:
+  - q: "Which court decision did the Sixteenth Amendment overcome?"
+    options:
+      - "Pollock v. Farmers' Loan & Trust Co. (1895)"
+      - "Brushaber v. Union Pacific Railroad Co. (1916)"
+      - "McCulloch v. Maryland (1819)"
+    answer: 0
+    why: "Pollock said an income tax had to be divided among states by population. The amendment removed that rule for income taxes."
+  - q: "Is paying federal income tax optional?"
+    options:
+      - "Yes. It is voluntary."
+      - "No. Courts have upheld the income tax many times."
+      - "Only for people under 21."
+    answer: 1
+    why: "The Sixteenth Amendment gives Congress this power, and courts have consistently rejected claims that the tax is voluntary."

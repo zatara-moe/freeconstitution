@@ -1,0 +1,39 @@
+one_line: >-
+  People who live in Washington, D.C., can vote for President. D.C. gets 3 electoral votes, the same as the smallest states.
+subject: D.C. votes for President
+content_note: null
+scene:
+  when: "1961"
+  text: >-
+    Washington, D.C., is not part of any state. Under the original Constitution, only states had electoral votes, so people living in D.C. could not vote for President. By 1960, more people lived in D.C. than in several states. The Twenty-Third Amendment was ratified in 1961, and D.C. voters first voted for President in 1964.
+phrases:
+  - quote: "The District constituting the seat of Government of the United States"
+    plain: "Washington, D.C., the nation's capital,"
+  - quote: "equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State"
+    plain: "gets as many electoral votes as it would have if it were a state,"
+  - quote: "but in no event more than the least populous State"
+    plain: "but never more than the state with the fewest people. Today that means 3."
+picture_it: >-
+  You move to Washington, D.C., for college or a first job and register to vote there. You can vote for President, and D.C.'s 3 electoral votes count like any state's. But D.C. has no senators. It elects one delegate to the House, who can speak and work on committees but cannot vote to pass laws.
+myths:
+  - myth: "People in D.C. cannot vote in federal elections."
+    fact: "Since 1964, they have voted for President. They also elect a House delegate who cannot vote to pass laws."
+  - myth: "D.C. has two senators, like a state."
+    fact: "D.C. has no senators. This amendment covers only presidential elections."
+back_then: >-
+  The Constitution created a federal district for the capital so no single state would control it. When it was written, few people lived there. By the 1950s, hundreds of thousands of U.S. citizens in D.C. could not vote for President. Congress proposed the amendment in 1960.
+quick_check:
+  - q: "How many electoral votes does Washington, D.C., have?"
+    options:
+      - "None."
+      - "3."
+      - "As many as its population would give a state, with no limit."
+    answer: 1
+    why: "The amendment caps D.C. at the number the least populous state has, which is 3."
+  - q: "Does the Twenty-Third Amendment give D.C. voting members of Congress?"
+    options:
+      - "Yes, two senators and one representative."
+      - "No. It only covers voting for President and Vice President."
+      - "Yes, but only in the House."
+    answer: 1
+    why: "The amendment is only about presidential electors. D.C. has a non-voting House delegate and no senators."

@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 """
-freeconstitution.org, build script
-Generates the complete static site from markdown content.
-Outputs to /public/
+freeconstitution.org build script
+Generates the complete static site from /content into /public.
 
-Usage: python3 scripts/build.py
+Usage:  python3 scripts/build.py
+Needs:  Python 3.9+ and PyYAML (pip install pyyaml)
+
+The build fails loudly if:
+  - a "Phrase by phrase" quote does not match the original text exactly
+  - an internal link points at a page that does not exist
 """
 
+import json
 import re
 import shutil
+import subprocess
+import sys
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -16,7 +23,7 @@ from pathlib import Path
 import yaml
 
 # ============================================================
-# Paths
+# Settings
 # ============================================================
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
@@ -25,56 +32,11 @@ PUBLIC = ROOT / "public"
 
 SITE_URL = "https://freeconstitution.org"
 SITE_NAME = "Free Constitution"
-TAGLINE = "Read your Constitution. Know your rights."
-
-# ============================================================
-# Jump points, the homepage rail
-# ============================================================
-# Each question links straight to the section that answers it.
-# href anchors are validated against generated pages at the end
-# of the build, so a renamed heading fails loudly, not silently.
-JUMP_POINTS = [
-    {
-        "q": "Can police search my phone?",
-        "href": "/amendments/4/#what-this-means-for-you",
-        "where": "Fourth Amendment",
-    },
-    {
-        "q": "Do I have to answer police questions?",
-        "href": "/situations/being-questioned-by-police/",
-        "where": "Situation card",
-    },
-    {
-        "q": "What are my rights at a protest?",
-        "href": "/situations/at-a-protest/",
-        "where": "Situation card",
-    },
-    {
-        "q": "Who is a citizen by birth?",
-        "href": "/amendments/14/#what-this-means-for-you",
-        "where": "Fourteenth Amendment",
-    },
-    {
-        "q": "Do police need a warrant to enter my home?",
-        "href": "/situations/searched-by-police/",
-        "where": "Situation card",
-    },
-    {
-        "q": "Can I be turned away from voting?",
-        "href": "/situations/turned-away-from-voting/",
-        "where": "Situation card",
-    },
-    {
-        "q": "Can the government take my property?",
-        "href": "/amendments/5/#what-this-means-for-you",
-        "where": "Fifth Amendment",
-    },
-    {
-        "q": "Can the government limit what guns I own?",
-        "href": "/amendments/2/#what-this-means-for-you",
-        "where": "Second Amendment",
-    },
-]
+TAGLINE = "Know your rights. In plain English."
+CONTACT_URL = "https://hopeforamericans.net"   # where "Found a mistake?" points
+ASSET_V = "20261001"                           # bump to bust browser caches
+TODAY = date.today()
+WPM = 200                                      # reading speed used for "About N min"
 
 ORDINALS = {
     1: "First", 2: "Second", 3: "Third", 4: "Fourth", 5: "Fifth",
@@ -85,15 +47,146 @@ ORDINALS = {
     22: "Twenty-second", 23: "Twenty-third", 24: "Twenty-fourth",
     25: "Twenty-fifth", 26: "Twenty-sixth", 27: "Twenty-seventh",
 }
-
 ROMAN = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII"}
+ARTICLE_NAMES = {
+    1: "Congress", 2: "The President", 3: "The courts", 4: "The states",
+    5: "Changing the Constitution", 6: "The supreme law", 7: "Approving the Constitution",
+}
+
+# Homepage "What's going on?" buttons
+FINDER = [
+    ("shield", "Police are asking me questions", "/situations/being-questioned-by-police/"),
+    ("search", "Police want to search me", "/situations/searched-by-police/"),
+    ("school", "Something happened at school", "/situations/at-school/"),
+    ("phone", "I posted something online", "/situations/posting-online/"),
+    ("work", "Something happened at work", "/situations/at-work/"),
+    ("camera", "I want to record police", "/situations/recording-police/"),
+    ("ballot", "I'm voting for the first time", "/situations/first-time-voter/"),
+    ("megaphone", "I'm going to a protest", "/situations/at-a-protest/"),
+]
+
+# Homepage "Questions people are asking"
+JUMP_POINTS = [
+    ("Can police search my phone?", "/amendments/4/", "Fourth Amendment"),
+    ("Can my school punish me for a post?", "/situations/posting-online/", "Situation card"),
+    ("Do I have to answer police questions?", "/situations/being-questioned-by-police/", "Situation card"),
+    ("Who is a citizen by birth?", "/amendments/14/", "Fourteenth Amendment"),
+    ("Can an app ban me for what I say?", "/amendments/1/", "First Amendment"),
+    ("Can the government take my property?", "/amendments/5/", "Fifth Amendment"),
+]
 
 # ============================================================
-# Markdown, small converter for the subset this content uses
+# Icons (24x24, stroke). Keep it small and consistent.
 # ============================================================
+ICONS = {
+    "shield": '<path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z"/>',
+    "search": '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+    "school": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/>',
+    "phone": '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+    "work": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
+    "camera": '<path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/>',
+    "ballot": '<rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V4h8v7M10 7.5l1.5 1.5L14 6"/>',
+    "megaphone": '<path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6"/>',
+    "home": '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
+    "car": '<path d="M5 17h14M5 17v2M19 17v2M4 13l2-6h12l2 6v4H4z"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>',
+    "scales": '<path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>',
+    "columns": '<path d="M3 21h18M4 10h16M12 3l9 5H3zM6 10v8M10 10v8M14 10v8M18 10v8"/>',
+    "star": '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+    "flag": '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+    "book": '<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3"/><path d="M20 4v14h-7"/>',
+    "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    "check": '<path d="M5 12l5 5L20 7"/>',
+    "x": '<path d="M6 6l12 12M18 6L6 18"/>',
+    "right": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "left": '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+    "text": '<path d="M4 20l5-14h2l5 14M6.5 14h7M17 20v-6.5a2.5 2.5 0 0 1 5 0V20M17 16.5h5"/>',
+    "eye": '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    "bulb": '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+    "quote": '<path d="M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6"/>',
+    "help": '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/>',
+    "list": '<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>',
+    "layers": '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+    "lifebuoy": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/>',
+    "printer": '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2"/><rect x="6" y="14" width="12" height="7"/>',
+    "download": '<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>',
+    "expand": '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
+    "map": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    "timeline": '<path d="M12 2v20"/><circle cx="12" cy="6" r="2"/><circle cx="12" cy="13" r="2"/><path d="M14 6h6M4 13h6M14 19h5"/>',
+    "brain": '<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V4.5A2.5 2.5 0 0 0 9 4zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/>',
+    "info": '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>',
+    "alert": '<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/>',
+    "menu": '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    "up": '<path d="M6 15l6-6 6 6"/>',
+    "words": '<path d="M4 6h10M4 12h7M4 18h10"/><path d="M15 15l3-8 3 8M16 13h4"/>',
+}
 
+
+def icon(name, cls="ic"):
+    return (f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            f'{ICONS.get(name, ICONS["info"])}</svg>')
+
+
+# ============================================================
+# Glossary term linking
+# ============================================================
+class Terms:
+    SKIP = {"a", "h1", "h2", "h3", "h4", "button", "blockquote", "code", "summary", "q", "dt"}
+
+    def __init__(self, items):
+        self.items = []
+        for it in items:
+            slug = slugify(it["term"])
+            forms = [it["term"]] + list(it.get("aliases") or [])
+            forms = sorted({f.lower() for f in forms if f}, key=len, reverse=True)
+            alt = "|".join(re.escape(f).replace(r"\ ", r"\s+").replace("\\-", "[-\\s]") for f in forms)
+            rx = re.compile(r"(?<![\w-])(" + alt + r")(?:s|es)?(?![\w-])", re.I)
+            self.items.append({"slug": slug, "term": it["term"], "rx": rx,
+                               "def": it["def"], "see": it.get("see") or "/words/"})
+        self.items.sort(key=lambda x: len(x["term"]), reverse=True)
+
+    def link(self, html, used):
+        if not html:
+            return html
+        parts = re.split(r"(<[^>]+>)", html)
+        depth = 0
+        out = []
+        for part in parts:
+            if part.startswith("<"):
+                m = re.match(r"<(/?)([a-zA-Z0-9]+)", part)
+                if m and m.group(2).lower() in self.SKIP and not part.endswith("/>"):
+                    depth += -1 if m.group(1) else 1
+                    depth = max(depth, 0)
+                out.append(part)
+                continue
+            if depth or not part.strip():
+                out.append(part)
+                continue
+            segs = [part]
+            for it in self.items:
+                if it["slug"] in used:
+                    continue
+                for i, s in enumerate(segs):
+                    if not isinstance(s, str):
+                        continue
+                    mm = it["rx"].search(s)
+                    if mm:
+                        a = (f'<a class="term" href="/words/#{it["slug"]}" data-def="{escape(it["def"])}" '
+                             f'data-see="{escape(it["see"])}">{mm.group(0)}</a>')
+                        segs[i:i + 1] = [s[:mm.start()], (a,), s[mm.end():]]
+                        used.add(it["slug"])
+                        break
+            out.append("".join(x[0] if isinstance(x, tuple) else x for x in segs))
+        return "".join(out)
+
+
+TERMS = None  # set in main()
+
+
+# ============================================================
+# Markdown (the small subset our content uses)
+# ============================================================
 def slugify(text):
-    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"<[^>]+>", "", str(text))
     text = text.lower().strip()
     text = re.sub(r"[^a-z0-9\s-]", "", text)
     text = re.sub(r"[\s_]+", "-", text)
@@ -102,82 +195,80 @@ def slugify(text):
 
 def inline_md(text):
     """Inline markdown on an already HTML-escaped string."""
-    text = re.sub(
-        r"\[([^\]]+)\]\(([^)]+)\)",
-        r'<a href="\2">\1</a>',
-        text,
-    )
+    def link(m):
+        label, href = m.group(1), m.group(2)
+        ext = href.startswith("http")
+        attrs = ' rel="noopener"' if ext else ""
+        return f'<a href="{href}"{attrs}>{label}</a>'
+    text = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
-    text = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", text)
+    text = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"<em>\1</em>", text)
     return text
 
 
-def md_to_html(md):
-    """Convert the markdown subset used in /content to HTML.
-    Headings get id anchors so jump points can deep link.
-    Returns (html, anchors) where anchors is the set of ids created."""
-    lines = md.split("\n")
-    out = []
-    anchors = set()
-    para = []
-    in_list = False
-    in_quote = False
+def md(s):
+    """Inline markdown for short YAML strings."""
+    return inline_md(escape(str(s or "")))
+
+
+def md_to_html(src, h_offset=0):
+    lines = src.split("\n")
+    out, para = [], []
+    state = {"list": None, "quote": False}
 
     def close_para():
         if para:
-            out.append("<p>" + inline_md(escape("\n".join(para)).replace("\n", " ")) + "</p>")
+            out.append("<p>" + inline_md(escape(" ".join(para))) + "</p>")
             para.clear()
 
     def close_list():
-        nonlocal in_list
-        if in_list:
-            out.append("</ul>")
-            in_list = False
+        if state["list"]:
+            out.append(f"</{state['list']}>")
+            state["list"] = None
 
     def close_quote():
-        nonlocal in_quote
-        if in_quote:
+        if state["quote"]:
             out.append("</blockquote>")
-            in_quote = False
+            state["quote"] = False
 
     for line in lines:
-        stripped = line.strip()
-
-        if stripped.startswith("### "):
+        s = line.strip()
+        m_ol = re.match(r"^(\d+)\.\s+(.*)$", s)
+        if s.startswith("#### ") or s.startswith("### ") or s.startswith("## "):
             close_para(); close_list(); close_quote()
-            text = stripped[4:]
-            anchor = slugify(text)
-            anchors.add(anchor)
-            out.append(f'<h3 id="{anchor}">{inline_md(escape(text))}</h3>')
-        elif stripped.startswith("## "):
-            close_para(); close_list(); close_quote()
-            text = stripped[3:]
-            anchor = slugify(text)
-            anchors.add(anchor)
-            out.append(f'<h2 id="{anchor}">{inline_md(escape(text))}</h2>')
-        elif stripped.startswith("> "):
+            level = len(s.split(" ")[0])
+            text = s[level + 1:]
+            lv = min(level + h_offset, 6)
+            out.append(f'<h{lv} id="{slugify(text)}">{inline_md(escape(text))}</h{lv}>')
+        elif s.startswith("> "):
             close_para(); close_list()
-            if not in_quote:
+            if not state["quote"]:
                 out.append("<blockquote>")
-                in_quote = True
-            out.append("<p>" + inline_md(escape(stripped[2:])) + "</p>")
-        elif stripped.startswith("- "):
+                state["quote"] = True
+            out.append("<p>" + inline_md(escape(s[2:])) + "</p>")
+        elif s.startswith("- "):
             close_para(); close_quote()
-            if not in_list:
+            if state["list"] != "ul":
+                close_list()
                 out.append("<ul>")
-                in_list = True
-            out.append("<li>" + inline_md(escape(stripped[2:])) + "</li>")
-        elif stripped == "---":
+                state["list"] = "ul"
+            out.append("<li>" + inline_md(escape(s[2:])) + "</li>")
+        elif m_ol:
+            close_para(); close_quote()
+            if state["list"] != "ol":
+                close_list()
+                out.append("<ol>")
+                state["list"] = "ol"
+            out.append("<li>" + inline_md(escape(m_ol.group(2))) + "</li>")
+        elif s == "---":
             close_para(); close_list(); close_quote()
-            out.append("<hr>")
-        elif stripped == "":
+        elif s == "":
             close_para(); close_list(); close_quote()
         else:
             close_list(); close_quote()
-            para.append(stripped)
-
+            para.append(s)
     close_para(); close_list(); close_quote()
-    return "\n".join(out), anchors
+    return "\n".join(out)
 
 
 def load_md(path):
@@ -185,798 +276,1282 @@ def load_md(path):
     m = re.match(r"^---\n(.*?)\n---\n(.*)$", raw, re.DOTALL)
     if not m:
         return {}, raw
-    front = yaml.safe_load(m.group(1)) or {}
-    return front, m.group(2)
+    return (yaml.safe_load(m.group(1)) or {}), m.group(2)
+
+
+def split_h2(body):
+    """[(heading, markdown)] for each ## section, in order."""
+    out, cur, buf = [], None, []
+    for line in body.split("\n"):
+        if line.startswith("## "):
+            if cur is not None:
+                out.append((cur, "\n".join(buf).strip()))
+            cur, buf = line[3:].strip(), []
+        else:
+            buf.append(line)
+    if cur is not None:
+        out.append((cur, "\n".join(buf).strip()))
+    return out
+
+
+def sec(sections, name):
+    for h, m in sections:
+        if h.lower() == name.lower():
+            return m
+    return ""
+
+
+def plain_text(html):
+    t = re.sub(r"<[^>]+>", " ", html)
+    t = t.replace("&amp;", "&").replace("&quot;", '"').replace("&#x27;", "'")
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def minutes_for(*texts):
+    words = sum(len(plain_text(t).split()) for t in texts if t)
+    return max(1, round(words / WPM))
+
+
+def load_insight(stem):
+    p = CONTENT / "insights" / f"{stem}.yml"
+    return (yaml.safe_load(p.read_text(encoding="utf-8")) or {}) if p.exists() else {}
+
+
+def load_yaml(name):
+    p = CONTENT / name
+    return (yaml.safe_load(p.read_text(encoding="utf-8")) or []) if p.exists() else []
 
 
 # ============================================================
-# Shared chrome
+# Page registry (minutes, titles), used by paths and search
 # ============================================================
-
-FONTS = (
-    '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-    '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&'
-    'family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">'
-)
+PAGES = {}        # url -> {"title", "minutes", "kind", "summary", "text", "icon"}
+WRITTEN = set()   # urls written
 
 
-MOBILE_NAV = """<nav class="mobile-nav" aria-label="Quick navigation">
-  <div class="mobile-nav-row">
-    <a href="/#rights-now">
-      <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z"/></svg>
-      Rights
-    </a>
-    <a href="/situations/">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Situations
-    </a>
-    <a href="/#amendments">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Amendments
-    </a>
-    <a href="/about/">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      About
-    </a>
-  </div>
-</nav>"""
-
-BACK_TO_TOP = """<button class="back-to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>"""
+def register(url, title, kind, minutes=None, summary="", text="", icon_name="", quick=None):
+    PAGES[url] = {"title": title, "kind": kind, "minutes": minutes, "summary": summary,
+                  "text": text, "icon": icon_name, "quick": quick or minutes}
 
 
-def seo_head(title, description, canonical, og_image, og_type="website", jsonld=None):
-    """Returns the complete <head> SEO block: meta, OG, Twitter Card, JSON-LD."""
-    full_url = f"{SITE_URL}{canonical}"
-    og_image_url = f"{SITE_URL}{og_image}"
-    jld = ""
-    if jsonld:
-        import json
-        jld = f'<script type="application/ld+json">{json.dumps(jsonld, indent=None)}</script>'
-    return f"""<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- Primary SEO -->
-<title>{escape(title)}</title>
-<meta name="description" content="{escape(description)}">
-<link rel="canonical" href="{full_url}">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Hope for Americans">
-
-<!-- Open Graph (Facebook, iMessage, Slack, LinkedIn, WhatsApp) -->
-<meta property="og:type" content="{og_type}">
-<meta property="og:title" content="{escape(title)}">
-<meta property="og:description" content="{escape(description)}">
-<meta property="og:url" content="{full_url}">
-<meta property="og:image" content="{og_image_url}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{escape(title)} — freeconstitution.org">
-<meta property="og:site_name" content="Free Constitution">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter / X Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{escape(title)}">
-<meta name="twitter:description" content="{escape(description)}">
-<meta name="twitter:image" content="{og_image_url}">
-<meta name="twitter:image:alt" content="{escape(title)} — freeconstitution.org">
-<meta name="twitter:site" content="@hopeforamericans">
-
-<!-- Favicon -->
-<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
-
-{FONTS}
-<link rel="stylesheet" href="/static/css/site.css">
-{jld}"""
-
-
-def page_shell(title, description, body, canonical, og_image="/static/og/home.jpg",
-               og_type="website", jsonld=None, extra_head=""):
-    head = seo_head(title, description, canonical, og_image, og_type, jsonld)
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-{head}
-{extra_head}
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap header-row">
-    <a class="wordmark" href="/">Free<span> </span>Constitution</a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="/#rights-now">Your rights</a>
-      <a href="/situations/">Situations</a>
-      <a href="/#amendments">Amendments</a>
-      <a href="/#articles">Articles</a>
-      <a href="/about/">About</a>
-    </nav>
-  </div>
-</header>
-<main id="main">
-{body}
-</main>
-<footer class="site-footer">
-  <div class="foot-tag">The whole document, open to anyone.</div>
-  <p class="hfa-madein">Made with <span class="hfa-heart" aria-hidden="true">&hearts;</span> in Flagstaff</p>
-  <div class="hfa-rule"></div>
-  <div class="hfa-mark">A <a href="https://hopeforamericans.net">Hope for Americans</a> tool</div>
-  <div class="hfa-vision">free to use, the way the web used to be</div>
-</footer>
-{MOBILE_NAV}
-{BACK_TO_TOP}
-<script src="/static/js/prefs.js" defer></script>
-</body>
-</html>"""
-
-
-def reading_controls():
-    return """<div class="reading-controls" data-prefs hidden>
-  <span class="rc-label">Text size</span>
-  <button type="button" data-size-down aria-label="Smaller text">A&minus;</button>
-  <button type="button" data-size-up aria-label="Larger text">A+</button>
-  <button type="button" data-theme-toggle aria-pressed="false">Dark page</button>
-</div>"""
-
-
-def not_legal_advice():
-    return ('<p class="legal-note">This page explains the law in plain language. '
-            'It is not legal advice for your specific situation. '
-            'If you need legal help, contact a lawyer or your state\'s ACLU affiliate.</p>')
-
-
-def section_chips(anchors_in_order):
-    labels = {
-        "verbatim": "Verbatim",
-        "plain-english": "Plain English",
-        "what-this-means-for-you": "What this means for you",
-        "about": "About",
-    }
-    chips = [f'<a href="#{a}">{labels[a]}</a>' for a in anchors_in_order if a in labels]
-    if not chips:
-        return ""
-    return '<nav class="section-chips" aria-label="On this page">' + "".join(chips) + "</nav>"
-
-
-def sticky_section_bar(short_title, anchors_in_order):
-    """A fixed bar that appears when you scroll past the section chips.
-    Shows which section you are in and lets you jump to any other."""
-    labels = {
-        "verbatim": "Verbatim",
-        "plain-english": "Plain English",
-        "what-this-means-for-you": "For you",
-        "about": "About",
-        "what-you-can-say": "Say this",
-        "the-law-you-are-citing": "The law",
-        "quick-limits": "Limits",
-        "if-you-are-arrested": "Arrested",
-    }
-    chips = []
-    for a in anchors_in_order:
-        if a in labels:
-            chips.append(f'<a href="#{a}" data-section="{a}">{labels[a]}</a>')
-    if not chips:
-        return ""
-    return (
-        '<nav class="sticky-sections" aria-label="Section navigation">'
-        f'<span class="sticky-title">{escape(short_title)}</span>'
-        + "".join(chips) +
-        '</nav>'
-    )
+def write(url_or_path, html):
+    p = url_or_path
+    if p.endswith("/"):
+        p += "index.html"
+    full = PUBLIC / p.lstrip("/")
+    full.parent.mkdir(parents=True, exist_ok=True)
+    full.write_text(html, encoding="utf-8")
+    if url_or_path.endswith("/") or url_or_path.endswith(".html"):
+        WRITTEN.add(url_or_path)
 
 
 def fmt_date(d):
     if not d:
         return ""
     if isinstance(d, str):
-        d = date.fromisoformat(d)
+        try:
+            d = date.fromisoformat(d)
+        except ValueError:
+            return d
     return d.strftime("%B %-d, %Y")
 
 
-def write(path, html):
-    full = PUBLIC / path.lstrip("/")
-    full.parent.mkdir(parents=True, exist_ok=True)
-    full.write_text(html, encoding="utf-8")
+def year_of(d):
+    return str(d)[:4] if d else ""
 
 
 # ============================================================
-# Load all content
+# Shared chrome
 # ============================================================
+def head(title, description, canonical, og_image, og_type, jsonld):
+    full_url = f"{SITE_URL}{canonical}"
+    jld = f'<script type="application/ld+json">{json.dumps(jsonld)}</script>' if jsonld else ""
+    return f"""<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{escape(title)}</title>
+<meta name="description" content="{escape(description)}">
+<link rel="canonical" href="{full_url}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Hope for Americans">
+<meta name="theme-color" content="#14283f">
+<meta property="og:type" content="{og_type}">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:title" content="{escape(title)}">
+<meta property="og:description" content="{escape(description)}">
+<meta property="og:url" content="{full_url}">
+<meta property="og:image" content="{SITE_URL}{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{escape(title)}">
+<meta name="twitter:description" content="{escape(description)}">
+<meta name="twitter:image" content="{SITE_URL}{og_image}">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/site.css?v={ASSET_V}">
+<script>
+/* Apply saved reading settings before first paint (no flash). Nothing leaves the device. */
+(function(){{try{{var p=JSON.parse(localStorage.getItem("fc-display")||"{{}}"),d=document.documentElement;
+d.classList.add("js");["size","spacing","font","theme","depth"].forEach(function(k){{if(p[k])d.setAttribute("data-"+k,p[k]);}});
+if(p.focus)d.setAttribute("data-focus","on");}}catch(e){{document.documentElement.classList.add("js");}}}})();
+</script>
+{jld}"""
 
-def load_collection(folder, sort_key):
-    items = []
-    for p in sorted((CONTENT / folder).glob("*.md")):
-        front, body = load_md(p)
-        if not front.get("type"):
+
+def header_html():
+    return f"""<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="/" aria-label="Free Constitution, home"><span class="wm-mark" aria-hidden="true">f<span>.</span></span><span class="wm-text">Free Constitution</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/situations/">Situations</a>
+      <a href="/amendments/">Amendments</a>
+      <a href="/articles/">Articles</a>
+      <a href="/paths/">Paths</a>
+    </nav>
+    <div class="header-tools">
+      <button type="button" class="tool-btn" data-open-search aria-label="Search (press /)">{icon("search")}<span class="tool-label">Search</span></button>
+      <button type="button" class="tool-btn" data-open-display aria-label="Display settings (press D)">{icon("text")}<span class="tool-label">Display</span></button>
+    </div>
+  </div>
+</header>"""
+
+
+def footer_html():
+    return f"""<footer class="site-footer">
+  <div class="wrap">
+    <nav class="foot-nav" aria-label="More">
+      <a href="/timeline/">Timeline</a><a href="/words/">Words</a><a href="/memorize/">Know it by heart</a>
+      <a href="/full-text/">Full text</a><a href="/preamble/">Preamble</a><a href="/declaration/">Declaration</a>
+      <a href="/about/">About</a><a href="/sources/">Sources</a>
+    </nav>
+    <p class="foot-legal">Plain-language explanations, not legal advice. Not reviewed by a lawyer. <a href="/about/">How we check our work</a>.</p>
+    <p class="foot-updated">Last updated {fmt_date(TODAY)}</p>
+    <div class="hfa">
+      <p class="hfa-madein">Made with <span aria-hidden="true">&hearts;</span> in Flagstaff</p>
+      <p class="hfa-mark">A <a href="https://hopeforamericans.net">Hope for Americans</a> tool &middot; free to use, the way the web used to be</p>
+    </div>
+  </div>
+</footer>"""
+
+
+def mobile_nav():
+    items = [("home", "Home", "/"), ("shield", "Situations", "/situations/"),
+             ("map", "Paths", "/paths/"), ("book", "Browse", "/amendments/")]
+    links = "".join(f'<a href="{h}">{icon(i)}<span>{l}</span></a>' for i, l, h in items)
+    return (f'<nav class="mobile-nav" aria-label="Quick navigation"><div class="mobile-nav-row">{links}'
+            f'<button type="button" data-open-search>{icon("search")}<span>Search</span></button></div></nav>')
+
+
+def radio_group(name, legend, options, hint=""):
+    opts = "".join(
+        f'<label class="seg"><input type="radio" name="{name}" value="{v}"><span>{l}</span></label>'
+        for v, l in options)
+    h = f'<p class="hint">{hint}</p>' if hint else ""
+    return f'<fieldset class="setting"><legend>{legend}</legend>{h}<div class="segs">{opts}</div></fieldset>'
+
+
+def dialogs():
+    display = f"""<dialog id="display-dialog" class="sheet" aria-labelledby="display-title">
+  <div class="sheet-head"><h2 id="display-title">{icon("text")} Display</h2>
+  <button type="button" class="icon-btn" data-close aria-label="Close">{icon("x")}</button></div>
+  <form class="settings" data-display-form>
+    {radio_group("size", "Text size", [("s", "Small"), ("m", "Medium"), ("l", "Large"), ("xl", "Extra large")])}
+    {radio_group("spacing", "Line spacing", [("normal", "Normal"), ("roomy", "Roomy")])}
+    {radio_group("font", "Font", [("hyper", "Hyperlegible"), ("lexend", "Lexend"), ("serif", "Serif")], "Hyperlegible and Lexend are designed to be easier to read.")}
+    {radio_group("theme", "Page color", [("light", "Light"), ("sepia", "Sepia"), ("dark", "Dark")])}
+    {radio_group("depth", "How much to show", [("quick", "Quick"), ("standard", "Standard"), ("deep", "Deep")], "Quick shows the short version. Deep opens everything.")}
+    <fieldset class="setting"><legend>Focus mode</legend><p class="hint">Hides menus so only the reading is on screen.</p>
+    <button type="button" class="btn btn-quiet" data-toggle-focus>{icon("eye")} Turn on focus mode</button></fieldset>
+    <p class="hint keys">Keys: <kbd>/</kbd> search &middot; <kbd>D</kbd> display &middot; <kbd>T</kbd> page color &middot; <kbd>G</kbd> focus mode</p>
+    <p class="hint">Saved on this device only.</p>
+  </form>
+</dialog>"""
+    search = f"""<dialog id="search-dialog" class="sheet sheet-search" aria-labelledby="search-title">
+  <div class="sheet-head"><h2 id="search-title" class="vh">Search</h2>
+  <label class="search-field">{icon("search")}<span class="vh">Search the Constitution</span>
+  <input type="search" data-search-input placeholder="Try: phone search, vote, speech at school" autocomplete="off" enterkeyhint="search"></label>
+  <button type="button" class="icon-btn" data-close aria-label="Close">{icon("x")}</button></div>
+  <div class="search-results" data-search-results aria-live="polite"></div>
+</dialog>"""
+    extras = f"""<div id="term-pop" class="term-pop" role="dialog" aria-modal="false" hidden><p class="term-def"></p><a class="term-more" href="/words/">More in Words</a><button type="button" class="icon-btn term-close" aria-label="Close">{icon("x")}</button></div>
+<div id="path-bar" class="path-bar" hidden></div>
+<button type="button" class="focus-exit" data-toggle-focus hidden>{icon("eye")} Exit focus mode</button>
+<button type="button" class="back-to-top" aria-label="Back to top">{icon("up")}</button>"""
+    return display + search + extras
+
+
+def page_shell(title, description, body, url, og_image="/static/og/home.jpg",
+               og_type="website", jsonld=None, page_title=None, body_class=""):
+    pt = escape(page_title or title.split(" | ")[0])
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+{head(title, description, url, og_image, og_type, jsonld)}
+</head>
+<body class="{body_class}" data-page="{escape(url)}" data-page-title="{pt}">
+{header_html()}
+<main id="main" tabindex="-1">
+{body}
+</main>
+{footer_html()}
+{mobile_nav()}
+{dialogs()}
+<script src="/static/js/app.js?v={ASSET_V}" defer></script>
+</body>
+</html>"""
+
+
+# ============================================================
+# Components
+# ============================================================
+def crumbs(*pairs):
+    bits = ['<a href="/">Home</a>']
+    for label, href in pairs:
+        bits.append(f'<a href="{href}">{escape(label)}</a>' if href else f'<span aria-current="page">{escape(label)}</span>')
+    return '<nav class="crumbs" aria-label="Breadcrumb">' + '<span aria-hidden="true">›</span>'.join(bits) + "</nav>"
+
+
+def doc_head(kicker, title, subject, minutes, crumb_html, icon_name="book"):
+    sub = f'<p class="subject">{escape(subject)}</p>' if subject else ""
+    return f"""<header class="doc-head">
+  {crumb_html}
+  <p class="kicker">{icon(icon_name)}<span>{kicker}</span></p>
+  <h1>{escape(title)}</h1>
+  {sub}
+  <p class="meta">{icon("clock")}<span>About {minutes} min</span><span class="read-flag" data-read-flag hidden>{icon("check")} Read</span></p>
+</header>"""
+
+
+def one_line_html(ins, label="The one-line version"):
+    if not ins.get("one_line"):
+        return ""
+    return (f'<section class="one-line" aria-label="{label}"><p class="label">{icon("star")}{label}</p>'
+            f'<p class="one-line-text">{md(ins["one_line"])}</p></section>')
+
+
+def heads_up(ins):
+    note = ins.get("content_note")
+    if not note:
+        return ""
+    return f'<aside class="heads-up">{icon("info")}<p><strong>Heads-up.</strong> {md(note)}</p></aside>'
+
+
+def layer(id_, title, icon_name, inner, cls="", tag=""):
+    t = f'<p class="tag">{tag}</p>' if tag else ""
+    return (f'<section class="layer {cls}" id="{id_}" aria-labelledby="{id_}-h">'
+            f'<h2 id="{id_}-h">{icon(icon_name)}<span>{title}</span></h2>{t}{inner}</section>')
+
+
+def plain_and_original(plain_html, verbatim_html, orig_label, used, id_="plain-english", title="Plain English"):
+    linked = TERMS.link(plain_html, used)
+    inner = f"""<div class="compare" data-compare>
+  <div class="plain-col">{linked}</div>
+  <div class="orig-col" id="{id_}-original">
+    <p class="label">{icon("quote")}{escape(orig_label)}</p>
+    <div class="verbatim">{verbatim_html}</div>
+  </div>
+</div>
+<button type="button" class="btn btn-quiet orig-toggle" data-orig-toggle aria-controls="{id_}-original" aria-expanded="false" hidden>{icon("quote")}<span>Show the original</span></button>"""
+    return layer(id_, title, "book", inner)
+
+
+def phrases_html(ins):
+    rows = ins.get("phrases") or []
+    if not rows:
+        return ""
+    items = "".join(
+        f'<div class="phrase"><dt><q>{escape(r["quote"])}</q></dt><dd>{md(r["plain"])}</dd></div>'
+        for r in rows)
+    return layer("phrase-by-phrase", "Phrase by phrase", "list", f'<dl class="phrases">{items}</dl>', "depth-std")
+
+
+def picture_html(ins):
+    if not ins.get("picture_it"):
+        return ""
+    return layer("picture-it", "Picture it", "bulb", f'<p class="picture-text">{md(ins["picture_it"])}</p>',
+                 "picture depth-std", "Example. Not legal advice.")
+
+
+def cards_html(markdown, used):
+    """'What this means for you' split into ### cards."""
+    if not markdown:
+        return ""
+    parts = re.split(r"^### (.+)$", markdown, flags=re.M)
+    intro = parts[0].strip()
+    out = []
+    if intro:
+        out.append(f'<div class="cards-intro">{TERMS.link(md_to_html(intro), used)}</div>')
+    cards = []
+    for i in range(1, len(parts), 2):
+        title, body = parts[i].strip(), parts[i + 1].strip()
+        cards.append(f'<article class="card"><h3>{md(title)}</h3>{TERMS.link(md_to_html(body), used)}</article>')
+    if cards:
+        out.append(f'<div class="cards">{"".join(cards)}</div>')
+    return layer("what-this-means-for-you", "What this means for you", "shield", "".join(out), "depth-std")
+
+
+def myths_html(ins):
+    items = ins.get("myths") or []
+    if not items:
+        return ""
+    rows = "".join(
+        f'<div class="myth"><p class="myth-q"><span class="pill pill-myth">Myth</span>{md(m["myth"])}</p>'
+        f'<p class="myth-a"><span class="pill pill-fact">Fact</span>{md(m["fact"])}</p></div>'
+        for m in items)
+    return layer("myth-check", "Myth check", "help", rows)
+
+
+def fold(title, inner, open_deep=True):
+    attr = " data-deep-open" if open_deep else ""
+    return f'<details class="fold"{attr}><summary><span>{title}</span>{icon("right", "ic chev")}</summary><div class="fold-body">{inner}</div></details>'
+
+
+def deeper_html(ins, about_html="", contested=None, extra_folds=""):
+    folds = []
+    sc = ins.get("scene")
+    if sc and sc.get("text"):
+        when = f' &middot; {escape(str(sc.get("when")))}' if sc.get("when") else ""
+        folds.append(fold(f"The scene{when}", f"<p>{md(sc['text'])}</p>"))
+    if ins.get("back_then"):
+        folds.append(fold("Back then", f"<p>{md(ins['back_then'])}</p>"))
+    wc = ins.get("words_changed") or []
+    if wc:
+        rows = "".join(
+            f'<div class="word-row"><dt>&ldquo;{escape(w["word"])}&rdquo;</dt>'
+            f'<dd><p><span class="pill">Then</span>{md(w.get("then"))}</p><p><span class="pill pill-now">Now</span>{md(w.get("now"))}</p></dd></div>'
+            for w in wc)
+        folds.append(fold("Words that changed", f'<dl class="words-changed">{rows}</dl>'))
+    wa = ins.get("who_argued") or []
+    if wa:
+        rows = "".join(f'<div class="side"><h4>{md(s["side"])}</h4><p>{md(s["view"])}</p></div>' for s in wa)
+        folds.append(fold("Who argued what", f'<div class="sides">{rows}</div>'))
+    kc = ins.get("key_cases") or []
+    if kc:
+        rows = "".join(
+            f'<li><span class="case-year">{escape(str(k["year"]))}</span><div><p class="case-name"><em>{escape(k["name"])}</em></p><p>{md(k["held"])}</p></div></li>'
+            for k in kc)
+        folds.append(fold("Key cases", f'<ol class="cases">{rows}</ol>'))
+    if about_html:
+        folds.append(fold("More history and context", about_html))
+    if contested:
+        lis = "".join(f"<li>{md(c)}</li>" for c in contested)
+        folds.append(fold("Actively contested",
+                          f"<p>Courts are still deciding parts of this. Open questions include:</p><ul>{lis}</ul>"))
+    folds.append(extra_folds)
+    folds = [f for f in folds if f]
+    if not folds:
+        return ""
+    return layer("go-deeper", "Go deeper", "layers", "".join(folds), "depth-std deeper")
+
+
+def quiz_html(ins):
+    qs = ins.get("quick_check") or []
+    if not qs:
+        return ""
+    out = []
+    for i, q in enumerate(qs):
+        opts = "".join(
+            f'<button type="button" class="qc-opt" data-i="{j}">{md(o)}</button>' for j, o in enumerate(q["options"]))
+        out.append(f'<fieldset class="qc" data-answer="{q["answer"]}"><legend>{i + 1}. {md(q["q"])}</legend>'
+                   f'<div class="qc-opts">{opts}</div><p class="qc-why" hidden aria-live="polite">{md(q["why"])}</p></fieldset>')
+    return layer("quick-check", "Quick check", "check", "".join(out), "", "Just for you. Nothing is saved.")
+
+
+def related_situations_html(slugs, situations_by_slug):
+    cards = []
+    for s in slugs or []:
+        f = situations_by_slug.get(s)
+        if not f:
             continue
-        html, anchors = md_to_html(body)
-        items.append({"front": front, "html": html, "anchors": anchors})
-    items.sort(key=sort_key)
-    return items
+        cards.append(f'<a class="mini-card" href="/situations/{s}/">{icon(f.get("icon", "shield"))}<span>{escape(f["title"])}</span>{icon("right", "ic go")}</a>')
+    if not cards:
+        return ""
+    return layer("if-this-is-happening", "If this is happening to you", "lifebuoy", f'<div class="mini-cards">{"".join(cards)}</div>')
+
+
+def accuracy_note(source_url=None, kind="page"):
+    src = f' Original text from the <a href="{source_url}" rel="noopener">National Archives</a>.' if source_url else ""
+    return f"""<aside class="accuracy">
+  <p class="label">{icon("info")}How this page was made</p>
+  <p>{src.strip()} Plain-language parts written by Hope for Americans and fact-checked against the text and the Supreme Court cases named. <strong>Not reviewed by a lawyer. Not legal advice.</strong> Last updated {fmt_date(TODAY)}.</p>
+  <p><a href="{CONTACT_URL}" rel="noopener">Spot a mistake? Tell us.</a> &middot; <a href="/about/">How we check our work</a></p>
+</aside>"""
+
+
+def pager(prev, nxt):
+    """prev/next = (label, sublabel, href) or None"""
+    def one(p, cls, ic, word):
+        if not p:
+            return "<span></span>"
+        return (f'<a class="pager {cls}" href="{p[2]}">{icon(ic) if cls == "prev" else ""}'
+                f'<span><span class="pager-word">{word}</span><span class="pager-label">{escape(p[0])}</span></span>'
+                f'{icon(ic) if cls == "next" else ""}</a>')
+    return (f'<nav class="pager-row" aria-label="Next and previous">{one(prev, "prev", "left", "Previous")}'
+            f'{one(nxt, "next", "right", "Next")}</nav><div id="page-end" aria-hidden="true"></div>')
 
 
 # ============================================================
 # Page builders
 # ============================================================
+SITUATIONS = {}   # slug -> front
 
-PAGE_ANCHORS = {}  # url -> set of anchors, for jump point validation
 
-
-def render_amendment(a, prev_a, next_a):
-    f = a["front"]
+def render_amendment(a, prev_a, next_a, all_ins):
+    f, body = a["front"], a["body"]
     n = f["number"]
-    ordinal = ORDINALS[n]
-    part = "Bill of Rights" if f.get("part_of") == "bill-of-rights" else "Amendment"
-    eyebrow_bits = [f"Amendment {n} of 27"]
-    if f.get("part_of") == "bill-of-rights":
-        eyebrow_bits.append("Bill of Rights")
-    ratified = fmt_date(f.get("ratified"))
-
-    contested = f.get("contested") or []
-    contested_html = ""
-    if contested:
-        lis = "".join(f"<li>{escape(c)}</li>" for c in contested)
-        contested_html = (
-            '<aside class="contested"><h2 id="actively-contested">Actively contested</h2>'
-            "<p>Courts are still arguing about parts of this amendment. Current open questions include:</p>"
-            f"<ul>{lis}</ul></aside>"
-        )
-
-    related = f.get("related_situations") or []
-    related_html = ""
-    if related:
-        links = "".join(
-            f'<a class="related-card" href="/situations/{slug}/">{escape(SITUATION_TITLES.get(slug, slug))}</a>'
-            for slug in related
-        )
-        related_html = f'<section class="related"><h2>If this is happening to you</h2><div class="related-row">{links}</div></section>'
-
-    nav_bits = []
-    if prev_a:
-        pn = prev_a["front"]["number"]
-        nav_bits.append(f'<a class="pager prev" href="/amendments/{pn}/"><span>Previous</span>{ORDINALS[pn]} Amendment</a>')
-    else:
-        nav_bits.append("<span></span>")
-    if next_a:
-        nn = next_a["front"]["number"]
-        nav_bits.append(f'<a class="pager next" href="/amendments/{nn}/"><span>Next</span>{ORDINALS[nn]} Amendment</a>')
-    pager = '<nav class="pager-row" aria-label="Amendments">' + "".join(nav_bits) + "</nav>"
-
-    ordered = [x for x in ["verbatim", "plain-english", "what-this-means-for-you", "about"] if x in a["anchors"]]
-
-    sticky = sticky_section_bar(f"{ORDINALS[n]} Amend.", ordered)
-    body = f"""{sticky}<article class="doc wrap">
-  <p class="breadcrumb"><a href="/">Home</a> / <a href="/#amendments">Amendments</a></p>
-  <p class="eyebrow">{" &middot; ".join(eyebrow_bits)}{f' &middot; <span class="ratified">ratified {ratified}</span>' if ratified else ""}</p>
-  <h1>{escape(f["title"])}</h1>
-  {section_chips(ordered)}
-  {reading_controls()}
-  <div class="doc-body" data-reading>
-  {a["html"]}
-  </div>
-  {contested_html}
-  {related_html}
-  {not_legal_advice()}
-  {pager}
-</article>"""
+    ins = all_ins[n]
+    S = split_h2(body)
+    used = set()
+    verb_md, plain_md = sec(S, "Verbatim"), sec(S, "Plain English")
+    meaning_md, about_md = sec(S, "What this means for you"), sec(S, "About")
+    verb_html, plain_html = md_to_html(verb_md, 1), md_to_html(plain_md, 1)
+    about_html = TERMS.link(md_to_html(about_md, 1), used)
+    yr = year_of(f.get("ratified"))
+    part = " &middot; Bill of Rights" if n <= 10 else ""
+    mins = minutes_for(ins.get("one_line"), plain_html, md_to_html(meaning_md),
+                       " ".join(p["plain"] for p in ins.get("phrases") or []),
+                       " ".join(m["myth"] + " " + m["fact"] for m in ins.get("myths") or []))
     url = f"/amendments/{n}/"
-    PAGE_ANCHORS[url] = a["anchors"]
-    ratified_iso = str(f.get("ratified", "")) or ""
-    amend_jld = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": f["title"],
-        "description": f"The {ordinal} Amendment to the United States Constitution, verbatim text and plain-English explanation.",
-        "url": f"{SITE_URL}{url}",
-        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-        "isPartOf": {"@type": "WebSite", "name": "Free Constitution", "url": SITE_URL},
-        "about": {"@type": "Legislation", "name": f["title"], "legislationIdentifier": f"US-Amend-{n}"},
-        **({"datePublished": ratified_iso} if ratified_iso else {}),
-    }
-    write(f"{url}index.html", page_shell(
-        f"{f['title']} | {SITE_NAME}",
-        f"The {ordinal} Amendment — verbatim text, plain-English translation, and what it means for you today.",
-        body, url,
-        og_image=f"/static/og/amendment-{n}.jpg",
-        og_type="article",
-        jsonld=amend_jld))
+    title = f"{ORDINALS[n]} Amendment"
+    subject = ins.get("subject", "")
+    body_html = f"""<article class="doc wrap">
+{doc_head(f"Amendment {n} of 27{part} &middot; {yr}", title, subject, mins, crumbs(("Amendments", "/amendments/"), (str(n), None)), "scales")}
+{heads_up(ins)}
+{one_line_html(ins)}
+{plain_and_original(plain_html, verb_html, f"Original text, {yr}", used)}
+{phrases_html(ins)}
+{picture_html(ins)}
+{cards_html(meaning_md, used)}
+{myths_html(ins)}
+{deeper_html(ins, about_html, f.get("contested"))}
+{quiz_html(ins)}
+{related_situations_html(f.get("related_situations"), SITUATIONS)}
+{accuracy_note(f.get("source_url"))}
+{pager((f"{ORDINALS[prev_a]} Amendment", "", f"/amendments/{prev_a}/") if prev_a else None,
+       (f"{ORDINALS[next_a]} Amendment", "", f"/amendments/{next_a}/") if next_a else None)}
+</article>"""
+    desc = f"The {title} in plain English: {ins.get('one_line', '')}".strip()[:300]
+    jld = {"@context": "https://schema.org", "@type": "Article", "headline": f"{title}: {subject}",
+           "description": desc, "url": f"{SITE_URL}{url}", "dateModified": TODAY.isoformat(),
+           "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+           "about": {"@type": "Legislation", "name": title, "legislationIdentifier": f"US-Const-Amend-{n}"}}
+    write(url, page_shell(f"{title}: {subject} in Plain English | {SITE_NAME}", desc, body_html, url,
+                          og_image=f"/static/og/amendment-{n}.jpg", og_type="article", jsonld=jld, page_title=title))
+    register(url, f"{title}: {subject}" if subject else title, "Amendment", mins, ins.get("one_line", ""),
+             " ".join([subject, plain_text(plain_html), plain_text(md_to_html(meaning_md))]), "scales",
+             quick=minutes_for(ins.get("one_line"), plain_html, " ".join(m["myth"] + " " + m["fact"] for m in ins.get("myths") or [])))
     return url
 
 
-def render_article(art, prev_a, next_a):
-    f = art["front"]
+def split_article(body):
+    """Return (sections list [(n, title, verbatim_md, plain_md)], verbatim_md, plain_md)."""
+    S = split_h2(body)
+    v, p = sec(S, "Verbatim"), sec(S, "Plain English")
+    vparts = re.split(r"(?m)^(?=\*\*Section \d+\.\*\*)", v)
+    vparts = [x.strip() for x in vparts if x.strip().startswith("**Section")]
+    pparts = re.split(r"(?m)^### Section (\d+)\s*[—–-]\s*(.+)$", p)
+    psecs = []
+    for i in range(1, len(pparts), 3):
+        psecs.append((int(pparts[i]), pparts[i + 1].strip(), pparts[i + 2].strip()))
+    out = []
+    for i, (num, title, pm) in enumerate(psecs):
+        vm = vparts[i] if i < len(vparts) else ""
+        out.append((num, title, vm, pm))
+    return out, v, p, S
+
+
+def render_article(art, prev_n, next_n):
+    f, body = art["front"], art["body"]
     n = f["number"]
-    raw_title = f["title"]
-    if " — " in raw_title:
-        _, name = raw_title.split(" — ", 1)
-    else:
-        name = raw_title
-    ratified = fmt_date(f.get("ratified"))
-
-    nav_bits = []
-    if prev_a:
-        pn = prev_a["front"]["number"]
-        nav_bits.append(f'<a class="pager prev" href="/articles/{pn}/"><span>Previous</span>Article {ROMAN[pn]}</a>')
-    else:
-        nav_bits.append("<span></span>")
-    if next_a:
-        nn = next_a["front"]["number"]
-        nav_bits.append(f'<a class="pager next" href="/articles/{nn}/"><span>Next</span>Article {ROMAN[nn]}</a>')
-    pager = '<nav class="pager-row" aria-label="Articles">' + "".join(nav_bits) + "</nav>"
-
-    ordered = [x for x in ["verbatim", "plain-english", "what-this-means-for-you", "about"] if x in art["anchors"]]
-
-    sticky = sticky_section_bar(f"Art. {ROMAN[n]}", ordered)
-    body = f"""{sticky}<article class="doc wrap">
-  <p class="breadcrumb"><a href="/">Home</a> / <a href="/#articles">Articles</a></p>
-  <p class="eyebrow">Article {ROMAN[n]} of VII{f' &middot; <span class="ratified">ratified {ratified}</span>' if ratified else ""}</p>
-  <h1>{escape(name)}</h1>
-  {section_chips(ordered)}
-  {reading_controls()}
-  <div class="doc-body" data-reading>
-  {art["html"]}
-  </div>
-  {not_legal_advice()}
-  {pager}
-</article>"""
+    ins = load_insight(f"article-{n}")
+    secs, v, p, S = split_article(body)
+    used = set()
+    about_html = TERMS.link(md_to_html(sec(S, "About"), 1), used)
+    yr = year_of(f.get("ratified"))
+    name = ARTICLE_NAMES[n]
     url = f"/articles/{n}/"
-    PAGE_ANCHORS[url] = art["anchors"]
-    art_jld = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": f"Article {ROMAN[n]}: {name}",
-        "description": f"Article {ROMAN[n]} of the United States Constitution — {name}. Verbatim text and plain-English explanation.",
-        "url": f"{SITE_URL}{url}",
-        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-        "about": {"@type": "Legislation", "name": f"Article {ROMAN[n]} of the US Constitution"},
-    }
-    write(f"{url}index.html", page_shell(
-        f"Article {ROMAN[n]}: {name} | {SITE_NAME}",
-        f"Article {ROMAN[n]} of the United States Constitution ({name}), verbatim text and plain-English explanation.",
-        body, url,
-        og_image="/static/og/home.jpg",
-        og_type="article",
-        jsonld=art_jld))
-    return url
-
-
-def render_situation(s):
-    f = s["front"]
-    slug = f["slug"]
-    minutes = max(1, round((f.get("reading_time_seconds") or 60) / 60))
-    related = f.get("related_amendments") or []
-    related_html = ""
-    if related:
-        links = "".join(
-            f'<a class="related-card" href="/amendments/{n}/">{ORDINALS[n]} Amendment</a>'
-            for n in related
-        )
-        related_html = f'<section class="related"><h2>The law behind this card</h2><div class="related-row">{links}</div></section>'
-
-    sit_ordered = [x for x in ["what-you-can-say", "the-law-you-are-citing", "quick-limits", "if-you-are-arrested"] if x in s["anchors"]]
-    sticky = sticky_section_bar(f["title"], sit_ordered)
-
-    body = f"""{sticky}<article class="doc wrap situation">
-  <p class="breadcrumb"><a href="/">Home</a> / <a href="/situations/">Situations</a></p>
-  <p class="eyebrow">Situation card &middot; {minutes} minute read</p>
-  <h1>{escape(f["title"])}</h1>
-  <p class="lede">{escape(f.get("summary", ""))}</p>
-  {reading_controls()}
-  <div class="doc-body" data-reading>
-  {s["html"]}
-  </div>
-  {related_html}
-  {not_legal_advice()}
+    title = f"Article {ROMAN[n]}: {name}"
+    sec_urls = []
+    if secs:
+        one_lines = ins.get("sections") or {}
+        cards = []
+        total = 0
+        for num, stitle, vm, pm in secs:
+            smins = minutes_for(md_to_html(pm))
+            total += smins
+            surl = f"/articles/{n}/section-{num}/"
+            sec_urls.append(surl)
+            ol = one_lines.get(num) or one_lines.get(str(num)) or ""
+            cards.append(f'<a class="sec-card" href="{surl}" data-progress-url="{surl}"><span class="sec-num">§{num}</span>'
+                         f'<span class="sec-body"><span class="sec-title">{escape(stitle)}</span><span class="sec-line">{md(ol)}</span>'
+                         f'<span class="sec-min">{icon("clock")}{smins} min</span></span>{icon("check", "ic done")}</a>')
+        main_block = layer("sections", f"The {len(secs)} sections", "list",
+                           f'<p class="tag">One section at a time. Tap to read.</p><div class="sec-cards">{"".join(cards)}</div>')
+        mins = max(2, minutes_for(ins.get("one_line"), " ".join(r["plain"] for r in ins.get("phrases") or [])) + 1)
+        start_btn = f'<p><a class="btn btn-primary" href="{sec_urls[0]}">Start with Section 1 {icon("right")}</a></p>'
+    else:
+        main_block = plain_and_original(md_to_html(p, 1), md_to_html(v, 1), f"Original text, {yr}", used)
+        mins = minutes_for(ins.get("one_line"), md_to_html(p))
+        start_btn = ""
+    body_html = f"""<article class="doc wrap">
+{doc_head(f"Article {ROMAN[n]} of VII &middot; {yr}", title, ins.get("subject", ""), mins, crumbs(("Articles", "/articles/"), (f"Article {ROMAN[n]}", None)), "columns")}
+{heads_up(ins)}
+{one_line_html(ins)}
+{start_btn}
+{main_block}
+{phrases_html(ins)}
+{picture_html(ins)}
+{myths_html(ins)}
+{deeper_html(ins, about_html, f.get("contested"))}
+{quiz_html(ins)}
+{accuracy_note(f.get("source_url"))}
+{pager((f"Article {ROMAN[prev_n]}", "", f"/articles/{prev_n}/") if prev_n else ("Preamble", "", "/preamble/"),
+       (f"Article {ROMAN[next_n]}", "", f"/articles/{next_n}/") if next_n else ("First Amendment", "", "/amendments/1/"))}
 </article>"""
-    url = f"/situations/{slug}/"
-    PAGE_ANCHORS[url] = s["anchors"]
-    sit_jld = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": f["title"],
-        "description": f.get("summary", ""),
-        "url": f"{SITE_URL}{url}",
-        "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-    }
-    write(f"{url}index.html", page_shell(
-        f"{f['title']} — Know Your Rights | {SITE_NAME}",
-        f.get("summary", ""),
-        body, url,
-        og_image="/static/og/situation-default.jpg",
-        og_type="article",
-        jsonld=sit_jld))
+    desc = f"Article {ROMAN[n]} of the Constitution ({name}) in plain English. {ins.get('one_line', '')}"[:300]
+    write(url, page_shell(f"{title} in Plain English | {SITE_NAME}", desc, body_html, url, og_type="article",
+                          jsonld={"@context": "https://schema.org", "@type": "Article", "headline": title,
+                                  "url": f"{SITE_URL}{url}", "description": desc}, page_title=f"Article {ROMAN[n]}"))
+    register(url, title, "Article", mins, ins.get("one_line", ""), " ".join([name, plain_text(md_to_html(p))]), "columns")
+
+    # one page per section
+    for i, (num, stitle, vm, pm) in enumerate(secs):
+        surl = sec_urls[i]
+        used_s = set()
+        ol = (ins.get("sections") or {}).get(num) or (ins.get("sections") or {}).get(str(num)) or ""
+        smins = minutes_for(md_to_html(pm))
+        prev_s = (f"Section {secs[i - 1][0]}: {secs[i - 1][1]}", "", sec_urls[i - 1]) if i > 0 else (f"Article {ROMAN[n]} overview", "", url)
+        next_s = (f"Section {secs[i + 1][0]}: {secs[i + 1][1]}", "", sec_urls[i + 1]) if i < len(secs) - 1 else \
+                 ((f"Article {ROMAN[next_n]}", "", f"/articles/{next_n}/") if next_n else ("First Amendment", "", "/amendments/1/"))
+        vm_clean = re.sub(r"^\*\*Section \d+\.\*\*\s*", "", vm)
+        sbody = f"""<article class="doc wrap">
+{doc_head(f"Article {ROMAN[n]} &middot; Section {num} of {len(secs)}", stitle, f"Article {ROMAN[n]}: {name}", smins, crumbs(("Articles", "/articles/"), (f"Article {ROMAN[n]}", url), (f"Section {num}", None)), "columns")}
+{heads_up(ins) if (num == 2 and n in (1, 4)) or (num == 9 and n == 1) else ""}
+{f'<section class="one-line"><p class="label">{icon("star")}The one-line version</p><p class="one-line-text">{md(ol)}</p></section>' if ol else ""}
+{plain_and_original(md_to_html(pm, 1), md_to_html(vm_clean, 1), f"Original text, {yr}", used_s)}
+<div class="sec-progress" aria-label="Sections in this article">{"".join(f'<a href="{u}" class="{"on" if j == i else ""}" aria-label="Section {secs[j][0]}">{secs[j][0]}</a>' for j, u in enumerate(sec_urls))}</div>
+{accuracy_note(f.get("source_url"))}
+{pager(prev_s, next_s)}
+</article>"""
+        sdesc = f"Article {ROMAN[n]}, Section {num} of the Constitution in plain English: {ol}"[:300]
+        write(surl, page_shell(f"Article {ROMAN[n]}, Section {num}: {stitle} | {SITE_NAME}", sdesc, sbody, surl,
+                               og_type="article", page_title=f"Article {ROMAN[n]}, Section {num}"))
+        register(surl, f"Article {ROMAN[n]}, Section {num}: {stitle}", "Article section", smins, ol,
+                 plain_text(md_to_html(pm)), "columns")
     return url
+
+
+def render_preamble():
+    f, body = load_md(CONTENT / "preamble.md")
+    ins = load_insight("preamble")
+    S = split_h2(body)
+    used = set()
+    plain_html = md_to_html(sec(S, "Plain English"), 1)
+    about_html = TERMS.link(md_to_html(sec(S, "About"), 1), used)
+    mins = minutes_for(ins.get("one_line"), plain_html, " ".join(r["plain"] for r in ins.get("phrases") or []))
+    url = "/preamble/"
+    body_html = f"""<article class="doc wrap">
+{doc_head("The Constitution &middot; 1787", "The Preamble", ins.get("subject", "Why the Constitution exists"), mins, crumbs(("Preamble", None)), "flag")}
+{one_line_html(ins)}
+{plain_and_original(plain_html, md_to_html(sec(S, "Verbatim"), 1), "Original text, 1787", used)}
+{phrases_html(ins)}
+{picture_html(ins)}
+{myths_html(ins)}
+{deeper_html(ins, about_html)}
+{quiz_html(ins)}
+<p class="inline-cta"><a class="btn btn-quiet" href="/memorize/#preamble">{icon("brain")} Learn it by heart</a></p>
+{accuracy_note(f.get("source_url"))}
+{pager(None, ("Article I: Congress", "", "/articles/1/"))}
+</article>"""
+    desc = "The Preamble to the U.S. Constitution in plain English, phrase by phrase."
+    write(url, page_shell(f"The Preamble in Plain English | {SITE_NAME}", desc, body_html, url, og_type="article",
+                          page_title="The Preamble"))
+    register(url, "The Preamble", "Preamble", mins, ins.get("one_line", ""), plain_text(plain_html), "flag")
+
+
+def render_declaration():
+    f, body = load_md(CONTENT / "declaration.md")
+    ins = load_insight("declaration")
+    S = split_h2(body)
+    used = set()
+    blocks, about_bits, all_plain = [], [], []
+    for h, m in S:
+        if h.lower().startswith("verbatim"):
+            continue
+        if h.lower().startswith("plain english"):
+            part = h.split("—", 1)[1].strip() if "—" in h else "Text"
+            vm = next((mm for hh, mm in S if hh.lower().startswith("verbatim") and hh.endswith(part)), "")
+            pid = "part-" + slugify(part)
+            ph = md_to_html(m, 1)
+            all_plain.append(ph)
+            blocks.append(plain_and_original(ph, md_to_html(vm, 1), "Original text, 1776", used, pid, part))
+        else:
+            about_bits.append(fold(escape(h), TERMS.link(md_to_html(m, 1), used)))
+    mins = minutes_for(ins.get("one_line"), *all_plain)
+    url = "/declaration/"
+    body_html = f"""<article class="doc wrap">
+{doc_head("Founding document &middot; July 4, 1776", "The Declaration of Independence", ins.get("subject", "Why the colonies broke away"), mins, crumbs(("Declaration", None)), "flag")}
+<aside class="heads-up">{icon("info")}<p><strong>Not part of the Constitution.</strong> The Declaration is not law. It explains why the country was founded, 11 years before the Constitution.</p></aside>
+{heads_up(ins)}
+{one_line_html(ins)}
+{"".join(blocks)}
+{phrases_html(ins)}
+{picture_html(ins)}
+{myths_html(ins)}
+{deeper_html(ins, "", None, "".join(about_bits))}
+{quiz_html(ins)}
+{accuracy_note("https://www.archives.gov/founding-docs/declaration-transcript")}
+{pager(None, ("The Preamble", "", "/preamble/"))}
+</article>"""
+    desc = "The Declaration of Independence in plain English, with the original text one tap away."
+    write(url, page_shell(f"The Declaration of Independence in Plain English | {SITE_NAME}", desc, body_html, url,
+                          og_type="article", page_title="The Declaration of Independence"))
+    register(url, "The Declaration of Independence", "Founding document", mins, ins.get("one_line", ""),
+             " ".join(plain_text(x) for x in all_plain), "flag")
+
+
+def render_situation(s, prev_s, next_s):
+    f, body = s["front"], s["body"]
+    slug = f["slug"]
+    url = f"/situations/{slug}/"
+    used = set()
+    S = split_h2(body)
+    ten = f.get("ten_second") or []
+    ten_html = "".join(f"<li>{md(t)}</li>" for t in ten)
+    note = f'<p class="ten-note">{md(f.get("ten_second_note"))}</p>' if f.get("ten_second_note") else ""
+    do = "".join(f"<li>{icon('check')}<span>{md(x)}</span></li>" for x in f.get("do") or [])
+    dont = "".join(f"<li>{icon('x')}<span>{md(x)}</span></li>" for x in f.get("dont") or [])
+    sections, law = [], ""
+    for h, m in S:
+        if h.lower().startswith("the law you are citing"):
+            law = fold("The law you are citing", md_to_html(m, 1), open_deep=True)
+            continue
+        hid = slugify(h)
+        sections.append(f'<section class="sit-sec" id="{hid}"><h2>{escape(h)}</h2>{TERMS.link(md_to_html(m, 1), used)}</section>')
+    helps = ""
+    if f.get("help"):
+        items = []
+        for h in f["help"]:
+            href = h.get("href") or ""
+            val = escape(h.get("value") or "")
+            inner = f'<a href="{escape(href)}" rel="noopener">{val}</a>' if href else val
+            items.append(f'<li><span class="help-label">{escape(h["label"])}</span><span class="help-val">{inner}</span></li>')
+        helps = layer("get-help", "Get help", "lifebuoy", f'<ul class="help-list">{"".join(items)}</ul>')
+    varies = f'<aside class="heads-up">{icon("map")}<p><strong>Depends on your state.</strong> {md(f["state_varies"])}</p></aside>' if f.get("state_varies") else ""
+    rel = f.get("related_amendments") or []
+    rel_html = ""
+    if rel:
+        links = "".join(f'<a class="mini-card" href="/amendments/{n}/">{icon("scales")}<span>{ORDINALS[n]} Amendment</span>{icon("right", "ic go")}</a>' for n in rel)
+        rel_html = layer("the-law-behind-this", "The law behind this card", "scales", f'<div class="mini-cards">{links}</div>')
+    mins = minutes_for(" ".join(ten), " ".join(f.get("do") or []), " ".join(f.get("dont") or []), md_to_html(body))
+    wallet = escape(json.dumps({"title": f["title"], "lines": ten}))
+    body_html = f"""<article class="doc wrap situation">
+{doc_head("Situation card", f["title"], f.get("summary", ""), mins, crumbs(("Situations", "/situations/"), (f["title"], None)), f.get("icon", "shield"))}
+<section class="ten-second" aria-labelledby="ten-h" data-wallet="{wallet}">
+  <p class="label" id="ten-h">{icon("clock")}The 10-second version: say this</p>
+  <ol class="ten-lines">{ten_html}</ol>
+  {note}
+  <div class="ten-actions">
+    <button type="button" class="btn btn-light" data-show-screen>{icon("expand")} Show on screen</button>
+    <button type="button" class="btn btn-light" data-save-offline>{icon("download")} Save to phone</button>
+    <button type="button" class="btn btn-light" data-print-wallet>{icon("printer")} Print wallet card</button>
+  </div>
+  <p class="save-status" data-save-status aria-live="polite" hidden></p>
+</section>
+<section class="dodont" aria-label="Do and don't">
+  <div class="do"><h2>{icon("check")}Do</h2><ul>{do}</ul></div>
+  <div class="dont"><h2>{icon("x")}Don't</h2><ul>{dont}</ul></div>
+</section>
+{varies}
+{"".join(sections)}
+{f'<section class="layer depth-std">{law}</section>' if law else ""}
+{helps}
+{rel_html}
+{accuracy_note()}
+{pager((prev_s["front"]["title"], "", f"/situations/{prev_s['front']['slug']}/") if prev_s else ("All situations", "", "/situations/"),
+       (next_s["front"]["title"], "", f"/situations/{next_s['front']['slug']}/") if next_s else ("All situations", "", "/situations/"))}
+</article>
+<div class="screen-mode" data-screen-mode hidden role="dialog" aria-modal="true" aria-label="{escape(f['title'])}: say this">
+  <button type="button" class="screen-close" data-screen-close>{icon("x")} Close</button>
+  <ol>{ten_html}</ol>
+</div>"""
+    desc = f.get("summary", "")
+    jld = {"@context": "https://schema.org", "@type": "HowTo", "name": f["title"], "description": desc,
+           "url": f"{SITE_URL}{url}", "step": [{"@type": "HowToStep", "text": plain_text(md(t))} for t in ten]}
+    write(url, page_shell(f"{f['title']}: Know Your Rights | {SITE_NAME}", desc, body_html, url,
+                          og_image="/static/og/situation-default.jpg", og_type="article", jsonld=jld,
+                          page_title=f["title"], body_class="is-situation"))
+    register(url, f["title"], "Situation", mins, desc, " ".join([desc, " ".join(ten), plain_text(md_to_html(body))]),
+             f.get("icon", "shield"))
+    return url
+
+
+def sit_card(f):
+    return (f'<a class="sit-card" href="/situations/{f["slug"]}/" data-progress-url="/situations/{f["slug"]}/">'
+            f'<span class="sit-ic">{icon(f.get("icon", "shield"))}</span>'
+            f'<span class="sit-body"><span class="sit-title">{escape(f["title"])}</span>'
+            f'<span class="sit-sum">{escape(f.get("summary", ""))}</span>'
+            f'<span class="sit-min">{icon("clock")}{PAGES.get("/situations/" + f["slug"] + "/", {}).get("minutes", 2)} min</span></span>'
+            f'{icon("right", "ic go")}</a>')
 
 
 def render_situations_index(situations):
-    cards = ""
-    for s in situations:
-        f = s["front"]
-        cards += f"""<a class="sit-card" href="/situations/{f["slug"]}/">
-  <h2>{escape(f["title"])}</h2>
-  <p>{escape(f.get("summary", ""))}</p>
-  <span class="sit-go">Read the card</span>
-</a>"""
-    body = f"""<section class="wrap">
-  <p class="breadcrumb"><a href="/">Home</a> / Situations</p>
-  <h1>Situations</h1>
-  <p class="lede">Pocket cards for moments when knowing your rights matters. Each one tells you what you can say, the law you are citing, and where the limits are.</p>
-  <div class="sit-grid">{cards}</div>
-  {not_legal_advice()}
-</section>"""
+    cards = "".join(sit_card(s["front"]) for s in situations)
     url = "/situations/"
-    sit_idx_jld = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Know Your Rights — Situations",
-        "description": "Plain-language guides for specific moments when your rights are at stake.",
-        "url": f"{SITE_URL}{url}",
-        "publisher": {"@type": "Organization", "name": "Hope for Americans"},
-    }
-    write(f"{url}index.html", page_shell(
-        f"Know Your Rights — Situation Cards | {SITE_NAME}",
-        "Plain-language guides for specific moments when your rights are at stake. At a protest, searched by police, turned away from voting.",
-        body, url,
-        og_image="/static/og/situation-default.jpg",
-        jsonld=sit_idx_jld))
-    return url
+    body = f"""<section class="wrap page">
+  {crumbs(("Situations", None))}
+  <h1>Situation cards</h1>
+  <p class="lede">Pocket cards for the moments when your rights matter. Each one starts with exactly what to say, then what to do and not do.</p>
+  <p class="hint">{icon("download")} Every card works offline after you open it once.</p>
+  <div class="sit-grid">{cards}</div>
+  <p class="legal-note">These cards explain the law in general. They are not legal advice and have not been reviewed by a lawyer.</p>
+</section>"""
+    write(url, page_shell(f"Know Your Rights: Situation Cards | {SITE_NAME}",
+                          "What to say and do when police question or search you, at school, online, at work, at a protest, or at the polls.",
+                          body, url, og_image="/static/og/situation-default.jpg", page_title="Situation cards"))
+    register(url, "Situation cards", "Index", 1, "What to say when it matters.", "", "shield")
 
 
-def render_simple(front, html, anchors, url, kind_eyebrow=None, note=False):
-    f = front
-    eyebrow = f'<p class="eyebrow">{kind_eyebrow}</p>' if kind_eyebrow else ""
-    body = f"""<article class="doc wrap">
-  <p class="breadcrumb"><a href="/">Home</a></p>
-  {eyebrow}
-  <h1>{escape(f["title"])}</h1>
-  {reading_controls()}
-  <div class="doc-body" data-reading>
-  {html}
-  </div>
-  {not_legal_advice() if note else ""}
-</article>"""
-    PAGE_ANCHORS[url] = anchors
-    write(f"{url}index.html", page_shell(
-        f"{f['title']} | {SITE_NAME}",
-        f.get("summary", f["title"]), body, url))
-    return url
+def amend_cell(n, subject):
+    u = f"/amendments/{n}/"
+    return (f'<a class="amend-cell" href="{u}" data-progress-url="{u}"><span class="num">{n}</span>'
+            f'<span class="amend-info"><span class="title">{ORDINALS[n]}</span><span class="subject">{escape(subject)}</span></span>'
+            f'{icon("check", "ic done")}</a>')
 
 
-def render_home(amendments, articles, situations):
-    # Short subjects for every amendment, shown in the grid
-    AMEND_SUBJECTS = {
-        1: "Speech, religion, press, assembly",
-        2: "Right to bear arms",
-        3: "Quartering soldiers",
-        4: "Search and seizure",
-        5: "Due process, self-incrimination",
-        6: "Right to a fair trial",
-        7: "Trial by jury in civil cases",
-        8: "Cruel and unusual punishment",
-        9: "Rights kept by the people",
-        10: "Powers kept by the states",
-        11: "Limits on suing states",
-        12: "Electing the president",
-        13: "Abolition of slavery",
-        14: "Citizenship, equal protection",
-        15: "Right to vote by race",
-        16: "Income tax",
-        17: "Electing senators directly",
-        18: "Prohibition of alcohol",
-        19: "Right to vote by sex",
-        20: "Presidential terms and succession",
-        21: "Repeal of Prohibition",
-        22: "Presidential term limits",
-        23: "D.C. electoral votes",
-        24: "Abolition of poll taxes",
-        25: "Presidential disability",
-        26: "Voting age lowered to 18",
-        27: "Congressional pay changes",
-    }
+def render_amendments_index(amendments, all_ins):
+    bor = "".join(amend_cell(a["front"]["number"], all_ins[a["front"]["number"]].get("subject", "")) for a in amendments if a["front"]["number"] <= 10)
+    rest = "".join(amend_cell(a["front"]["number"], all_ins[a["front"]["number"]].get("subject", "")) for a in amendments if a["front"]["number"] > 10)
+    url = "/amendments/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Amendments", None))}
+  <h1>The 27 amendments</h1>
+  <p class="lede">Changes added to the Constitution since 1787. The first ten are the Bill of Rights.</p>
+  <p class="progress-line" data-progress-count data-of="27" data-prefix="/amendments/" hidden></p>
+  <h2 class="grid-label">Bill of Rights, 1791</h2>
+  <div class="amend-grid">{bor}</div>
+  <h2 class="grid-label">Later amendments, 1795 to 1992</h2>
+  <div class="amend-grid">{rest}</div>
+</section>"""
+    write(url, page_shell(f"All 27 Amendments in Plain English | {SITE_NAME}",
+                          "Every amendment to the U.S. Constitution, from the Bill of Rights to the 27th, in plain English.",
+                          body, url, page_title="Amendments"))
+    register(url, "All 27 amendments", "Index", 1, "", "", "scales")
 
-    # Friendlier article names for the homepage
-    ARTICLE_NAMES = {
-        1: "Congress",
-        2: "The president",
-        3: "The courts",
-        4: "The states",
-        5: "How to amend the Constitution",
-        6: "The Constitution as supreme law",
-        7: "How the Constitution was approved",
-    }
 
-    # Jump rail
-    rail = ""
-    for jp in JUMP_POINTS:
-        rail += f"""<a class="jump" href="{jp["href"]}">
-  <span class="jump-q">{escape(jp["q"])}</span>
-  <span class="jump-where">{escape(jp["where"])} &rarr;</span>
-</a>"""
-
-    # Situations
-    sits = ""
-    for s in situations:
-        f = s["front"]
-        sits += f"""<a class="sit-card" href="/situations/{f["slug"]}/">
-  <h3>{escape(f["title"])}</h3>
-  <p>{escape(f.get("summary", ""))}</p>
-  <span class="sit-go">Read the card</span>
-</a>"""
-
-    # Amendments grid with subjects
-    bor = ""
-    rest = ""
-    for a in amendments:
-        n = a["front"]["number"]
-        subj = AMEND_SUBJECTS.get(n, "")
-        cell = f"""<a class="amend-cell" href="/amendments/{n}/">
-  <span class="num">{n}</span>
-  <span class="amend-info"><span class="title">{ORDINALS[n]}</span><span class="subject">{escape(subj)}</span></span>
-</a>"""
-        if n <= 10:
-            bor += cell
-        else:
-            rest += cell
-
-    # Articles
-    arts = ""
+def render_articles_index(articles):
+    rows = ""
     for art in articles:
         n = art["front"]["number"]
-        name = ARTICLE_NAMES.get(n, art["front"]["title"])
-        arts += f"""<a class="article-row" href="/articles/{n}/">
-  <span class="num">Article {ROMAN[n]}</span>
-  <span class="title">{escape(name)}</span>
-</a>"""
+        ins = load_insight(f"article-{n}")
+        u = f"/articles/{n}/"
+        rows += (f'<a class="article-row" href="{u}" data-progress-url="{u}"><span class="num">Article {ROMAN[n]}</span>'
+                 f'<span class="art-body"><span class="title">{escape(ARTICLE_NAMES[n])}</span>'
+                 f'<span class="sit-sum">{md(ins.get("one_line", ""))}</span></span>{icon("right", "ic go")}</a>')
+    url = "/articles/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Articles", None))}
+  <h1>The original Constitution</h1>
+  <p class="lede">Seven articles, approved in 1788. They set up the government. Start with the <a href="/preamble/">Preamble</a>, the one-sentence mission statement.</p>
+  <div class="article-list">{rows}</div>
+  <p><a class="btn btn-quiet" href="/full-text/">{icon("book")} Read the whole Constitution on one page</a></p>
+</section>"""
+    write(url, page_shell(f"The Seven Articles of the Constitution in Plain English | {SITE_NAME}",
+                          "The seven articles of the U.S. Constitution in plain English: Congress, the President, the courts, and more.",
+                          body, url, page_title="Articles"))
+    register(url, "The seven articles", "Index", 1, "", "", "columns")
 
+
+def path_minutes(p):
+    """Time for the short version of each step (Quick depth)."""
+    return sum(PAGES.get(s["href"].split("#")[0], {}).get("quick") or 2 for s in p["steps"])
+
+
+def render_paths(paths):
+    cards = ""
+    for p in paths:
+        m = path_minutes(p)
+        cards += (f'<a class="path-card" href="/paths/{p["slug"]}/" data-path-card="{p["slug"]}">'
+                  f'<span class="path-ic">{icon(p.get("icon", "map"))}</span>'
+                  f'<span class="path-body"><span class="path-title">{escape(p["title"])}</span>'
+                  f'<span class="sit-sum">{escape(p["blurb"])}</span>'
+                  f'<span class="path-meta">{icon("clock")}{m} min &middot; {len(p["steps"])} steps<span class="path-prog" data-path-prog></span></span></span>'
+                  f'{icon("right", "ic go")}</a>')
+    url = "/paths/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Paths", None))}
+  <h1>Paths</h1>
+  <p class="lede">Short guided routes through the Constitution. Each step is one page. Your progress stays on this device.</p>
+  <div class="path-grid">{cards}</div>
+</section>"""
+    write(url, page_shell(f"Guided Paths Through the Constitution | {SITE_NAME}",
+                          "Short guided reading paths: your rights in 10 minutes, getting pulled over, rights at school, first-time voter, and more.",
+                          body, url, page_title="Paths"))
+    register(url, "Paths", "Index", 1, "", "", "map")
+    for p in paths:
+        steps = ""
+        for i, s in enumerate(p["steps"]):
+            href = s["href"]
+            pg = PAGES.get(href.split("#")[0], {})
+            sep = "&" if "?" in href else "?"
+            steps += (f'<li class="step" data-progress-url="{href.split("#")[0]}"><a href="{href}{sep}path={p["slug"]}">'
+                      f'<span class="step-n">{i + 1}</span><span class="step-body"><span class="step-label">{escape(s["label"])}</span>'
+                      f'<span class="step-why">{escape(s["why"])}</span>'
+                      f'<span class="step-meta">{escape(pg.get("title", ""))} &middot; {pg.get("quick") or 2} min</span></span>'
+                      f'{icon("check", "ic done")}</a></li>')
+        first = p["steps"][0]["href"]
+        sep = "&" if "?" in first else "?"
+        purl = f"/paths/{p['slug']}/"
+        pbody = f"""<section class="wrap page">
+  {crumbs(("Paths", "/paths/"), (p["title"], None))}
+  <p class="kicker">{icon(p.get("icon", "map"))}<span>Path &middot; {len(p["steps"])} steps &middot; about {path_minutes(p)} min</span></p>
+  <h1>{escape(p["title"])}</h1>
+  <p class="lede">{escape(p["blurb"])}</p>
+  <p><a class="btn btn-primary" href="{first}{sep}path={p['slug']}" data-path-start="{p['slug']}">Start the path {icon("right")}</a></p>
+  <ol class="steps">{steps}</ol>
+  <div class="path-done" data-path-done hidden>{icon("star")}<p><strong>Path finished.</strong> Nice work. Try another path or take a Quick check on any page.</p></div>
+</section>"""
+        write(purl, page_shell(f"{p['title']} | {SITE_NAME}", p["blurb"], pbody, purl, page_title=p["title"]))
+        register(purl, p["title"], "Path", path_minutes(p), p["blurb"], " ".join(s["label"] + " " + s["why"] for s in p["steps"]), "map")
+
+
+def render_timeline(events):
+    def yr(e):
+        return int(str(e["date"])[:4])
+    lo, hi = 1770, 2030
+    W, H = 1000, 170
+    X = lambda y: 30 + (y - lo) / (hi - lo) * (W - 60)
+    ticks = "".join(
+        f'<line x1="{X(y):.1f}" x2="{X(y):.1f}" y1="104" y2="118" class="tl-tick"/><text x="{X(y):.1f}" y="152" class="tl-tl">{y}</text>'
+        for y in range(1800, 2030, 50))
+    dots = ""
+    rows_by_kind = {"founding": 30, "event": 52, "amendment": 74, "case": 92}
+    for e in events:
+        dots += f'<circle cx="{X(yr(e)):.1f}" cy="{rows_by_kind.get(e["kind"], 60)}" r="9" class="tl-dot k-{e["kind"]}"><title>{yr(e)}: {escape(e["title"])}</title></circle>'
+    svg = (f'<svg class="tl-scale" viewBox="0 0 {W} {H}" role="img" aria-label="Timeline from 1776 to 2026, drawn to scale">'
+           f'<line x1="30" x2="{W - 30}" y1="111" y2="111" class="tl-axis"/>{ticks}{dots}</svg>')
+    eras = [("Founding", 1770, 1791), ("A new country", 1792, 1860), ("Civil War and Reconstruction", 1861, 1877),
+            ("A growing nation", 1878, 1945), ("Civil rights era", 1946, 1979), ("Modern era", 1980, 2030)]
+    kinds = {"founding": "Founding", "amendment": "Amendment", "case": "Court case", "event": "Event"}
+    blocks = ""
+    for name, a, b in eras:
+        evs = [e for e in events if a <= yr(e) <= b]
+        if not evs:
+            continue
+        items = ""
+        for e in evs:
+            d = str(e["date"])
+            when = fmt_date(d) if len(d) == 10 else d
+            items += (f'<li class="tl-item k-{e["kind"]}" data-kind="{e["kind"]}"><span class="tl-date">{escape(when)}</span>'
+                      f'<span class="tl-body"><span class="pill pill-{e["kind"]}">{kinds.get(e["kind"], "")}</span>'
+                      f'<a href="{e["href"]}" class="tl-title">{md(e["title"])}</a><span class="tl-line">{md(e["line"])}</span></span></li>')
+        blocks += f'<section class="tl-era"><h2>{escape(name)} <span class="tl-range">{a if a > 1770 else 1776}&ndash;{b if b < 2030 else "today"}</span></h2><ol class="tl-list">{items}</ol></section>'
+    filt = "".join(f'<label class="seg"><input type="radio" name="tlk" value="{v}"{" checked" if v == "all" else ""}><span>{l}</span></label>'
+                   for v, l in [("all", "All"), ("amendment", "Amendments"), ("case", "Court cases"), ("founding", "Founding")])
+    url = "/timeline/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Timeline", None))}
+  <h1>Timeline</h1>
+  <p class="lede">250 years of the Constitution: when each part was added and the court cases that shaped what it means.</p>
+  <figure class="tl-figure">{svg}<figcaption><span class="key k-founding"></span>Founding <span class="key k-amendment"></span>Amendments <span class="key k-case"></span>Court cases <span class="key k-event"></span>Events &middot; drawn to scale</figcaption></figure>
+  <fieldset class="setting tl-filter"><legend>Show</legend><div class="segs">{filt}</div></fieldset>
+  {blocks}
+</section>"""
+    write(url, page_shell(f"Constitution Timeline, 1776 to Today | {SITE_NAME}",
+                          "A timeline of the U.S. Constitution: the founding, all 27 amendments, and landmark Supreme Court cases.",
+                          body, url, page_title="Timeline"))
+    register(url, "Timeline", "Timeline", 4, "From 1776 to today.", " ".join(e["title"] + " " + e["line"] for e in events), "timeline")
+
+
+def render_words(gloss):
+    by_letter = {}
+    for g in sorted(gloss, key=lambda x: x["term"].lower()):
+        by_letter.setdefault(g["term"][0].upper(), []).append(g)
+    nav = "".join(f'<a href="#letter-{L}">{L}</a>' for L in by_letter)
+    blocks = ""
+    for L, items in by_letter.items():
+        rows = []
+        for g in items:
+            see = g.get("see")
+            link = f'<a href="{see}">See where it matters {icon("right")}</a>' if see and see != "/words/" else ""
+            rows.append(f'<div class="word" id="{slugify(g["term"])}"><dt>{escape(g["term"])}</dt><dd><p>{md(g["def"])}</p>{link}</dd></div>')
+        dl = "".join(rows)
+        blocks += f'<section class="letter" id="letter-{L}"><h2>{L}</h2><dl class="words">{dl}</dl></section>'
+    url = "/words/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Words", None))}
+  <h1>Words</h1>
+  <p class="lede">Legal words in plain English. On any page, tap an underlined word to see its meaning.</p>
+  <nav class="letters" aria-label="Jump to letter">{nav}</nav>
+  {blocks}
+</section>"""
+    write(url, page_shell(f"Constitution Glossary: Legal Words in Plain English | {SITE_NAME}",
+                          "Plain-English definitions of legal words in the Constitution: probable cause, due process, equal protection, and more.",
+                          body, url, page_title="Words"))
+    register(url, "Words", "Glossary", 3, "Legal words in plain English.", "", "words")
+
+
+def render_memorize(items):
+    data = json.dumps(items)
+    cards = ""
+    for it in items:
+        cards += f"""<section class="mem" id="{it['slug']}" data-mem="{it['slug']}">
+  <h2>{escape(it['title'])}</h2>
+  <p class="hint">{escape(it['why'])} From <a href="{it['source']}">{escape(it['source_label'])}</a>.</p>
+  <div class="segs mem-modes" role="tablist" aria-label="Practice mode">
+    <button type="button" class="seg-btn on" data-mode="read" role="tab" aria-selected="true">Read</button>
+    <button type="button" class="seg-btn" data-mode="letters" role="tab" aria-selected="false">First letters</button>
+    <button type="button" class="seg-btn" data-mode="order" role="tab" aria-selected="false">Put in order</button>
+  </div>
+  <div class="mem-stage" data-stage aria-live="polite"><p>{escape(" ".join(it['chunks']))}</p></div>
+</section>"""
+    url = "/memorize/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Know it by heart", None))}
+  <h1>Know it by heart</h1>
+  <p class="lede">Practice a few lines worth remembering. Read it, try it with only first letters, then put it in order. Nothing is saved.</p>
+  {cards}
+  <script type="application/json" id="mem-data">{data}</script>
+</section>"""
+    write(url, page_shell(f"Memorize the Preamble and First Amendment | {SITE_NAME}",
+                          "Practice the Preamble, the First Amendment, the five freedoms, and the three sentences that protect you.",
+                          body, url, page_title="Know it by heart"))
+    register(url, "Know it by heart", "Practice", 5, "Memorize the Preamble, the five freedoms, and more.", "", "brain")
+
+
+def render_full_text(amendments, articles):
+    pre_f, pre_b = load_md(CONTENT / "preamble.md")
+    parts = [f'<section id="preamble"><h2>Preamble</h2><div class="verbatim">{md_to_html(sec(split_h2(pre_b), "Verbatim"), 1)}</div></section>']
+    toc = ['<a href="#preamble">Preamble</a>']
+    for art in articles:
+        n = art["front"]["number"]
+        v = sec(split_h2(art["body"]), "Verbatim")
+        parts.append(f'<section id="article-{n}"><h2>Article {ROMAN[n]} <a class="small-link" href="/articles/{n}/">plain English</a></h2><div class="verbatim">{md_to_html(v, 1)}</div></section>')
+        toc.append(f'<a href="#article-{n}">Art. {ROMAN[n]}</a>')
+    for a in amendments:
+        n = a["front"]["number"]
+        v = sec(split_h2(a["body"]), "Verbatim")
+        parts.append(f'<section id="amendment-{n}"><h2>Amendment {n} <a class="small-link" href="/amendments/{n}/">plain English</a></h2><div class="verbatim">{md_to_html(v, 1)}</div></section>')
+        toc.append(f'<a href="#amendment-{n}">{n}</a>')
+    url = "/full-text/"
+    body = f"""<section class="wrap page fulltext">
+  {crumbs(("Full text", None))}
+  <h1>The whole Constitution</h1>
+  <p class="lede">The complete original text on one page, from the National Archives. For the plain-English version, tap "plain English" next to any part.</p>
+  <nav class="toc" aria-label="Jump to">{"".join(toc)}</nav>
+  {"".join(parts)}
+  {accuracy_note("https://www.archives.gov/founding-docs/constitution-transcript")}
+</section>"""
+    write(url, page_shell(f"The Full Text of the U.S. Constitution | {SITE_NAME}",
+                          "The complete original text of the U.S. Constitution and all 27 amendments on one page.",
+                          body, url, page_title="Full text"))
+    register(url, "The whole Constitution (original text)", "Full text", 45, "Every word of the original on one page.", "", "book")
+
+
+def render_simple(name, url):
+    f, body = load_md(CONTENT / f"{name}.md")
+    html = md_to_html(body, 0)
+    page = f"""<article class="doc wrap prose-page">
+  {crumbs((f["title"], None))}
+  <h1>{escape(f["title"])}</h1>
+  <p class="lede">{escape(f.get("summary", ""))}</p>
+  <div class="prose">{html}</div>
+</article>"""
+    write(url, page_shell(f"{f['title']} | {SITE_NAME}", f.get("summary", f["title"]), page, url, page_title=f["title"]))
+    register(url, f["title"], "Page", minutes_for(html), f.get("summary", ""), plain_text(html), "info")
+
+
+def render_search_page():
+    url = "/search/"
+    body = f"""<section class="wrap page">
+  {crumbs(("Search", None))}
+  <h1>Search</h1>
+  <label class="search-field big">{icon("search")}<span class="vh">Search the Constitution</span>
+  <input type="search" data-search-input data-search-inline placeholder="Try: phone search, vote, speech at school" autocomplete="off"></label>
+  <div class="search-results" data-search-results data-search-inline-results aria-live="polite"></div>
+</section>"""
+    write(url, page_shell(f"Search | {SITE_NAME}", "Search the Constitution, amendments, situation cards, and legal words.", body, url, page_title="Search"))
+
+
+def render_offline():
+    url = "/offline/"
+    body = f"""<section class="wrap page">
+  <h1>You're offline</h1>
+  <p class="lede">This page isn't saved on your phone yet. Situation cards you've opened before still work.</p>
+  <p><a class="btn btn-primary" href="/situations/">Open situation cards</a></p>
+</section>"""
+    write(url, page_shell(f"Offline | {SITE_NAME}", "You're offline.", body, url, page_title="Offline"))
+
+
+def render_home(amendments, articles, situations, paths, all_ins, events):
+    finder = "".join(f'<a class="finder-btn" href="{h}">{icon(i)}<span>{escape(l)}</span></a>' for i, l, h in FINDER)
+    rail = "".join(f'<a class="jump" href="{h}"><span class="jump-q">{escape(q)}</span><span class="jump-where">{escape(w)} {icon("right")}</span></a>'
+                   for q, h, w in JUMP_POINTS)
+    pcards = ""
+    for p in paths[:4]:
+        pcards += (f'<a class="path-card" href="/paths/{p["slug"]}/" data-path-card="{p["slug"]}"><span class="path-ic">{icon(p.get("icon", "map"))}</span>'
+                   f'<span class="path-body"><span class="path-title">{escape(p["title"])}</span><span class="sit-sum">{escape(p["blurb"])}</span>'
+                   f'<span class="path-meta">{icon("clock")}{path_minutes(p)} min &middot; {len(p["steps"])} steps<span class="path-prog" data-path-prog></span></span></span>{icon("right", "ic go")}</a>')
+    bor = "".join(amend_cell(a["front"]["number"], all_ins[a["front"]["number"]].get("subject", "")) for a in amendments if a["front"]["number"] <= 10)
+    arts = "".join(f'<a class="article-row compact" href="/articles/{art["front"]["number"]}/" data-progress-url="/articles/{art["front"]["number"]}/"><span class="num">Art. {ROMAN[art["front"]["number"]]}</span><span class="title">{escape(ARTICLE_NAMES[art["front"]["number"]])}</span>{icon("right", "ic go")}</a>' for art in articles)
+    # mini timeline strip
+    marks = [e for e in events if e["kind"] in ("founding", "amendment")]
+    lo, hi = 1770, 2030
+    strip = "".join(f'<span class="strip-dot k-{e["kind"]}" style="left:{(int(str(e["date"])[:4]) - lo) / (hi - lo) * 100:.1f}%"></span>' for e in marks)
     body = f"""<div class="hero-band">
 <section class="hero wrap">
-  <a href="https://hopeforamericans.net" class="hfa-eyebrow">
-    <span class="hfa-eyebrow-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"><path d="M40 34Q40 24 50 24Q60 24 60 34L60 78"/></svg></span>
-    <span>A Hope for Americans project</span>
-  </a>
-  <h1>The Constitution<span class="dot">.</span></h1>
-  <p class="lede">{TAGLINE}</p>
-  <p class="sublede">Every word of the original, plus a plain-English version you can read anytime. A free reference, open to everyone.</p>
-  <div class="hero-cta-row">
-    <a class="cta" href="/preamble/">Start with the Preamble</a>
-    <a class="cta cta-secondary" href="#rights-now">I need to know my rights</a>
-  </div>
+  <a href="https://hopeforamericans.net" class="hfa-eyebrow">A Hope for Americans project</a>
+  <h1>Know your rights.<br><span class="accent">In plain English.</span></h1>
+  <p class="lede">The whole U.S. Constitution, explained one short page at a time. Free, no ads, no account.</p>
+  <h2 class="finder-q" id="finder-q">What's going on?</h2>
+  <button type="button" class="hero-search" data-open-search>{icon("search")}<span>Search: phone search, voting, speech at school&hellip;</span></button>
+  <div class="finder" aria-labelledby="finder-q">{finder}</div>
+  <p class="finder-more"><a href="/situations/">All situation cards {icon("right")}</a></p>
 </section>
 </div>
 
-<section id="rights-now" class="wrap rail-section">
-  <p class="section-eyebrow">Your rights</p>
-  <p class="section-title">Questions people are asking right now</p>
-  <p class="section-lede">Tap any question to go straight to the answer.</p>
+<section class="wrap home-sec" id="resume" hidden></section>
+
+<section class="wrap home-sec">
+  <h2 class="sec-title">{icon("help")}Questions people are asking</h2>
   <div class="jump-rail">{rail}</div>
 </section>
 
-<section id="situations" class="wrap">
-  <p class="section-eyebrow">Situation cards</p>
-  <p class="section-title">What to say when it matters</p>
-  <p class="section-lede">Plain-language guides for specific moments when your rights are at stake.</p>
-  <div class="sit-grid">{sits}</div>
+<section class="wrap home-sec">
+  <h2 class="sec-title">{icon("map")}Paths</h2>
+  <p class="sec-lede">Short guided routes. Each step is one page.</p>
+  <div class="path-grid">{pcards}</div>
+  <p><a class="text-link" href="/paths/">All {len(paths)} paths {icon("right")}</a></p>
 </section>
 
-<section id="amendments" class="wrap">
-  <p class="section-eyebrow">The Bill of Rights and all 27 amendments</p>
-  <p class="section-title">Amendments</p>
-  <p class="section-lede">Changes to the Constitution since it was written. The first ten are the Bill of Rights.</p>
-  <h3 class="grid-label">Bill of Rights, 1791</h3>
+<section class="wrap home-sec">
+  <h2 class="sec-title">{icon("timeline")}250 years in one line</h2>
+  <a class="strip" href="/timeline/" aria-label="Open the timeline"><span class="strip-line"></span>{strip}<span class="strip-l">1776</span><span class="strip-r">Today</span></a>
+  <p><a class="text-link" href="/timeline/">Open the timeline {icon("right")}</a></p>
+</section>
+
+<section class="wrap home-sec" id="browse">
+  <h2 class="sec-title">{icon("scales")}The Bill of Rights</h2>
+  <p class="sec-lede">The first ten amendments, 1791.</p>
   <div class="amend-grid">{bor}</div>
-  <h3 class="grid-label">Later amendments, 1795 to 1992</h3>
-  <div class="amend-grid">{rest}</div>
-</section>
-
-<section id="articles" class="wrap">
-  <p class="section-eyebrow">The original Constitution</p>
-  <p class="section-title">Articles</p>
-  <p class="section-lede">The seven sections ratified in 1788. Start with the <a href="/preamble/">Preamble</a>, the one-paragraph mission statement.</p>
+  <p><a class="text-link" href="/amendments/">All 27 amendments {icon("right")}</a></p>
+  <h2 class="sec-title">{icon("columns")}The original seven articles</h2>
   <div class="article-list">{arts}</div>
-</section>
-
-<section id="declaration" class="wrap declaration-block">
-  <p class="section-eyebrow">Founding document</p>
-  <p class="section-title">The Declaration of Independence</p>
-  <p class="section-lede">Not part of the Constitution. The statement that explains why the country exists, written 11 years before the Constitution.</p>
-  <a class="cta cta-secondary" href="/declaration/">Read the Declaration</a>
+  <div class="more-row">
+    <a class="mini-card" href="/preamble/">{icon("flag")}<span>The Preamble</span>{icon("right", "ic go")}</a>
+    <a class="mini-card" href="/declaration/">{icon("flag")}<span>Declaration of Independence</span>{icon("right", "ic go")}</a>
+    <a class="mini-card" href="/memorize/">{icon("brain")}<span>Know it by heart</span>{icon("right", "ic go")}</a>
+    <a class="mini-card" href="/words/">{icon("words")}<span>Words, explained</span>{icon("right", "ic go")}</a>
+  </div>
 </section>"""
-    home_jld = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebSite",
-                "@id": f"{SITE_URL}/#website",
-                "url": SITE_URL,
-                "name": "Free Constitution",
-                "description": "Every word of the United States Constitution, verbatim and in plain English.",
-                "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
-                "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE_URL}/situations/"}, "query": "required"},
-            },
-            {
-                "@type": "WebPage",
-                "@id": f"{SITE_URL}/#webpage",
-                "url": SITE_URL,
-                "name": "Free Constitution — Read your Constitution. Know your rights.",
-                "description": "A free reference for the United States Constitution. Every word of the original, plus a plain-English version anyone can read.",
-                "isPartOf": {"@id": f"{SITE_URL}/#website"},
-            }
-        ]
-    }
-    write("/index.html", page_shell(
-        f"Free Constitution — Read your Constitution. Know your rights.",
-        "A free reference for the United States Constitution. Verbatim text plus a plain-English version. Know your rights.",
-        body, "/",
-        og_image="/static/og/home.jpg",
-        og_type="website",
-        jsonld=home_jld))
+    jld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": f"{SITE_URL}/#website", "url": SITE_URL, "name": SITE_NAME,
+         "description": "The U.S. Constitution in plain English, with know-your-rights situation cards.",
+         "publisher": {"@type": "Organization", "name": "Hope for Americans", "url": "https://hopeforamericans.net"},
+         "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": f"{SITE_URL}/search/?q={{q}}"}, "query-input": "required name=q"}}]}
+    write("/", page_shell(f"Free Constitution: Know Your Rights in Plain English",
+                          "The whole U.S. Constitution in plain English, plus situation cards for what to say when police stop you, at school, online, and at the polls. Free, no ads.",
+                          body, "/", jsonld=jld, page_title="Home", body_class="is-home"))
 
 
 def render_404():
-    body = """<section class="wrap doc">
+    body = f"""<section class="wrap page">
   <h1>Page not found</h1>
-  <p class="lede">That page is not here. The Constitution still is.</p>
-  <p><a class="cta" href="/">Back to the front page</a></p>
+  <p class="lede">That page isn't here. The Constitution still is.</p>
+  <p><a class="btn btn-primary" href="/">Go to the front page</a> <button type="button" class="btn btn-quiet" data-open-search>{icon("search")} Search</button></p>
 </section>"""
-    write("/404.html", page_shell(f"Page not found | {SITE_NAME}", "Page not found.", body, "/404.html"))
+    write("/404.html", page_shell(f"Page not found | {SITE_NAME}", "Page not found.", body, "/404.html", page_title="Not found"))
+
+
+# ============================================================
+# Support files
+# ============================================================
+def write_support(amendments, situations, paths, gloss):
+    # search index
+    idx = []
+    for u, p in PAGES.items():
+        if p["kind"] == "Index":
+            continue
+        idx.append({"u": u, "t": p["title"], "k": p["kind"], "s": plain_text(md(p["summary"]))[:200],
+                    "x": p["text"].lower()[:4000], "i": p["icon"]})
+    for g in gloss:
+        idx.append({"u": f"/words/#{slugify(g['term'])}", "t": g["term"], "k": "Word", "s": g["def"], "x": g["def"].lower(), "i": "words"})
+    write("/search-index.json", json.dumps(idx, separators=(",", ":")))
+    # paths data for the path bar
+    pdata = {p["slug"]: {"t": p["title"], "s": [{"h": s["href"].split("#")[0], "l": s["label"]} for s in p["steps"]]} for p in paths}
+    write("/paths.json", json.dumps(pdata, separators=(",", ":")))
+
+    # service worker: offline for situation cards and anything you've opened
+    core = ["/", "/situations/", "/offline/", f"/static/css/site.css?v={ASSET_V}", f"/static/js/app.js?v={ASSET_V}",
+            "/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2",
+            "/static/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2",
+            "/static/favicon.svg"] + [f"/situations/{s['front']['slug']}/" for s in situations]
+    write("/sw.js", f"""/* Free Constitution offline support. Caches pages you open on this device only. */
+const V = "fc-{ASSET_V}";
+const CORE = {json.dumps(core)};
+self.addEventListener("install", e => {{
+  e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+}});
+self.addEventListener("activate", e => {{
+  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+}});
+self.addEventListener("fetch", e => {{
+  const r = e.request;
+  if (r.method !== "GET" || new URL(r.url).origin !== location.origin) return;
+  if (r.mode === "navigate") {{
+    e.respondWith(fetch(r).then(res => {{ const copy = res.clone(); caches.open(V).then(c => c.put(r, copy)); return res; }})
+      .catch(() => caches.match(r).then(m => m || caches.match("/offline/"))));
+    return;
+  }}
+  e.respondWith(caches.match(r).then(m => m || fetch(r).then(res => {{
+    if (res.ok) {{ const copy = res.clone(); caches.open(V).then(c => c.put(r, copy)); }}
+    return res;
+  }})));
+}});
+""")
+    write("/manifest.webmanifest", json.dumps({
+        "name": SITE_NAME, "short_name": "Free Const.", "start_url": "/", "display": "standalone",
+        "background_color": "#fbf8f0", "theme_color": "#14283f",
+        "description": "The U.S. Constitution in plain English, with know-your-rights cards.",
+        "icons": [{"src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}, indent=1))
+
+    write("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in sorted(x for x in WRITTEN if x.endswith("/") and x not in ("/offline/",)):
+        pr = "1.0" if u == "/" else ("0.9" if u.startswith("/situations/") else "0.7")
+        sm.append(f"  <url><loc>{SITE_URL}{u}</loc><lastmod>{TODAY.isoformat()}</lastmod><priority>{pr}</priority></url>")
+    sm.append("</urlset>")
+    write("/sitemap.xml", "\n".join(sm))
+
+    amend_lines = "\n".join(
+        f"- [{ORDINALS[a['front']['number']]} Amendment]({SITE_URL}/amendments/{a['front']['number']}/): "
+        f"{PAGES['/amendments/%d/' % a['front']['number']]['summary']}" for a in amendments)
+    sit_lines = "\n".join(f"- [{s['front']['title']}]({SITE_URL}/situations/{s['front']['slug']}/): {s['front'].get('summary', '')}" for s in situations)
+    write("/llms.txt", f"""# Free Constitution
+
+> {TAGLINE}
+
+freeconstitution.org is a free plain-English guide to the United States Constitution, published by Hope for Americans (Flagstaff, Arizona). No ads, no tracking, no accounts.
+
+## Content policy
+- Original text of the Constitution, all 27 amendments, and the Declaration of Independence comes from the National Archives (public domain).
+- Plain-language explanations and situation cards are original work by Hope for Americans, licensed CC BY 4.0.
+- Legal claims are checked against the text and named Supreme Court decisions. The site has not been reviewed by a lawyer and is not legal advice.
+
+## Amendments
+{amend_lines}
+
+## Situation cards
+{sit_lines}
+
+## Key pages
+- [Home]({SITE_URL}/)
+- [All amendments]({SITE_URL}/amendments/)
+- [The seven articles]({SITE_URL}/articles/)
+- [Paths]({SITE_URL}/paths/)
+- [Timeline]({SITE_URL}/timeline/)
+- [Glossary]({SITE_URL}/words/)
+- [Full original text]({SITE_URL}/full-text/)
+- [About and how we check]({SITE_URL}/about/)
+""")
+
+
+# ============================================================
+# Checks
+# ============================================================
+def check_links():
+    problems = []
+    for f in PUBLIC.rglob("*.html"):
+        html = f.read_text(encoding="utf-8")
+        for href in re.findall(r'href="(/[^"#?]*)', html):
+            if href.startswith("/static/") or href in ("/manifest.webmanifest",):
+                target = PUBLIC / href.lstrip("/")
+                if not target.exists():
+                    problems.append(f"{f.relative_to(PUBLIC)} -> {href}")
+                continue
+            t = PUBLIC / href.lstrip("/")
+            if not (t.is_file() or (t / "index.html").exists()):
+                problems.append(f"{f.relative_to(PUBLIC)} -> {href}")
+    return sorted(set(problems))
 
 
 # ============================================================
 # Build
 # ============================================================
+def load_collection(folder, sort_key):
+    items = []
+    for p in sorted((CONTENT / folder).glob("*.md")):
+        front, body = load_md(p)
+        if front.get("type"):
+            items.append({"front": front, "body": body})
+    items.sort(key=sort_key)
+    return items
+
 
 def main():
-    global SITUATION_TITLES
+    global TERMS
+    # content checks first (phrase quotes must match the original)
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_content.py")], capture_output=True, text=True)
+    print(r.stdout.strip().split("\n")[-1])
+    if r.returncode != 0:
+        print(r.stdout)
+        raise SystemExit("Content check failed. Fix the problems above, then build again.")
 
     if PUBLIC.exists():
         shutil.rmtree(PUBLIC)
     PUBLIC.mkdir()
     shutil.copytree(STATIC, PUBLIC / "static")
 
+    gloss = load_yaml("glossary.yml")
+    TERMS = Terms(gloss)
+    paths = load_yaml("paths.yml")
+    events = sorted(load_yaml("timeline.yml"), key=lambda e: str(e["date"]))
+    mem = load_yaml("memorize.yml")
+
     amendments = load_collection("amendments", lambda x: x["front"]["number"])
     articles = load_collection("articles", lambda x: x["front"]["number"])
-    situations = load_collection("situations", lambda x: x["front"]["title"])
-
-    SITUATION_TITLES = {s["front"]["slug"]: s["front"]["title"] for s in situations}
-
-    urls = ["/"]
-
-    for i, a in enumerate(amendments):
-        prev_a = amendments[i - 1] if i > 0 else None
-        next_a = amendments[i + 1] if i < len(amendments) - 1 else None
-        urls.append(render_amendment(a, prev_a, next_a))
-
-    for i, art in enumerate(articles):
-        prev_a = articles[i - 1] if i > 0 else None
-        next_a = articles[i + 1] if i < len(articles) - 1 else None
-        urls.append(render_article(art, prev_a, next_a))
-
+    situations = load_collection("situations", lambda x: (x["front"].get("order", 99), x["front"]["title"]))
     for s in situations:
-        urls.append(render_situation(s))
-    urls.append(render_situations_index(situations))
+        SITUATIONS[s["front"]["slug"]] = s["front"]
+    all_ins = {a["front"]["number"]: load_insight(f"amendment-{a['front']['number']}") for a in amendments}
 
-    # Standalone documents
-    pre_front, pre_body = load_md(CONTENT / "preamble.md")
-    h, anc = md_to_html(pre_body)
-    urls.append(render_simple(pre_front, h, anc, "/preamble/", "The Constitution &middot; ratified September 17, 1787"))
-
-    dec_front, dec_body = load_md(CONTENT / "declaration.md")
-    h, anc = md_to_html(dec_body)
-    urls.append(render_simple(dec_front, h, anc, "/declaration/", "Founding document &middot; adopted July 4, 1776"))
-
-    about_front, about_body = load_md(CONTENT / "about.md")
-    h, anc = md_to_html(about_body)
-    urls.append(render_simple(about_front, h, anc, "/about/"))
-
-    src_front, src_body = load_md(CONTENT / "sources.md")
-    h, anc = md_to_html(src_body)
-    urls.append(render_simple(src_front, h, anc, "/sources/"))
-
-    render_home(amendments, articles, situations)
+    nums = [a["front"]["number"] for a in amendments]
+    for i, a in enumerate(amendments):
+        render_amendment(a, nums[i - 1] if i else None, nums[i + 1] if i < len(nums) - 1 else None, all_ins)
+    anums = [a["front"]["number"] for a in articles]
+    for i, art in enumerate(articles):
+        render_article(art, anums[i - 1] if i else None, anums[i + 1] if i < len(anums) - 1 else None)
+    for i, s in enumerate(situations):
+        render_situation(s, situations[i - 1] if i else None, situations[i + 1] if i < len(situations) - 1 else None)
+    render_preamble()
+    render_declaration()
+    render_situations_index(situations)
+    render_amendments_index(amendments, all_ins)
+    render_articles_index(articles)
+    render_simple("about", "/about/")
+    render_simple("sources", "/sources/")
+    render_timeline(events)
+    render_words(gloss)
+    render_memorize(mem)
+    render_full_text(amendments, articles)
+    render_paths(paths)          # after the pages it points to, so minutes are known
+    render_home(amendments, articles, situations, paths, all_ins, events)
+    render_search_page()
+    render_offline()
     render_404()
+    write_support(amendments, situations, paths, gloss)
 
-    today = date.today().isoformat()
-
-    # robots.txt — allow all crawlers including AI
-    write("/robots.txt", (
-        "User-agent: *\n"
-        "Allow: /\n"
-        f"Sitemap: {SITE_URL}/sitemap.xml\n\n"
-        "# AI crawlers welcome\n"
-        "User-agent: GPTBot\nAllow: /\n"
-        "User-agent: ClaudeBot\nAllow: /\n"
-        "User-agent: PerplexityBot\nAllow: /\n"
-        "User-agent: Googlebot\nAllow: /\n"
-    ))
-
-    # Sitemap with lastmod and changefreq
-    PRIORITY = {
-        "/": ("1.0", "weekly"),
-        "/situations/": ("0.9", "weekly"),
-        "/preamble/": ("0.8", "monthly"),
-    }
-    sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in sorted(set(urls)):
-        priority, freq = PRIORITY.get(u, ("0.7" if "/amendments/" in u or "/situations/" in u else "0.6", "monthly"))
-        sm.append(f'  <url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{priority}</priority></url>')
-    sm.append("</urlset>")
-    write("/sitemap.xml", "\n".join(sm))
-
-    # llms.txt — GEO-optimised for AI crawlers (Perplexity, ChatGPT, Gemini, Claude)
-    amend_lines = "\n".join(
-        f"- [{ORDINALS[a['front']['number']]} Amendment]({SITE_URL}/amendments/{a['front']['number']}/): {a['front']['title']}"
-        for a in amendments
-    )
-    sit_lines = "\n".join(
-        f"- [{s['front']['title']}]({SITE_URL}/situations/{s['front']['slug']}/): {s['front'].get('summary','')}"
-        for s in situations
-    )
-    write("/llms.txt", f"""# Free Constitution
-
-> {TAGLINE}
-
-freeconstitution.org is a free reference for the United States Constitution, published by Hope for Americans, a civic-tech project based in Flagstaff, Arizona. The site is open to everyone. It contains no ads and no tracking.
-
-## What this site contains
-
-- The verbatim text of the United States Constitution and all 27 amendments, sourced from the National Archives
-- A plain-English translation of every section
-- Practical explanations of what each amendment means in everyday life
-- Situation cards: plain-language guides for specific moments when rights are at stake
-- The Declaration of Independence (not law, but context)
-
-## Content policy
-
-All verbatim constitutional text is from the National Archives (public domain). Plain-English layers and situation cards are original content by Hope for Americans, licensed CC BY 4.0. This site is not legal advice.
-
-## Amendments
-
-{amend_lines}
-
-## Situation cards
-
-{sit_lines}
-
-## Key pages
-
-- [Homepage]({SITE_URL}/)
-- [All situations]({SITE_URL}/situations/)
-- [Preamble]({SITE_URL}/preamble/)
-- [Declaration of Independence]({SITE_URL}/declaration/)
-- [About]({SITE_URL}/about/)
-- [Sources]({SITE_URL}/sources/)
-
-## Contact
-
-Hope for Americans — hopeforamericans.net
-""")
-
-
-    # Validate jump points
-    problems = []
-    for jp in JUMP_POINTS:
-        href = jp["href"]
-        if "#" in href:
-            page, anchor = href.split("#")
-            if page not in PAGE_ANCHORS:
-                problems.append(f"missing page: {page}")
-            elif anchor not in PAGE_ANCHORS[page]:
-                problems.append(f"missing anchor #{anchor} on {page}")
-        else:
-            if not (PUBLIC / href.lstrip("/") / "index.html").exists():
-                problems.append(f"missing page: {href}")
-    if problems:
-        print("JUMP POINT PROBLEMS:")
-        for p in problems:
-            print("  -", p)
+    # path steps and finder must point at real pages
+    bad = check_links()
+    if bad:
+        print("BROKEN INTERNAL LINKS:")
+        for b in bad[:60]:
+            print("  -", b)
         raise SystemExit(1)
-
-    print(f"Built {len(urls) + 2} pages to {PUBLIC}")
-    print("All jump points verified.")
+    print(f"Built {len(WRITTEN)} pages to {PUBLIC}. All internal links verified.")
 
 
 if __name__ == "__main__":

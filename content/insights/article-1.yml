@@ -1,0 +1,95 @@
+one_line: >-
+  Congress makes federal laws. Article I sets up the House and Senate and lists what Congress and the states can and cannot do.
+subject: Congress
+content_note: "This article includes the three-fifths clause (Section 2) and a clause that protected the slave trade until 1808 (Section 9). Both are explained plainly below."
+scene:
+  when: "1787"
+  text: >-
+    In the summer of 1787, delegates from 12 states met in Philadelphia. Under the Articles of Confederation, Congress could not tax or regulate trade between states. The delegates wanted a Congress strong enough to govern, but not so strong it threatened freedom. Article I was their answer.
+phrases:
+  - quote: "All legislative Powers herein granted shall be vested in a Congress of the United States"
+    plain: "Only Congress can make federal laws, and only using the powers this Constitution gives it."
+  - quote: "three fifths of all other Persons"
+    plain: "Enslaved people were counted as three-fifths of a person to decide House seats. The Fourteenth Amendment replaced this rule."
+  - quote: "The Senate of the United States shall be composed of two Senators from each State"
+    plain: "Every state, big or small, gets two senators."
+  - quote: "To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes"
+    plain: "Congress controls trade with other countries, between states, and with Native American tribes."
+  - quote: "To declare War"
+    plain: "Only Congress can officially declare war."
+  - quote: "To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers"
+    plain: "Congress can pass laws needed to carry out its listed powers."
+  - quote: "The Migration or Importation of such Persons"
+    plain: "This clause protected the overseas slave trade until 1808. Congress banned the trade as soon as it could."
+  - quote: "The Privilege of the Writ of Habeas Corpus shall not be suspended"
+    plain: "If you are jailed, you can ask a court to decide if it is lawful. This can be paused only during rebellion or invasion."
+picture_it: >-
+  Your representative introduces a bill to fund public transit. It passes the House, then the Senate. The President vetoes it. Two-thirds of each house votes again, and the bill becomes law anyway.
+myths:
+  - myth: "The President makes the laws."
+    fact: "Congress writes and passes bills. The President can sign or veto them, and Congress can override a veto with a two-thirds vote in each house."
+  - myth: "The Constitution says the House has 435 members."
+    fact: "The Constitution does not set a number. A federal law, not the Constitution, sets the number at 435."
+  - myth: "The three-fifths clause gave enslaved people three-fifths of a vote."
+    fact: "Enslaved people could not vote at all. The clause counted them to give slave states more House seats and more power."
+words_changed:
+  - word: "Commerce"
+    then: "Buying, selling, and moving goods."
+    now: "Courts have read it to cover many economic activities that affect trade between states."
+  - word: "general Welfare"
+    then: "The well-being of the whole country."
+    now: "Welfare often means government aid today. In the Constitution it means the common good."
+  - word: "chuse"
+    then: "An old spelling of \"choose.\""
+    now: "Same meaning, new spelling."
+back_then: >-
+  Under the Articles of Confederation, Congress could ask states for money but could not make them pay. It could not control trade between states, and states taxed each other's goods. The writers gave the new Congress clear powers to tax, borrow, and regulate trade.
+who_argued:
+  - side: "Large states (Virginia Plan)"
+    view: "Seats in Congress should be based on population. States with more people should have more say."
+  - side: "Small states (New Jersey Plan)"
+    view: "Every state should have an equal vote, as under the Articles. Otherwise large states would control small ones."
+  - side: "Anti-Federalists"
+    view: "The Necessary and Proper Clause was too open-ended. Congress could use it to claim almost any power."
+  - side: "Federalists"
+    view: "Congress needed a way to carry out its listed powers. The clause only allows laws that serve those powers."
+key_cases:
+  - name: "McCulloch v. Maryland"
+    year: 1819
+    held: "Congress can create a national bank under its implied powers, and a state cannot tax it."
+  - name: "Gibbons v. Ogden"
+    year: 1824
+    held: "Congress's power over trade between states includes shipping, and federal law overrides a conflicting state grant."
+  - name: "Wickard v. Filburn"
+    year: 1942
+    held: "Congress can regulate wheat a farmer grows for his own use, because such activity together affects interstate trade."
+  - name: "United States v. Lopez"
+    year: 1995
+    held: "Congress went beyond its commerce power when it made gun possession near schools a federal crime."
+  - name: "NFIB v. Sebelius"
+    year: 2012
+    held: "The health law's individual mandate was not allowed under the Commerce Clause but was upheld as a tax."
+quick_check:
+  - q: "How many senators does each state get?"
+    options: ["It depends on population.", "Two.", "One."]
+    answer: 1
+    why: "Section 3 gives every state two senators, no matter its size."
+  - q: "The President vetoes a bill. Can it still become law?"
+    options: ["No. A veto is final.", "Yes, if the Supreme Court approves it.", "Yes, if two-thirds of each house votes to pass it again."]
+    answer: 2
+    why: "Section 7 lets Congress override a veto with a two-thirds vote in both houses."
+  - q: "Which part of the government can officially declare war?"
+    options: ["Congress.", "The President.", "The Supreme Court."]
+    answer: 0
+    why: "Section 8 gives Congress the power to declare war."
+sections:
+  1: "Congress makes federal laws. It has two parts: the Senate and the House."
+  2: "How the House works: two-year terms, who can serve, and how seats are divided."
+  3: "How the Senate works: two senators per state, six-year terms, and impeachment trials."
+  4: "States run congressional elections, but Congress can change the rules. Congress meets every year."
+  5: "Each house sets its own rules, judges its members, and keeps a public record."
+  6: "Members are paid, protected for speech in Congress, and cannot hold another federal office."
+  7: "How a bill becomes a law, including the veto and how Congress can override it."
+  8: "The list of Congress's powers, like taxing, trade, money, and declaring war."
+  9: "Limits on Congress, like protecting habeas corpus and banning titles of nobility."
+  10: "Limits on states, like no treaties, no coining money, and no war without Congress."

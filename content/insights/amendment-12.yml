@@ -1,0 +1,63 @@
+one_line: >-
+  Electors cast separate votes for President and Vice President. If no one wins a majority, Congress makes the choice.
+subject: Electing the President
+content_note: null
+scene:
+  when: "1804"
+  text: >-
+    In the election of 1800, every elector cast two votes, with no way to say which vote was for President. Thomas Jefferson and his running mate, Aaron Burr, tied. The House of Representatives needed 36 rounds of voting to choose Jefferson. The Twelfth Amendment, ratified in 1804, was written so that would not happen again.
+phrases:
+  - quote: "vote by ballot for President and Vice-President"
+    plain: "Electors vote for both offices."
+  - quote: "one of whom, at least, shall not be an inhabitant of the same state with themselves"
+    plain: "At least one of the two people an elector votes for must live in a different state from the elector."
+  - quote: "in distinct ballots the person voted for as Vice-President"
+    plain: "The vote for Vice President is separate from the vote for President."
+  - quote: "transmit sealed to the seat of the government of the United States, directed to the President of the Senate"
+    plain: "The results are sealed and sent to Washington, D.C., to the Vice President, who leads the Senate."
+  - quote: "if such number be a majority of the whole number of Electors appointed"
+    plain: "To win, a candidate needs more than half of all electors. Today that is 270 of 538."
+  - quote: "the votes shall be taken by states, the representation from each state having one vote"
+    plain: "If the House chooses the President, each state's House members share one vote."
+  - quote: "the Senate shall choose the Vice-President"
+    plain: "If no one wins a majority for Vice President, the Senate chooses."
+  - quote: "But no person constitutionally ineligible to the office of President shall be eligible to that of Vice-President of the United States."
+    plain: "Someone who cannot legally be President cannot be Vice President."
+picture_it: >-
+  Imagine a close election with three strong candidates, and no one gets 270 electoral votes. The newly elected House then picks the President from the top three. Your state's House members get one vote together, the same as every other state. This last happened in 1825, when the House chose John Quincy Adams.
+myths:
+  - myth: "The candidate with the most votes from people always wins."
+    fact: "The President is chosen by electoral votes. A candidate can win the most votes nationwide and still lose, which happened in 2000 and 2016."
+  - myth: "If no one wins, the Supreme Court picks the President."
+    fact: "The Twelfth Amendment gives that job to the House for President and to the Senate for Vice President."
+words_changed:
+  - word: "Electors"
+    then: "People chosen to cast a state's votes for President."
+    now: "Same today. When you vote for a presidential candidate, you are really choosing that candidate's electors."
+  - word: "President of the Senate"
+    then: "The Vice President, who leads the Senate."
+    now: "Still the Vice President. The Vice President opens the electoral votes in front of Congress, even when they are a candidate."
+back_then: >-
+  The original Constitution gave each elector two votes for President. The top vote-getter became President, and the runner-up became Vice President. In 1796, that produced a President and Vice President from rival parties. In 1800, it produced a tie between two running mates.
+key_cases:
+  - name: "Ray v. Blair"
+    year: 1952
+    held: "A political party can require people who want to be its electors to pledge to support the party's candidate."
+  - name: "Chiafalo v. Washington"
+    year: 2020
+    held: "A state can require its electors to vote for the candidate who won the state's popular vote."
+quick_check:
+  - q: "What problem did the Twelfth Amendment fix?"
+    options:
+      - "Electors could not tell which of their two votes was for President."
+      - "Women could not vote."
+      - "Senators were chosen by state legislatures."
+    answer: 0
+    why: "Before 1804, electors cast two votes for President, which caused the Jefferson-Burr tie in 1800."
+  - q: "No presidential candidate wins a majority of electoral votes. Who decides?"
+    options:
+      - "The Supreme Court."
+      - "The House of Representatives, with one vote per state."
+      - "The Senate, with one vote per senator."
+    answer: 1
+    why: "The House chooses from the top three, and each state's delegation casts one vote."

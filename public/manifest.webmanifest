@@ -1,0 +1,17 @@
+{
+ "name": "Free Constitution",
+ "short_name": "Free Const.",
+ "start_url": "/",
+ "display": "standalone",
+ "background_color": "#fbf8f0",
+ "theme_color": "#14283f",
+ "description": "The U.S. Constitution in plain English, with know-your-rights cards.",
+ "icons": [
+  {
+   "src": "/static/favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  }
+ ]
+}

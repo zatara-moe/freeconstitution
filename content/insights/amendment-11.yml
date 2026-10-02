@@ -1,0 +1,56 @@
+one_line: >-
+  A state generally cannot be sued in federal court without its consent. This rule is called sovereign immunity.
+subject: Suing a state
+content_note: null
+scene:
+  when: "1795"
+  text: >-
+    In 1793, a man from South Carolina sued the state of Georgia in the Supreme Court. He wanted payment for supplies sold to Georgia during the Revolutionary War. The Court said the lawsuit could go forward. States feared they could be forced to pay old war debts, so Congress proposed the Eleventh Amendment the next year to overrule the decision.
+phrases:
+  - quote: "The Judicial power of the United States shall not be construed to extend to any suit in law or equity"
+    plain: "Federal courts cannot hear certain lawsuits, whether they ask for money or for a court order."
+  - quote: "commenced or prosecuted against one of the United States by Citizens of another State"
+    plain: "This covers lawsuits against a state by people from a different state."
+  - quote: "or by Citizens or Subjects of any Foreign State."
+    plain: "It also covers lawsuits against a state by people from other countries."
+picture_it: >-
+  Say a state agency damages your car and you want money for the repair. This amendment may block a lawsuit for money against the state in federal court. But many states have their own claims process for cases like this. A lawyer can tell you which options apply to you.
+myths:
+  - myth: "You can never sue a state government."
+    fact: "States can agree to be sued, and many have claims offices or special courts for this. You can also ask a federal court to order a state official to stop breaking federal law."
+  - myth: "This amendment protects cities and counties too."
+    fact: "It protects states and state agencies. It does not protect cities, counties, or school districts in the same way."
+words_changed:
+  - word: "suit in law or equity"
+    then: "Two kinds of lawsuits. Law cases asked for money. Equity cases asked a judge to order someone to do or stop something."
+    now: "Today both kinds are just called lawsuits."
+back_then: >-
+  During the Revolution, states borrowed money and bought supplies they later could not pay for. Many people who supported the Constitution had promised that states could not be sued in federal court this way. The 1793 ruling broke that promise. States reacted fast, and the amendment passed Congress within about a year.
+key_cases:
+  - name: "Chisholm v. Georgia"
+    year: 1793
+    held: "A citizen of one state could sue another state in federal court; the Eleventh Amendment overruled this."
+  - name: "Hans v. Louisiana"
+    year: 1890
+    held: "A state also cannot be sued in federal court by its own citizens without its consent."
+  - name: "Ex parte Young"
+    year: 1908
+    held: "A person can sue a state official in federal court to stop the official from breaking federal law."
+  - name: "Seminole Tribe of Florida v. Florida"
+    year: 1996
+    held: "Congress generally cannot use its ordinary lawmaking powers to let people sue states."
+quick_check:
+  - q: "Which court decision did the Eleventh Amendment overrule?"
+    options:
+      - "Chisholm v. Georgia (1793)"
+      - "Marbury v. Madison (1803)"
+      - "Hans v. Louisiana (1890)"
+    answer: 0
+    why: "Chisholm let a South Carolina man sue Georgia. States objected, and the amendment reversed it."
+  - q: "Does sovereign immunity mean no one can ever take a state to court?"
+    options:
+      - "Yes. States can never be sued."
+      - "No. There are some exceptions."
+      - "No. It only applies to lawsuits from other countries."
+    answer: 1
+    why: "There are exceptions, including state consent and the rule from Ex parte Young (1908)."

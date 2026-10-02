@@ -1,0 +1,82 @@
+one_line: >-
+  The President carries out the laws, leads the military, makes treaties and appointments with the Senate, and can be removed by impeachment.
+subject: The President
+content_note: null
+scene:
+  when: "1787"
+  text: >-
+    The delegates in Philadelphia had just fought a war against a king. Under the Articles of Confederation, there was no single leader at all. They argued for weeks about whether to have one President or several, and how to choose them. Article II created one President, chosen by electors, for four years.
+phrases:
+  - quote: "The executive Power shall be vested in a President of the United States of America"
+    plain: "One person, the President, is in charge of carrying out federal laws."
+  - quote: "a Number of Electors, equal to the whole Number of Senators and Representatives"
+    plain: "Each state gets as many presidential electors as it has members of Congress."
+  - quote: "No Person except a natural born Citizen"
+    plain: "Only a natural-born U.S. citizen can be President. Citizens at the founding were also allowed."
+  - quote: "The President shall be Commander in Chief of the Army and Navy of the United States"
+    plain: "The President is the top leader of the military."
+  - quote: "he shall have Power to grant Reprieves and Pardons for Offences against the United States, except in Cases of Impeachment"
+    plain: "The President can forgive federal crimes or delay punishment, but cannot stop an impeachment."
+  - quote: "by and with the Advice and Consent of the Senate"
+    plain: "For treaties and top appointments, the Senate must agree."
+  - quote: "he shall take Care that the Laws be faithfully executed"
+    plain: "The President must make sure federal laws are carried out."
+  - quote: "Treason, Bribery, or other high Crimes and Misdemeanors"
+    plain: "These are the reasons an official can be impeached and removed."
+picture_it: >-
+  The President nominates a new Supreme Court justice. The Senate Judiciary Committee holds hearings and asks questions. Then the full Senate votes. If a majority says yes, the nominee joins the Court.
+myths:
+  - myth: "The President can declare war."
+    fact: "Only Congress can declare war. The President is Commander in Chief of the military."
+  - myth: "Voters elect the President directly."
+    fact: "Voters in each state choose electors, and the electors choose the President. Every state now uses a popular vote to pick its electors."
+  - myth: "If a President is impeached, they are removed from office."
+    fact: "Impeachment is only the House bringing charges. Removal needs a two-thirds vote in the Senate, which has never happened to a President."
+words_changed:
+  - word: "Emolument"
+    then: "Pay, profit, or any gain from an office."
+    now: "Still means payment or benefit. It is rarely used outside legal writing."
+  - word: "Misdemeanors"
+    then: "In the phrase \"high Crimes and Misdemeanors,\" serious misconduct by an official. What exactly counts has always been debated."
+    now: "In everyday law, a misdemeanor is a minor crime. That is not what this phrase means."
+  - word: "Electors"
+    then: "People chosen in each state to vote for President."
+    now: "The same. Together they are often called the Electoral College, a name not in the Constitution."
+back_then: >-
+  Americans had rebelled against a king and feared one-person rule. But the Articles of Confederation had no leader, and the government struggled to act. The writers built a single President with real powers, then limited it with elections, the Senate's approval, and impeachment.
+who_argued:
+  - side: "Federalists"
+    view: "One strong President could act quickly and be held responsible. Alexander Hamilton wrote that energy in the executive is key to good government."
+  - side: "Anti-Federalists"
+    view: "A single President with command of the army and the power to pardon looked too much like a king. Power should be more limited and checked."
+key_cases:
+  - name: "Youngstown Sheet & Tube Co. v. Sawyer"
+    year: 1952
+    held: "The President could not seize steel mills during the Korean War without authority from Congress."
+  - name: "United States v. Nixon"
+    year: 1974
+    held: "Executive privilege is not absolute, and the President had to hand over tapes subpoenaed for a criminal trial."
+  - name: "NLRB v. Noel Canning"
+    year: 2014
+    held: "A Senate break of fewer than 10 days is generally too short for the President to make recess appointments."
+  - name: "Trump v. United States"
+    year: 2024
+    held: "A former President has absolute immunity for core constitutional powers, at least presumed immunity for other official acts, and none for unofficial acts."
+quick_check:
+  - q: "Who must approve a treaty the President makes?"
+    options: ["Two-thirds of the senators present.", "A majority of the House.", "The Supreme Court."]
+    answer: 0
+    why: "Section 2 requires two-thirds of the senators present to approve a treaty."
+  - q: "What is the minimum age to be President?"
+    options: ["30.", "35.", "40."]
+    answer: 1
+    why: "Section 1 says the President must be at least 35 years old."
+  - q: "A President is impeached by the House. What happens next?"
+    options: ["They leave office right away.", "The Supreme Court decides their punishment.", "The Senate holds a trial and votes on removal."]
+    answer: 2
+    why: "Impeachment is a charge. The Senate tries the case, and two-thirds must vote to remove."
+sections:
+  1: "The President's four-year term, how electors choose the President, who can serve, and the oath."
+  2: "The President's powers: military command, pardons, treaties, and appointments with Senate approval."
+  3: "The President's duties: report to Congress, receive ambassadors, and make sure laws are carried out."
+  4: "The President and other officials can be impeached and removed for serious wrongdoing."

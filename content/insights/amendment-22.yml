@@ -1,0 +1,41 @@
+one_line: >-
+  No one can be elected President more than twice.
+subject: Presidential term limits
+content_note: null
+scene:
+  when: "1951"
+  text: >-
+    George Washington stepped down after two terms in 1797. Later Presidents followed his example for almost 150 years. Franklin Roosevelt broke that tradition by winning four elections, from 1932 to 1944, and died in office in 1945. Congress proposed a two-term limit in 1947, and it was ratified in 1951.
+phrases:
+  - quote: "No person shall be elected to the office of the President more than twice"
+    plain: "No one can win the presidency more than two times."
+  - quote: "for more than two years of a term to which some other person was elected President"
+    plain: "If you serve more than two years of someone else's term,"
+  - quote: "shall be elected to the office of the President more than once"
+    plain: "you can be elected President only once after that."
+  - quote: "this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress"
+    plain: "The limit did not apply to the President in office in 1947, Harry Truman."
+picture_it: >-
+  A President resigns with 18 months left in the term, and the Vice President takes over. Because the new President served less than two years of someone else's term, they can still run and win twice. That could add up to about nine and a half years as President. The most this amendment allows is 10 years.
+myths:
+  - myth: "A President can serve 8 years at most."
+    fact: "A person could serve up to 10 years. They would first finish two years or less of another President's term, then win two elections."
+  - myth: "The two-term limit has always been in the Constitution."
+    fact: "It was only a tradition until 1951. Franklin Roosevelt won four elections before the limit existed."
+back_then: >-
+  Roosevelt led the country through the Great Depression and most of World War II. His supporters said voters should be free to keep a leader they trusted. After his death, many in Congress argued that no President should hold power that long. The amendment turned Washington's tradition into a rule.
+quick_check:
+  - q: "How many times can a person be elected President?"
+    options:
+      - "Once."
+      - "Twice."
+      - "As many times as voters choose."
+    answer: 1
+    why: "Section 1 says no person shall be elected more than twice."
+  - q: "Which President's four election wins led to this amendment?"
+    options:
+      - "George Washington"
+      - "Franklin D. Roosevelt"
+      - "Harry Truman"
+    answer: 1
+    why: "Roosevelt won in 1932, 1936, 1940, and 1944. Before him, Presidents followed a two-term tradition."

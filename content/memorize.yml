@@ -1,0 +1,54 @@
+- slug: three-sentences
+  title: "Three sentences that protect you"
+  why: "If police question you, these are the words to know cold."
+  source: /situations/being-questioned-by-police/
+  source_label: "Being questioned by police"
+  chunks:
+    - "I am exercising my right to remain silent."
+    - "I want a lawyer."
+    - "Am I being detained, or am I free to leave?"
+- slug: five-freedoms
+  title: "The five freedoms"
+  why: "The First Amendment protects five things. Say them in order."
+  source: /amendments/1/
+  source_label: "First Amendment"
+  chunks:
+    - "Religion,"
+    - "speech,"
+    - "the press,"
+    - "peaceful assembly,"
+    - "and petitioning the government."
+- slug: preamble
+  title: "The Preamble"
+  why: "The one-sentence mission statement of the Constitution."
+  source: /preamble/
+  source_label: "Preamble"
+  chunks:
+    - "We the People of the United States,"
+    - "in Order to form a more perfect Union,"
+    - "establish Justice,"
+    - "insure domestic Tranquility,"
+    - "provide for the common defence,"
+    - "promote the general Welfare,"
+    - "and secure the Blessings of Liberty to ourselves and our Posterity,"
+    - "do ordain and establish this Constitution for the United States of America."
+- slug: first-amendment
+  title: "The First Amendment"
+  why: "Forty-five words. Worth knowing by heart."
+  source: /amendments/1/
+  source_label: "First Amendment"
+  chunks:
+    - "Congress shall make no law respecting an establishment of religion,"
+    - "or prohibiting the free exercise thereof;"
+    - "or abridging the freedom of speech, or of the press;"
+    - "or the right of the people peaceably to assemble,"
+    - "and to petition the Government for a redress of grievances."
+- slug: three-branches
+  title: "The three branches"
+  why: "Who makes, carries out, and judges the law."
+  source: /paths/three-branches/
+  source_label: "The three branches path"
+  chunks:
+    - "Congress makes the laws (Article I)."
+    - "The President carries out the laws (Article II)."
+    - "The courts decide what the laws mean (Article III)."

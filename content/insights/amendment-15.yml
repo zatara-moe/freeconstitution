@@ -1,0 +1,76 @@
+one_line: >-
+  No government can deny or limit your right to vote because of your race or color.
+subject: Voting and race
+content_note: >-
+  This page discusses how Black Americans were kept from voting for nearly 100 years after this amendment was ratified.
+scene:
+  when: "1870"
+  text: >-
+    After the Civil War, about 4 million formerly enslaved people became citizens. In 1868, many states still did not let Black men vote. Congress wanted a direct ban on race discrimination in voting, and the Fifteenth Amendment was ratified in 1870. In the next few years, Black men voted in large numbers across the South, and many were elected to office.
+phrases:
+  - quote: "The right of citizens of the United States to vote shall not be denied or abridged"
+    plain: "No one can take away or limit a citizen's right to vote"
+  - quote: "by the United States or by any State"
+    plain: "This applies to the federal government and to every state."
+  - quote: "on account of race, color, or previous condition of servitude"
+    plain: "because of race, skin color, or having once been enslaved."
+  - quote: "The Congress shall have power to enforce this article by appropriate legislation."
+    plain: "Congress can pass laws, such as the Voting Rights Act, to enforce this."
+picture_it: >-
+  It is your first election, and a poll worker says you must pass a reading test before you can vote. Tests like that were used for decades to block Black voters. Federal law now bans literacy tests for voting everywhere in the country. You can ask for an election official or call the Election Protection hotline at 866-687-8683.
+myths:
+  - myth: "The Fifteenth Amendment gave everyone the right to vote."
+    fact: "It bans race discrimination in voting. It did not protect women, who won that protection in 1920, and it did not set a voting age."
+  - myth: "Black Americans could vote freely after 1870."
+    fact: "Many Southern states used poll taxes, reading tests, and violence to stop Black citizens from voting until the 1960s."
+  - myth: "The Voting Rights Act no longer exists."
+    fact: "The Court ended the formula for federal preapproval in 2013 and read Section 2 more narrowly in 2026. Other parts of the law, including Section 2, are still in effect."
+words_changed:
+  - word: "abridged"
+    then: "Shortened or cut down."
+    now: "Limited. A rule can abridge a right without banning it, for example by making it much harder to use."
+back_then: >-
+  Before 1870, each state decided who could vote. The Fourteenth Amendment only threatened to reduce a state's seats in Congress if it denied men the vote. Congress wanted a clear, national ban on race discrimination in voting instead.
+who_argued:
+  - side: "Frederick Douglass and other supporters"
+    view: "Black men urgently needed the vote to protect themselves and their communities, so the amendment should pass now, even if it did not cover everyone."
+  - side: "Elizabeth Cady Stanton and Susan B. Anthony"
+    view: "An amendment that protected men's votes but left out women was unfair. They wanted the vote for all citizens at once."
+key_cases:
+  - name: "Guinn v. United States"
+    year: 1915
+    held: "Oklahoma's grandfather clause, which excused mostly white voters from a reading test, violated the Fifteenth Amendment."
+  - name: "Smith v. Allwright"
+    year: 1944
+    held: "Texas could not allow only white voters to take part in party primary elections."
+  - name: "South Carolina v. Katzenbach"
+    year: 1966
+    held: "The Voting Rights Act of 1965 was a valid use of Congress's power to enforce the Fifteenth Amendment."
+  - name: "Shelby County v. Holder"
+    year: 2013
+    held: "The formula that decided which places needed federal approval before changing voting rules was outdated and could no longer be used."
+  - name: "Louisiana v. Callais"
+    year: 2026
+    held: "Louisiana's map with a second majority-Black district was an unconstitutional racial gerrymander; the Court said the Voting Rights Act did not require it."
+quick_check:
+  - q: "What does the Fifteenth Amendment ban?"
+    options:
+      - "Denying the vote because of race or color."
+      - "Denying the vote because of age."
+      - "Denying the vote because of sex."
+    answer: 0
+    why: "The Fifteenth covers race, color, and having once been enslaved. Other amendments cover sex (19th) and age (26th)."
+  - q: "What law finally put the Fifteenth Amendment into practice, almost 100 years after it was ratified?"
+    options:
+      - "The Civil Rights Act of 1866."
+      - "The Voting Rights Act of 1965."
+      - "The Indian Citizenship Act of 1924."
+    answer: 1
+    why: "The Voting Rights Act banned literacy tests in many places and sent federal officials to protect voters."
+  - q: "What did Shelby County v. Holder (2013) do?"
+    options:
+      - "It struck down the whole Voting Rights Act."
+      - "It stopped the use of the formula that decided which places needed federal approval for voting changes."
+      - "It created a new right to vote."
+    answer: 1
+    why: "The Court said the coverage formula was outdated. The rest of the law stayed in place."

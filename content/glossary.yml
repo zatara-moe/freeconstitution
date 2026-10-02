@@ -1,0 +1,303 @@
+# Glossary terms, linked automatically across the site.
+# Sorted alphabetically (case-insensitive). Definitions: 25 words or fewer.
+# Common English words get no aliases so they are not over-linked.
+
+- term: actively contested
+  aliases: []
+  def: "Our label for questions that judges and lawyers still disagree about, which the Supreme Court has not fully settled."
+  see: /words/
+
+- term: amendment
+  aliases: [amendments]
+  def: "A formal change or addition to the Constitution. There have been 27."
+  see: /articles/5/
+
+- term: apportionment
+  aliases: [apportioned]
+  def: "Dividing seats in the House of Representatives among the states based on population, as counted in the census."
+  see: /articles/1/section-2/
+
+- term: arrest
+  aliases: [arrested, under arrest]
+  def: "When police take you into custody because they believe you committed a crime."
+  see: /amendments/4/
+
+- term: bail
+  aliases: []
+  def: "Money or conditions a court sets so a person charged with a crime can stay out of jail before trial."
+  see: /amendments/8/
+
+- term: Bill of Rights
+  aliases: []
+  def: "The first 10 amendments to the Constitution, ratified in 1791."
+  see: /amendments/1/
+
+- term: birthright citizenship
+  aliases: []
+  def: "U.S. citizenship a person gets by being born on U.S. soil, under the 14th Amendment."
+  see: /amendments/14/
+
+- term: census
+  aliases: []
+  def: "The official count of everyone living in the United States, taken every 10 years."
+  see: /articles/1/section-2/
+
+- term: checks and balances
+  aliases: []
+  def: "Ways each branch of government can limit the others, such as the veto, Senate approval of judges, and judicial review."
+  see: /articles/1/section-7/
+
+- term: citizen
+  aliases: [citizens, citizenship]
+  def: "A legal member of the nation. The 14th Amendment makes people born or naturalized in the U.S., and subject to its jurisdiction, citizens."
+  see: /amendments/14/
+
+- term: commerce clause
+  aliases: []
+  def: "The part of Article I that lets Congress regulate trade with other countries, among the states, and with Native American tribes."
+  see: /articles/1/section-8/
+
+- term: Congress
+  aliases: []
+  def: "The lawmaking branch of the federal government. It has two parts: the Senate and the House of Representatives."
+  see: /articles/1/section-1/
+
+- term: consent to a search
+  aliases: [consent to search, consent to searches]
+  def: "Agreeing to let police search you or your things. If you agree, police may not need a warrant. You can say no."
+  see: /situations/searched-by-police/
+
+- term: cruel and unusual punishment
+  aliases: [cruel and unusual punishments]
+  def: "Punishment the 8th Amendment forbids, such as punishment courts find barbaric or far out of proportion to the crime."
+  see: /amendments/8/
+
+- term: custody
+  aliases: [in custody]
+  def: "Being under arrest, or held so that a reasonable person would not feel free to leave. It matters for Miranda warnings."
+  see: /amendments/5/
+
+- term: detained
+  aliases: [detain, detention]
+  def: "Held by police for a period of time, so you are not free to leave, even if you are not under arrest."
+  see: /situations/being-questioned-by-police/
+
+- term: double jeopardy
+  aliases: []
+  def: "Being tried or punished twice for the same crime by the same government. The 5th Amendment forbids it."
+  see: /amendments/5/
+
+- term: due process
+  aliases: [due process of law, due process clause]
+  def: "Fair procedures the government must follow before it takes away your life, liberty, or property."
+  see: /amendments/14/
+
+- term: Electoral College
+  aliases: []
+  def: "The system that chooses the president. Each state gets electors equal to its number of senators plus House members."
+  see: /articles/2/section-1/
+
+- term: eminent domain
+  aliases: []
+  def: "The government's power to take private property for public use. The 5th Amendment requires it to pay a fair price."
+  see: /amendments/5/
+
+- term: enumerated powers
+  aliases: []
+  def: "Powers the Constitution lists in writing for the federal government, mostly for Congress in Article I, Section 8."
+  see: /articles/1/section-8/
+
+- term: equal protection
+  aliases: [equal protection clause, equal protection of the laws]
+  def: "The 14th Amendment rule that states must treat people equally under the law."
+  see: /amendments/14/
+
+- term: establishment clause
+  aliases: []
+  def: "The First Amendment rule that the government cannot set up an official religion. Courts debate exactly how far it reaches."
+  see: /amendments/1/
+
+- term: executive order
+  aliases: [executive orders]
+  def: "A written directive from the president telling federal agencies what to do. Courts can strike one down if it conflicts with the Constitution or law."
+  see: /articles/2/section-1/
+
+- term: federalism
+  aliases: []
+  def: "The sharing of power between the national government and the state governments."
+  see: /amendments/10/
+
+- term: free exercise clause
+  aliases: [free exercise]
+  def: "The First Amendment protection of your right to practice your religion, or no religion, as you choose."
+  see: /amendments/1/
+
+- term: freedom of assembly
+  aliases: [right to assemble]
+  def: "Your First Amendment right to gather peacefully with others, such as at a protest or a meeting."
+  see: /amendments/1/
+
+- term: freedom of the press
+  aliases: [free press]
+  def: "The First Amendment right to publish news and opinions without government censorship."
+  see: /amendments/1/
+
+- term: grand jury
+  aliases: [grand juries]
+  def: "A group of citizens who review evidence in private and decide whether there is enough to charge someone with a serious federal crime."
+  see: /amendments/5/
+
+- term: House of Representatives
+  aliases: []
+  def: "The part of Congress where states get seats based on population. Members serve two-year terms."
+  see: /articles/1/section-2/
+
+- term: impeachment
+  aliases: [impeach, impeached]
+  def: "When the House formally charges a federal official with serious wrongdoing. The Senate then holds a trial to decide on removal."
+  see: /articles/2/section-4/
+
+- term: incorporation
+  aliases: []
+  def: "How the Supreme Court has applied most Bill of Rights protections to state and local governments through the 14th Amendment."
+  see: /amendments/14/
+
+- term: judicial review
+  aliases: []
+  def: "The power of courts to strike down laws or government actions that conflict with the Constitution."
+  see: /articles/3/
+
+- term: jury
+  aliases: []
+  def: "A group of ordinary citizens chosen to hear the evidence at a trial and decide the facts."
+  see: /amendments/6/
+
+- term: just compensation
+  aliases: []
+  def: "Fair payment, usually the market value, that the government must give when it takes private property."
+  see: /amendments/5/
+
+- term: militia
+  aliases: []
+  def: "A group of citizens trained to serve as soldiers when needed, instead of a full-time army."
+  see: /amendments/2/
+
+- term: Miranda warnings
+  aliases: [miranda warning, miranda rights]
+  def: "Warnings police must give before questioning someone in custody: right to stay silent, that statements can be used, right to a lawyer."
+  see: /amendments/5/
+
+- term: naturalization
+  aliases: [naturalized]
+  def: "The legal process for a person born in another country to become a U.S. citizen."
+  see: /articles/1/section-8/
+
+- term: necessary and proper clause
+  aliases: [elastic clause]
+  def: "The part of Article I that lets Congress make laws needed to carry out its listed powers."
+  see: /articles/1/section-8/
+
+- term: poll tax
+  aliases: [poll taxes]
+  def: "A fee charged to vote. The 24th Amendment bans it in federal elections, and a 1966 Court ruling bans it in state elections."
+  see: /amendments/24/
+
+- term: precedent
+  aliases: [precedents]
+  def: "An earlier court decision that courts follow when deciding similar cases later."
+  see: /articles/3/
+
+- term: probable cause
+  aliases: []
+  def: "Good reason, based on facts, to believe a crime happened or evidence is in a place."
+  see: /amendments/4/
+
+- term: provisional ballot
+  aliases: [provisional ballots]
+  def: "A ballot you cast when officials question whether you can vote. They check it later before deciding to count it."
+  see: /situations/turned-away-from-voting/
+
+- term: public defender
+  aliases: [public defenders]
+  def: "A lawyer paid by the government to represent people charged with crimes who cannot afford a lawyer."
+  see: /amendments/6/
+
+- term: ratify
+  aliases: [ratified, ratification]
+  def: "To formally approve. An amendment becomes part of the Constitution when three-fourths of the states approve it."
+  see: /articles/5/
+
+- term: reasonable suspicion
+  aliases: []
+  def: "A specific, fact-based reason for police to think crime may be happening. It allows a brief stop, not an arrest."
+  see: /amendments/4/
+
+- term: reserved powers
+  aliases: []
+  def: "Powers not given to the federal government, which the 10th Amendment keeps for the states or the people."
+  see: /amendments/10/
+
+- term: right to petition
+  aliases: [petition the government]
+  def: "Your First Amendment right to ask the government to fix a problem or change a policy without being punished for asking."
+  see: /amendments/1/
+
+- term: search and seizure
+  aliases: [searches and seizures, unreasonable searches and seizures]
+  def: "When the government looks through you or your things (search), or takes property or a person (seizure). The 4th Amendment limits both."
+  see: /amendments/4/
+
+- term: self-incrimination
+  aliases: [incriminate yourself, plead the fifth]
+  def: "Being forced to give testimony that could be used against you in a criminal case. The 5th Amendment protects you from it."
+  see: /amendments/5/
+
+- term: Senate
+  aliases: []
+  def: "The part of Congress with two senators from each state. Senators serve six-year terms."
+  see: /articles/1/section-3/
+
+- term: separation of powers
+  aliases: []
+  def: "Dividing government power among three branches: Congress makes laws, the president carries them out, and courts interpret them."
+  see: /articles/1/section-1/
+
+- term: suffrage
+  aliases: []
+  def: "The right to vote."
+  see: /amendments/19/
+
+- term: supremacy clause
+  aliases: []
+  def: "The part of Article VI saying the Constitution, federal laws made under it, and treaties override conflicting state laws."
+  see: /articles/6/
+
+- term: Supreme Court
+  aliases: []
+  def: "The highest court in the United States. Its decisions about the Constitution bind all other courts."
+  see: /articles/3/section-1/
+
+- term: treason
+  aliases: []
+  def: "Making war against the United States or helping its enemies. The Constitution defines it narrowly and requires strong proof."
+  see: /articles/3/section-3/
+
+- term: unenumerated rights
+  aliases: []
+  def: "Rights not listed in the Constitution that people still keep. The 9th Amendment says listing some rights does not deny others."
+  see: /amendments/9/
+
+- term: veto
+  aliases: [vetoed, vetoes]
+  def: "The president's power to reject a bill. Congress can override a veto with a two-thirds vote in both houses."
+  see: /articles/1/section-7/
+
+- term: warrant
+  aliases: [warrants, search warrant]
+  def: "A written order signed by a judge that allows police to search a place or arrest a person."
+  see: /amendments/4/
+
+- term: writ of habeas corpus
+  aliases: [habeas corpus]
+  def: "A court order requiring the government to explain why it is holding someone. It protects against unlawful imprisonment."
+  see: /articles/1/section-9/

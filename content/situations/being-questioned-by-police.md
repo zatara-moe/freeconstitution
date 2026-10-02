@@ -2,80 +2,88 @@
 type: situation
 slug: being-questioned-by-police
 title: Being questioned by police
-summary: What you can say and do if police are asking you questions, whether on the street, in a car, or at a station.
-reading_time_seconds: 150
-related_amendments:
-  - 5
-  - 6
-review:
-  legal:
-    status: pending
-    by: null
-    date: null
-last_reviewed: null
+summary: What to say and do if police are asking you questions on the street, in a car, or at a station.
+icon: shield
+order: 1
+reading_time_seconds: 180
+related_amendments: [5, 6]
+ten_second:
+  - "I am exercising my right to remain silent."
+  - "I want a lawyer."
+  - "Am I being detained, or am I free to leave?"
+ten_second_note: "Say it calmly. Then stop talking."
+do:
+  - "Stay calm and keep your hands visible."
+  - "Say out loud that you are staying silent."
+  - "Ask if you are free to leave."
+  - "Give your name if your state requires it."
+dont:
+  - "Don't run, argue, or physically resist."
+  - "Don't lie or give false papers."
+  - "Don't answer 'just one more question.'"
+  - "Don't agree to go to the station unless arrested."
+help:
+  - label: "Find a free lawyer"
+    value: "If you are charged with a crime and cannot pay, ask for a public defender."
+    href: ""
+  - label: "ACLU: Know your rights"
+    value: "aclu.org/know-your-rights"
+    href: "https://www.aclu.org/know-your-rights"
+state_varies: "Some rules, like whether you must give your name, depend on your state."
 ---
 
-## What you can say
+## You can use these rights at any time
 
-> I am exercising my right to remain silent.
-
-> I want a lawyer.
-
-> Am I being detained, or am I free to leave?
-
-You can say these whether or not you are under arrest. You can say them whether or not the officer has read you Miranda warnings. You do not have to wait to be told your rights before using them.
-
-## The law you are citing
-
-**Fifth Amendment (Bill of Rights, ratified 1791):**
-
-> No person... shall be compelled in any criminal case to be a witness against himself...
-
-**Sixth Amendment (Bill of Rights, ratified 1791):**
-
-> In all criminal prosecutions, the accused shall enjoy the right... to have the Assistance of Counsel for his defence.
-
-The Fifth Amendment means the government cannot force you to say things that could be used to convict you of a crime. The Sixth Amendment means you have the right to a lawyer.
+You can use your rights whether or not you are under arrest. You can use them whether or not police have read you your rights. You do not have to wait.
 
 ## How to use the right to remain silent
 
-Staying silent is not enough. You have to tell the officer you are using your right.
+Staying quiet is not enough. You have to say out loud that you are using your right. In *Berghuis v. Thompkins* (2010), the Supreme Court said a person must clearly say they are staying silent.
 
-Say it clearly:
+- Say: "I am exercising my right to remain silent. I want a lawyer."
+- Then stop talking.
+- Do not explain or argue.
+- Do not answer "just one more question."
 
-> I am exercising my right to remain silent. I want a lawyer.
-
-Then stop talking. Do not explain. Do not argue. Do not answer "just one more question."
-
-Once you ask for a lawyer, police must stop questioning you until your lawyer is present. If they keep asking questions, your lawyer can challenge anything you say later.
+If you are in custody and clearly ask for a lawyer, police must stop questioning you until a lawyer is there. If you start talking again on your own, that can change.
 
 ## What you do have to give them
 
-- **Your name**, in some states. About half of U.S. states have "stop and identify" laws that require you to give your name if police have reason to suspect you of a crime. You can search "stop and identify law" plus your state.
-- **Driver's license, registration, and insurance**, if you are driving.
-- **Your signature on a citation**, if you receive one. Signing is not an admission of guilt; it is a promise to appear in court.
+- **Your name, in some states.** About half of U.S. states have "stop and identify" laws. These laws can require you to give your name if police suspect you of a crime. Search "stop and identify law" plus your state.
+- **Your driver's license, registration, and proof of insurance,** if you are driving.
+- **Your signature on a ticket,** if your state requires it. Signing is not saying you are guilty. It is a promise to go to court.
 
-That is the list. You do not have to answer where you are going, where you came from, who you are with, what you do for a living, or whether you have ever been arrested.
+You generally do not have to say where you are going, where you came from, or who you are with.
 
 ## If you are not under arrest
 
 - Ask: "Am I being detained, or am I free to leave?"
 - If the officer says you are free to leave, leave calmly.
-- If the officer says you are being detained, you can still say: "I am exercising my right to remain silent. I want a lawyer."
-- You do not have to agree to "come down to the station to talk." That is a request, not an order, unless you are under arrest.
+- If the officer says you are being detained, you can still stay silent and ask for a lawyer.
+- "Come down to the station to talk" is a request, not an order, unless you are under arrest.
 
 ## If you are under arrest
 
 - Say: "I am exercising my right to remain silent. I want a lawyer." Then stop talking.
-- Do not try to explain your way out of it. Anything you say can be used against you.
-- Do not lie to police. Lying to a federal officer is a separate crime.
-- Wait for your lawyer. If you cannot afford one, one will be appointed for you. Ask: "I want a public defender."
+- Do not try to explain your way out. Anything you say can be used against you.
+- Do not lie to police. Lying to a federal officer is a separate crime. Many states have similar laws.
+- If you are charged with a crime that could mean jail and cannot pay a lawyer, the court must give you one. Ask for a public defender.
 
 ## Miranda warnings
 
-You may have heard that police must read you your rights. This is only required if police want to use your statements as evidence in court and you are both:
+Miranda warnings are the "you have the right to remain silent" speech. Police must give them before using your answers in court only if you are both:
 
-1. In custody (not free to leave), and
+1. In custody, meaning you are not free to leave, and
 2. Being questioned.
 
-If police are just talking to you on the street and you are free to leave, they do not have to read Miranda warnings. Anything you volunteer can still be used. This is why the safest rule is to use your rights as soon as questioning starts, whether or not Miranda warnings have been read.
+If police are talking to you on the street and you are free to leave, they do not have to read Miranda warnings. Anything you say can still be used. This is why it is safest to use your rights as soon as questioning starts.
+
+## The law you are citing
+
+**Fifth Amendment (1791):** The government cannot force you to be a witness against yourself in a criminal case.
+
+> nor shall be compelled in any criminal case to be a witness against himself
+
+**Sixth Amendment (1791):** If you are charged with a crime, you have the right to a lawyer.
+
+> In all criminal prosecutions, the accused shall enjoy the right... to have the Assistance of Counsel for his defence.

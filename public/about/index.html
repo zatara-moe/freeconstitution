@@ -3,139 +3,121 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- Primary SEO -->
-<title>About this site | Free Constitution</title>
-<meta name="description" content="About this site">
+<title>About Free Constitution | Free Constitution</title>
+<meta name="description" content="What this site is, who made it, and how we check our work.">
 <link rel="canonical" href="https://freeconstitution.org/about/">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Hope for Americans">
-
-<!-- Open Graph (Facebook, iMessage, Slack, LinkedIn, WhatsApp) -->
+<meta name="theme-color" content="#14283f">
 <meta property="og:type" content="website">
-<meta property="og:title" content="About this site | Free Constitution">
-<meta property="og:description" content="About this site">
+<meta property="og:site_name" content="Free Constitution">
+<meta property="og:title" content="About Free Constitution | Free Constitution">
+<meta property="og:description" content="What this site is, who made it, and how we check our work.">
 <meta property="og:url" content="https://freeconstitution.org/about/">
 <meta property="og:image" content="https://freeconstitution.org/static/og/home.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="About this site | Free Constitution — freeconstitution.org">
-<meta property="og:site_name" content="Free Constitution">
 <meta property="og:locale" content="en_US">
-
-<!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About this site | Free Constitution">
-<meta name="twitter:description" content="About this site">
+<meta name="twitter:title" content="About Free Constitution | Free Constitution">
+<meta name="twitter:description" content="What this site is, who made it, and how we check our work.">
 <meta name="twitter:image" content="https://freeconstitution.org/static/og/home.jpg">
-<meta name="twitter:image:alt" content="About this site | Free Constitution — freeconstitution.org">
-<meta name="twitter:site" content="@hopeforamericans">
-
-<!-- Favicon -->
 <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/site.css">
-
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/site.css?v=20261001">
+<script>
+/* Apply saved reading settings before first paint (no flash). Nothing leaves the device. */
+(function(){try{var p=JSON.parse(localStorage.getItem("fc-display")||"{}"),d=document.documentElement;
+d.classList.add("js");["size","spacing","font","theme","depth"].forEach(function(k){if(p[k])d.setAttribute("data-"+k,p[k]);});
+if(p.focus)d.setAttribute("data-focus","on");}catch(e){document.documentElement.classList.add("js");}})();
+</script>
 
 </head>
-<body>
+<body class="" data-page="/about/" data-page-title="About Free Constitution">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/">Free<span> </span>Constitution</a>
+    <a class="wordmark" href="/" aria-label="Free Constitution, home"><span class="wm-mark" aria-hidden="true">f<span>.</span></span><span class="wm-text">Free Constitution</span></a>
     <nav class="site-nav" aria-label="Main">
-      <a href="/#rights-now">Your rights</a>
       <a href="/situations/">Situations</a>
-      <a href="/#amendments">Amendments</a>
-      <a href="/#articles">Articles</a>
-      <a href="/about/">About</a>
+      <a href="/amendments/">Amendments</a>
+      <a href="/articles/">Articles</a>
+      <a href="/paths/">Paths</a>
     </nav>
+    <div class="header-tools">
+      <button type="button" class="tool-btn" data-open-search aria-label="Search (press /)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="tool-label">Search</span></button>
+      <button type="button" class="tool-btn" data-open-display aria-label="Display settings (press D)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l5-14h2l5 14M6.5 14h7M17 20v-6.5a2.5 2.5 0 0 1 5 0V20M17 16.5h5"/></svg><span class="tool-label">Display</span></button>
+    </div>
   </div>
 </header>
-<main id="main">
-<article class="doc wrap">
-  <p class="breadcrumb"><a href="/">Home</a></p>
-  
-  <h1>About this site</h1>
-  <div class="reading-controls" data-prefs hidden>
-  <span class="rc-label">Text size</span>
-  <button type="button" data-size-down aria-label="Smaller text">A&minus;</button>
-  <button type="button" data-size-up aria-label="Larger text">A+</button>
-  <button type="button" data-theme-toggle aria-pressed="false">Dark page</button>
-</div>
-  <div class="doc-body" data-reading>
-  <h2 id="what-this-is">What this is</h2>
-<p>freeconstitution.org is a free reference for the United States Constitution. The full verbatim text of the Constitution and all 27 amendments is here, along with a plain-English version of each section, and short cards for situations where knowing your rights matters.</p>
-<p>The site is open to everyone. It loads fast on a slow phone and reads clearly for anyone, including readers who are not lawyers, who learned English as a second language, or whose brains work differently from the assumptions academic writing tends to make.</p>
-<p>Think of it as a pocket guide.</p>
+<main id="main" tabindex="-1">
+<article class="doc wrap prose-page">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">›</span><span aria-current="page">About Free Constitution</span></nav>
+  <h1>About Free Constitution</h1>
+  <p class="lede">What this site is, who made it, and how we check our work.</p>
+  <div class="prose"><h2 id="what-this-is">What this is</h2>
+<p>Free Constitution is the whole U.S. Constitution in plain English. Every amendment and article has the original words, a plain version, and a short explanation of what it means for you. Situation cards tell you what to say when your rights matter most.</p>
+<p>It is free. There are no ads, no accounts, and no tracking. Your reading settings and progress stay on your own device.</p>
+<h2 id="who-its-for">Who it&#x27;s for</h2>
+<p>We built it for anyone who has ever felt shut out by legal language. That includes young adults, people learning English, and people whose brains work differently from the way textbooks expect. Every page uses short sentences, clear labels, and the same layout, so you always know where you are.</p>
+<h2 id="how-we-write-and-check-it">How we write and check it</h2>
+<ul>
+<li><strong>The original text</strong> comes word for word from the National Archives. We never change it.</li>
+<li><strong>The plain-language layers</strong> are written by Hope for Americans, following our public <a href="/sources/#writing-rules">writing rules</a>.</li>
+<li><strong>Every legal claim</strong> is checked against the text itself or a Supreme Court decision. We name the case and year so you can look it up.</li>
+<li><strong>A separate fact-check pass</strong> reviews each page before it goes live.</li>
+<li><strong>Open questions</strong> are labeled &quot;Actively contested,&quot; with both sides described fairly.</li>
+</ul>
 <h2 id="what-this-is-not">What this is not</h2>
-<p>This is not legal advice. We are not your lawyer. The plain-English versions on this site are written carefully and reviewed by attorneys, but they cannot tell you what to do in your specific situation. If you need legal help, contact a lawyer or your state&#x27;s ACLU affiliate.</p>
-<p>This is not a court. The Constitution and its amendments mean what courts say they mean, and courts continue to interpret them. We have tried to flag the most actively contested questions on each amendment page, but the law changes. If you are reading this years after it was written, check whether anything has been updated.</p>
-<p>This is not the only source. The official source for the Constitution is the National Archives. Every page on this site links back to the Archives transcript so you can compare.</p>
-<h2 id="how-we-wrote-it">How we wrote it</h2>
-<p>Every amendment and article on this site has four parts:</p>
-<ul>
-<li><strong>Verbatim</strong>: the exact text as ratified, taken from the National Archives.</li>
-<li><strong>Plain English</strong>: a translation that drops archaic words but keeps the meaning, including the ambiguities that lawyers and judges still argue about. We do not resolve those ambiguities for you.</li>
-<li><strong>What this means for you</strong> (rights amendments) or <strong>About</strong> (structural amendments): a short explanation of how the section affects everyday life, with notes on how courts have interpreted it.</li>
-<li><strong>Notes on supersession or repeal</strong>: where one amendment has changed or replaced another, we say so inline.</li>
-</ul>
-<p>Where words are still legally meaningful but no longer in everyday use, we kept them and explained them. Where words are simply old-fashioned ways of saying something modern (<em>ordain</em> for <em>establish</em>, <em>posterity</em> for <em>future generations</em>), we updated them.</p>
-<h2 id="who-reviews-this">Who reviews this</h2>
-<p>Before public launch, every page is reviewed by attorneys:</p>
-<ul>
-<li>The Bill of Rights and the Preamble are reviewed by a civil rights attorney and a criminal defense attorney.</li>
-<li>The Reconstruction and voting amendments (13, 14, 15, 19, 24, 26) are reviewed by a civil rights attorney.</li>
-<li>The Articles are reviewed by a constitutional law professor.</li>
-<li>Other amendments are reviewed by the same professor, and may launch with a &quot;Pending review&quot; label until that review is complete.</li>
-<li>The &quot;Turned away from voting&quot; Situations card is additionally reviewed by an election protection lawyer.</li>
-</ul>
-<p>Each page shows the date of its most recent review and the name of the reviewer. If a page has not yet been reviewed, it says so clearly.</p>
+<p><strong>This site has not been reviewed by a lawyer.</strong> It explains the law in general. It is not legal advice, and it cannot tell you what to do in your own situation. If you need legal help, contact a lawyer, a public defender&#x27;s office, or your state&#x27;s ACLU affiliate.</p>
+<p>The law changes when courts decide new cases. Each page shows when it was last updated.</p>
+<h2 id="found-a-mistake">Found a mistake?</h2>
+<p>Please tell us. Corrections are the most useful help you can give. Reach us through <a href="https://hopeforamericans.net" rel="noopener">hopeforamericans.net</a>.</p>
 <h2 id="who-is-behind-this">Who is behind this</h2>
-<p>This is a Hope for Americans project, built by a small team in Flagstaff, Arizona. The site is funded by the team itself. Revenue comes from the work, not from advertising or data.</p>
-<p>If you want to help, the most useful thing you can do is share the site with someone who needs it. The second most useful thing is to tell us when we got something wrong.</p>
-<h2 id="editorial-process">Editorial process</h2>
-<p>Our full editorial process is documented publicly. This covers how we make decisions about wording, how we handle disagreements between reviewers, and how we update pages when courts hand down new rulings. See the <a href="/notes">editorial notes</a> for word-by-word reasoning behind specific translation choices.</p>
-<p>This site is open source. Anyone can read the code, see the full revision history, and propose changes.</p>
-<h2 id="translations">Translations</h2>
-<p>We plan to add Spanish translations once the English site is fully reviewed and stable. If you can help translate or review translations in any language, please reach out.</p>
-  </div>
-  
+<p>Free Constitution is a Hope for Americans project, made in Flagstaff, Arizona. It is a sister site to <a href="https://freescripture.org" rel="noopener">Free Scripture</a>. Hope for Americans builds free digital tools for everyone, the way the web used to be.</p></div>
 </article>
 </main>
 <footer class="site-footer">
-  <div class="foot-tag">The whole document, open to anyone.</div>
-  <p class="hfa-madein">Made with <span class="hfa-heart" aria-hidden="true">&hearts;</span> in Flagstaff</p>
-  <div class="hfa-rule"></div>
-  <div class="hfa-mark">A <a href="https://hopeforamericans.net">Hope for Americans</a> tool</div>
-  <div class="hfa-vision">free to use, the way the web used to be</div>
-</footer>
-<nav class="mobile-nav" aria-label="Quick navigation">
-  <div class="mobile-nav-row">
-    <a href="/#rights-now">
-      <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z"/></svg>
-      Rights
-    </a>
-    <a href="/situations/">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Situations
-    </a>
-    <a href="/#amendments">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Amendments
-    </a>
-    <a href="/about/">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      About
-    </a>
+  <div class="wrap">
+    <nav class="foot-nav" aria-label="More">
+      <a href="/timeline/">Timeline</a><a href="/words/">Words</a><a href="/memorize/">Know it by heart</a>
+      <a href="/full-text/">Full text</a><a href="/preamble/">Preamble</a><a href="/declaration/">Declaration</a>
+      <a href="/about/">About</a><a href="/sources/">Sources</a>
+    </nav>
+    <p class="foot-legal">Plain-language explanations, not legal advice. Not reviewed by a lawyer. <a href="/about/">How we check our work</a>.</p>
+    <p class="foot-updated">Last updated October 1, 2026</p>
+    <div class="hfa">
+      <p class="hfa-madein">Made with <span aria-hidden="true">&hearts;</span> in Flagstaff</p>
+      <p class="hfa-mark">A <a href="https://hopeforamericans.net">Hope for Americans</a> tool &middot; free to use, the way the web used to be</p>
+    </div>
   </div>
-</nav>
-<button class="back-to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-<script src="/static/js/prefs.js" defer></script>
+</footer>
+<nav class="mobile-nav" aria-label="Quick navigation"><div class="mobile-nav-row"><a href="/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/situations/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z"/></svg><span>Situations</span></a><a href="/paths/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Paths</span></a><a href="/amendments/"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3"/><path d="M20 4v14h-7"/></svg><span>Browse</span></a><button type="button" data-open-search><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search</span></button></div></nav>
+<dialog id="display-dialog" class="sheet" aria-labelledby="display-title">
+  <div class="sheet-head"><h2 id="display-title"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20l5-14h2l5 14M6.5 14h7M17 20v-6.5a2.5 2.5 0 0 1 5 0V20M17 16.5h5"/></svg> Display</h2>
+  <button type="button" class="icon-btn" data-close aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <form class="settings" data-display-form>
+    <fieldset class="setting"><legend>Text size</legend><div class="segs"><label class="seg"><input type="radio" name="size" value="s"><span>Small</span></label><label class="seg"><input type="radio" name="size" value="m"><span>Medium</span></label><label class="seg"><input type="radio" name="size" value="l"><span>Large</span></label><label class="seg"><input type="radio" name="size" value="xl"><span>Extra large</span></label></div></fieldset>
+    <fieldset class="setting"><legend>Line spacing</legend><div class="segs"><label class="seg"><input type="radio" name="spacing" value="normal"><span>Normal</span></label><label class="seg"><input type="radio" name="spacing" value="roomy"><span>Roomy</span></label></div></fieldset>
+    <fieldset class="setting"><legend>Font</legend><p class="hint">Hyperlegible and Lexend are designed to be easier to read.</p><div class="segs"><label class="seg"><input type="radio" name="font" value="hyper"><span>Hyperlegible</span></label><label class="seg"><input type="radio" name="font" value="lexend"><span>Lexend</span></label><label class="seg"><input type="radio" name="font" value="serif"><span>Serif</span></label></div></fieldset>
+    <fieldset class="setting"><legend>Page color</legend><div class="segs"><label class="seg"><input type="radio" name="theme" value="light"><span>Light</span></label><label class="seg"><input type="radio" name="theme" value="sepia"><span>Sepia</span></label><label class="seg"><input type="radio" name="theme" value="dark"><span>Dark</span></label></div></fieldset>
+    <fieldset class="setting"><legend>How much to show</legend><p class="hint">Quick shows the short version. Deep opens everything.</p><div class="segs"><label class="seg"><input type="radio" name="depth" value="quick"><span>Quick</span></label><label class="seg"><input type="radio" name="depth" value="standard"><span>Standard</span></label><label class="seg"><input type="radio" name="depth" value="deep"><span>Deep</span></label></div></fieldset>
+    <fieldset class="setting"><legend>Focus mode</legend><p class="hint">Hides menus so only the reading is on screen.</p>
+    <button type="button" class="btn btn-quiet" data-toggle-focus><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Turn on focus mode</button></fieldset>
+    <p class="hint keys">Keys: <kbd>/</kbd> search &middot; <kbd>D</kbd> display &middot; <kbd>T</kbd> page color &middot; <kbd>G</kbd> focus mode</p>
+    <p class="hint">Saved on this device only.</p>
+  </form>
+</dialog><dialog id="search-dialog" class="sheet sheet-search" aria-labelledby="search-title">
+  <div class="sheet-head"><h2 id="search-title" class="vh">Search</h2>
+  <label class="search-field"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="vh">Search the Constitution</span>
+  <input type="search" data-search-input placeholder="Try: phone search, vote, speech at school" autocomplete="off" enterkeyhint="search"></label>
+  <button type="button" class="icon-btn" data-close aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="search-results" data-search-results aria-live="polite"></div>
+</dialog><div id="term-pop" class="term-pop" role="dialog" aria-modal="false" hidden><p class="term-def"></p><a class="term-more" href="/words/">More in Words</a><button type="button" class="icon-btn term-close" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div id="path-bar" class="path-bar" hidden></div>
+<button type="button" class="focus-exit" data-toggle-focus hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Exit focus mode</button>
+<button type="button" class="back-to-top" aria-label="Back to top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 15l6-6 6 6"/></svg></button>
+<script src="/static/js/app.js?v=20261001" defer></script>
 </body>
 </html>

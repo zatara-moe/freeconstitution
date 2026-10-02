@@ -1,5 +1,0 @@
-{
-  "layout": "article.njk",
-  "permalink": "/articles/{{ number }}/index.html",
-  "tags": ["articles"]
-}

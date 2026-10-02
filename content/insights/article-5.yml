@@ -1,0 +1,68 @@
+one_line: >-
+  An amendment needs two-thirds of Congress, or a convention called by two-thirds of states, to propose it, then three-fourths of states to ratify.
+subject: Changing the Constitution
+content_note: "This article includes a limit that protected the slave trade from amendment until 1808. It is explained plainly below."
+scene:
+  when: "1787"
+  text: >-
+    Under the Articles of Confederation, every change needed all 13 states to agree. That made change almost impossible. The delegates wanted a Constitution that could be changed, but only with wide agreement. Article V set out the steps.
+phrases:
+  - quote: "two thirds of both Houses shall deem it necessary"
+    plain: "Two-thirds of the House and two-thirds of the Senate can propose an amendment."
+  - quote: "shall call a Convention for proposing Amendments"
+    plain: "If two-thirds of state legislatures ask, Congress must call a convention to propose amendments."
+  - quote: "when ratified by the Legislatures of three fourths of the several States"
+    plain: "An amendment becomes part of the Constitution when three-fourths of the states approve it."
+  - quote: "no Amendment which may be made prior to the Year One thousand eight hundred and eight"
+    plain: "Until 1808, no amendment could touch the slave-trade clause or the direct-tax clause. This limit has expired."
+  - quote: "no State, without its Consent, shall be deprived of its equal Suffrage in the Senate"
+    plain: "No state can lose its equal vote in the Senate unless it agrees."
+picture_it: >-
+  Imagine Congress votes by two-thirds to propose an amendment. It goes to the states. Once 38 of the 50 states approve it, it becomes part of the Constitution. The President does not sign it.
+myths:
+  - myth: "The President has to sign an amendment."
+    fact: "The President has no formal role. The Court said so in Hollingsworth v. Virginia (1798)."
+  - myth: "Amendments are decided by a national popular vote."
+    fact: "There is no national vote. Congress or a convention proposes, and state legislatures or state conventions ratify."
+  - myth: "Once Congress passes an amendment, it is part of the Constitution."
+    fact: "Congress only proposes it. Three-fourths of the states must still ratify it. More than 11,000 have been proposed, and only 27 ratified."
+words_changed:
+  - word: "Suffrage"
+    then: "A vote."
+    now: "Usually means the right to vote in elections. Here it means each state's equal vote in the Senate."
+  - word: "deem"
+    then: "To judge or consider."
+    now: "The same, but rarely used in everyday speech."
+back_then: >-
+  The writers knew the Constitution would need changes. They had seen how the Articles' unanimous-consent rule blocked every fix. They chose a middle path: hard enough to protect the system, possible when most of the country agrees.
+who_argued:
+  - side: "Anti-Federalists"
+    view: "The Constitution needed a bill of rights and other changes before it was ratified, possibly through a second convention."
+  - side: "Federalists"
+    view: "Ratify first, then use Article V to add amendments. A second convention could undo the whole plan."
+key_cases:
+  - name: "Hollingsworth v. Virginia"
+    year: 1798
+    held: "A proposed amendment does not need the President's signature."
+  - name: "Hawke v. Smith"
+    year: 1920
+    held: "A state cannot make ratification depend on a popular vote when Congress chose ratification by state legislatures."
+  - name: "Dillon v. Gloss"
+    year: 1921
+    held: "Congress can set a reasonable time limit for states to ratify an amendment."
+  - name: "Coleman v. Miller"
+    year: 1939
+    held: "Questions about whether a ratification came too late are political questions for Congress."
+quick_check:
+  - q: "How many states must ratify an amendment?"
+    options: ["Half.", "Two-thirds.", "Three-fourths."]
+    answer: 2
+    why: "Article V requires three-fourths of the states, which is 38 of 50 today."
+  - q: "Which way of proposing amendments has never been used?"
+    options: ["A convention called by the states.", "A two-thirds vote of Congress.", "Both have been used."]
+    answer: 0
+    why: "Every amendment so far was proposed by Congress."
+  - q: "Can an amendment take away a state's equal vote in the Senate?"
+    options: ["Yes, with three-fourths of states.", "Only if that state agrees.", "Yes, with a national vote."]
+    answer: 1
+    why: "Article V says no state can lose its equal Senate vote without its consent."

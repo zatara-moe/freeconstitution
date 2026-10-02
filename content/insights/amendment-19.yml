@@ -1,0 +1,63 @@
+one_line: >-
+  No government can deny or limit your right to vote because of your sex.
+subject: Women's right to vote
+content_note: >-
+  This page discusses how women were kept from voting, and how many women of color stayed blocked from voting after 1920.
+scene:
+  when: "1920"
+  text: >-
+    In 1848, activists at Seneca Falls, New York, called for women's right to vote. For the next 72 years, suffragists marched, gave speeches, and were jailed for protesting outside the White House. In August 1920, Tennessee became the 36th state to ratify. A 24-year-old lawmaker, Harry Burn, voted yes after his mother wrote asking him to.
+phrases:
+  - quote: "The right of citizens of the United States to vote shall not be denied or abridged"
+    plain: "No one can take away or limit a citizen's right to vote"
+  - quote: "on account of sex"
+    plain: "because of their sex."
+  - quote: "Congress shall have power to enforce this article by appropriate legislation."
+    plain: "Congress can pass laws to enforce this."
+picture_it: >-
+  You turn 18 and register to vote, along with friends of every gender. Each of you gets the same ballot and the same single vote. A little over 100 years ago, women in many states could not vote for President. The Nineteenth Amendment is the reason that changed everywhere.
+myths:
+  - myth: "Women could not vote anywhere in the United States until 1920."
+    fact: "Wyoming let women vote in 1869, while it was still a territory. By 1920, women already had full voting rights in more than a dozen states, mostly in the West."
+  - myth: "After 1920, every woman could vote."
+    fact: "Many Black women in the South were blocked by poll taxes, reading tests, and threats until the Voting Rights Act of 1965. Many Native American women could not vote until Congress made Native Americans citizens in 1924, and some states blocked them longer."
+words_changed:
+  - word: "suffrage"
+    then: "The right to vote. Suffragists were people who fought for women's right to vote."
+    now: "Same meaning, though the word is used less today."
+back_then: >-
+  Before 1920, each state decided whether women could vote. The Fifteenth Amendment had protected voting against race discrimination but said nothing about sex. In Minor v. Happersett (1875), the Supreme Court said being a citizen did not by itself give women the right to vote. Suffragists then focused on a constitutional amendment.
+who_argued:
+  - side: "Suffragists"
+    view: "Women are citizens who pay taxes and follow the laws. They should help choose the people who make those laws."
+  - side: "Anti-suffragists"
+    view: "Some argued that voting rules belonged to the states, not the federal government. Others argued women already had influence through family and community and did not need the vote."
+key_cases:
+  - name: "Minor v. Happersett"
+    year: 1875
+    held: "Before this amendment, being a citizen did not by itself give women a constitutional right to vote."
+  - name: "Leser v. Garnett"
+    year: 1922
+    held: "The Nineteenth Amendment was validly adopted and applies in every state, including states that did not ratify it."
+quick_check:
+  - q: "What does the Nineteenth Amendment protect?"
+    options:
+      - "The right to vote regardless of sex."
+      - "The right to vote at age 18."
+      - "The right to run for President."
+    answer: 0
+    why: "It bans denying or limiting the vote on account of sex."
+  - q: "Which state's vote made the Nineteenth Amendment part of the Constitution?"
+    options:
+      - "Wyoming"
+      - "New York"
+      - "Tennessee"
+    answer: 2
+    why: "Tennessee became the 36th state to ratify in August 1920, which reached three-fourths of the states."
+  - q: "Could all women vote right after 1920?"
+    options:
+      - "Yes, everywhere."
+      - "No. Many Black and Native American women still faced barriers for decades."
+      - "No. Women needed a second amendment to vote in state elections."
+    answer: 1
+    why: "Poll taxes, reading tests, threats, and citizenship rules kept many women of color from voting."

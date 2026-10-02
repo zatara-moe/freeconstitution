@@ -1,0 +1,78 @@
+one_line: >-
+  States must respect each other's laws and court rulings, treat visitors fairly, and return people charged with crimes. Congress admits new states.
+subject: How states relate
+content_note: "Section 2 includes the Fugitive Slave Clause, which required the return of enslaved people who escaped. It is explained plainly below."
+scene:
+  when: "1787"
+  text: >-
+    Under the Articles of Confederation, the states acted almost like separate countries. The delegates wanted states to cooperate as one nation. They also had to decide how new western lands would become states. Article IV set rules for all of this.
+phrases:
+  - quote: "Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State"
+    plain: "Each state must generally accept the official records and court rulings of other states."
+  - quote: "The Citizens of each State shall be entitled to all Privileges and Immunities of Citizens in the several States"
+    plain: "A state cannot treat people from other states unfairly in basic rights."
+  - quote: "who shall flee from Justice, and be found in another State"
+    plain: "A person charged with a crime who flees to another state must be sent back."
+  - quote: "No Person held to Service or Labour in one State"
+    plain: "This began the Fugitive Slave Clause. It forced the return of enslaved people who escaped. The Thirteenth Amendment ended it."
+  - quote: "New States may be admitted by the Congress into this Union"
+    plain: "Congress decides when new states join the country."
+  - quote: "The United States shall guarantee to every State in this Union a Republican Form of Government"
+    plain: "Every state must have a government run by elected representatives."
+picture_it: >-
+  You win a court case in Oregon, and the judge orders someone to pay you. That person moves to Idaho. You can generally ask an Idaho court to enforce the Oregon judgment without starting the case over.
+myths:
+  - myth: "A state can ignore a court judgment from another state."
+    fact: "Under the Full Faith and Credit Clause, states must generally honor final court judgments from other states."
+  - myth: "The Fugitive Slave Clause still applies because it is still in the text."
+    fact: "The Thirteenth Amendment (1865) ended slavery. The clause has had no effect since then."
+  - myth: "\"Republican Form of Government\" means states must support the Republican Party."
+    fact: "It means government by elected representatives, not a king. The clause has nothing to do with any political party."
+words_changed:
+  - word: "Republican"
+    then: "A government where people elect representatives, instead of a king."
+    now: "Also the name of a political party, which did not exist in 1787. The clause is not about the party."
+  - word: "held to Service or Labour"
+    then: "Wording that covered enslaved people and indentured servants without using the word slavery."
+    now: "No legal effect since the Thirteenth Amendment ended slavery."
+  - word: "Privileges and Immunities"
+    then: "Basic rights of citizens."
+    now: "Courts read it to protect basic rights, like earning a living, when you are in another state."
+back_then: >-
+  States had been treating each other's citizens and court rulings unevenly. Large western lands were also waiting to become states. Slaveholding delegates also demanded a promise that people who escaped slavery would be returned.
+who_argued:
+  - side: "Limit new western states"
+    view: "Gouverneur Morris argued that new western states should not be able to outvote the original eastern states."
+  - side: "Equal new states"
+    view: "George Mason argued that new states must join as equals, or their people would not stay loyal to the Union."
+key_cases:
+  - name: "Prigg v. Pennsylvania"
+    year: 1842
+    held: "A Pennsylvania law that made it harder to capture people who escaped slavery was struck down under the federal Fugitive Slave Act."
+  - name: "Luther v. Borden"
+    year: 1849
+    held: "Whether a state government is \"republican\" is a political question for Congress and the President, not the courts."
+  - name: "Toomer v. Witsell"
+    year: 1948
+    held: "South Carolina could not charge out-of-state shrimp boats a license fee 100 times higher than residents paid."
+  - name: "Puerto Rico v. Branstad"
+    year: 1987
+    held: "Federal courts can order a governor to return a person charged with a crime in another state."
+quick_check:
+  - q: "A person charged with a crime in Ohio flees to Texas. What does Article IV require?"
+    options: ["Texas must try them.", "Texas must return them to Ohio when asked.", "Nothing. Each state is separate."]
+    answer: 1
+    why: "Section 2 requires a state to return a person charged with a crime elsewhere."
+  - q: "Who admits new states into the Union?"
+    options: ["Congress.", "The President alone.", "A vote of all the states."]
+    answer: 0
+    why: "Section 3 gives Congress the power to admit new states."
+  - q: "What ended the Fugitive Slave Clause's effect?"
+    options: ["The Bill of Rights.", "A Supreme Court case in 1842.", "The Thirteenth Amendment."]
+    answer: 2
+    why: "The Thirteenth Amendment (1865) ended slavery, so the clause has had no effect since."
+sections:
+  1: "States must accept each other's laws, records, and court rulings."
+  2: "States must treat visitors fairly and return people charged with crimes. Includes the Fugitive Slave Clause."
+  3: "Congress admits new states and makes rules for federal land and territories."
+  4: "The nation promises each state an elected government and protection from invasion."

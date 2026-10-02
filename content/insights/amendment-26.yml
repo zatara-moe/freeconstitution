@@ -1,0 +1,57 @@
+one_line: >-
+  If you are a U.S. citizen and 18 or older, no government can stop you from voting because of your age.
+subject: Voting at 18
+content_note: null
+scene:
+  when: "1971"
+  text: >-
+    During the Vietnam War, young men could be drafted at 18, but most states did not let anyone vote until 21. Students and activists used the slogan "Old enough to fight, old enough to vote." A 1970 Supreme Court ruling left the voting age different for federal and state elections. Congress and the states then moved fast, and the amendment was ratified in about 100 days in 1971.
+phrases:
+  - quote: "who are eighteen years of age or older"
+    plain: "Citizens who are 18 or older"
+  - quote: "to vote shall not be denied or abridged"
+    plain: "cannot have their right to vote taken away or limited"
+  - quote: "on account of age"
+    plain: "because of how old they are."
+picture_it: >-
+  It is your 18th birthday. Along with the cake, you get a new right: you can vote in every election, from President to city council. Many states let you register before you turn 18. Some even let 17-year-olds vote in a primary if they will be 18 by the general election, so check your state's election website or vote.gov.
+myths:
+  - myth: "You have to be 21 to vote in some states."
+    fact: "Since 1971, no state can set a voting age higher than 18 for any election."
+  - myth: "The amendment means no one under 18 can ever vote."
+    fact: "It sets the highest age a government can require. A few cities, such as Takoma Park, Maryland, let 16- and 17-year-olds vote in city elections."
+  - myth: "College students cannot vote where they go to school."
+    fact: "In most states, students can choose to register at their school address or their home address. Rules differ, so check with your state's election office."
+back_then: >-
+  The draft age was 18, and the Vietnam War was deeply unpopular with many young people. Before 1971, only a few states let people under 21 vote. In Oregon v. Mitchell (1970), the Court said Congress could lower the voting age for federal elections but not for state ones. Running two sets of voter lists would have been costly and confusing.
+who_argued:
+  - side: "Supporters"
+    view: "If 18-year-olds can be drafted, pay taxes, and be tried as adults, they should help choose the leaders who make those decisions."
+  - side: "Opponents"
+    view: "Some argued that voting age should be left to each state. Others argued that 21 was a better age for the judgment voting requires."
+key_cases:
+  - name: "Oregon v. Mitchell"
+    year: 1970
+    held: "Congress could set the voting age at 18 for federal elections but not for state and local elections."
+quick_check:
+  - q: "You are a U.S. citizen and just turned 18. Can a state stop you from voting because of your age?"
+    options:
+      - "Yes, if the state sets the age at 21."
+      - "No."
+      - "Only in local elections."
+    answer: 1
+    why: "The amendment bans denying the vote on account of age to citizens 18 and older, in every election."
+  - q: "What was the slogan behind the Twenty-Sixth Amendment?"
+    options:
+      - "No taxation without representation."
+      - "Old enough to fight, old enough to vote."
+      - "One person, one vote."
+    answer: 1
+    why: "Young men could be drafted at 18 but could not vote in most states until 21."
+  - q: "Does the amendment stop a city from letting 16-year-olds vote in city elections?"
+    options:
+      - "Yes. No one under 18 can vote anywhere."
+      - "No. It only stops governments from setting the age higher than 18."
+      - "Yes, unless Congress approves."
+    answer: 1
+    why: "The amendment protects voters 18 and older. It does not ban a lower voting age."

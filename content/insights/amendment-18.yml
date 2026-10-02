@@ -1,0 +1,56 @@
+one_line: >-
+  This amendment banned making, selling, and transporting alcohol nationwide starting in 1920. It was repealed in 1933.
+subject: Prohibition
+content_note: null
+scene:
+  when: "1919"
+  text: >-
+    In the early 1900s, groups like the Woman's Christian Temperance Union and the Anti-Saloon League blamed alcohol for poverty, violence at home, and crime. They built support in Congress and in state legislatures. The Eighteenth Amendment was ratified in January 1919. It took effect one year later.
+phrases:
+  - quote: "After one year from the ratification of this article"
+    plain: "The ban started one year after the amendment was ratified."
+  - quote: "the manufacture, sale, or transportation of intoxicating liquors"
+    plain: "Making, selling, or moving alcoholic drinks"
+  - quote: "for beverage purposes is hereby prohibited"
+    plain: "for people to drink was banned."
+  - quote: "concurrent power to enforce this article"
+    plain: "Congress and the states could both pass laws to enforce the ban."
+  - quote: "within seven years from the date of the submission hereof to the States by the Congress"
+    plain: "States had seven years to ratify it, or it would fail."
+picture_it: >-
+  Imagine every bar, brewery, and liquor store in the country closing by law at the same time. That happened in January 1920. Drinking itself was not banned, but buying alcohol legally became very hard. Many people bought it illegally instead, and criminal groups made large profits supplying it.
+myths:
+  - myth: "Prohibition made drinking alcohol a crime."
+    fact: "The amendment banned making, selling, and transporting alcohol for drinking. It did not ban drinking it."
+  - myth: "Since 1933, alcohol has been legal everywhere in the country."
+    fact: "The Twenty-First Amendment let states keep their own bans. Some counties still ban alcohol sales today."
+words_changed:
+  - word: "intoxicating liquors"
+    then: "Alcoholic drinks. The Volstead Act, the law that enforced Prohibition, set the limit at 0.5% alcohol, so beer and wine were banned too."
+    now: "Today we would just say alcohol."
+back_then: >-
+  The temperance movement had worked for decades to limit alcohol, and many states were already dry before 1919. World War I added new reasons, such as saving grain for food. The same reform era also produced the Sixteenth, Seventeenth, and Nineteenth Amendments.
+who_argued:
+  - side: "Drys (supporters of Prohibition)"
+    view: "Alcohol harmed families, workers, and public health. A national ban would reduce crime, poverty, and violence in the home."
+  - side: "Wets (opponents of Prohibition)"
+    view: "The government should not control what adults drink. A ban would be hard to enforce, would cost jobs and tax money, and would push the alcohol trade into criminal hands."
+key_cases:
+  - name: "National Prohibition Cases"
+    year: 1920
+    held: "The Eighteenth Amendment was validly adopted, and the Volstead Act that enforced it was valid."
+quick_check:
+  - q: "What did the Eighteenth Amendment ban?"
+    options:
+      - "Drinking alcohol."
+      - "Making, selling, and transporting alcohol for drinking."
+      - "Owning a bar."
+    answer: 1
+    why: "The text bans manufacture, sale, and transportation. It does not mention drinking."
+  - q: "What happened to the Eighteenth Amendment?"
+    options:
+      - "It is still in effect."
+      - "The Supreme Court struck it down."
+      - "The Twenty-First Amendment repealed it in 1933."
+    answer: 2
+    why: "It is the only amendment that has been fully repealed."

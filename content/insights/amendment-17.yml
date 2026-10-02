@@ -1,0 +1,43 @@
+one_line: >-
+  Voters in each state elect their two U.S. senators directly. Before 1913, state lawmakers chose them.
+subject: Electing senators
+content_note: null
+scene:
+  when: "1913"
+  text: >-
+    Before 1913, state lawmakers picked U.S. senators. Some seats were won by bribing lawmakers. Other seats stayed empty for months or even years when lawmakers could not agree. Reformers pushed for voters to choose senators directly, and the Seventeenth Amendment was ratified in 1913.
+phrases:
+  - quote: "two Senators from each State, elected by the people thereof, for six years"
+    plain: "Each state has two senators, elected by the state's voters for six-year terms."
+  - quote: "The electors in each State shall have the qualifications requisite for electors of the most numerous branch of the State legislatures."
+    plain: "Anyone who can vote for the larger house of your state legislature can vote for U.S. senator."
+  - quote: "the executive authority of such State shall issue writs of election to fill such vacancies"
+    plain: "When a Senate seat opens up, the governor calls an election to fill it."
+  - quote: "the legislature of any State may empower the executive thereof to make temporary appointments"
+    plain: "A state can let its governor appoint someone to serve until that election."
+picture_it: >-
+  You vote in a year when one of your state's Senate seats is up. The Senate race is right there on your ballot. Before 1913, you would not have had that choice, because state lawmakers made it. If a senator dies or resigns, many states let the governor appoint a temporary replacement until voters choose.
+myths:
+  - myth: "Voters have always elected U.S. senators."
+    fact: "For the first 124 years, state legislatures chose senators. Voters have elected them directly only since 1913."
+words_changed:
+  - word: "writs of election"
+    then: "Official orders to hold an election."
+    now: "Same meaning. Today we would say the governor calls a special election."
+back_then: >-
+  The original Constitution had state legislatures choose senators. The idea was to give state governments a direct voice in Washington. By the early 1900s, many states already held unofficial popular votes and had lawmakers follow the result. The amendment made direct election the rule everywhere.
+quick_check:
+  - q: "Who chose U.S. senators before 1913?"
+    options:
+      - "The voters of each state."
+      - "State legislatures."
+      - "The President."
+    answer: 1
+    why: "The original Constitution gave this job to state legislatures. The Seventeenth Amendment gave it to voters."
+  - q: "A senator resigns. What can happen under the Seventeenth Amendment?"
+    options:
+      - "The seat stays empty until the next presidential election."
+      - "The governor calls an election, and the state may allow a temporary appointment first."
+      - "The Senate picks a replacement."
+    answer: 1
+    why: "The text lets states allow the governor to appoint someone until voters fill the seat."

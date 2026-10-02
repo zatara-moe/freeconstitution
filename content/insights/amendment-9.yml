@@ -1,0 +1,55 @@
+one_line: >-
+  The Constitution lists some of your rights, but not all of them. You keep rights that are not on the list.
+subject: Rights not listed
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In 1788, some leaders worried about adding a list of rights to the Constitution. They feared a list would look complete, so any right left off could be lost. James Madison wrote the Ninth Amendment to answer that worry. It was ratified with the rest of the Bill of Rights in 1791.
+phrases:
+  - quote: "The enumeration in the Constitution, of certain rights"
+    plain: "The Constitution lists some rights."
+  - quote: "shall not be construed to deny or disparage others"
+    plain: "That list must not be read to erase or weaken other rights."
+  - quote: "retained by the people"
+    plain: "The people keep those other rights."
+picture_it: >-
+  Nowhere does the Constitution say you can move to another state. It also never says parents can send their kids to a private school. Courts have still said you have both rights. The Ninth Amendment is a reminder that a right does not have to be on the list to be real.
+myths:
+  - myth: "If a right isn't written in the Constitution, I don't have it."
+    fact: "The Ninth Amendment says the list is not complete. Courts have recognized some unlisted rights, such as the right to travel between states. Most of those rulings rely on the Fourteenth Amendment."
+  - myth: "The Ninth Amendment lets a judge create any right they want."
+    fact: "Courts almost never rely on the Ninth Amendment alone. Judges and scholars still disagree about how much it does by itself."
+words_changed:
+  - word: "enumeration"
+    then: "A list, or counting things one by one."
+    now: "Still means a list. Here it means the rights the Constitution names."
+  - word: "disparage"
+    then: "To lower in value or importance."
+    now: "Today it usually means to insult. Here it means to weaken."
+back_then: >-
+  Alexander Hamilton argued in The Federalist No. 84 that a bill of rights was not needed and could be dangerous. He worried that listing some rights would suggest the government could limit any right not listed. Madison agreed the risk was real. The Ninth Amendment was his answer.
+who_argued:
+  - side: "Read it as a source of rights"
+    view: "Some scholars say the amendment protects real, unlisted rights, and courts should enforce them like listed ones."
+  - side: "Read it as a rule about federal power"
+    view: "Other scholars say it only stops anyone from using the list of rights to expand federal power. On this view, it does not let judges find new rights."
+key_cases:
+  - name: "Griswold v. Connecticut"
+    year: 1965
+    held: "A state ban on married couples using birth control violated a right to privacy; one concurring opinion relied on the Ninth Amendment."
+quick_check:
+  - q: "What does the Ninth Amendment say about rights not listed in the Constitution?"
+    options:
+      - "They do not exist."
+      - "The list of rights should not be read to deny them."
+      - "Only Congress can create them."
+    answer: 1
+    why: "The amendment says listing some rights does not deny or weaken others the people keep."
+  - q: "Why did Madison write the Ninth Amendment?"
+    options:
+      - "To give Congress more power."
+      - "To stop people from reading the Bill of Rights as a complete list."
+      - "To create a right to privacy."
+    answer: 1
+    why: "Many feared that any right left off the list would be treated as lost."

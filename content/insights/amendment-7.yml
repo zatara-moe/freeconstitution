@@ -1,0 +1,58 @@
+one_line: >-
+  In most federal civil lawsuits, you have the right to have a jury decide the facts.
+subject: Jury in civil cases
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    The original Constitution of 1787 promised a jury in criminal trials but said nothing about civil cases. Opponents of the Constitution warned that federal judges could decide lawsuits without juries. Jury trials had long been part of English and colonial law. The Seventh Amendment was added to protect them in federal civil cases.
+phrases:
+  - quote: "In Suits at common law"
+    plain: "In the kinds of lawsuits that old English courts of law heard, mostly lawsuits over money."
+  - quote: "where the value in controversy shall exceed twenty dollars"
+    plain: "When the amount being fought over is more than twenty dollars."
+  - quote: "the right of trial by jury shall be preserved"
+    plain: "You keep the right to have a jury decide your case."
+  - quote: "no fact tried by a jury shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law"
+    plain: "Once a jury decides the facts, federal judges can reopen them only in the limited ways the old common law allowed."
+picture_it: >-
+  You sue a company in federal court because its product injured you, and you ask for money. You can ask for a jury to decide what happened. The judge explains the law, and the jury decides the facts.
+myths:
+  - myth: "The Seventh Amendment gives me a jury in every lawsuit, in every court."
+    fact: "It applies only in federal court. State courts follow their own state laws and constitutions, though most offer civil juries."
+  - myth: "Twenty dollars is so little that the rule must have been updated."
+    fact: "The twenty-dollar amount has never been changed. Almost every federal lawsuit clears it today."
+words_changed:
+  - word: "Suits at common law"
+    then: "Cases heard in English courts of law, usually seeking money. Other cases, like orders to stop doing something, went to separate courts of \"equity\" with no jury."
+    now: "Courts still ask whether a modern claim is like an old common-law suit, especially whether it seeks money as a penalty or payment for harm."
+  - word: "twenty dollars"
+    then: "A meaningful amount of money in 1791."
+    now: "A very small amount. It no longer limits who can get a jury in federal court."
+back_then: >-
+  Many Americans saw juries of ordinary people as a check on powerful judges and the government. They worried that federal courts without civil juries would favor the powerful. The amendment kept the civil jury as it existed in 1791.
+key_cases:
+  - name: "Minneapolis & St. Louis Railroad Co. v. Bombolis"
+    year: 1916
+    held: "The Seventh Amendment applies only to federal courts, not state courts."
+  - name: "Curtis v. Loether"
+    year: 1974
+    held: "The jury right also covers new lawsuits created by Congress when they are like old common-law suits and seek money damages."
+  - name: "SEC v. Jarkesy"
+    year: 2024
+    held: "When the Securities and Exchange Commission seeks civil penalties for securities fraud, the accused person has the right to a jury trial."
+quick_check:
+  - q: "Does the Seventh Amendment require jury trials in state civil cases?"
+    options:
+      - "Yes, in every state court."
+      - "No. It applies only in federal court."
+      - "Only in cases over $1,000."
+    answer: 1
+    why: "The Supreme Court has not applied the Seventh Amendment to the states. Most states offer civil juries under their own laws."
+  - q: "In a civil jury trial, who decides what happened?"
+    options:
+      - "The jury."
+      - "The judge alone."
+      - "The lawyers."
+    answer: 0
+    why: "The jury decides questions of fact. The judge decides questions of law."

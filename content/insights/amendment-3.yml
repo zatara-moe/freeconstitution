@@ -1,0 +1,50 @@
+one_line: >-
+  In peacetime, the government cannot make you house soldiers in your home without your consent.
+subject: Housing soldiers
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In the 1760s and 1770s, British laws called the Quartering Acts required the colonies to house and supply British soldiers. Many colonists saw troops living among them in peacetime as a threat. The Declaration of Independence listed "Quartering large bodies of armed troops among us" as a complaint against the King.
+phrases:
+  - quote: "No Soldier shall, in time of peace be quartered in any house"
+    plain: "In peacetime, soldiers cannot be given a place to live in anyone's home."
+  - quote: "without the consent of the Owner"
+    plain: "The only exception in peacetime is if the owner agrees."
+  - quote: "nor in time of war, but in a manner to be prescribed by law"
+    plain: "In wartime, it can happen only by following rules set by law."
+picture_it: >-
+  Imagine the army sends a soldier to your family's home in peacetime and says he will live there. Your family can say no. The government cannot force you to give him a room.
+myths:
+  - myth: "The government can use your home for the military whenever it wants."
+    fact: "In peacetime, soldiers cannot be housed in your home without the owner's consent. In wartime, it can happen only under rules set by law."
+  - myth: "The Third Amendment has been used in many Supreme Court cases."
+    fact: "The Supreme Court has never decided a case mainly about the Third Amendment."
+words_changed:
+  - word: "quartered"
+    then: "Given a place to sleep and live, usually with meals."
+    now: "The word is rare today. The idea is the same: housing soldiers."
+  - word: "Owner"
+    then: "The person who owned the house."
+    now: "One federal appeals court has said it can also cover people who rent their homes."
+back_then: >-
+  Colonists had seen British soldiers stationed among them in peacetime. Housing troops cost colonists money and privacy. The writers wanted homes protected from this kind of government demand.
+key_cases:
+  - name: "Griswold v. Connecticut"
+    year: 1965
+    held: "Married couples have a right to use birth control; the Court named the Third Amendment as one source of a right to privacy."
+quick_check:
+  - q: "In peacetime, when can soldiers be housed in your home?"
+    options:
+      - "Whenever the army needs space."
+      - "Only if the owner agrees."
+      - "Only during holidays."
+    answer: 1
+    why: "The text says no soldier can be quartered in a house in peacetime \"without the consent of the Owner.\""
+  - q: "What does the Third Amendment say about wartime?"
+    options:
+      - "Soldiers can never be housed in homes."
+      - "Soldiers can be housed anywhere, with no rules."
+      - "Soldiers can be housed only following rules set by law."
+    answer: 2
+    why: "In wartime, quartering must happen \"in a manner to be prescribed by law.\""

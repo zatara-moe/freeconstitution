@@ -1,0 +1,52 @@
+one_line: >-
+  If the President dies, resigns, or cannot do the job, the Vice President takes over, sometimes for only a few hours.
+subject: Presidential succession
+content_note: null
+scene:
+  when: "1967"
+  text: >-
+    President Dwight Eisenhower had a heart attack in 1955 and a stroke in 1957, and no clear rule said who should lead while he recovered. When President John F. Kennedy was killed in 1963, Lyndon Johnson became President. The country then had no Vice President for more than a year. The Twenty-Fifth Amendment, ratified in 1967, filled those gaps.
+phrases:
+  - quote: "the Vice President shall become President"
+    plain: "The Vice President becomes President."
+  - quote: "the President shall nominate a Vice President who shall take office upon confirmation by a majority vote of both Houses of Congress"
+    plain: "The President picks a new Vice President, and a majority of both houses of Congress must approve."
+  - quote: "his written declaration that he is unable to discharge the powers and duties of his office"
+    plain: "A written statement that the President cannot do the job for now."
+  - quote: "such powers and duties shall be discharged by the Vice President as Acting President"
+    plain: "The Vice President does the job as Acting President."
+  - quote: "the Vice President and a majority of either the principal officers of the executive departments"
+    plain: "The Vice President and most of the Cabinet can act together."
+  - quote: "determines by two-thirds vote of both Houses that the President is unable to discharge the powers and duties of his office"
+    plain: "If the President disagrees, two-thirds of both houses must vote that the President cannot serve. Otherwise, the President returns."
+picture_it: >-
+  The President needs surgery and will be under general anesthesia for an hour. Before the surgery, the President sends a letter to the leaders of the House and Senate. The letter hands power to the Vice President. For that hour, the Vice President is Acting President. When the President wakes up and sends a second letter, power goes back.
+myths:
+  - myth: "The Twenty-Fifth Amendment is a quick way to remove a President people disagree with."
+    fact: "Section 4 is about a President who is unable to do the job. If the President objects, it takes a two-thirds vote of both houses to keep the Vice President in charge. Section 4 has never been used."
+  - myth: "The Vice President has always clearly been able to fill in for a sick President."
+    fact: "Before 1967, the Constitution did not say how to handle a President who was alive but unable to serve."
+words_changed:
+  - word: "principal officers of the executive departments"
+    then: "The heads of the main federal departments."
+    now: "The Cabinet, such as the Secretary of State and the Attorney General."
+  - word: "President pro tempore"
+    then: "A senator chosen to lead the Senate when the Vice President is absent."
+    now: "Same today. It is usually the longest-serving senator in the majority party."
+back_then: >-
+  Before 1967, the Constitution said only that the President's powers would "devolve on" the Vice President in some cases. It did not say how to fill an empty vice presidency. It also did not say who decides when a President is too sick to serve. Kennedy's death made those gaps urgent.
+quick_check:
+  - q: "The President will be under anesthesia for surgery. Which section lets the President hand power to the Vice President for a short time?"
+    options:
+      - "Section 1"
+      - "Section 3"
+      - "Section 4"
+    answer: 1
+    why: "Under Section 3, the President sends a written declaration, and the Vice President becomes Acting President until the President sends another."
+  - q: "The vice presidency is empty. What happens?"
+    options:
+      - "The Speaker of the House becomes Vice President."
+      - "The President nominates a new Vice President, and both houses of Congress must confirm."
+      - "There is a special national election."
+    answer: 1
+    why: "Section 2 sets this process. It was used for Gerald Ford in 1973 and Nelson Rockefeller in 1974."

@@ -1,0 +1,85 @@
+one_line: >-
+  You can't be forced to testify against yourself or tried twice for the same crime, and the government must treat you fairly.
+subject: Silence, fair process, property
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In the 1630s, an English critic of the king named John Lilburne refused to answer questions under oath about illegal books. A royal court had him whipped and jailed. His case helped build the idea that no one should be forced to accuse themselves. The Fifth Amendment put that idea, and four other protections, into the Constitution.
+phrases:
+  - quote: "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury"
+    plain: "You cannot be put on trial for a serious federal crime unless a grand jury, a group of citizens who review the evidence, agrees first."
+  - quote: "except in cases arising in the land or naval forces"
+    plain: "This grand jury rule does not apply to military cases."
+  - quote: "nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb"
+    plain: "You cannot be tried or punished twice for the same crime by the same government."
+  - quote: "nor shall be compelled in any criminal case to be a witness against himself"
+    plain: "The government cannot force you to say things that could be used to convict you of a crime."
+  - quote: "nor be deprived of life, liberty, or property, without due process of law"
+    plain: "The government must follow fair legal steps before it takes your life, your freedom, or your things."
+  - quote: "nor shall private property be taken for public use, without just compensation"
+    plain: "If the government takes your property for public use, it must pay you a fair price."
+picture_it: >-
+  Police stop you near a store where something was stolen. They start asking where you have been. You can say, "I am going to remain silent." In some states, you may still have to give your name.
+myths:
+  - myth: "If police don't read me my rights, my case gets thrown out."
+    fact: "Police must give Miranda warnings only before questioning someone in custody. If they skip them, the usual result is that your answers generally cannot be used as evidence to prove the case against you. The case is not automatically dismissed."
+  - myth: "Staying silent or \"pleading the Fifth\" proves you're guilty."
+    fact: "Using the right is not proof of guilt. At a criminal trial, the prosecutor cannot tell the jury that your choice not to testify shows you are guilty."
+  - myth: "If a state court finds me not guilty, the federal government can't charge me for the same act."
+    fact: "Under Gamble v. United States (2019), a state and the federal government are separate governments. Each can charge you for the same act under its own laws."
+words_changed:
+  - word: "infamous crime"
+    then: "A crime punished in a shameful way, such as prison with hard labor."
+    now: "Courts treat it as a serious crime, generally one punishable by more than a year in prison."
+  - word: "jeopardy of life or limb"
+    then: "Facing a punishment that could take your life or injure your body."
+    now: "Facing any criminal punishment, including prison or a fine."
+  - word: "just compensation"
+    then: "A fair payment."
+    now: "Usually the fair market value, meaning what a willing buyer would pay for the property."
+back_then: >-
+  The writers knew of English courts that forced people to answer questions under oath and then punished them for their answers. They also feared a government that could keep charging a person until it won. They wanted clear rules the government had to follow before it could punish anyone or take their property.
+who_argued:
+  - side: "Broad reading of due process"
+    view: "The word \"liberty\" protects some basic rights even if the Constitution does not list them, such as marriage and raising your children. Courts should protect these rights from government interference, whatever procedures the government follows."
+  - side: "Narrow reading of due process"
+    view: "\"Due process of law\" is mainly about fair procedures, like notice and a hearing. Unlisted rights should be protected only if they are deeply rooted in the nation's history. Other questions belong to voters and lawmakers."
+key_cases:
+  - name: "Miranda v. Arizona"
+    year: 1966
+    held: "Police must warn people in custody of their right to stay silent and to a lawyer before questioning, or the answers generally cannot be used."
+  - name: "Edwards v. Arizona"
+    year: 1981
+    held: "Once a person in custody asks for a lawyer, police must stop questioning until a lawyer is present, unless the person restarts the conversation."
+  - name: "Kelo v. City of New London"
+    year: 2005
+    held: "A city's taking of private homes for an economic development plan counted as a \"public use,\" as long as the owners were paid."
+  - name: "Berghuis v. Thompkins"
+    year: 2010
+    held: "To use the right to remain silent during police questioning, a person must say so clearly; staying quiet is not enough by itself."
+  - name: "Gamble v. United States"
+    year: 2019
+    held: "A state and the federal government can each prosecute a person for the same act, because they are separate governments."
+quick_check:
+  - q: "When do police have to give Miranda warnings?"
+    options:
+      - "Every time they talk to anyone."
+      - "Before questioning someone who is in custody."
+      - "Only after a person is found guilty."
+    answer: 1
+    why: "Miranda warnings are required before custodial interrogation, meaning questioning of someone under arrest or held in a similar way."
+  - q: "A jury finds someone not guilty of a crime. Can the same government try them again for that crime?"
+    options:
+      - "No. That is double jeopardy."
+      - "Yes, if new evidence turns up."
+      - "Yes, as long as a different jury is used."
+    answer: 0
+    why: "After an acquittal, meaning a not-guilty verdict, the same government cannot try the person again for the same crime."
+  - q: "The government takes your land to build a highway. What does the Fifth Amendment require?"
+    options:
+      - "Nothing. The government can take any land it wants for free."
+      - "The government must pay you a fair price."
+      - "The government must get permission from every neighbor."
+    answer: 1
+    why: "The Takings Clause requires \"just compensation\" when private property is taken for public use."

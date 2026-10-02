@@ -1,0 +1,42 @@
+one_line: >-
+  If Congress votes to change its own pay, the change cannot start until after the next House election.
+subject: Congressional pay
+content_note: null
+scene:
+  when: "1992"
+  text: >-
+    James Madison proposed this amendment in 1789 with the Bill of Rights, but not enough states ratified it. In 1982, college student Gregory Watson wrote a paper arguing it could still be ratified, and he got a C. He then spent years writing to state lawmakers. In May 1992, enough states approved it, more than 202 years after it was proposed.
+phrases:
+  - quote: "No law, varying the compensation for the services of the Senators and Representatives"
+    plain: "A law that changes how much members of Congress are paid"
+  - quote: "shall take effect, until an election of Representatives shall have intervened"
+    plain: "cannot start until after a House election has happened."
+picture_it: >-
+  Imagine Congress votes to give itself a large raise this year. Under this amendment, the raise cannot start until after the next House election. That gives you, as a voter, a chance to decide whether to reelect the members who voted for it before they receive the money.
+myths:
+  - myth: "Congress cannot raise its own pay."
+    fact: "It can. The raise just has to wait until after the next House election."
+words_changed:
+  - word: "compensation"
+    then: "Pay for work."
+    now: "Same meaning. It includes members' salaries."
+  - word: "intervened"
+    then: "Came in between."
+    now: "Today it usually means to step in. Here it means an election must happen in between."
+back_then: >-
+  Madison worried that lawmakers would be tempted to raise their own pay. Making them face voters first was his solution. In the 1980s, public anger at Congress over pay raises helped Watson's campaign succeed.
+quick_check:
+  - q: "Congress votes itself a raise. When can it take effect?"
+    options:
+      - "Immediately."
+      - "After the next House election."
+      - "Only after the President's next election."
+    answer: 1
+    why: "The amendment says an election of Representatives must happen first."
+  - q: "When was this amendment first proposed?"
+    options:
+      - "1789"
+      - "1913"
+      - "1992"
+    answer: 0
+    why: "Madison proposed it in 1789. It was ratified in 1992."

@@ -1,63 +1,38 @@
 ---
-layout: page.njk
-permalink: /about/index.html
 type: page
 slug: about
-title: About this site
-reading_time_seconds: 180
+title: About Free Constitution
+summary: What this site is, who made it, and how we check our work.
 ---
 
 ## What this is
 
-freeconstitution.org is a free reference for the United States Constitution. The full verbatim text of the Constitution and all 27 amendments is here, along with a plain-English version of each section, and short cards for situations where knowing your rights matters.
+Free Constitution is the whole U.S. Constitution in plain English. Every amendment and article has the original words, a plain version, and a short explanation of what it means for you. Situation cards tell you what to say when your rights matter most.
 
-The site is open to everyone. It loads fast on a slow phone and reads clearly for anyone, including readers who are not lawyers, who learned English as a second language, or whose brains work differently from the assumptions academic writing tends to make.
+It is free. There are no ads, no accounts, and no tracking. Your reading settings and progress stay on your own device.
 
-Think of it as a pocket guide.
+## Who it's for
+
+We built it for anyone who has ever felt shut out by legal language. That includes young adults, people learning English, and people whose brains work differently from the way textbooks expect. Every page uses short sentences, clear labels, and the same layout, so you always know where you are.
+
+## How we write and check it
+
+- **The original text** comes word for word from the National Archives. We never change it.
+- **The plain-language layers** are written by Hope for Americans, following our public [writing rules](/sources/#writing-rules).
+- **Every legal claim** is checked against the text itself or a Supreme Court decision. We name the case and year so you can look it up.
+- **A separate fact-check pass** reviews each page before it goes live.
+- **Open questions** are labeled "Actively contested," with both sides described fairly.
 
 ## What this is not
 
-This is not legal advice. We are not your lawyer. The plain-English versions on this site are written carefully and reviewed by attorneys, but they cannot tell you what to do in your specific situation. If you need legal help, contact a lawyer or your state's ACLU affiliate.
+**This site has not been reviewed by a lawyer.** It explains the law in general. It is not legal advice, and it cannot tell you what to do in your own situation. If you need legal help, contact a lawyer, a public defender's office, or your state's ACLU affiliate.
 
-This is not a court. The Constitution and its amendments mean what courts say they mean, and courts continue to interpret them. We have tried to flag the most actively contested questions on each amendment page, but the law changes. If you are reading this years after it was written, check whether anything has been updated.
+The law changes when courts decide new cases. Each page shows when it was last updated.
 
-This is not the only source. The official source for the Constitution is the National Archives. Every page on this site links back to the Archives transcript so you can compare.
+## Found a mistake?
 
-## How we wrote it
-
-Every amendment and article on this site has four parts:
-
-- **Verbatim**: the exact text as ratified, taken from the National Archives.
-- **Plain English**: a translation that drops archaic words but keeps the meaning, including the ambiguities that lawyers and judges still argue about. We do not resolve those ambiguities for you.
-- **What this means for you** (rights amendments) or **About** (structural amendments): a short explanation of how the section affects everyday life, with notes on how courts have interpreted it.
-- **Notes on supersession or repeal**: where one amendment has changed or replaced another, we say so inline.
-
-Where words are still legally meaningful but no longer in everyday use, we kept them and explained them. Where words are simply old-fashioned ways of saying something modern (*ordain* for *establish*, *posterity* for *future generations*), we updated them.
-
-## Who reviews this
-
-Before public launch, every page is reviewed by attorneys:
-
-- The Bill of Rights and the Preamble are reviewed by a civil rights attorney and a criminal defense attorney.
-- The Reconstruction and voting amendments (13, 14, 15, 19, 24, 26) are reviewed by a civil rights attorney.
-- The Articles are reviewed by a constitutional law professor.
-- Other amendments are reviewed by the same professor, and may launch with a "Pending review" label until that review is complete.
-- The "Turned away from voting" Situations card is additionally reviewed by an election protection lawyer.
-
-Each page shows the date of its most recent review and the name of the reviewer. If a page has not yet been reviewed, it says so clearly.
+Please tell us. Corrections are the most useful help you can give. Reach us through [hopeforamericans.net](https://hopeforamericans.net).
 
 ## Who is behind this
 
-This is a Hope for Americans project, built by a small team in Flagstaff, Arizona. The site is funded by the team itself. Revenue comes from the work, not from advertising or data.
-
-If you want to help, the most useful thing you can do is share the site with someone who needs it. The second most useful thing is to tell us when we got something wrong.
-
-## Editorial process
-
-Our full editorial process is documented publicly. This covers how we make decisions about wording, how we handle disagreements between reviewers, and how we update pages when courts hand down new rulings. See the [editorial notes](/notes) for word-by-word reasoning behind specific translation choices.
-
-This site is open source. Anyone can read the code, see the full revision history, and propose changes.
-
-## Translations
-
-We plan to add Spanish translations once the English site is fully reviewed and stable. If you can help translate or review translations in any language, please reach out.
+Free Constitution is a Hope for Americans project, made in Flagstaff, Arizona. It is a sister site to [Free Scripture](https://freescripture.org). Hope for Americans builds free digital tools for everyone, the way the web used to be.

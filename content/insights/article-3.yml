@@ -1,0 +1,82 @@
+one_line: >-
+  Article III creates the Supreme Court and other federal courts, gives judges life terms, guarantees jury trials for crimes, and defines treason narrowly.
+subject: The courts
+content_note: null
+scene:
+  when: "1787"
+  text: >-
+    Under the Articles of Confederation, there were almost no national courts. Disputes between states, or over national laws, had no clear place to go. The delegates agreed on one Supreme Court. They left it to Congress to decide whether to create lower courts and how to organize them.
+phrases:
+  - quote: "The judicial Power of the United States, shall be vested in one supreme Court"
+    plain: "There is one Supreme Court for the whole country."
+  - quote: "shall hold their Offices during good Behaviour"
+    plain: "Federal judges keep their jobs for life unless they resign or are impeached and removed."
+  - quote: "all Cases, in Law and Equity, arising under this Constitution"
+    plain: "Federal courts can hear cases about the Constitution."
+  - quote: "the supreme Court shall have original Jurisdiction"
+    plain: "In a few kinds of cases, like those involving a state, the case can start at the Supreme Court."
+  - quote: "The Trial of all Crimes, except in Cases of Impeachment, shall be by Jury"
+    plain: "If you are charged with a federal crime, you have the right to a jury trial."
+  - quote: "Treason against the United States, shall consist only in levying War against them, or in adhering to their Enemies, giving them Aid and Comfort"
+    plain: "Treason means only making war on the country or helping its enemies."
+  - quote: "on the Testimony of two Witnesses to the same overt Act, or on Confession in open Court"
+    plain: "To convict someone of treason, two witnesses must see the same act, or the person must confess in court."
+picture_it: >-
+  A state passes a law, and someone sues, saying it breaks the Constitution. The case starts in a lower federal court. The losing side appeals. If the Supreme Court agrees to hear it, its decision applies across the country.
+myths:
+  - myth: "The Constitution says the Supreme Court has nine justices."
+    fact: "The Constitution does not set a number. Federal law does, and it has been nine since 1869."
+  - myth: "The Supreme Court can strike down any law it wants, at any time."
+    fact: "The Court can only decide real cases brought to it. It strikes down a law only if it finds the law conflicts with the Constitution."
+  - myth: "Criticizing the government is treason."
+    fact: "Treason means only making war on the United States or helping its enemies. Criticism is not treason."
+words_changed:
+  - word: "good Behaviour"
+    then: "As long as a judge does not commit serious misconduct."
+    now: "In practice, a life term. Judges leave by retiring, resigning, dying, or impeachment and removal."
+  - word: "Equity"
+    then: "A separate kind of court case where judges could order fair outcomes, like stopping someone from acting."
+    now: "Federal courts handle both kinds of cases together."
+  - word: "Corruption of Blood"
+    then: "An English rule that punished a traitor's family by blocking them from inheriting."
+    now: "Banned by the Constitution. Punishment for treason stays with the person convicted."
+back_then: >-
+  In England, the Crown had used treason charges against its critics. The writers wanted to stop that, so they defined treason narrowly and required strong proof. They also gave judges life terms and protected their pay, so lawmakers could not pressure them.
+who_argued:
+  - side: "Anti-Federalists"
+    view: "Unelected judges with life terms would answer to no one. They could expand federal power over the states."
+  - side: "Federalists"
+    view: "Courts would be the least dangerous branch. Alexander Hamilton wrote that judges have neither force nor will, but merely judgment."
+key_cases:
+  - name: "Chisholm v. Georgia"
+    year: 1793
+    held: "A citizen of another state could sue Georgia in federal court. The Eleventh Amendment reversed this result."
+  - name: "Marbury v. Madison"
+    year: 1803
+    held: "Courts can strike down laws that conflict with the Constitution, which is called judicial review."
+  - name: "Martin v. Hunter's Lessee"
+    year: 1816
+    held: "The Supreme Court can review state court decisions on federal law."
+  - name: "Ex parte McCardle"
+    year: 1869
+    held: "Congress can take away the Supreme Court's power to hear certain kinds of appeals."
+  - name: "Cramer v. United States"
+    year: 1945
+    held: "A treason conviction was overturned because the overt acts proven by two witnesses did not show aid to the enemy."
+quick_check:
+  - q: "How long do federal judges serve?"
+    options: ["Ten years.", "Until the next election.", "For life, during good behavior."]
+    answer: 2
+    why: "Section 1 says judges hold office during good behavior, which in practice means for life."
+  - q: "What does the Constitution require to convict someone of treason?"
+    options: ["Two witnesses to the same act, or a confession in open court.", "A vote of Congress.", "Any evidence a jury believes."]
+    answer: 0
+    why: "Section 3 sets this high standard of proof on purpose."
+  - q: "Where does the Supreme Court's power to strike down laws come from?"
+    options: ["Article III says it in plain words.", "The Court claimed it in Marbury v. Madison (1803).", "The Tenth Amendment."]
+    answer: 1
+    why: "The text does not name judicial review. The Court explained it in Marbury v. Madison."
+sections:
+  1: "There is one Supreme Court, plus lower courts Congress creates. Judges serve for life."
+  2: "Which cases federal courts can hear, and the right to a jury trial for crimes."
+  3: "Treason means only making war on the country or helping its enemies, with strict proof."

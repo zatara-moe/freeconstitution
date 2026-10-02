@@ -1,0 +1,49 @@
+one_line: >-
+  The Constitution would take effect once conventions in nine of the thirteen states ratified it.
+subject: Ratification
+content_note: null
+scene:
+  when: "1787"
+  text: >-
+    On September 17, 1787, the delegates in Philadelphia signed the finished Constitution. Then it went to the states. Each state held a special convention to vote yes or no. New Hampshire became the ninth state to say yes on June 21, 1788.
+phrases:
+  - quote: "The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution"
+    plain: "Nine state conventions saying yes was enough to start the Constitution."
+  - quote: "between the States so ratifying the Same"
+    plain: "It applied only to the states that ratified it."
+  - quote: "Done in Convention by the Unanimous Consent of the States present"
+    plain: "Every state delegation at the Convention voted to approve it."
+  - quote: "the Seventeenth Day of September in the Year of our Lord one thousand seven hundred and Eighty seven"
+    plain: "The Convention finished on September 17, 1787."
+  - quote: "In witness whereof We have hereunto subscribed our Names"
+    plain: "To show we agree, we sign our names below."
+picture_it: >-
+  Every September 17, schools and government offices mark Constitution Day. It celebrates the day the delegates signed the Constitution in 1787. The date comes straight from Article VII.
+myths:
+  - myth: "All 13 states had to agree before the Constitution took effect."
+    fact: "Only nine were needed. North Carolina and Rhode Island did not ratify until after the new government started."
+  - myth: "Every delegate at the Convention signed the Constitution."
+    fact: "Three delegates who stayed to the end refused to sign: Edmund Randolph, George Mason, and Elbridge Gerry."
+words_changed:
+  - word: "subscribed"
+    then: "Signed your name at the bottom of a document."
+    now: "Usually means signing up for a service, like a streaming app."
+  - word: "Year of our Lord"
+    then: "A common way to write dates, counting years from the birth of Jesus."
+    now: "Usually written as A.D., or just the year number."
+back_then: >-
+  The Articles of Confederation needed all 13 states to agree to any change. Rhode Island had refused even to send delegates. The writers set the bar at nine states so one or two holdouts could not block the new system.
+who_argued:
+  - side: "Federalists"
+    view: "The Articles had failed. The Constitution should be ratified now, and changes could follow by amendment."
+  - side: "Anti-Federalists"
+    view: "The Constitution gave the national government too much power and had no bill of rights. States should not ratify it as written."
+quick_check:
+  - q: "How many states had to ratify for the Constitution to take effect?"
+    options: ["Seven.", "Nine.", "Thirteen."]
+    answer: 1
+    why: "Article VII set the number at nine of the thirteen states."
+  - q: "Who voted on ratification in each state?"
+    options: ["A special state convention.", "The state's governor.", "Every adult in the state."]
+    answer: 0
+    why: "Article VII calls for ratification by state conventions."

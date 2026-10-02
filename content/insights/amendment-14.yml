@@ -1,0 +1,85 @@
+one_line: >-
+  Almost everyone born here is a citizen, and states must give every person fair legal process and equal treatment under the law.
+subject: Citizenship and equal protection
+content_note: >-
+  This page includes the phrase "Indians not taxed," which left many Native Americans out of the census count, and a clause about paying enslavers for freed people.
+scene:
+  when: "1868"
+  text: >-
+    In 1857, the Supreme Court said in Dred Scott v. Sandford that Black Americans could not be U.S. citizens. After the Civil War, Southern states passed "Black Codes" that limited where freed people could work, travel, and own land. Congress wrote the Fourteenth Amendment to overturn Dred Scott and stop states from denying people basic rights. It was ratified in 1868.
+phrases:
+  - quote: "All persons born or naturalized in the United States, and subject to the jurisdiction thereof, are citizens of the United States"
+    plain: "If you were born in the United States or became a citizen here, and you are under U.S. law, you are a U.S. citizen."
+  - quote: "and of the State wherein they reside"
+    plain: "You are also a citizen of the state where you live."
+  - quote: "No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States"
+    plain: "States cannot take away the rights that come with being a U.S. citizen."
+  - quote: "nor shall any State deprive any person of life, liberty, or property, without due process of law"
+    plain: "States must follow fair legal steps before taking anyone's life, freedom, or property."
+  - quote: "nor deny to any person within its jurisdiction the equal protection of the laws"
+    plain: "States must apply the law equally to every person, citizen or not."
+  - quote: "excluding Indians not taxed"
+    plain: "Native Americans who lived under tribal government and did not pay state taxes were left out of the population count."
+  - quote: "shall have engaged in insurrection or rebellion against the same"
+    plain: "Officials who swore to support the Constitution and then took part in an insurrection against it cannot hold office."
+  - quote: "The Congress shall have power to enforce, by appropriate legislation, the provisions of this article."
+    plain: "Congress can pass laws to enforce this amendment."
+picture_it: >-
+  Your public high school wants to suspend you for three days. Before that happens, the school generally has to tell you why and let you tell your side. That is due process, and it comes from the Fourteenth Amendment. Private schools are not the government, so this rule does not apply to them.
+myths:
+  - myth: "The Bill of Rights has always applied to my state and local police."
+    fact: "At first it limited only the federal government. Through the Fourteenth Amendment, courts have applied most of it to state and local governments too, mostly during the 1900s."
+  - myth: "Equal protection only protects citizens."
+    fact: "It covers any person in a state. In Plyler v. Doe (1982), the Court said a state could not deny free public school to children because they were in the country unlawfully."
+  - myth: "Whether a baby born here is a citizen depends on the parents' immigration status."
+    fact: "In Trump v. Barbara (2026), the Supreme Court held that children born on U.S. soil are citizens, including children of parents here temporarily or unlawfully."
+words_changed:
+  - word: "subject to the jurisdiction thereof"
+    then: "Under U.S. authority. In 1898, the Court said it left out children of foreign diplomats and of enemy forces occupying U.S. land."
+    now: "In 2026, the Court held it includes children whose parents are in the country temporarily or unlawfully."
+  - word: "due process"
+    then: "The legal steps the government must follow before punishing someone or taking their property."
+    now: "Fair procedures, such as notice and a hearing. Courts also use it to protect some basic rights that are not listed, which is debated."
+  - word: "Indians not taxed"
+    then: "Native Americans living under tribal government who did not pay state taxes."
+    now: "In 1924, Congress made all Native Americans born in the United States citizens."
+back_then: >-
+  The Thirteenth Amendment ended slavery, but it did not say who was a citizen or what rights citizens had. Southern states used new laws and violence to control freed people. Congress passed the Civil Rights Act of 1866 to protect them. Lawmakers then wrote those protections into the Constitution so a later Congress or court could not easily undo them.
+key_cases:
+  - name: "United States v. Wong Kim Ark"
+    year: 1898
+    held: "A child born in the United States to Chinese parents who lived here was a U.S. citizen at birth."
+  - name: "Brown v. Board of Education"
+    year: 1954
+    held: "Racially segregated public schools violate the Equal Protection Clause."
+  - name: "Goss v. Lopez"
+    year: 1975
+    held: "A public school student facing a suspension of 10 days or less must be told the reason and given a chance to respond."
+  - name: "Trump v. Anderson"
+    year: 2024
+    held: "States cannot enforce Section 3 against candidates for federal office; the Court said that role belongs to Congress."
+  - name: "Trump v. Barbara"
+    year: 2026
+    held: "Children born on U.S. soil are citizens, including children of parents here temporarily or unlawfully, so Executive Order 14160 was invalid."
+quick_check:
+  - q: "Why does your city police department have to follow the Fourth Amendment?"
+    options:
+      - "Because the Fourteenth Amendment applies most of the Bill of Rights to state and local governments."
+      - "Because the Fourth Amendment always applied to cities."
+      - "Because each city votes to follow it."
+    answer: 0
+    why: "This process is called incorporation. It happened through court decisions based on the Fourteenth Amendment."
+  - q: "A baby is born in the United States to parents who are here on student visas. Is the baby a U.S. citizen?"
+    options:
+      - "No. The parents must be citizens."
+      - "Yes."
+      - "Only if the parents apply for it."
+    answer: 1
+    why: "The Court held that the Citizenship Clause covers children of parents here temporarily or unlawfully."
+  - q: "Who does the Equal Protection Clause protect?"
+    options:
+      - "Only U.S. citizens."
+      - "Only people who were born here."
+      - "Any person within a state's jurisdiction."
+    answer: 2
+    why: "The text says 'any person,' not 'any citizen.'"

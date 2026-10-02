@@ -1,67 +1,61 @@
 # Free Constitution
 
-> Read your Constitution. Know your rights.
+> Know your rights. In plain English.
 
-freeconstitution.org is a free reference for the United States Constitution, published by Hope for Americans, a civic-tech project based in Flagstaff, Arizona. The site is open to everyone. It contains no ads and no tracking.
-
-## What this site contains
-
-- The verbatim text of the United States Constitution and all 27 amendments, sourced from the National Archives
-- A plain-English translation of every section
-- Practical explanations of what each amendment means in everyday life
-- Situation cards: plain-language guides for specific moments when rights are at stake
-- The Declaration of Independence (not law, but context)
+freeconstitution.org is a free plain-English guide to the United States Constitution, published by Hope for Americans (Flagstaff, Arizona). No ads, no tracking, no accounts.
 
 ## Content policy
-
-All verbatim constitutional text is from the National Archives (public domain). Plain-English layers and situation cards are original content by Hope for Americans, licensed CC BY 4.0. This site is not legal advice.
+- Original text of the Constitution, all 27 amendments, and the Declaration of Independence comes from the National Archives (public domain).
+- Plain-language explanations and situation cards are original work by Hope for Americans, licensed CC BY 4.0.
+- Legal claims are checked against the text and named Supreme Court decisions. The site has not been reviewed by a lawyer and is not legal advice.
 
 ## Amendments
-
-- [First Amendment](https://freeconstitution.org/amendments/1/): First Amendment
-- [Second Amendment](https://freeconstitution.org/amendments/2/): Second Amendment
-- [Third Amendment](https://freeconstitution.org/amendments/3/): Third Amendment
-- [Fourth Amendment](https://freeconstitution.org/amendments/4/): Fourth Amendment
-- [Fifth Amendment](https://freeconstitution.org/amendments/5/): Fifth Amendment
-- [Sixth Amendment](https://freeconstitution.org/amendments/6/): Sixth Amendment
-- [Seventh Amendment](https://freeconstitution.org/amendments/7/): Seventh Amendment
-- [Eighth Amendment](https://freeconstitution.org/amendments/8/): Eighth Amendment
-- [Ninth Amendment](https://freeconstitution.org/amendments/9/): Ninth Amendment
-- [Tenth Amendment](https://freeconstitution.org/amendments/10/): Tenth Amendment
-- [Eleventh Amendment](https://freeconstitution.org/amendments/11/): Eleventh Amendment
-- [Twelfth Amendment](https://freeconstitution.org/amendments/12/): Twelfth Amendment
-- [Thirteenth Amendment](https://freeconstitution.org/amendments/13/): Thirteenth Amendment
-- [Fourteenth Amendment](https://freeconstitution.org/amendments/14/): Fourteenth Amendment
-- [Fifteenth Amendment](https://freeconstitution.org/amendments/15/): Fifteenth Amendment
-- [Sixteenth Amendment](https://freeconstitution.org/amendments/16/): Sixteenth Amendment
-- [Seventeenth Amendment](https://freeconstitution.org/amendments/17/): Seventeenth Amendment
-- [Eighteenth Amendment](https://freeconstitution.org/amendments/18/): Eighteenth Amendment
-- [Nineteenth Amendment](https://freeconstitution.org/amendments/19/): Nineteenth Amendment
-- [Twentieth Amendment](https://freeconstitution.org/amendments/20/): Twentieth Amendment
-- [Twenty-first Amendment](https://freeconstitution.org/amendments/21/): Twenty-First Amendment
-- [Twenty-second Amendment](https://freeconstitution.org/amendments/22/): Twenty-Second Amendment
-- [Twenty-third Amendment](https://freeconstitution.org/amendments/23/): Twenty-Third Amendment
-- [Twenty-fourth Amendment](https://freeconstitution.org/amendments/24/): Twenty-Fourth Amendment
-- [Twenty-fifth Amendment](https://freeconstitution.org/amendments/25/): Twenty-Fifth Amendment
-- [Twenty-sixth Amendment](https://freeconstitution.org/amendments/26/): Twenty-Sixth Amendment
-- [Twenty-seventh Amendment](https://freeconstitution.org/amendments/27/): Twenty-Seventh Amendment
+- [First Amendment](https://freeconstitution.org/amendments/1/): The government cannot punish you for your religion, your speech, what you publish, peaceful protest, or asking officials to fix things.
+- [Second Amendment](https://freeconstitution.org/amendments/2/): The Supreme Court says you have an individual right to keep and carry guns, but governments can still pass some gun laws.
+- [Third Amendment](https://freeconstitution.org/amendments/3/): In peacetime, the government cannot make you house soldiers in your home without your consent.
+- [Fourth Amendment](https://freeconstitution.org/amendments/4/): Police generally need a warrant, your consent, or a legal exception to search you, your home, your phone, or your things.
+- [Fifth Amendment](https://freeconstitution.org/amendments/5/): You can't be forced to testify against yourself or tried twice for the same crime, and the government must treat you fairly.
+- [Sixth Amendment](https://freeconstitution.org/amendments/6/): If you're charged with a crime, you have the right to a lawyer, a fair jury, a speedy public trial, and to question witnesses.
+- [Seventh Amendment](https://freeconstitution.org/amendments/7/): In most federal civil lawsuits, you have the right to have a jury decide the facts.
+- [Eighth Amendment](https://freeconstitution.org/amendments/8/): The government cannot set bail or fines that are too high, or use cruel and unusual punishments.
+- [Ninth Amendment](https://freeconstitution.org/amendments/9/): The Constitution lists some of your rights, but not all of them. You keep rights that are not on the list.
+- [Tenth Amendment](https://freeconstitution.org/amendments/10/): The federal government has only the powers the Constitution gives it. Other powers belong to the states or to the people.
+- [Eleventh Amendment](https://freeconstitution.org/amendments/11/): A state generally cannot be sued in federal court without its consent. This rule is called sovereign immunity.
+- [Twelfth Amendment](https://freeconstitution.org/amendments/12/): Electors cast separate votes for President and Vice President. If no one wins a majority, Congress makes the choice.
+- [Thirteenth Amendment](https://freeconstitution.org/amendments/13/): Slavery and forced labor are banned everywhere in the United States, except as punishment for someone convicted of a crime.
+- [Fourteenth Amendment](https://freeconstitution.org/amendments/14/): Almost everyone born here is a citizen, and states must give every person fair legal process and equal treatment under the law.
+- [Fifteenth Amendment](https://freeconstitution.org/amendments/15/): No government can deny or limit your right to vote because of your race or color.
+- [Sixteenth Amendment](https://freeconstitution.org/amendments/16/): Congress can tax your income, from any source, without dividing the tax among the states by population.
+- [Seventeenth Amendment](https://freeconstitution.org/amendments/17/): Voters in each state elect their two U.S. senators directly. Before 1913, state lawmakers chose them.
+- [Eighteenth Amendment](https://freeconstitution.org/amendments/18/): This amendment banned making, selling, and transporting alcohol nationwide starting in 1920. It was repealed in 1933.
+- [Nineteenth Amendment](https://freeconstitution.org/amendments/19/): No government can deny or limit your right to vote because of your sex.
+- [Twentieth Amendment](https://freeconstitution.org/amendments/20/): New Presidents start on January 20, and new members of Congress start on January 3, after the November election.
+- [Twenty-first Amendment](https://freeconstitution.org/amendments/21/): This amendment ended national Prohibition in 1933 and lets each state make its own alcohol laws.
+- [Twenty-second Amendment](https://freeconstitution.org/amendments/22/): No one can be elected President more than twice.
+- [Twenty-third Amendment](https://freeconstitution.org/amendments/23/): People who live in Washington, D.C., can vote for President. D.C. gets 3 electoral votes, the same as the smallest states.
+- [Twenty-fourth Amendment](https://freeconstitution.org/amendments/24/): No one can be charged a fee to vote in a federal election. A 1966 Supreme Court ruling extended this to state elections.
+- [Twenty-fifth Amendment](https://freeconstitution.org/amendments/25/): If the President dies, resigns, or cannot do the job, the Vice President takes over, sometimes for only a few hours.
+- [Twenty-sixth Amendment](https://freeconstitution.org/amendments/26/): If you are a U.S. citizen and 18 or older, no government can stop you from voting because of your age.
+- [Twenty-seventh Amendment](https://freeconstitution.org/amendments/27/): If Congress votes to change its own pay, the change cannot start until after the next House election.
 
 ## Situation cards
-
-- [At a protest](https://freeconstitution.org/situations/at-a-protest/): What you can say and do if you are stopped, questioned, or threatened with arrest at a protest.
-- [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What you can say and do if police are asking you questions, whether on the street, in a car, or at a station.
-- [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What you can say and do if a police officer wants to search you, your bag, your car, or your home.
-- [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you do not have the right ID.
+- [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What to say and do if police are asking you questions on the street, in a car, or at a station.
+- [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What to say and do if police want to search you, your bag, your car, your phone, or your home.
+- [At school](https://freeconstitution.org/situations/at-school/): Your rights at a public school when staff want to search you, question you, or punish you for something you said.
+- [Posting online](https://freeconstitution.org/situations/posting-online/): What the First Amendment does and does not protect when you post online, and who it limits.
+- [At work](https://freeconstitution.org/situations/at-work/): Which rights you have at work, why the Constitution mostly does not limit private employers, and which laws may help.
+- [Recording police](https://freeconstitution.org/situations/recording-police/): What courts have said about recording police in public, how to do it without interfering, and what police can do with your phone.
+- [First-time voter](https://freeconstitution.org/situations/first-time-voter/): How to register, what ID you may need, and your rights at the polls when you vote for the first time.
+- [At a protest](https://freeconstitution.org/situations/at-a-protest/): What to say and do if you are stopped, questioned, or threatened with arrest at a protest.
+- [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you lack the right ID.
+- [Immigration agents at the door](https://freeconstitution.org/situations/immigration-agents-at-the-door/): What to say and do if immigration agents knock on your door, whatever your immigration status.
 
 ## Key pages
-
-- [Homepage](https://freeconstitution.org/)
-- [All situations](https://freeconstitution.org/situations/)
-- [Preamble](https://freeconstitution.org/preamble/)
-- [Declaration of Independence](https://freeconstitution.org/declaration/)
-- [About](https://freeconstitution.org/about/)
-- [Sources](https://freeconstitution.org/sources/)
-
-## Contact
-
-Hope for Americans — hopeforamericans.net
+- [Home](https://freeconstitution.org/)
+- [All amendments](https://freeconstitution.org/amendments/)
+- [The seven articles](https://freeconstitution.org/articles/)
+- [Paths](https://freeconstitution.org/paths/)
+- [Timeline](https://freeconstitution.org/timeline/)
+- [Glossary](https://freeconstitution.org/words/)
+- [Full original text](https://freeconstitution.org/full-text/)
+- [About and how we check](https://freeconstitution.org/about/)

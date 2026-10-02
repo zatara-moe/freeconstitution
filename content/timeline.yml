@@ -1,0 +1,320 @@
+# Timeline, oldest first. Amendment dates match each content/amendments/<n>.md `ratified:` field.
+# kind: founding | amendment | case | event. Lines: 15 words or fewer.
+
+- date: "1776-07-04"
+  kind: founding
+  title: "Declaration of Independence"
+  line: "The colonies declare independence from Britain."
+  href: /declaration/
+
+- date: "1781-03-01"
+  kind: founding
+  title: "Articles of Confederation take effect"
+  line: "The first plan of national government begins, with a weak central government."
+  href: /preamble/
+
+- date: "1787-05-25"
+  kind: founding
+  title: "Constitutional Convention opens"
+  line: "Delegates meet in Philadelphia to fix the Articles of Confederation."
+  href: /preamble/
+
+- date: "1787-09-17"
+  kind: founding
+  title: "Constitution signed"
+  line: "Thirty-nine delegates sign the Constitution and send it to the states."
+  href: /articles/7/
+
+- date: "1788-06-21"
+  kind: founding
+  title: "Constitution ratified"
+  line: "New Hampshire becomes the 9th state to ratify, enough to adopt it."
+  href: /articles/7/
+
+- date: "1789-03-04"
+  kind: founding
+  title: "New government begins"
+  line: "The Constitution takes effect and the first Congress is scheduled to meet."
+  href: /articles/1/
+
+- date: "1789-04-30"
+  kind: founding
+  title: "George Washington takes office"
+  line: "The first president is sworn in under the new Constitution."
+  href: /articles/2/
+
+- date: "1789-09-25"
+  kind: founding
+  title: "Congress proposes the Bill of Rights"
+  line: "Congress sends 12 proposed amendments to the states."
+  href: /amendments/1/
+
+- date: "1791-12-15"
+  kind: amendment
+  title: "Bill of Rights ratified"
+  line: "The first 10 amendments become part of the Constitution."
+  href: /amendments/1/
+
+- date: "1795-02-07"
+  kind: amendment
+  title: "11th Amendment"
+  line: "Limits lawsuits against a state in federal court."
+  href: /amendments/11/
+
+- date: "1803-02-24"
+  kind: case
+  title: "Marbury v. Madison"
+  line: "The Court says it can strike down laws that conflict with the Constitution."
+  href: /articles/3/
+
+- date: "1804-06-15"
+  kind: amendment
+  title: "12th Amendment"
+  line: "Electors cast separate votes for president and vice president."
+  href: /amendments/12/
+
+- date: "1819-03-06"
+  kind: case
+  title: "McCulloch v. Maryland"
+  line: "The Court upholds a national bank and bars states from taxing it."
+  href: /articles/1/section-8/
+
+- date: "1857-03-06"
+  kind: case
+  title: "Dred Scott v. Sandford"
+  line: "The Court says Black Americans cannot be citizens. The 14th Amendment later overturns this."
+  href: /amendments/14/
+
+- date: "1861-04-12"
+  kind: event
+  title: "Civil War begins"
+  line: "Confederate forces fire on Fort Sumter, starting the Civil War."
+  href: /amendments/13/
+
+- date: "1863-01-01"
+  kind: event
+  title: "Emancipation Proclamation"
+  line: "Lincoln declares enslaved people in Confederate-held areas free."
+  href: /amendments/13/
+
+- date: "1865-04-09"
+  kind: event
+  title: "Civil War ends"
+  line: "Confederate General Lee surrenders at Appomattox, and the war soon ends."
+  href: /amendments/13/
+
+- date: "1865-12-06"
+  kind: amendment
+  title: "13th Amendment"
+  line: "Abolishes slavery, except as punishment for a crime."
+  href: /amendments/13/
+
+- date: "1868-07-09"
+  kind: amendment
+  title: "14th Amendment"
+  line: "Defines citizenship and guarantees due process and equal protection of the laws."
+  href: /amendments/14/
+
+- date: "1870-02-03"
+  kind: amendment
+  title: "15th Amendment"
+  line: "Bars denying the vote because of race, color, or past enslavement."
+  href: /amendments/15/
+
+- date: "1896-05-18"
+  kind: case
+  title: "Plessy v. Ferguson"
+  line: "The Court allows racial segregation under \"separate but equal.\" Brown later overturns it."
+  href: /amendments/14/
+
+- date: "1898-03-28"
+  kind: case
+  title: "United States v. Wong Kim Ark"
+  line: "The Court rules a child born in the U.S. to Chinese parents is a citizen."
+  href: /amendments/14/
+
+- date: "1913-02-03"
+  kind: amendment
+  title: "16th Amendment"
+  line: "Lets Congress collect a federal income tax."
+  href: /amendments/16/
+
+- date: "1913-04-08"
+  kind: amendment
+  title: "17th Amendment"
+  line: "Voters, not state legislatures, elect U.S. senators."
+  href: /amendments/17/
+
+- date: "1919-01-16"
+  kind: amendment
+  title: "18th Amendment"
+  line: "Bans making, selling, and transporting alcohol. This is called Prohibition."
+  href: /amendments/18/
+
+- date: "1920-08-18"
+  kind: amendment
+  title: "19th Amendment"
+  line: "Bars denying the vote because of sex."
+  href: /amendments/19/
+
+- date: "1924-06-02"
+  kind: event
+  title: "Indian Citizenship Act"
+  line: "Congress makes all Native Americans born in the United States citizens."
+  href: /amendments/14/
+
+- date: "1933-01-23"
+  kind: amendment
+  title: "20th Amendment"
+  line: "Moves the start of presidential and congressional terms to January."
+  href: /amendments/20/
+
+- date: "1933-12-05"
+  kind: amendment
+  title: "21st Amendment"
+  line: "Repeals Prohibition."
+  href: /amendments/21/
+
+- date: "1951-02-27"
+  kind: amendment
+  title: "22nd Amendment"
+  line: "Limits a president to two elected terms."
+  href: /amendments/22/
+
+- date: "1954-05-17"
+  kind: case
+  title: "Brown v. Board of Education"
+  line: "The Court rules racial segregation in public schools violates equal protection."
+  href: /amendments/14/
+
+- date: "1961-03-29"
+  kind: amendment
+  title: "23rd Amendment"
+  line: "Gives Washington, D.C., electoral votes for president."
+  href: /amendments/23/
+
+- date: "1961-06-19"
+  kind: case
+  title: "Mapp v. Ohio"
+  line: "Evidence from an illegal search cannot be used in state criminal trials."
+  href: /amendments/4/
+
+- date: "1963-03-18"
+  kind: case
+  title: "Gideon v. Wainwright"
+  line: "States must provide a lawyer to people charged with felonies who cannot afford one."
+  href: /amendments/6/
+
+- date: "1964-01-23"
+  kind: amendment
+  title: "24th Amendment"
+  line: "Bans poll taxes in federal elections."
+  href: /amendments/24/
+
+- date: "1965-08-06"
+  kind: event
+  title: "Voting Rights Act"
+  line: "Congress passes a law to enforce the 15th Amendment's ban on racial voting discrimination."
+  href: /amendments/15/
+
+- date: "1966-03-24"
+  kind: case
+  title: "Harper v. Virginia State Board of Elections"
+  line: "The Court rules poll taxes in state elections violate equal protection."
+  href: /amendments/24/
+
+- date: "1966-06-13"
+  kind: case
+  title: "Miranda v. Arizona"
+  line: "Police must warn people in custody of their rights before questioning them."
+  href: /amendments/5/
+
+- date: "1967-02-10"
+  kind: amendment
+  title: "25th Amendment"
+  line: "Sets rules for when a president dies, resigns, or cannot serve."
+  href: /amendments/25/
+
+- date: "1967-06-12"
+  kind: case
+  title: "Loving v. Virginia"
+  line: "The Court strikes down state bans on interracial marriage."
+  href: /amendments/14/
+
+- date: "1969-02-24"
+  kind: case
+  title: "Tinker v. Des Moines"
+  line: "Students keep free speech rights at school, including wearing protest armbands."
+  href: /amendments/1/
+
+- date: "1971-07-01"
+  kind: amendment
+  title: "26th Amendment"
+  line: "Lowers the voting age to 18."
+  href: /amendments/26/
+
+- date: "1992-05-07"
+  kind: amendment
+  title: "27th Amendment"
+  line: "Proposed in 1789. Delays congressional pay changes until after the next House election."
+  href: /amendments/27/
+
+- date: "2008-06-26"
+  kind: case
+  title: "District of Columbia v. Heller"
+  line: "The 2nd Amendment protects an individual right to keep a handgun at home."
+  href: /amendments/2/
+
+- date: "2013-06-25"
+  kind: case
+  title: "Shelby County v. Holder"
+  line: "The Court strikes down the Voting Rights Act formula for federal preapproval of voting changes."
+  href: /amendments/15/
+
+- date: "2014-06-25"
+  kind: case
+  title: "Riley v. California"
+  line: "Police generally need a warrant to search a cell phone after an arrest."
+  href: /amendments/4/
+
+- date: "2015-06-26"
+  kind: case
+  title: "Obergefell v. Hodges"
+  line: "The Court rules states must license and recognize same-sex marriages."
+  href: /amendments/14/
+
+- date: "2018-06-22"
+  kind: case
+  title: "Carpenter v. United States"
+  line: "Police generally need a warrant to get past cell phone location records."
+  href: /amendments/4/
+
+- date: "2021-06-23"
+  kind: case
+  title: "Mahanoy Area School District v. B.L."
+  line: "A school could not punish a student's off-campus Snapchat post in this case."
+  href: /amendments/1/
+
+- date: "2022-06-23"
+  kind: case
+  title: "New York State Rifle & Pistol Association v. Bruen"
+  line: "The Court strikes down New York's carry-permit rule; gun rights extend outside the home."
+  href: /amendments/2/
+
+- date: "2024-06-21"
+  kind: case
+  title: "United States v. Rahimi"
+  line: "People a court finds to be a credible threat may be temporarily disarmed."
+  href: /amendments/2/
+
+- date: "2026-06-30"
+  kind: case
+  title: "Trump v. Barbara"
+  line: "The Court rules 5–4 that the 14th Amendment guarantees birthright citizenship, striking Executive Order 14160."
+  href: /amendments/14/
+
+- date: "2026-07-04"
+  kind: event
+  title: "250th anniversary of independence"
+  line: "The United States marks 250 years since the Declaration of Independence."
+  href: /declaration/

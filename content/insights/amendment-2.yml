@@ -1,0 +1,85 @@
+one_line: >-
+  The Supreme Court says you have an individual right to keep and carry guns, but governments can still pass some gun laws.
+subject: Right to keep and bear arms
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    Many Americans distrusted a permanent national army. Some feared the new federal government could weaken or disarm the state militias, which were made up of ordinary citizens. The English Bill of Rights of 1689 had already protected a right to have arms, with limits. The Second Amendment answered these worries in one sentence.
+phrases:
+  - quote: "A well regulated Militia"
+    plain: "A trained and organized force of ordinary citizens who can be called to defend their community."
+  - quote: "being necessary to the security of a free State"
+    plain: "This force is needed to keep a free country or state safe."
+  - quote: "the right of the people to keep and bear Arms"
+    plain: "The right of the people to have weapons and to carry them."
+  - quote: "shall not be infringed"
+    plain: "The government cannot take this right away or cut it back."
+picture_it: >-
+  You are 19 and moving to another state for school. You want to bring a hunting rifle. Gun laws in your old state and your new state may be very different. The Second Amendment sets a minimum, and each state adds its own rules.
+myths:
+  - myth: "The Second Amendment means every gun law is unconstitutional."
+    fact: "The Supreme Court has said the right has limits. In United States v. Rahimi (2024), it upheld a law that disarms people under certain domestic-violence restraining orders."
+  - myth: "Under current law, the Second Amendment protects only people serving in a militia."
+    fact: "In District of Columbia v. Heller (2008), the Court held it protects an individual right, not tied to militia service. Some scholars still argue for the militia reading."
+  - myth: "Gun laws are the same everywhere in the U.S."
+    fact: "States and cities add their own gun laws. The rules can be very different from one state to the next."
+words_changed:
+  - word: "Militia"
+    then: "Ordinary citizens, mostly adult men, who could be called up to defend their state."
+    now: "Federal law still defines a militia. It includes the National Guard and most able-bodied men ages 17 to 45."
+  - word: "well regulated"
+    then: "Well trained and disciplined."
+    now: "\"Regulated\" today usually means controlled by rules. In 1791 it meant in good working order."
+  - word: "bear Arms"
+    then: "Scholars disagree. Some say it mainly meant serving in the military. Others say it also meant carrying weapons for any purpose."
+    now: "In Heller (2008), the Court held it means carrying weapons, including for self-defense."
+back_then: >-
+  The writers had just fought a war against a professional British army. Many of them saw citizen militias as a guard against a too-powerful central government. Today, people still disagree about how the militia clause and the right clause fit together.
+who_argued:
+  - side: "Individual-right reading"
+    view: "\"The right of the people\" means an individual right, as it does in the First and Fourth Amendments. The militia clause explains one reason for the right but does not limit it. People also need arms for self-defense and hunting. This is the reading the Supreme Court adopted in Heller (2008)."
+  - side: "Militia (collective-right) reading"
+    view: "The amendment begins with the militia because that was its purpose. \"Bear arms\" was usually a military phrase in 1791. The right protects arms tied to militia service, and governments keep wide power to regulate guns otherwise. Four justices took a version of this view in their Heller dissents."
+  - side: "Supporters of the history-and-tradition test"
+    view: "Since Bruen (2022), courts ask whether a gun law fits the nation's historical tradition of gun regulation. Supporters say this ties the right to the Constitution's original meaning. They say it stops judges from weighing a right away based on their own policy views."
+  - side: "Critics of the history-and-tradition test"
+    view: "Critics say judges are not trained historians and records from the 1700s and 1800s are incomplete. They say the test has led to conflicting rulings. They argue courts should also weigh public safety benefits, as many courts did before 2022."
+key_cases:
+  - name: "United States v. Miller"
+    year: 1939
+    held: "The Court upheld a federal law on short-barreled shotguns, saying no evidence showed such a weapon was connected to a militia."
+  - name: "District of Columbia v. Heller"
+    year: 2008
+    held: "The Second Amendment protects an individual right to keep a handgun at home for self-defense, not tied to militia service."
+  - name: "McDonald v. City of Chicago"
+    year: 2010
+    held: "The Second Amendment limits state and local governments, not just the federal government."
+  - name: "New York State Rifle & Pistol Association v. Bruen"
+    year: 2022
+    held: "The right includes carrying a handgun in public for self-defense, and gun laws must fit the nation's historical tradition of gun regulation."
+  - name: "United States v. Rahimi"
+    year: 2024
+    held: "The government can temporarily disarm a person whom a court has found to be a credible threat to another person's physical safety."
+quick_check:
+  - q: "What did District of Columbia v. Heller (2008) decide?"
+    options:
+      - "The Second Amendment protects an individual right, not tied to militia service."
+      - "Only the National Guard can own guns."
+      - "No gun law can ever be passed."
+    answer: 0
+    why: "Heller held the right belongs to individuals. It also said the right is not unlimited."
+  - q: "Since Bruen (2022), what do courts mainly ask about a gun law?"
+    options:
+      - "Whether most voters support it."
+      - "Whether it fits the nation's historical tradition of gun regulation."
+      - "Whether the police chief approves of it."
+    answer: 1
+    why: "Bruen set the history-and-tradition test. Rahimi (2024) explained that a modern law does not need an exact historical twin."
+  - q: "Can a state have stricter gun laws than another state?"
+    options:
+      - "No. Every state must have the same gun laws."
+      - "Yes, as long as its laws stay within what the Second Amendment allows."
+      - "Only if Congress gives permission."
+    answer: 1
+    why: "The Constitution sets a minimum level of protection. States add their own laws on top, and those laws vary a lot."

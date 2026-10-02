@@ -1,0 +1,79 @@
+one_line: >-
+  The government cannot set bail or fines that are too high, or use cruel and unusual punishments.
+subject: Bail, fines, punishment
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In 1685, an English court punished Titus Oates for lying under oath. He was sentenced to be whipped through London and put in the pillory every year for life. English judges had also set bail so high that people stayed in jail before trial. In 1689, the English Bill of Rights banned excessive bail, excessive fines, and cruel and unusual punishments. The Eighth Amendment copied those words almost exactly.
+phrases:
+  - quote: "Excessive bail shall not be required"
+    plain: "If a court sets bail, it cannot be higher than needed for its purpose, such as making sure you come back to court."
+  - quote: "nor excessive fines imposed"
+    plain: "The government cannot make you pay a fine that is far out of proportion to what you did."
+  - quote: "nor cruel and unusual punishments inflicted"
+    plain: "The government cannot punish people in ways that are cruel and unusual."
+picture_it: >-
+  You are arrested and a judge sets bail. Bail is money you pay so you can leave jail while you wait for trial. If you paid the court directly, you usually get it back after you come to all your court dates. A judge generally cannot set bail higher than needed to make sure you return. Each state has its own bail rules.
+myths:
+  - myth: "Everyone has a constitutional right to be released on bail."
+    fact: "In United States v. Salerno (1987), the Court said some people can be held without bail, such as when a court finds they are dangerous. The Eighth Amendment bans excessive bail, not all detention."
+  - myth: "The Supreme Court has banned the death penalty."
+    fact: "The death penalty is allowed under current law. The Court has limited it. It cannot be used for crimes committed under age 18 or for people with intellectual disabilities. It also cannot be used for crimes against a person where no one was killed."
+  - myth: "Any very harsh punishment is cruel and unusual."
+    fact: "Courts have upheld many long prison sentences. A prison sentence is unconstitutional only in rare cases where it is grossly out of proportion to the crime."
+words_changed:
+  - word: "cruel and unusual"
+    then: "Punishments like torture, burning, or cutting off body parts."
+    now: "The Court asks whether a punishment fits \"evolving standards of decency.\" Some justices argue the words should keep their 1791 meaning."
+  - word: "fines"
+    then: "Money paid as punishment for a crime."
+    now: "Also covers some forfeitures, meaning when the government takes property tied to a crime."
+  - word: "bail"
+    then: "Money or a promise that let an accused person leave jail before trial."
+    now: "The same idea. Some states now use other ways to decide who is released before trial."
+back_then: >-
+  The writers wanted to stop the new government from using punishments that England had banned a century earlier. At least one member of Congress worried the words were too vague, but the amendment passed.
+who_argued:
+  - side: "Evolving standards"
+    view: "The Court has said \"cruel and unusual\" should reflect \"the evolving standards of decency that mark the progress of a maturing society\" (Trop v. Dulles, 1958). Society's views about punishment change, and the Constitution's broad words were meant to apply to new situations."
+  - side: "Original meaning"
+    view: "The words should mean what they meant in 1791. Changes in punishment should come from voters and lawmakers, not from judges deciding what society now believes. This approach protects against judges using their own views."
+key_cases:
+  - name: "Gregg v. Georgia"
+    year: 1976
+    held: "The death penalty is not always unconstitutional, as long as states use careful procedures to decide who receives it."
+  - name: "Estelle v. Gamble"
+    year: 1976
+    held: "Prison officials violate the Eighth Amendment when they show deliberate indifference to a prisoner's serious medical needs."
+  - name: "Roper v. Simmons"
+    year: 2005
+    held: "The death penalty cannot be used for crimes committed by someone under 18."
+  - name: "Timbs v. Indiana"
+    year: 2019
+    held: "The ban on excessive fines applies to state and local governments, not just the federal government."
+  - name: "City of Grants Pass v. Johnson"
+    year: 2024
+    held: "Enforcing general laws against camping on public property, including against homeless people, is not cruel and unusual punishment."
+quick_check:
+  - q: "Where did the words of the Eighth Amendment come from?"
+    options:
+      - "The English Bill of Rights of 1689."
+      - "The Declaration of Independence."
+      - "A Supreme Court case."
+    answer: 0
+    why: "The Eighth Amendment copies language from the English Bill of Rights of 1689 almost word for word."
+  - q: "Can someone under 18 at the time of a crime be sentenced to death?"
+    options:
+      - "Yes, for any crime."
+      - "No."
+      - "Only if a jury agrees unanimously."
+    answer: 1
+    why: "Roper v. Simmons (2005) held the death penalty cannot be used for crimes committed under age 18."
+  - q: "What does \"excessive bail\" mean?"
+    options:
+      - "Any bail at all."
+      - "Bail set higher than needed for its purpose."
+      - "Bail that is paid in cash."
+    answer: 1
+    why: "The Court has said bail is excessive when it is set higher than needed to serve its purpose."

@@ -1,0 +1,61 @@
+one_line: >-
+  The Preamble says the people are making the Constitution and lists six goals. It does not give anyone powers or rights by itself.
+subject: Why the Constitution exists
+content_note: null
+scene:
+  when: "1787"
+  text: >-
+    In September 1787, the Convention's Committee of Style polished the final draft. Gouverneur Morris of Pennsylvania is credited with writing the Preamble. An earlier draft listed the states by name. The final version began instead with "We the People of the United States."
+phrases:
+  - quote: "We the People of the United States"
+    plain: "The Constitution's authority comes from the people, not from a king or the state governments."
+  - quote: "in Order to form a more perfect Union"
+    plain: "To make the states work together better than they did under the Articles of Confederation."
+  - quote: "establish Justice"
+    plain: "To set up a fair system of laws and courts."
+  - quote: "insure domestic Tranquility"
+    plain: "To keep peace inside the country."
+  - quote: "provide for the common defence"
+    plain: "To protect the country from attack."
+  - quote: "promote the general Welfare"
+    plain: "To support the well-being of everyone in the country."
+  - quote: "secure the Blessings of Liberty to ourselves and our Posterity"
+    plain: "To protect freedom for people now and for future generations."
+  - quote: "do ordain and establish this Constitution"
+    plain: "We officially create this Constitution."
+picture_it: >-
+  You open the Constitution and read the Preamble first. It tells you the goals, like justice and peace. The rules that carry out those goals come in the articles and amendments after it.
+myths:
+  - myth: "The Preamble gives me rights I can use in court."
+    fact: "In Jacobson v. Massachusetts (1905), the Court said the Preamble is not a source of government power. Your rights come from other parts of the Constitution."
+  - myth: "\"We the People\" meant everyone could vote in 1787."
+    fact: "In 1787, many people could not vote, including most women and enslaved people. Later amendments expanded who can vote."
+words_changed:
+  - word: "Posterity"
+    then: "Your descendants and all future generations."
+    now: "The same, but rarely used in everyday speech."
+  - word: "ordain"
+    then: "To officially order or set up."
+    now: "Today it usually means making someone a religious leader. Here it means officially creating something."
+  - word: "Welfare"
+    then: "Well-being or the common good."
+    now: "Often means government aid programs. Here it means the well-being of the whole country."
+back_then: >-
+  The Articles of Confederation had been written as an agreement among the states. The new Constitution was meant to rest on the people themselves. Opening with "We the People" made that clear.
+key_cases:
+  - name: "Jacobson v. Massachusetts"
+    year: 1905
+    held: "The Preamble states the Constitution's purposes but is not a source of any government power."
+quick_check:
+  - q: "Does the Preamble give you legal rights?"
+    options: ["Yes, all of them.", "No.", "Only the right to vote."]
+    answer: 1
+    why: "The Preamble explains why the Constitution exists. Jacobson v. Massachusetts (1905) said it is not a source of government power."
+  - q: "Who does the Preamble say is creating the Constitution?"
+    options: ["The states.", "Congress.", "We the People of the United States."]
+    answer: 2
+    why: "It opens with \"We the People,\" meaning authority comes from the people."
+  - q: "What does \"Posterity\" mean?"
+    options: ["Future generations.", "Wealth.", "The past."]
+    answer: 0
+    why: "Posterity means the people who come after us."

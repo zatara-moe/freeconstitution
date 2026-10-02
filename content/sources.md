@@ -1,54 +1,44 @@
 ---
-layout: page.njk
-permalink: /sources/index.html
 type: page
 slug: sources
-title: Sources
-reading_time_seconds: 90
+title: Sources and how we check
+summary: Where the text comes from, how the plain-language layers are written, and how we check them.
 ---
 
-## Verbatim text
+## The original text
 
-All verbatim text of the Constitution, the Bill of Rights, the remaining amendments, and the Declaration of Independence on this site is taken from the National Archives.
+The original words of the Constitution, all 27 amendments, and the Declaration of Independence come from the National Archives. We retrieved them on April 30, 2026.
 
-- **Constitution of the United States:** [archives.gov/founding-docs/constitution-transcript](https://www.archives.gov/founding-docs/constitution-transcript)
-- **Bill of Rights (Amendments 1–10):** [archives.gov/founding-docs/bill-of-rights-transcript](https://www.archives.gov/founding-docs/bill-of-rights-transcript)
-- **Amendments 11–27:** [archives.gov/founding-docs/amendments-11-27](https://www.archives.gov/founding-docs/amendments-11-27)
-- **Declaration of Independence:** [archives.gov/founding-docs/declaration-transcript](https://www.archives.gov/founding-docs/declaration-transcript)
+- [Constitution transcript](https://www.archives.gov/founding-docs/constitution-transcript)
+- [Bill of Rights transcript (Amendments 1–10)](https://www.archives.gov/founding-docs/bill-of-rights-transcript)
+- [Amendments 11–27 transcript](https://www.archives.gov/founding-docs/amendments-11-27)
+- [Declaration of Independence transcript](https://www.archives.gov/founding-docs/declaration-transcript)
 
-The verbatim text was retrieved from these pages on April 30, 2026. Each amendment and article page on this site shows the source URL and retrieval date in its metadata.
+Original spelling and capitals are kept, such as "chuse" and "defence." Text that a later amendment changed is kept as written, and the plain version notes which amendment changed it. Nothing is silently rewritten. The site's build checks that every quoted phrase matches the original exactly.
 
-## Cross-checking
+## The plain-language layers
 
-The National Archives transcripts include the text as ratified, with original capitalization and spelling preserved. Where the Archives notes text that has been superseded by a later amendment (for example, the original method of selecting senators in Article I, Section 3, superseded by the Seventeenth Amendment), we have preserved the original text as written and added an inline note pointing to the amendment that changed it. Nothing has been silently rewritten.
+Hope for Americans writes the plain English, the "what this means for you" cards, and the situation cards. They are not copied from any other source.
 
-We also cross-checked the verbatim text against:
+Where a page says what the law is today, it names the Supreme Court case and year. Where judges and lawyers still disagree, the page says so and describes each side fairly.
 
-- The official literal print of the Constitution prepared for the Senate by the Office of the Secretary of the Senate
-- The Library of Congress digital transcripts
+These layers have not been reviewed by a lawyer. They are checked by a separate fact-check pass against the text and the cases named. That is not the same as legal review, and it is not legal advice.
 
-Where these sources differed in minor ways (typographical choices, line breaks), we followed the National Archives.
+## Writing rules
 
-## Plain-English layer
+- One idea per sentence. Short paragraphs.
+- Define legal words the first time they appear. Tap any underlined word for a quick definition.
+- No idioms or sarcasm, so the meaning is always literal.
+- The same labels and layout on every page.
+- A heads-up before hard history, such as slavery. We explain it plainly and never cut it from the original text.
+- No side-taking on debated questions.
 
-The plain-English translations on this site were drafted by the editorial team and reviewed by attorneys before publication. They are not from any third-party source. They are released under a Creative Commons Attribution license, meaning anyone can reuse them as long as they credit freeconstitution.org.
+## Read the cases yourself
 
-## Editorial decisions
+- [Oyez](https://www.oyez.org) has free summaries and audio of Supreme Court arguments.
+- [CourtListener](https://www.courtlistener.com) has full opinions.
+- [Supreme Court opinions](https://www.supremecourt.gov/opinions/opinions.aspx) are published by the Court.
 
-Word-by-word reasoning behind specific translation choices is published in the [editorial notes](/notes) section. This includes choices like:
+## License
 
-- Why we kept *establish* instead of *create*
-- Why we translated *posterity* as *generations who come after us* rather than *future generations*
-- Why we did not paraphrase the Second Amendment beyond hyphenation and sentence-break corrections
-
-The notes are public so that anyone can see, and challenge, the reasoning behind the wording.
-
-## Court interpretation
-
-Where amendment pages refer to how courts have interpreted a provision, we have not cited specific cases inline because case citations make pages harder to read for non-lawyers. Where a single court decision is the current controlling law on a contested question — for example, *Trump v. Anderson* (2024) on Section 3 of the Fourteenth Amendment — we have named it on the relevant page.
-
-If you want to read the cases yourself, [Oyez](https://www.oyez.org) has free audio recordings and case summaries for Supreme Court decisions. [CourtListener](https://www.courtlistener.com) has full opinions and lower-court rulings.
-
-## When this page was last updated
-
-See the footer of this page for the most recent update date. Material changes to verbatim text (which would only happen if a new amendment is ratified) will be noted on the homepage.
+The original text is public domain. Our plain-language layers are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You can reuse them if you credit freeconstitution.org.

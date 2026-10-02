@@ -1,0 +1,80 @@
+one_line: >-
+  The government cannot punish you for your religion, your speech, what you publish, peaceful protest, or asking officials to fix things.
+subject: Religion, speech, press, protest
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In colonial America, some colonies had official churches that everyone paid taxes to support. In 1735, a New York printer named John Peter Zenger was put on trial for criticizing the royal governor. Several states agreed to the new Constitution expecting a list of rights to be added. James Madison drafted the proposals that became the Bill of Rights.
+phrases:
+  - quote: "Congress shall make no law respecting an establishment of religion"
+    plain: "The government cannot set up an official religion or favor one religion over others."
+  - quote: "or prohibiting the free exercise thereof"
+    plain: "The government cannot stop you from practicing your religion, or from having none."
+  - quote: "abridging the freedom of speech"
+    plain: "The government cannot cut back your right to say what you think."
+  - quote: "or of the press"
+    plain: "The government cannot control what people publish, in print or online."
+  - quote: "the right of the people peaceably to assemble"
+    plain: "You can gather with other people peacefully, such as at a protest or meeting."
+  - quote: "to petition the Government for a redress of grievances"
+    plain: "You can ask the government to fix a problem, such as by signing a petition or writing to an official."
+picture_it: >-
+  You post a video criticizing your mayor. The city cannot fine you or arrest you for that opinion. But the app you posted on can still remove the video under its own rules. The app is a private company, not the government.
+myths:
+  - myth: "Free speech means an app can't ban me or delete my posts."
+    fact: "The First Amendment limits the government. Apps, websites, and private employers are not the government. They can set and enforce their own rules about speech."
+  - myth: "Hate speech isn't protected by the First Amendment."
+    fact: "There is no general \"hate speech\" exception. Most offensive or hateful speech is protected. Narrow categories are not protected, such as true threats, incitement to immediate violence, fraud, and defamation."
+  - myth: "Students lose their free-speech rights at school."
+    fact: "Since Tinker v. Des Moines (1969), students at public schools keep free-speech rights. Schools can limit speech that would substantially disrupt school."
+words_changed:
+  - word: "Congress"
+    then: "Only the national lawmaking body. States could still limit speech or support a church."
+    now: "Through the Fourteenth Amendment, courts apply it to every level of government, including states, cities, and public schools."
+  - word: "press"
+    then: "Printing presses: newspapers, pamphlets, and books."
+    now: "Anyone who publishes, including websites, blogs, podcasts, and social media posts."
+  - word: "redress of grievances"
+    then: "Fixing a wrong or complaint."
+    now: "The same idea: asking the government to fix a problem."
+back_then: >-
+  The writers remembered governments that punished people for criticizing leaders or for belonging to the wrong church. They wanted people to be able to argue, worship, and organize without fear of the government. They put all five freedoms in one sentence.
+key_cases:
+  - name: "Tinker v. Des Moines Independent Community School District"
+    year: 1969
+    held: "Students at public schools keep their free-speech rights unless their speech would substantially disrupt school."
+  - name: "Brandenburg v. Ohio"
+    year: 1969
+    held: "The government can punish speech that calls for violence or lawbreaking only if it is meant to cause, and likely to cause, immediate illegal action."
+  - name: "Snyder v. Phelps"
+    year: 2011
+    held: "Deeply offensive protest signs about public issues, shown near a funeral from public land, were protected speech."
+  - name: "Mahanoy Area School District v. B.L."
+    year: 2021
+    held: "A public school's power to punish a student's off-campus speech, like a Snapchat post on a weekend, is limited."
+  - name: "Counterman v. Colorado"
+    year: 2023
+    held: "To punish a true threat, the government must show the speaker knowingly ignored a real risk that the words would be seen as threatening violence."
+quick_check:
+  - q: "A social media app deletes your post for breaking its rules. Does the First Amendment stop this?"
+    options:
+      - "Yes. Free speech covers everything you post."
+      - "No. The First Amendment limits the government, not private companies."
+      - "Only if the post was about politics."
+    answer: 1
+    why: "Apps are private companies. The First Amendment stops the government from punishing speech."
+  - q: "Can a public school punish a student for wearing an armband to protest a war?"
+    options:
+      - "Yes. Schools can ban any political message."
+      - "Only if the student is over 18."
+      - "Not unless it would substantially disrupt school."
+    answer: 2
+    why: "That was the situation in Tinker v. Des Moines (1969). The Court said the students' quiet protest was protected."
+  - q: "Which kind of speech is NOT protected by the First Amendment?"
+    options:
+      - "A true threat to hurt a specific person."
+      - "A rude opinion about the president."
+      - "An offensive protest sign about a public issue."
+    answer: 0
+    why: "True threats are one of the narrow categories outside First Amendment protection. Rude and offensive opinions are generally protected."

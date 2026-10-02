@@ -1,0 +1,80 @@
+one_line: >-
+  If you're charged with a crime, you have the right to a lawyer, a fair jury, a speedy public trial, and to question witnesses.
+subject: Rights at a criminal trial
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    In England, people accused of serious crimes were often not allowed a lawyer to argue for them. Some were convicted based on written statements from witnesses they never got to question. The American colonists also objected to British plans to send accused colonists to England for trial. The Sixth Amendment set out the rights of anyone accused of a crime.
+phrases:
+  - quote: "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial"
+    plain: "If you are charged with a crime, your trial must happen without unfair delay and be open to the public."
+  - quote: "by an impartial jury of the State and district wherein the crime shall have been committed"
+    plain: "A fair jury from the place where the crime happened decides your case."
+  - quote: "to be informed of the nature and cause of the accusation"
+    plain: "You must be told what crime you are charged with and why."
+  - quote: "to be confronted with the witnesses against him"
+    plain: "You can see and question the witnesses who testify against you."
+  - quote: "to have compulsory process for obtaining witnesses in his favor"
+    plain: "The court can order witnesses to come and testify for you."
+  - quote: "to have the Assistance of Counsel for his defence"
+    plain: "You have the right to a lawyer to defend you."
+picture_it: >-
+  You are charged with a felony and cannot afford a lawyer. The court must give you a lawyer for free. That lawyer is often a public defender, a licensed lawyer paid by the government to defend people.
+myths:
+  - myth: "A public defender isn't a real lawyer."
+    fact: "Public defenders are licensed lawyers whose job is to defend people charged with crimes. They have the same duties to you as a lawyer you pay."
+  - myth: "You only get a free lawyer if you're charged with murder."
+    fact: "Since Gideon v. Wainwright (1963), states must provide a lawyer in felony cases. For lesser crimes, you cannot be sentenced to jail unless you had a lawyer or gave up that right."
+  - myth: "\"Speedy trial\" means my trial must happen within a few weeks."
+    fact: "The Constitution sets no fixed deadline. Courts weigh several factors, and federal and state laws set their own time limits with many exceptions."
+words_changed:
+  - word: "counsel"
+    then: "A lawyer or legal adviser. Many accused people could hire one only if they had money."
+    now: "A lawyer. If you cannot afford one, the government must provide one for a felony or for any charge that ends in a jail sentence."
+  - word: "compulsory process"
+    then: "A court order forcing someone to come to court."
+    now: "The same idea. Today this is usually a subpoena, meaning an order to appear and testify."
+  - word: "impartial"
+    then: "Not taking sides."
+    now: "The same. Lawyers can question possible jurors and ask the judge to remove biased ones."
+back_then: >-
+  The writers had seen trials held in secret, trials far from home, and people convicted without a chance to answer the evidence. They wanted trials to be public, local, and fair. They wanted the accused to know the charges and to be able to fight them.
+key_cases:
+  - name: "Gideon v. Wainwright"
+    year: 1963
+    held: "States must provide a lawyer to people charged with a felony who cannot afford one."
+  - name: "Duncan v. Louisiana"
+    year: 1968
+    held: "The right to a jury trial applies in state courts for serious crimes."
+  - name: "Barker v. Wingo"
+    year: 1972
+    held: "Courts judge speed by weighing the delay's length and reason, whether the accused asked for a speedy trial, and the harm caused."
+  - name: "Crawford v. Washington"
+    year: 2004
+    held: "Testimony-like statements from a witness who does not appear at trial generally cannot be used unless the accused had a chance to question that witness."
+  - name: "Ramos v. Louisiana"
+    year: 2020
+    held: "A jury must vote unanimously to convict someone of a serious crime, in state and federal courts."
+quick_check:
+  - q: "You are charged with a felony and can't afford a lawyer. What happens?"
+    options:
+      - "You must represent yourself."
+      - "The court must provide a lawyer for you."
+      - "The trial is canceled."
+    answer: 1
+    why: "Gideon v. Wainwright (1963) requires states to provide a lawyer in felony cases for people who cannot afford one."
+  - q: "What does the right to confront witnesses mean?"
+    options:
+      - "You can argue with the judge."
+      - "You or your lawyer can question the witnesses who testify against you."
+      - "You can choose who sits on the jury."
+    answer: 1
+    why: "The Confrontation Clause lets the accused cross-examine, meaning question, the witnesses against them."
+  - q: "For a serious crime, how many jurors must agree to convict?"
+    options:
+      - "All of them."
+      - "A simple majority."
+      - "Two-thirds."
+    answer: 0
+    why: "Ramos v. Louisiana (2020) requires a unanimous jury verdict to convict of a serious crime."

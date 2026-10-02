@@ -1,0 +1,78 @@
+one_line: >-
+  Police generally need a warrant, your consent, or a legal exception to search you, your home, your phone, or your things.
+subject: Search and seizure
+content_note: null
+scene:
+  when: "1791"
+  text: >-
+    Before the Revolution, British customs officers carried "writs of assistance." These were blanket warrants that let them search any home or shop, any time, for anything. In 1761 a Boston lawyer named James Otis argued in court that these warrants destroyed people's freedom. Thirty years later, the Fourth Amendment banned them.
+phrases:
+  - quote: "The right of the people to be secure in their persons, houses, papers, and effects"
+    plain: "You, your home, your documents, and your belongings are protected."
+  - quote: "against unreasonable searches and seizures, shall not be violated"
+    plain: "The government cannot search you or take your things without a good legal reason."
+  - quote: "no Warrants shall issue, but upon probable cause"
+    plain: "A judge can approve a warrant only when there is good reason to believe evidence of a crime will be found."
+  - quote: "supported by Oath or affirmation"
+    plain: "The officer asking for the warrant must swear the reasons are true."
+  - quote: "particularly describing the place to be searched, and the persons or things to be seized"
+    plain: "The warrant must say exactly where police can search and what they can take."
+picture_it: >-
+  You're walking home and an officer asks, "Mind if I look in your backpack?" You can say, "I don't consent to searches." If the officer searches anyway, do not physically resist. Remember what happened and tell a lawyer later.
+myths:
+  - myth: "If I refuse a search, it shows I'm hiding something."
+    fact: "Saying no is your right. Refusing is not a crime, and courts have said it is not, by itself, a reason to search you."
+  - myth: "Once I'm arrested, police can go through my phone."
+    fact: "Since Riley v. California (2014), police generally need a warrant to search your phone, even after an arrest."
+  - myth: "The Fourth Amendment protects me from my boss or a store."
+    fact: "It limits the government, including police and public schools. It does not apply to private companies, stores, or employers."
+words_changed:
+  - word: "papers"
+    then: "Private letters, diaries, and business records."
+    now: "Courts now protect some digital records too, including the contents of your phone and your past cell phone location records."
+  - word: "effects"
+    then: "Your personal belongings."
+    now: "Still your belongings: your bag, your car, your phone."
+  - word: "seizure"
+    then: "Taking a person or their property."
+    now: "Being stopped and held by police counts as a seizure of you, even for a few minutes."
+back_then: >-
+  Americans remembered soldiers and customs officers searching homes with no limits. The writers wanted a neutral judge to stand between the police and your front door. That is why the amendment puts so many conditions on warrants.
+key_cases:
+  - name: "Mapp v. Ohio"
+    year: 1961
+    held: "Evidence found in an illegal search generally cannot be used against you in a state criminal trial."
+  - name: "Terry v. Ohio"
+    year: 1968
+    held: "Police can briefly stop and pat down a person if they have reasonable suspicion of a crime and a reason to think the person is armed."
+  - name: "New Jersey v. T.L.O."
+    year: 1985
+    held: "Public school officials can search a student with reasonable suspicion, a lower standard than police need."
+  - name: "Riley v. California"
+    year: 2014
+    held: "Police generally need a warrant to search the phone of someone they arrest."
+  - name: "Carpenter v. United States"
+    year: 2018
+    held: "Police generally need a warrant to get your cell phone location records from your phone company."
+quick_check:
+  - q: "An officer asks, \"Can I look in your bag?\" and you say yes. What happens?"
+    options:
+      - "The search is legal because you agreed."
+      - "The officer still needs a warrant."
+      - "The officer can only look at the outside of the bag."
+    answer: 0
+    why: "Consent is one of the main exceptions to the warrant rule. You can say no."
+  - q: "Police arrest someone and want to look through their phone. What do they generally need?"
+    options:
+      - "Nothing. The arrest is enough."
+      - "A warrant."
+      - "Permission from the phone company."
+    answer: 1
+    why: "Riley v. California (2014) says police generally need a warrant to search a phone."
+  - q: "Can a public school search your backpack with less reason than police need?"
+    options:
+      - "No. Schools follow the same rules as police."
+      - "Yes. Schools need reasonable suspicion, not probable cause."
+      - "Yes. Schools can search anyone, anytime, for any reason."
+    answer: 1
+    why: "New Jersey v. T.L.O. (1985) set a lower standard for public schools, but they still need a reason."

@@ -1,0 +1,79 @@
+one_line: >-
+  Slavery and forced labor are banned everywhere in the United States, except as punishment for someone convicted of a crime.
+subject: Ending slavery
+content_note: >-
+  This page discusses slavery, forced labor, and how the punishment-for-crime exception was used against Black Americans after the Civil War.
+scene:
+  when: "1865"
+  text: >-
+    The Civil War ended in the spring of 1865. Lincoln's Emancipation Proclamation of 1863 freed enslaved people only in areas still in rebellion, and it was a wartime order. Many feared a court or a later President could undo it. The Thirteenth Amendment, ratified in December 1865, ended slavery everywhere in the country.
+phrases:
+  - quote: "Neither slavery nor involuntary servitude"
+    plain: "No slavery, and no forced labor of any kind."
+  - quote: "except as a punishment for crime whereof the party shall have been duly convicted"
+    plain: "The one exception is punishment for a person who was properly convicted of a crime."
+  - quote: "within the United States, or any place subject to their jurisdiction"
+    plain: "This applies everywhere the United States governs, including its territories."
+  - quote: "Congress shall have power to enforce this article by appropriate legislation."
+    plain: "Congress can pass laws to enforce this ban."
+picture_it: >-
+  A job recruiter takes your passport and says you cannot leave until you pay off a large "travel debt." Forcing someone to work through threats or debt like this is a federal crime. The National Human Trafficking Hotline, 1-888-373-7888, is open 24 hours.
+myths:
+  - myth: "The Thirteenth Amendment only limits the government."
+    fact: "It bans slavery and forced labor by anyone, including private employers. That is unusual, because most of the Constitution limits only the government."
+  - myth: "The military draft is banned as involuntary servitude."
+    fact: "The Supreme Court said no in the Selective Draft Law Cases (1918). Required military service is not banned by this amendment."
+  - myth: "Forced labor ended in 1865."
+    fact: "Forced labor still happens in the United States, through trafficking and debt. Federal laws passed under Section 2 make it a crime."
+words_changed:
+  - word: "involuntary servitude"
+    then: "Forced work, such as being bound to an employer you could not leave."
+    now: "Work forced through physical harm, legal threats, or threats of either. The Court used this meaning in United States v. Kozminski (1988)."
+  - word: "duly convicted"
+    then: "Found guilty through a proper legal process."
+    now: "Same meaning today."
+back_then: >-
+  The original Constitution protected slavery in several places without using the word, such as the Three-Fifths Clause and the Fugitive Slave Clause. By 1860, about 4 million people were enslaved in the United States. Lawmakers copied the amendment's wording from the Northwest Ordinance of 1787, which banned slavery in the Northwest Territory with the same crime exception.
+who_argued:
+  - side: "Remove the exception"
+    view: "Supporters of removal say no one should be forced to work against their will. They point out that the exception was used after the Civil War to rebuild forced labor through convict leasing."
+  - side: "Keep the exception"
+    view: "Supporters of keeping it say work can be a lawful part of a sentence. They argue prison work teaches job skills, helps cover costs, and keeps order in prisons."
+key_cases:
+  - name: "Civil Rights Cases"
+    year: 1883
+    held: "The Thirteenth Amendment did not let Congress ban race discrimination by private businesses such as inns and theaters."
+  - name: "Bailey v. Alabama"
+    year: 1911
+    held: "A state cannot use criminal law to force a person to work off a debt."
+  - name: "Selective Draft Law Cases"
+    year: 1918
+    held: "A military draft is not involuntary servitude under the Thirteenth Amendment."
+  - name: "Jones v. Alfred H. Mayer Co."
+    year: 1968
+    held: "Congress can use the Thirteenth Amendment to ban private race discrimination in selling or renting property."
+  - name: "United States v. Kozminski"
+    year: 1988
+    held: "Involuntary servitude means forced labor through physical or legal coercion, or threats of either."
+quick_check:
+  - q: "What is the one exception in the Thirteenth Amendment?"
+    options:
+      - "Work for the military."
+      - "Punishment for a person properly convicted of a crime."
+      - "Work for a family business."
+    answer: 1
+    why: "The text allows involuntary servitude only as punishment for a crime after a proper conviction."
+  - q: "Does the Thirteenth Amendment apply to private employers?"
+    options:
+      - "Yes. It bans forced labor by anyone."
+      - "No. It only limits the government."
+      - "Only if the employer has a government contract."
+    answer: 0
+    why: "Unlike most of the Constitution, the Thirteenth Amendment applies to private people too."
+  - q: "Someone holds your passport and says you must work until you pay off a debt. What is this?"
+    options:
+      - "A normal job contract."
+      - "Possible forced labor, which is a federal crime."
+      - "Legal, as long as you agreed at first."
+    answer: 1
+    why: "Using threats or debt to force work is forced labor. The National Human Trafficking Hotline is 1-888-373-7888."
