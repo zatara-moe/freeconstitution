@@ -1,5 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#F7F1E3"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="40" font-weight="600" text-anchor="middle" fill="#1F1B16">f</text>
-  <circle cx="48" cy="44" r="4" fill="#B85436"/>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14283f; }
+      .letter { fill: #fbf8f0; }
+      .dot { fill: #e7a59c; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="12" fill="#F7F1E3"/>
+  <path class="letter" fill="#1F1B16"
+    transform="matrix(0.0649 0 0 -0.0649 13.55 56.00)"
+    d="M108 0Q108 36 108.5 72.0Q109 108 109.0 144.0Q109 180 109 215V427H33V482L147 497L110 467L112 486Q117 538 128.0 574.5Q139 611 156.5 637.5Q174 664 197 685Q226 713 264.5 726.5Q303 740 345 740Q390 740 420.5 724.5Q451 709 461 676Q460 652 443.5 635.5Q427 619 396 619Q370 619 351.0 632.0Q332 645 312 669L277 710L293 706H295L308 710Q296 707 287.5 701.0Q279 695 271 682Q260 666 252.5 646.5Q245 627 240.5 601.0Q236 575 235.0 540.0Q234 505 235 458V215Q235 180 235.5 144.0Q236 108 236.0 72.0Q236 36 237 0Z M179 427V492H353V427Z"/>
+  <circle class="dot" cx="49" cy="50" r="6" fill="#B85436"/>
 </svg>

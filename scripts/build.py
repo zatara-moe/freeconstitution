@@ -389,6 +389,8 @@ def head(title, description, canonical, og_image, og_type, jsonld, robots="index
 <meta name="twitter:description" content="{escape(description)}">
 <meta name="twitter:image" content="{SITE_URL}{og_image}">
 <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/static/css/site.css?v={ASSET_V}">
@@ -1575,7 +1577,10 @@ self.addEventListener("fetch", e => {{
         "name": SITE_NAME, "short_name": "Free Const.", "start_url": "/", "display": "standalone",
         "background_color": "#fbf8f0", "theme_color": "#14283f",
         "description": "The U.S. Constitution in plain English, with know-your-rights cards.",
-        "icons": [{"src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}, indent=1))
+        "icons": [
+            {"src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
+            {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}
+        ]}, indent=1))
 
     bots = ["Googlebot", "Bingbot", "Applebot", "Applebot-Extended", "Google-Extended", "GPTBot", "OAI-SearchBot",
             "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "DuckAssistBot"]
@@ -1724,6 +1729,11 @@ def main():
         shutil.rmtree(PUBLIC)
     PUBLIC.mkdir()
     shutil.copytree(STATIC, PUBLIC / "static")
+    # Copy root-level assets that browsers expect at the domain root
+    for fname in ["favicon-32.png", "apple-touch-icon.png"]:
+        src = STATIC / fname
+        if src.exists():
+            shutil.copy(src, PUBLIC / fname)
 
     gloss = load_yaml("glossary.yml")
     TERMS = Terms(gloss)

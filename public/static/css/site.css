@@ -138,7 +138,7 @@ kbd { font-family: inherit; font-size: .85em; border: 1px solid var(--rule); bor
 /* ---- Header ---- */
 .site-header { background: var(--header); color: var(--on-header); position: sticky; top: 0; z-index: 50; }
 .header-row { display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; max-width: 64rem; }
-.wordmark { display: inline-flex; align-items: center; gap: .55rem; color: var(--on-header); text-decoration: none; font-weight: 700; font-size: 1.05rem; margin-right: auto; }
+.wordmark { display: inline-flex; align-items: center; gap: .55rem; color: var(--on-header); text-decoration: none; font-weight: 700; font-size: 1.05rem; margin-right: auto; letter-spacing: 0.02em; }
 .wm-mark { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 8px; background: #f7f1e3; color: #1f1b16; font-family: var(--font-orig); font-weight: 700; font-size: 1.35rem; line-height: 1; padding-bottom: .15rem; }
 .wm-mark span { color: #b85436; }
 .site-nav { display: none; gap: 1.2rem; }
