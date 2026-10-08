@@ -2,10 +2,20 @@
 # Sorted alphabetically (case-insensitive). Definitions: 25 words or fewer.
 # Common English words get no aliases so they are not over-linked.
 
+- term: accommodation
+  aliases: []
+  def: "A change at school or work that helps a person with a disability, like extra time or a quieter space. Federal laws can require one."
+  see: /situations/at-work/
+
 - term: actively contested
   aliases: []
   def: "Our label for questions that judges and lawyers still disagree about, which the Supreme Court has not fully settled."
   see: /words/
+
+- term: administrative warrant
+  aliases: []
+  def: "A warrant signed by an immigration officer, not a judge, such as Form I-200 or I-205. Whether it allows entry into a home is contested."
+  see: /situations/immigration-agents-at-the-door/
 
 - term: amendment
   aliases: [amendments]
@@ -21,6 +31,11 @@
   aliases: [arrested, under arrest]
   def: "When police take you into custody because they believe you committed a crime."
   see: /amendments/4/
+
+- term: asylum
+  aliases: []
+  def: "Protection the U.S. can give a person who fears harm at home because of race, religion, nationality, political opinion, or social group."
+  see: /words/
 
 - term: bail
   aliases: []
@@ -77,10 +92,20 @@
   def: "Being under arrest, or held so that a reasonable person would not feel free to leave. It matters for Miranda warnings."
   see: /amendments/5/
 
+- term: deportation
+  aliases: [deported, removal proceedings]
+  def: "When the government orders a noncitizen to leave the United States. The legal word for it is removal."
+  see: /words/
+
 - term: detained
   aliases: [detain, detention]
   def: "Held by police for a period of time, so you are not free to leave, even if you are not under arrest."
   see: /situations/being-questioned-by-police/
+
+- term: disability
+  aliases: [disabilities]
+  def: "A condition that substantially limits a major life activity, like seeing, learning, or concentrating. Federal disability laws use this meaning."
+  see: /situations/at-work/
 
 - term: double jeopardy
   aliases: []
@@ -152,6 +177,11 @@
   def: "The part of Congress where states get seats based on population. Members serve two-year terms."
   see: /articles/1/section-2/
 
+- term: ICE
+  aliases: [Immigration and Customs Enforcement]
+  def: "Immigration and Customs Enforcement, the federal agency that enforces immigration law inside the United States."
+  see: /situations/immigration-agents-at-the-door/
+
 - term: impeachment
   aliases: [impeach, impeached]
   def: "When the House formally charges a federal official with serious wrongdoing. The Senate then holds a trial to decide on removal."
@@ -162,20 +192,40 @@
   def: "How the Supreme Court has applied most Bill of Rights protections to state and local governments through the 14th Amendment."
   see: /amendments/14/
 
+- term: interpreter
+  aliases: []
+  def: "A person who translates spoken or signed language so you can understand and be understood. You can ask for one."
+  see: /words/
+
 - term: judicial review
   aliases: []
   def: "The power of courts to strike down laws or government actions that conflict with the Constitution."
   see: /articles/3/
+
+- term: judicial warrant
+  aliases: []
+  def: "A warrant signed by a judge, based on sworn reasons. Police generally need one to enter a home without consent."
+  see: /amendments/4/
 
 - term: jury
   aliases: []
   def: "A group of ordinary citizens chosen to hear the evidence at a trial and decide the facts."
   see: /amendments/6/
 
+- term: jury summons
+  aliases: [jury duty]
+  def: "An official order to report for possible jury service. Only U.S. citizens serve. Ignoring one can bring a fine."
+  see: /amendments/6/
+
 - term: just compensation
   aliases: []
   def: "Fair payment, usually the market value, that the government must give when it takes private property."
   see: /amendments/5/
+
+- term: lawful permanent resident
+  aliases: [green card holder, green card]
+  def: "A noncitizen allowed to live and work in the U.S. permanently, shown by a green card. They cannot vote in federal elections."
+  see: /situations/first-time-voter/
 
 - term: militia
   aliases: []
@@ -196,6 +246,16 @@
   aliases: [elastic clause]
   def: "The part of Article I that lets Congress make laws needed to carry out its listed powers."
   see: /articles/1/section-8/
+
+- term: noncitizen
+  aliases: []
+  def: "Anyone in the U.S. who is not a U.S. citizen, including green card holders and visa holders. Many constitutional rights still apply."
+  see: /situations/immigration-agents-at-the-door/
+
+- term: notario
+  aliases: []
+  def: "A notary or consultant who offers immigration help. Only a lawyer or a DOJ-accredited representative can give immigration legal advice."
+  see: /situations/immigration-agents-at-the-door/
 
 - term: poll tax
   aliases: [poll taxes]
@@ -247,6 +307,11 @@
   def: "When the government looks through you or your things (search), or takes property or a person (seizure). The 4th Amendment limits both."
   see: /amendments/4/
 
+- term: Selective Service
+  aliases: []
+  def: "The system that keeps a list of men who could be drafted. Most men ages 18 to 25 living in the U.S. must register."
+  see: /words/
+
 - term: self-incrimination
   aliases: [incriminate yourself, plead the fifth]
   def: "Being forced to give testimony that could be used against you in a criminal case. The 5th Amendment protects you from it."
@@ -261,6 +326,11 @@
   aliases: []
   def: "Dividing government power among three branches: Congress makes laws, the president carries them out, and courts interpret them."
   see: /articles/1/section-1/
+
+- term: state action
+  aliases: []
+  def: "An act by the government. Constitutional rights limit state action, not private companies, employers, or stores."
+  see: /situations/at-work/
 
 - term: suffrage
   aliases: []

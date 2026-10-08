@@ -12,6 +12,11 @@ ten_second:
   - "Can I see the policy you are using?"
   - "I need time to read this before I sign."
 ten_second_note: "Stay calm. Write down dates, names, and what was said."
+ten_second_es:
+  - "¿Me lo puede dar por escrito, por favor?"
+  - "¿Puedo ver la política que está usando?"
+  - "Necesito tiempo para leer esto antes de firmar."
+ten_second_note_es: "Mantenga la calma. Anote fechas, nombres y lo que se dijo."
 do:
   - "Keep copies of your pay stubs and schedules."
   - "Write down dates, names, and what happened."
@@ -83,6 +88,13 @@ Public employees work for the government. Examples are public school staff, city
 - A private employer can usually discipline you for public posts. Posts with coworkers about pay or working conditions may be protected by federal labor law.
 - Posts that talk with coworkers about pay or working conditions may be protected under the NLRA.
 - A few states protect legal off-duty activity, like political activity. Most states do not go that far.
+
+## Laws that add to the Constitution
+
+- The Americans with Disabilities Act (ADA) generally lets workers with disabilities ask for reasonable accommodations.
+- Examples are a quieter desk, written instructions, or a flexible schedule.
+- It covers employers with 15 or more workers. Some state laws cover smaller employers.
+- MOEx, a Hope for Americans site, explains whether to tell work and what to ask for: [Do I tell work?](https://ilovemoe.com/adults/work)
 
 ## The law you are citing
 

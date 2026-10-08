@@ -8,9 +8,13 @@ order: 4
 reading_time_seconds: 165
 related_amendments: [1, 4, 5]
 ten_second:
-  - "I want to remain silent. I want a lawyer."
+  - "I am exercising my right to remain silent. I want a lawyer."
   - "I do not consent to a search of my phone."
 ten_second_note: "Use these if police contact you about a post. Then stop talking."
+ten_second_es:
+  - "Ejerzo mi derecho a guardar silencio. Quiero un abogado."
+  - "No doy mi consentimiento para un registro de mi teléfono."
+ten_second_note_es: "Use estas frases si la policía se comunica con usted por una publicación. Luego deje de hablar."
 do:
   - "Assume anything you post can become public."
   - "Screenshot posts and messages you may need later."
@@ -36,13 +40,13 @@ faq:
   - q: "Can I get fired for a social media post?"
     a: "Often, yes, at a private job. The First Amendment limits the government, not private employers. Some laws protect some posts, like talking with coworkers about pay. A few states protect legal off-duty activity. Government workers have some First Amendment protection."
   - q: "Can a government official block me on social media?"
-    a: "It depends. In Lindke v. Freed (2024), the Supreme Court said blocking can violate the First Amendment if the official had real authority to speak for the government on that topic and was using it in those posts. If the account is personal, blocking is usually allowed."
+    a: "It depends. In Lindke v. Freed (2024), the Supreme Court gave a two-part test. Blocking can violate the First Amendment if the official had real authority to speak for the government on that topic. The official also had to be using that authority in those posts. If the account is personal, blocking is usually allowed."
   - q: "Does free speech apply to social media apps?"
     a: "Generally, no. The First Amendment limits the government, not private companies. An app can remove your post or ban your account without violating the First Amendment. Government officials and agencies are still limited by it when they act for the government online."
   - q: "Can police use my social media posts?"
     a: "Yes. Public posts can be used as evidence in court. Police can sometimes get records from apps with a court order or warrant. Police generally need a warrant to search your phone itself."
   - q: "Is it illegal to delete posts during an investigation?"
-    a: "It can be. Deleting posts after you learn of an investigation can be a separate crime. If police contact you about a post, you can say: \"I want to remain silent. I want a lawyer.\" Then stop talking."
+    a: "It can be. Deleting posts after you learn of an investigation can be a separate crime. If police contact you about a post, you can say: \"I am exercising my right to remain silent. I want a lawyer.\" Then stop talking."
 ---
 
 ## Myth check: "Free speech means no one can remove my post"

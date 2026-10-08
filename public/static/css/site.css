@@ -609,3 +609,88 @@ em.case { color: var(--gold); }
 /* Footer seal: the 13 stars of 1777 */
 .star-ring { display: block; width: 2.6rem; height: 2.6rem; margin: 0 auto .6rem; fill: var(--navy); }
 .hfa-more { margin-top: .5rem !important; }
+
+/* ============================================================
+   v2.5: Listen, Practice saying it, Rights for everyone
+   ============================================================ */
+.listen-btn { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; padding: .35rem .9rem; border-radius: 999px; border: 2px solid var(--rule); background: var(--card); color: var(--navy); font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; margin: .2rem 0 .8rem; }
+.listen-btn:hover, .listen-btn.on { border-color: var(--navy); }
+.listen-btn.on { background: var(--navy-wash); }
+.one-line .listen-btn { margin: .6rem 0 0; }
+.ten-actions .listen-btn { margin: 0; }
+.practice { margin: 0 0 1.6rem; }
+.practice summary .ic { color: var(--navy); }
+.practice .mem-stage p { font-weight: 700; margin: 0 0 .4rem; }
+.tscroll { overflow-x: auto; margin: 0 0 .6rem; }
+.words-table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 34rem; }
+.words-table th, .words-table td { text-align: left; vertical-align: top; padding: .65rem .6rem; border-bottom: 1px solid var(--rule); }
+.words-table thead th { font-size: .88rem; color: var(--ink-faded); }
+.words-table .says { font-family: var(--font-orig); font-weight: 600; font-size: 1.05rem; white-space: nowrap; }
+.who { display: inline-block; font-weight: 700; font-size: .88rem; padding: .1rem .55rem; border-radius: 999px; }
+.who-all { background: var(--green-wash); color: var(--green); }
+.who-cit { background: var(--navy-wash); color: var(--navy); }
+.who-debated { background: var(--gold-wash); color: var(--gold); }
+@media (max-width: 40rem) {
+  .words-table { min-width: 0; }
+  .words-table thead { display: none; }
+  .words-table tr { display: grid; gap: .2rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); }
+  .words-table th, .words-table td { border: 0; padding: 0; }
+}
+
+/* v3.0: Spanish meaning under the say-this lines. English stays the line to say or show. */
+.say-es { display: none; }
+html.es-on .say-es { display: block; }
+.ten-lines .say-es { font-weight: 400; font-size: .82em; opacity: .9; margin-top: .25rem; }
+.ten-note .say-es { margin-top: .3rem; }
+.es-toggle { margin: 0 0 .8rem; }
+.es-hint { font-size: .9rem; margin: 0 0 .8rem; opacity: .9; }
+.screen-mode .say-es { font-size: .6em; font-weight: 400; margin-top: .3rem; }
+
+/* v3.0: citizenship test practice */
+.civ-practice { background: var(--paper-2); border-radius: var(--radius); padding: 1.1rem; margin: 0 0 2rem; }
+.civ-practice h2 { font-size: 1.3rem; }
+.civ-card { background: var(--card); border-radius: var(--radius); padding: 1.1rem; margin: .4rem 0 1rem; }
+.civ-step { font-weight: 700; color: var(--ink-faded); font-size: .92rem; margin: 0 0 .4rem; }
+.civ-big { font-size: 1.35rem; font-weight: 700; line-height: 1.3; margin: 0 0 .8rem; }
+.civ-ans ul { margin: 0 0 .8rem; }
+.civ-did { font-weight: 700; margin: 0 0 .4rem; }
+.civ-mark { display: flex; flex-wrap: wrap; gap: .5rem; }
+.civ-list { display: grid; gap: .4rem; }
+.civ-q { background: var(--paper-2); border-radius: 12px; padding: 0; }
+.civ-q summary { display: flex; gap: .7rem; align-items: baseline; padding: .75rem .9rem; cursor: pointer; list-style: none; font-weight: 700; }
+.civ-q summary::-webkit-details-marker { display: none; }
+.civ-num { color: var(--navy); min-width: 2.2rem; font-variant-numeric: tabular-nums; }
+.civ-text { flex: 1; }
+.civ-star { flex: none; font-size: .78rem; font-weight: 700; padding: .05rem .5rem; border-radius: 999px; background: var(--navy-wash); color: var(--navy); }
+.civ-a { padding: 0 .9rem .8rem 3.8rem; }
+.civ-a ul { margin: 0 0 .4rem; }
+.civ-filter label { display: inline-flex; gap: .5rem; align-items: center; font-weight: 700; min-height: 2.75rem; }
+@media (max-width: 40rem) { .civ-a { padding-left: .9rem; } }
+
+.md-table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 34rem; }
+.md-table th, .md-table td { text-align: left; vertical-align: top; padding: .65rem .6rem; border-bottom: 1px solid var(--rule); }
+.md-table thead th { font-size: .88rem; color: var(--ink-faded); }
+@media (max-width: 40rem) {
+  .md-table { min-width: 0; }
+  .md-table thead { display: none; }
+  .md-table tr { display: grid; gap: .2rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); }
+  .md-table th, .md-table td { border: 0; padding: 0; }
+}
+.ten-actions .listen-btn { background: rgba(255,255,255,.12); color: inherit; border: 2px solid rgba(255,255,255,.35); min-height: var(--tap); padding: .55em 1.1em; }
+.ten-actions .listen-btn.on { background: rgba(255,255,255,.22); }
+.civ-sec { font-size: 1.05rem; margin: 1.2rem 0 .3rem; color: var(--navy); }
+
+/* v3.1: what happens next */
+.steps { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .9rem; }
+.step { background: var(--paper-2); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.step h2 { font-size: 1.3rem; margin: 0 0 .6rem; }
+.step h2:focus { outline: none; }
+.step h3 { font-size: 1rem; margin: .7rem 0 .3rem; color: var(--ink-faded); }
+.step ul { margin: 0 0 .4rem; }
+.step-count { font-weight: 700; color: var(--navy); font-size: .92rem; margin: 0 0 .3rem; font-variant-numeric: tabular-nums; }
+.step-say { background: var(--header); color: var(--on-header); border-radius: 12px; padding: .7rem .9rem; font-weight: 700; font-size: 1.1rem; margin: .7rem 0 .4rem; }
+.step-say .label { display: block; font-size: .82rem; opacity: .8; margin-bottom: .1rem; }
+.step-law { margin: .5rem 0 0; }
+.stepper-bar, .stepper-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; margin: 0 0 .8rem; }
+.stepper-pos { font-weight: 700; }
+.stepper-nav .btn[disabled] { opacity: .45; cursor: default; }

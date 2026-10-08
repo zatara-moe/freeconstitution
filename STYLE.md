@@ -28,6 +28,20 @@ Young adults (16–25), neurodivergent readers (ADHD, autistic, dyslexic), Engli
 - Quotes in Phrase by phrase must match the verbatim text exactly (the build checks this).
 - When unsure a claim is right, leave it out.
 
+## Laws that add to the Constitution
+- Some rights readers ask about come from federal laws, not the Constitution (IDEA, Section 504, the ADA). Put them under the label "Laws that add to the Constitution", and say which law.
+- Outside links in that box go only to Hope for Americans sites without a faith focus (Mama Shepherd, MOEx), or to government and nonprofit legal sources. Free Constitution does not link to the faith sites.
+
+## Immigrant readers
+- Never assume the reader is a citizen. Say "whatever your immigration status" where a right applies to everyone.
+- Wherever voting comes up, keep the warning: noncitizens must not register, vote, or claim citizenship on any form.
+- Point to lawyers and DOJ-accredited representatives only, never to "notarios" or consultants.
+
+## Spanish
+- The say-this lines on situation cards have a Spanish meaning underneath (`ten_second_es`, `ten_second_note_es`). English stays the line to say or show.
+- Every Spanish line gets a blind back-translation by a second reviewer before it ships. Use "usted", avoid gendered forms where you can, and use "Ejerzo mi derecho a guardar silencio" for the right to silence.
+- Full Spanish pages wait for a review by a professional legal translator.
+
 ## Neutrality
 - Hot topics (guns, abortion, immigration, elections, religion, speech): describe what the text says, what the Court held, and what is still debated. No adjectives that signal approval or disapproval.
 - "Who argued what" always shows at least two sides, in their own strongest terms.
@@ -36,7 +50,7 @@ Young adults (16–25), neurodivergent readers (ADHD, autistic, dyslexic), Engli
 - Before passages about slavery, the three-fifths clause, the Fugitive Slave Clause, "Indians not taxed," or exclusion from voting, add a one-sentence heads-up (`content_note`). Explain plainly. Never cut it from the verbatim text.
 
 ## Consistent labels (use exactly these)
-The one-line version · Plain English · Show the original · Phrase by phrase · Picture it · What this means for you · Myth check · Go deeper · The scene · Back then · Words that changed · Who argued what · Key cases · Actively contested · Quick check · If this is happening to you
+The one-line version · Plain English · Show the original · Phrase by phrase · Picture it · What this means for you · Myth check · Go deeper · The scene · Back then · Words that changed · Who argued what · Key cases · Actively contested · Quick check · If this is happening to you · Laws that add to the Constitution
 
 ## Write the short version first
 If you can't write the one-line version, the page isn't ready.

@@ -42,7 +42,9 @@
     - href: /amendments/5/
       label: "The 5th Amendment"
       why: "The rule behind the right to remain silent."
-
+    - href: /what-happens-next/traffic-stop/
+      label: "A traffic stop, step by step"
+      why: "What usually happens next, and what to do at each step."
 - slug: rights-at-school
   title: "Rights at school"
   blurb: "Speech, searches, and equal treatment for students in public schools."
@@ -71,7 +73,7 @@
   steps:
     - href: /situations/first-time-voter/
       label: "Voting for the first time"
-      why: "Registering, ID rules, and what happens at the polls."
+      why: "Who can vote, registering, ID rules, and what happens at the polls."
     - href: /amendments/26/
       label: "Voting at 18"
       why: "Citizens 18 and older cannot be denied the vote for age."
@@ -182,8 +184,8 @@
       why: "Lowers the voting age to 18."
 
 - slug: citizenship-test-basics
-  title: "Citizenship test basics"
-  blurb: "The founding documents and big ideas that civics tests ask about most."
+  title: "Founding documents tour"
+  blurb: "The founding documents behind many civics test questions, then practice all 128 real questions."
   icon: scales
   steps:
     - href: /declaration/
@@ -207,3 +209,46 @@
     - href: /amendments/14/
       label: "Who is a citizen"
       why: "Citizenship by birth or naturalization, and equal protection."
+    - href: /citizenship-test/
+      label: "Practice the civics test"
+      why: "All 128 questions of the 2025 test, with a 20-question practice run."
+- slug: i-just-turned-18
+  title: "I just turned 18"
+  blurb: "Voting, Selective Service, jury duty, and where your rights apply now."
+  icon: star
+  steps:
+    - href: /turning-18/
+      label: "Your civic checklist"
+      why: "Three things that arrive at 18, and who each one applies to."
+    - href: /situations/first-time-voter/
+      label: "Voting for the first time"
+      why: "Who can vote, registering, ID rules, and your rights at the polls."
+    - href: /situations/jury-summons/
+      label: "Jury summons"
+      why: "What to do when one arrives, even if you can't serve."
+    - href: /who-it-covers/
+      label: "Who the Constitution covers"
+      why: "Your rights limit the government, not your boss or an app."
+    - href: /your-voice/
+      label: "Make your voice heard"
+      why: "Ways to take part beyond voting."
+- slug: make-your-voice-heard
+  title: "Make your voice heard"
+  blurb: "Your right to speak, gather, and petition, and how to use it."
+  icon: megaphone
+  steps:
+    - href: /amendments/1/
+      label: "The First Amendment"
+      why: "Speech, assembly, and the right to petition."
+    - href: /your-voice/
+      label: "Ways to take part"
+      why: "Contact officials, speak at meetings, comment on rules."
+    - href: /paths/how-a-law-gets-made/
+      label: "How a law gets made"
+      why: "Where your voice can change a bill."
+    - href: /situations/at-a-protest/
+      label: "At a protest"
+      why: "What to say and do, and what police can and can't do."
+    - href: /situations/first-time-voter/
+      label: "First-time voter"
+      why: "Voting, for citizens 18 and older."

@@ -44,7 +44,7 @@ key_cases:
     held: "Evidence found in an illegal search generally cannot be used against you in a state criminal trial."
   - name: "Terry v. Ohio"
     year: 1968
-    held: "Police can briefly stop and pat down a person if they have reasonable suspicion of a crime and a reason to think the person is armed."
+    held: "Police can briefly stop a person if they have reasonable suspicion of a crime. They can pat the person down if they also have reason to think the person is armed."
   - name: "New Jersey v. T.L.O."
     year: 1985
     held: "Public school officials can search a student with reasonable suspicion, a lower standard than police need."

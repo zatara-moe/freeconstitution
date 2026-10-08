@@ -26,12 +26,13 @@ vercel.json tells Vercel to serve public/ with no build step
 
 `vercel.json` sets these too.
 
-**Uploading through the GitHub website** (it takes at most 100 files per upload). Upload in five batches, keeping the folder structure:
-1. `content/`, `scripts/`, and the root files (`README.md`, `STYLE.md`, `BRAND.md`, `CHANGELOG.md`, `vercel.json`): 97 files
-2. `static/`: 69 files
-3. `public/static/`: 69 files
-4. `public/amendments/` and `public/articles/`: 57 files
-5. Everything else in `public/`: 44 files
+**Uploading through the GitHub website** (it takes at most 100 files per upload). Upload in six batches, keeping the folder structure:
+1. `content/`: 99 files
+2. `scripts/` and the root files (`README.md`, `STYLE.md`, `BRAND.md`, `CHANGELOG.md`, `vercel.json`): 10 files
+3. `static/`: 81 files
+4. `public/static/`: 81 files
+5. `public/amendments/` and `public/articles/`: 57 files
+6. Everything else in `public/`: 59 files
 
 Or use the free **GitHub Desktop** app: drag this folder in and commit once.
 
@@ -44,6 +45,8 @@ Optional cleanup in the repo: these old files are no longer used and can be dele
 
 The build stops and says what's wrong if:
 - a "Phrase by phrase" quote doesn't match the original text exactly
+- the original text (from the National Archives) has changed at all
+- any plain-language sentence is over 25 words
 - any internal link points to a page that doesn't exist
 
 ## How each page is built
@@ -68,12 +71,25 @@ The build stops and says what's wrong if:
 3. Ask Hope for Americans, sister sites, and friendly local groups (libraries, schools, legal aid) to link to `/situations/` and `/bill-of-rights/`. Links from trusted sites matter most for ranking.
 4. Check Search Console monthly. Rewrite the titles and descriptions of pages that show up in search often but get few clicks.
 
+## Review calendar
+
+The law and phone numbers change. Check these on a schedule, and change the "Last updated" date when you do.
+
+| When | What to check |
+|---|---|
+| Every 3 months (January, April, July, October) | `contested:` lists and "Actively contested" sections; the four immigration pages (ICE warrant policy, bond hearings, fast-track deportation, *Noem v. Vasquez Perdomo*); the 14th Amendment page (*Trump v. Barbara*); the 2nd Amendment page (AR-15 cases) |
+| Every 3 months | Every phone number and outside link on the situation cards, including the Mama Shepherd and MOEx links |
+| 60 days before each federal election | Voting cards and the Election Day guide: hotlines, vote.gov, ID rules, and any new proof-of-citizenship rules for registering (for example the SAVE America Act, if it passes) |
+| After each Supreme Court term ends (late June or early July) | Any amendment page touched by a new decision |
+| When USCIS changes the civics test | `content/civics-2025.yml`, the Citizenship test page, and the Founding documents tour path |
+| January 2027, then each quarter | Selective Service: has automatic sign-up started? Update the Turning 18 page. |
+
 ## Accuracy
 
 This site has not been reviewed by a lawyer, and it says so on every page.
 - The original text comes from the National Archives and is never edited.
 - Legal claims cite the Supreme Court case and year.
 - Every page went through an independent fact-check pass (October 2026).
-- Things to re-check after big Supreme Court decisions: `contested:` lists in amendment files, the 2nd Amendment page (AR-15 cases pending), the immigration card, and the hotline numbers before each election.
+- What to re-check, and when, is in the Review calendar above.
 
 Corrections link: set `CONTACT_URL` at the top of `scripts/build.py`. It currently points to hopeforamericans.net.

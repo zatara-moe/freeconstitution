@@ -13,6 +13,12 @@ ten_second:
   - "I am exercising my right to remain silent."
   - "I want to speak to a lawyer."
 ten_second_note: "Keep the door closed. Speak through it calmly."
+ten_second_es:
+  - "Por favor, deslice la orden por debajo de la puerta."
+  - "No doy mi consentimiento para que entren a mi casa."
+  - "Ejerzo mi derecho a guardar silencio."
+  - "Quiero hablar con un abogado."
+ten_second_note_es: "Mantenga la puerta cerrada. Hable a través de ella con calma."
 do:
   - "Keep the door closed and speak through it."
   - "Ask to see the warrant through a window."
@@ -93,8 +99,16 @@ If the warrant is not signed by a judge, you can say: "I do not consent to you e
 ## Make a plan ahead of time
 
 - Find a local nonprofit that gives free or low-cost immigration legal help.
+- Ask that group if your area has a rapid-response line. Some areas send trained volunteers when agents arrive.
 - Write a lawyer's phone number somewhere you can reach it.
 - Keep important papers in a safe place that someone you trust can find.
+- Decide who can pick up your children if you are detained. Tell their school who that person is.
+
+## Get help only from a lawyer or accredited representative
+
+- Only a lawyer or a representative accredited by the U.S. Department of Justice can give you immigration legal advice.
+- A "notario" or immigration consultant cannot. Some charge money and file the wrong forms.
+- The legal directory under "Get help" on this card lists nonprofits with lawyers or accredited representatives.
 
 ## The law you are citing
 

@@ -3,7 +3,7 @@
 - every insight YAML parses and has one_line
 - every phrase quote appears exactly in that document's ## Verbatim text
 - quick_check answers are valid indexes
-- one_line <= 25 words; sentences in plain layers flagged if > 30 words
+- one_line <= 25 words; any plain-language sentence over 25 words fails (check_sentences.py)
 """
 import re, sys
 from pathlib import Path
@@ -38,7 +38,7 @@ def doc_for(stem):
     if kind == "article": return C / "articles" / f"{n}.md"
     return C / f"{stem}.md"
 
-stems = sys.argv[1:] or [p.stem for p in sorted((C / "insights").glob("*.yml"))]
+stems = [a for a in sys.argv[1:] if not a.startswith("--")] or [p.stem for p in sorted((C / "insights").glob("*.yml"))]
 for stem in stems:
     yp = C / "insights" / f"{stem}.yml"
     if not yp.exists():
@@ -107,13 +107,27 @@ for sp in sorted((C / "situations").glob("*.md")):
         elif len(qa["a"].split()) > 70:
             warnings.append(f"situation {sp.stem}: faq answer over 70 words: {qa['q'][:40]!r}")
 
-# verbatim must be unchanged from the original import
-ORIG = Path("/tmp/claude-0/-home-claude/68854712-071e-5fb7-817f-355110082800/scratchpad/orig/content")
-if ORIG.exists():
-    for md in list((C / "amendments").glob("*.md")) + list((C / "articles").glob("*.md")) + [C / "preamble.md", C / "declaration.md"]:
-        om = ORIG / md.relative_to(C)
-        if om.exists() and verbatim_text(body_of(md)[1]) != verbatim_text(body_of(om)[1]):
-            problems.append(f"{md.relative_to(C)}: VERBATIM TEXT CHANGED")
+# verbatim must be unchanged: compare against fingerprints taken from the National Archives import
+import hashlib, json
+LOCK = ROOT / "scripts" / "verbatim.lock.json"
+docs = sorted(list((C / "amendments").glob("*.md")) + list((C / "articles").glob("*.md")) + [C / "preamble.md", C / "declaration.md"])
+prints = {str(md.relative_to(C)): hashlib.sha256(verbatim_text(body_of(md)[1]).encode()).hexdigest() for md in docs}
+if "--lock-verbatim" in sys.argv:
+    LOCK.write_text(json.dumps(prints, indent=1, sort_keys=True) + "\n")
+    print(f"Saved verbatim fingerprints for {len(prints)} documents.")
+elif LOCK.exists():
+    locked = json.loads(LOCK.read_text())
+    for name, h in prints.items():
+        if locked.get(name) != h:
+            problems.append(f"{name}: VERBATIM TEXT CHANGED (or new document: run check_content.py --lock-verbatim)")
+else:
+    problems.append("scripts/verbatim.lock.json is missing")
+
+# STYLE.md: no sentence over 25 words in any plain-language layer
+sys.path.insert(0, str(ROOT / "scripts"))
+from check_sentences import find_long
+for f, where, sent in find_long(str(ROOT)):
+    problems.append(f"{f.split('content/')[1]} ({where}): sentence over 25 words: {sent[:80]!r}")
 
 for w in warnings: print("warn:", w)
 for p in problems: print("FAIL:", p)

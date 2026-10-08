@@ -34,7 +34,7 @@ SITE_URL = "https://freeconstitution.org"
 SITE_NAME = "Free Constitution"
 TAGLINE = "Know your rights. In plain English."
 CONTACT_URL = "https://hopeforamericans.net"   # where "Found a mistake?" points
-ASSET_V = "20261001b"                           # bump to bust browser caches
+ASSET_V = "20261007d"                           # bump to bust browser caches
 TODAY = date.today()
 WPM = 200                                      # reading speed used for "About N min"
 
@@ -63,6 +63,8 @@ FINDER = [
     ("camera", "I want to record police", "/situations/recording-police/"),
     ("ballot", "I'm voting for the first time", "/situations/first-time-voter/"),
     ("megaphone", "I'm going to a protest", "/situations/at-a-protest/"),
+    ("people", "I'm not a citizen. What are my rights?", "/everyone/"),
+    ("chat", "I'm autistic, Deaf, or anxious around police", "/situations/communicating-with-police/"),
 ]
 
 # Homepage "Questions people are asking"
@@ -118,6 +120,11 @@ ICONS = {
     "menu": '<path d="M4 6h16M4 12h16M4 18h16"/>',
     "up": '<path d="M6 15l6-6 6 6"/>',
     "words": '<path d="M4 6h10M4 12h7M4 18h10"/><path d="M15 15l3-8 3 8M16 13h4"/>',
+    "volume": '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
+    "stop": '<rect x="6" y="6" width="12" height="12" rx="2"/>',
+    "chat": '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/>',
+    "lock": '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    "people": '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/>',
 }
 
 
@@ -223,6 +230,17 @@ def md_to_html(src, h_offset=0):
     lines = src.split("\n")
     out, para = [], []
     state = {"list": None, "quote": False}
+    table = []
+
+    def close_table():
+        if not table:
+            return
+        cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in table if not re.match(r"^\|?\s*:?-{3,}", r.strip())]
+        head, rows = cells[0], cells[1:]
+        th = "".join(f'<th scope="col">{inline_md(escape(c))}</th>' for c in head)
+        trs = "".join("<tr>" + "".join((f'<th scope="row">{inline_md(escape(c))}</th>' if i == 0 else f"<td>{inline_md(escape(c))}</td>") for i, c in enumerate(r)) + "</tr>" for r in rows)
+        out.append(f'<div class="tscroll"><table class="md-table"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div>')
+        table.clear()
 
     def close_para():
         if para:
@@ -242,6 +260,11 @@ def md_to_html(src, h_offset=0):
     for line in lines:
         s = line.strip()
         m_ol = re.match(r"^(\d+)\.\s+(.*)$", s)
+        if s.startswith("|"):
+            close_para(); close_list(); close_quote()
+            table.append(s)
+            continue
+        close_table()
         if s.startswith("#### ") or s.startswith("### ") or s.startswith("## "):
             close_para(); close_list(); close_quote()
             level = len(s.split(" ")[0])
@@ -275,7 +298,7 @@ def md_to_html(src, h_offset=0):
         else:
             close_list(); close_quote()
             para.append(s)
-    close_para(); close_list(); close_quote()
+    close_para(); close_list(); close_quote(); close_table()
     return "\n".join(out)
 
 
@@ -439,7 +462,7 @@ def footer_html():
     <nav class="foot-nav" aria-label="More">
       <a href="/bill-of-rights/">Bill of Rights</a><a href="/timeline/">Timeline</a><a href="/words/">Words</a><a href="/memorize/">Know it by heart</a>
       <a href="/full-text/">Full text</a><a href="/preamble/">Preamble</a><a href="/declaration/">Declaration</a>
-      <a href="/about/">About</a><a href="/sources/">Sources</a>
+      <a href="/everyone/">Rights for everyone</a><a href="/citizenship-test/">Citizenship test</a><a href="/what-happens-next/">What happens next</a><a href="/turning-18/">Turning 18</a><a href="/who-it-covers/">Who the Constitution covers</a><a href="/your-voice/">Make your voice heard</a><a href="/about/">About</a><a href="/sources/">Sources</a>
     </nav>
     <p class="foot-legal">Plain-language explanations, not legal advice. Not reviewed by a lawyer. <a href="/about/">How we check our work</a>.</p>
     <p class="foot-updated">Last updated {fmt_date(TODAY)}</p>
@@ -596,11 +619,17 @@ def doc_head(kicker, title, subject, minutes, crumb_html, icon_name="book"):
 </header>"""
 
 
+def listen_btn(target, label="Listen"):
+    """Read-aloud button. Hidden until the browser offers a voice (app.js)."""
+    return (f'<button type="button" class="listen-btn" data-listen="{target}" hidden>'
+            f'{icon("volume")}<span data-listen-label>{label}</span></button>')
+
+
 def one_line_html(ins, label="The one-line version"):
     if not ins.get("one_line"):
         return ""
     return (f'<section class="one-line" aria-label="{label}"><p class="label">{icon("star")}{label}</p>'
-            f'<p class="one-line-text">{md(ins["one_line"])}</p></section>')
+            f'<p class="one-line-text">{md(ins["one_line"])}</p>{listen_btn(".one-line-text")}</section>')
 
 
 def heads_up(ins):
@@ -619,7 +648,8 @@ def layer(id_, title, icon_name, inner, cls="", tag=""):
 def plain_and_original(plain_html, verbatim_html, orig_label, used, id_="plain-english", title="Plain English"):
     """`title` becomes the H2, e.g. "The Fourth Amendment in plain English"."""
     linked = TERMS.link(plain_html, used)
-    inner = f"""<div class="compare" data-compare>
+    inner = f"""{listen_btn(".plain-col", "Listen to the plain English")}
+<div class="compare" data-compare>
   <div class="plain-col">{linked}</div>
   <div class="orig-col" id="{id_}-original">
     <p class="label">{icon("quote")}{escape(orig_label)}</p>
@@ -1027,8 +1057,17 @@ def render_situation(s, prev_s, next_s):
     used = set()
     S = split_h2(body)
     ten = f.get("ten_second") or []
-    ten_html = "".join(f"<li>{md(t)}</li>" for t in ten)
-    note = f'<p class="ten-note">{md(f.get("ten_second_note"))}</p>' if f.get("ten_second_note") else ""
+    ten_es = f.get("ten_second_es") or []
+    if ten_es and len(ten_es) != len(ten):
+        raise SystemExit(f"{slug}: ten_second_es must have one line per ten_second line")
+    def say_li(i, t):
+        es = f'<span class="say-es" lang="es">{escape(ten_es[i])}</span>' if ten_es else ""
+        return f'<li><span class="say-en">{md(t)}</span>{es}</li>'
+    ten_html = "".join(say_li(i, t) for i, t in enumerate(ten))
+    note_es = f'<span class="say-es" lang="es">{escape(f["ten_second_note_es"])}</span>' if f.get("ten_second_note_es") else ""
+    note = f'<p class="ten-note">{md(f.get("ten_second_note"))}{note_es}</p>' if f.get("ten_second_note") else ""
+    es_toggle = ('<button type="button" class="btn btn-light es-toggle" data-es-toggle aria-pressed="false" lang="es">Ver en espa&ntilde;ol</button>'
+                 '<p class="es-hint say-es" lang="es">Diga o muestre la frase en ingl&eacute;s. Debajo est&aacute; lo que significa. Traducci&oacute;n de Hope for Americans.</p>') if ten_es else ""
     do = "".join(f"<li>{icon('check')}<span>{md(x)}</span></li>" for x in f.get("do") or [])
     dont = "".join(f"<li>{icon('x')}<span>{md(x)}</span></li>" for x in f.get("dont") or [])
     sections, law = [], ""
@@ -1059,10 +1098,12 @@ def render_situation(s, prev_s, next_s):
 {doc_head("Situation card &middot; Know your rights", f.get("h1") or f["title"], f.get("summary", ""), mins, crumbs(("Know your rights", "/situations/"), (f["title"], None)), f.get("icon", "shield"))}
 <section class="ten-second" aria-labelledby="ten-h" data-wallet="{wallet}">
   <p class="label" id="ten-h">{icon("clock")}The 10-second version: say this</p>
+  {es_toggle}
   <ol class="ten-lines">{ten_html}</ol>
   {note}
   <div class="ten-actions">
     <button type="button" class="btn btn-light" data-show-screen>{icon("expand")} Show on screen</button>
+    <button type="button" class="btn btn-light listen-btn" data-listen=".ten-lines .say-en" hidden>{icon("volume")}<span data-listen-label>Listen</span></button>
     <button type="button" class="btn btn-light" data-save-offline>{icon("download")} Save to phone</button>
     <button type="button" class="btn btn-light" data-print-wallet>{icon("printer")} Print wallet card</button>
   </div>
@@ -1073,6 +1114,7 @@ def render_situation(s, prev_s, next_s):
   <div class="dont"><h2>{icon("x")}Don't</h2><ul>{dont}</ul></div>
 </section>
 {varies}
+{practice_html(slug, ten)}
 {"".join(sections)}
 {faq_html(f.get("faq"))}
 {f'<section class="layer depth-std">{law}</section>' if law else ""}
@@ -1095,6 +1137,25 @@ def render_situation(s, prev_s, next_s):
     register(url, f.get("h1") or f["title"], "Situation", mins, desc, " ".join([desc, " ".join(ten), plain_text(md_to_html(body))] + [q["q"] + " " + q["a"] for q in f.get("faq") or []]),
              f.get("icon", "shield"))
     return url
+
+
+def practice_html(slug, lines):
+    """Rehearse the say-this lines with the Know it by heart engine (app.js)."""
+    if not lines:
+        return ""
+    data = json.dumps([{"slug": "say-" + slug, "chunks": lines, "list": True}]).replace("</", "<\\/")
+    return f"""<details class="fold practice"><summary><span>{icon("brain")} Practice saying it</span>{icon("right", "ic chev")}</summary><div class="fold-body">
+<section class="mem" data-mem="say-{slug}">
+  <p class="hint">Saying it out loud a few times makes it easier to remember under stress. Nothing is saved.</p>
+  <div class="segs mem-modes" role="tablist" aria-label="Practice mode">
+    <button type="button" class="seg-btn on" data-mode="read" role="tab" aria-selected="true">Read</button>
+    <button type="button" class="seg-btn" data-mode="letters" role="tab" aria-selected="false">First letters</button>
+    <button type="button" class="seg-btn" data-mode="order" role="tab" aria-selected="false">Put in order</button>
+  </div>
+  <div class="mem-stage" data-stage aria-live="polite">{"".join(f"<p>{escape(l)}</p>" for l in lines)}</div>
+</section>
+<script type="application/json" data-mem-data>{data}</script>
+</div></details>"""
 
 
 def sit_card(f):
@@ -1359,7 +1420,7 @@ def render_words(gloss):
     terms = [{"@type": "DefinedTerm", "name": g["term"], "description": g["def"], "url": f"{SITE_URL}/words/#{slugify(g['term'])}"} for g in gloss]
     jld = {"@type": "DefinedTermSet", "name": "Constitution glossary", "url": f"{SITE_URL}{url}", "hasDefinedTerm": terms}
     write(url, page_shell("Constitution Glossary: Legal Terms in Plain English",
-                          "Plain-English definitions of 60 legal terms in the Constitution: probable cause, due process, equal protection, Miranda warnings, and more.",
+                          f"Plain-English definitions of {len(gloss)} legal terms in the Constitution: probable cause, due process, equal protection, Miranda warnings, and more.",
                           body, url, og_image="/static/og/words.jpg", page_title="Words", jsonld=jld))
     register(url, "Words", "Glossary", 3, "Legal words in plain English.", "", "words")
 
@@ -1432,6 +1493,190 @@ def render_simple(name, url):
 </article>"""
     write(url, page_shell(seo_title(f.get("seo_title") or f["title"]), f.get("seo_description") or f.get("summary", f["title"]), page, url, page_title=f["title"]))
     register(url, f["title"], "Page", minutes_for(html), f.get("summary", ""), plain_text(html), "info")
+
+
+def render_everyone():
+    f, body = load_md(CONTENT / "everyone.md")
+    url = "/everyone/"
+    used = set()
+    rows = "".join(
+        f'<tr><th scope="row"><span class="says">&ldquo;{escape(r["says"])}&rdquo;</span></th>'
+        f'<td><a href="{r["href"]}">{escape(r["where"])}</a></td><td>{escape(r["protects"])}</td>'
+        f'<td><span class="who {"who-all" if r["who"].startswith(("Everyone", "Anyone")) else ("who-debated" if r["who"].startswith("Debated") else "who-cit")}">{escape(r["who"])}</span></td></tr>'
+        for r in f["rows"])
+    table = f"""<section class="layer" id="the-words" aria-labelledby="the-words-h">
+<h2 id="the-words-h"><span>The Constitution's own words</span></h2>
+<div class="tscroll"><table class="words-table"><thead><tr><th scope="col">The text says</th><th scope="col">Where</th><th scope="col">What it protects</th><th scope="col">Who it covers</th></tr></thead>
+<tbody>{rows}</tbody></table></div></section>"""
+    sections = "".join(f'<section class="sit-sec" id="{slugify(h)}"><h2>{escape(h)}</h2>{TERMS.link(md_to_html(m, 1), used)}</section>' for h, m in split_h2(body))
+    mins = minutes_for(f.get("one_line", ""), md_to_html(body), rows)
+    page = f"""<article class="doc wrap">
+{doc_head("Know your rights &middot; For everyone", f["title"], f.get("summary", ""), mins, crumbs(("Know your rights", "/situations/"), ("Rights for everyone", None)), "people")}
+{one_line_html({"one_line": f["one_line"]})}
+{table}
+{sections}
+{faq_html(f.get("faq"))}
+{accuracy_note()}
+</article>"""
+    desc = f.get("seo_description") or f["summary"]
+    og = "/static/og/everyone.jpg"
+    write(url, page_shell(seo_title(f["seo_title"]), desc, page, url, og_image=og, og_type="article",
+                          jsonld=[article_ld(url, f["seo_title"], desc, og), faq_ld(f.get("faq"))], page_title="Rights for everyone"))
+    register(url, f["title"], "Know your rights", mins, desc,
+             " ".join([desc, plain_text(md_to_html(body))] + [q["q"] + " " + q["a"] for q in f.get("faq") or []]), "people")
+
+
+CIVICS_FAQ = [
+    {"q": "How many questions are on the citizenship civics test?",
+     "a": "For applications filed on or after October 20, 2025, there are 128 possible questions. The officer asks up to 20 of them out loud. You need 12 correct answers to pass."},
+    {"q": "What is the 65/20 rule?",
+     "a": "If you are 65 or older and have had a green card for at least 20 years, you study only 20 marked questions. The officer asks 10 of them, and you need 6 correct answers."},
+    {"q": "Which civics test will I take?",
+     "a": "It depends on when you filed Form N-400. If you filed on or after October 20, 2025, you take the 2025 test on this page. If you filed before that date, you take the 2008 test of 100 questions."},
+]
+
+
+def render_civics():
+    qs = load_yaml("civics-2025.yml")
+    url = "/citizenship-test/"
+    TU = "https://www.uscis.gov/citizenship/testupdates"
+    def answers_html(q):
+        if q.get("look") == "testupdates":
+            body = f'<p>This answer changes. Answer with the person serving on the day of your interview. Check at <a href="{TU}" rel="noopener">uscis.gov/citizenship/testupdates</a>.</p>'
+        elif q.get("look") == "local":
+            body = "<p>Answers depend on where you live. Look up your own answer before your interview.</p>"
+        else:
+            body = "<ul>" + "".join(f"<li>{escape(a)}</li>" for a in q["a"]) + "</ul>"
+        if q.get("note"):
+            body += f'<p class="hint">{escape(q["note"])}</p>'
+        return body
+    items = ""
+    last_sec = None
+    for q in qs:
+        if q.get("sec") != last_sec:
+            last_sec = q.get("sec")
+            items += f'<h3 class="civ-sec">{escape(last_sec)}</h3>'
+        items += (
+        f'<details class="civ-q" data-civ-n="{q["n"]}"{" data-civ-6520" if q.get("s") else ""}>'
+        f'<summary><span class="civ-num">{q["n"]}</span><span class="civ-text">{escape(q["q"])}</span>'
+        f'{"<span class=" + chr(34) + "civ-star" + chr(34) + " title=" + chr(34) + "65/20 question" + chr(34) + ">65/20</span>" if q.get("s") else ""}</summary>'
+        f'<div class="civ-a">{answers_html(q)}</div></details>')
+    data = json.dumps([{"n": q["n"], "q": q["q"], "s": 1 if q.get("s") else 0, "h": answers_html(q)} for q in qs]).replace("</", "<\\/")
+    page = f"""<article class="doc wrap civics">
+{doc_head("Citizenship test practice", "Practice the citizenship civics test", "All 128 questions from the 2025 test, with the official answers. Practice out loud, one question at a time.", 10, crumbs(("Citizenship test practice", None)), "flag")}
+{one_line_html({"one_line": "The officer asks up to 20 of these 128 questions out loud. Answer 12 correctly to pass."})}
+<section class="sit-sec" id="which-test"><h2>Which test do I take?</h2>
+<ul><li>Filed Form N-400 on or after October 20, 2025: you take the 2025 test on this page.</li>
+<li>Filed before October 20, 2025: you take the 2008 test of 100 questions. Find it at <a href="https://www.uscis.gov/citizenship" rel="noopener">uscis.gov/citizenship</a>.</li>
+<li>65 or older with a green card for 20 years or more: study only the 20 questions marked 65/20. The officer asks 10, and you need 6 right. You may take the test in the language of your choice.</li>
+<li>For questions about who holds an office now, answer with the person serving on the day of your interview.</li>
+<li>Words in parentheses are optional. You can say the answer with or without them.</li></ul></section>
+<section class="civ-practice" data-civ hidden aria-labelledby="civ-h">
+  <h2 id="civ-h">Practice a test</h2>
+  <div class="segs" role="radiogroup" aria-label="Which questions">
+    <label class="seg"><input type="radio" name="civset" value="all" checked><span>All 128</span></label>
+    <label class="seg"><input type="radio" name="civset" value="6520"><span>65/20 only</span></label>
+  </div>
+  <p><button type="button" class="btn btn-primary" data-civ-start>Start a practice test</button></p>
+  <div class="civ-card" data-civ-card hidden aria-live="polite"></div>
+  <p class="hint">Say each answer out loud before you check it. The real test is spoken. Nothing is saved.</p>
+</section>
+<section class="layer" id="all-questions" aria-labelledby="all-questions-h">
+<h2 id="all-questions-h"><span>All 128 questions and answers</span></h2>
+<p class="civ-filter"><label><input type="checkbox" data-civ-only6520> Show only the 65/20 questions</label></p>
+<div class="civ-list">{items}</div>
+<p class="hint">Source: USCIS 2025 civics test, Form M-1778 (09/25), a public domain U.S. government document, checked word for word on October 7, 2026. Questions about current officials change: check <a href="{TU}" rel="noopener">uscis.gov/citizenship/testupdates</a> before your interview.</p>
+</section>
+{faq_html(CIVICS_FAQ)}
+{accuracy_note()}
+</article>
+<script type="application/json" id="civ-data">{data}</script>"""
+    desc = "Practice all 128 questions of the 2025 U.S. citizenship civics test, with official answers, a 20-question practice test, and the 65/20 questions."
+    write(url, page_shell(seo_title("Citizenship Test Practice: All 128 Civics Questions (2025)"), desc, page, url,
+                          og_image="/static/og/citizenship-test.jpg", jsonld=[article_ld(url, "Citizenship test practice", desc, "/static/og/citizenship-test.jpg"), faq_ld(CIVICS_FAQ)],
+                          page_title="Citizenship test practice"))
+    register(url, "Citizenship test practice", "Practice", 10, desc, " ".join(q["q"] for q in qs), "flag")
+
+
+def render_guide(name):
+    """A short guide page: one-line version, sections, common questions."""
+    f, body = load_md(CONTENT / f"{name}.md")
+    url = f"/{f['slug']}/"
+    used = set()
+    sections = "".join(f'<section class="sit-sec" id="{slugify(h)}"><h2>{escape(h)}</h2>{TERMS.link(md_to_html(m, 1), used)}</section>' for h, m in split_h2(body))
+    mins = minutes_for(f.get("one_line", ""), md_to_html(body))
+    page = f"""<article class="doc wrap guide">
+{doc_head(f.get("kicker", "Know your rights"), f.get("h1") or f["title"], f.get("summary", ""), mins, crumbs((f["title"], None)), f.get("icon", "book"))}
+{one_line_html({"one_line": f["one_line"]}) if f.get("one_line") else ""}
+{sections}
+{faq_html(f.get("faq"))}
+{accuracy_note()}
+</article>"""
+    desc = f.get("seo_description") or f["summary"]
+    og = f"/static/og/{f['slug']}.jpg"
+    write(url, page_shell(seo_title(f.get("seo_title") or f["title"]), desc, page, url, og_image=og, og_type="article",
+                          jsonld=[article_ld(url, f.get("seo_title") or f["title"], desc, og), faq_ld(f.get("faq"))], page_title=f["title"]))
+    register(url, f.get("h1") or f["title"], "Guide", mins, desc,
+             " ".join([desc, plain_text(md_to_html(body))] + [q["q"] + " " + q["a"] for q in f.get("faq") or []]), f.get("icon", "book"))
+
+
+def render_next():
+    """Step-by-step "what happens next" guides (family rule 8: numbered steps)."""
+    seqs = load_yaml("next.yml")
+    cards = ""
+    for q in seqs:
+        url = f"/what-happens-next/{q['slug']}/"
+        n = len(q["steps"])
+        used = set()
+        steps = ""
+        for i, st in enumerate(q["steps"], 1):
+            when = f' &middot; {escape(st["when"])}' if st.get("when") else ""
+            hap = "".join(f"<li>{md(x)}</li>" for x in st.get("happens") or [])
+            you = "".join(f"<li>{md(x)}</li>" for x in st.get("you") or [])
+            say = f'<p class="step-say"><span class="label">Say</span>&ldquo;{escape(st["say"])}&rdquo;</p>' if st.get("say") else ""
+            law = f'<p class="step-law"><a class="text-link" href="{st["law"]["href"]}">{escape(st["law"]["label"])} {icon("right")}</a></p>' if st.get("law") else ""
+            steps += f"""<li class="step" id="step-{i}" data-step>
+  <p class="step-count">Step {i} of {n}{when}</p>
+  <h2>{escape(st["title"])}</h2>
+  {f'<h3>What usually happens</h3><ul>{TERMS.link(hap, used)}</ul>' if hap else ""}
+  {f'<h3>What you can do</h3><ul>{TERMS.link(you, used)}</ul>' if you else ""}
+  {say}{law}
+</li>"""
+        body = f"""<article class="doc wrap next-guide">
+{doc_head("What happens next", q["h1"], q["summary"], max(2, n // 2), crumbs(("What happens next", "/what-happens-next/"), (q["title"], None)), q.get("icon", "list"))}
+<p class="lede">{md(q["intro"])}</p>
+<div class="stepper" data-stepper>
+  <div class="stepper-bar" data-stepper-bar hidden>
+    <span class="stepper-pos" data-stepper-pos aria-live="polite"></span>
+    <button type="button" class="btn btn-quiet" data-stepper-all>Show all steps</button>
+  </div>
+  <ol class="steps">{steps}</ol>
+  <div class="stepper-nav" data-stepper-nav hidden>
+    <button type="button" class="btn btn-quiet" data-stepper-prev>{icon("left")} Back</button>
+    <button type="button" class="btn btn-primary" data-stepper-next>Next {icon("right")}</button>
+  </div>
+</div>
+{faq_html(q.get("faq"))}
+{accuracy_note()}
+</article>"""
+        og = f"/static/og/next-{q['slug']}.jpg"
+        desc = q["seo_description"]
+        write(url, page_shell(seo_title(q["seo_title"]), desc, body, url, og_image=og, og_type="article",
+                              jsonld=[article_ld(url, q["seo_title"], desc, og), faq_ld(q.get("faq"))], page_title=q["title"]))
+        text = " ".join(" ".join((st.get("happens") or []) + (st.get("you") or [])) for st in q["steps"])
+        register(url, q["h1"], "What happens next", max(2, n // 2), desc, text, q.get("icon", "list"))
+        cards += (f'<a class="sit-card" href="{url}"><span class="sit-ic">{icon(q.get("icon", "list"))}</span>'
+                  f'<span class="sit-body"><span class="sit-title">{escape(q["title"])}</span><span class="sit-sum">{escape(q["summary"])}</span>'
+                  f'<span class="sit-min">{n} steps</span></span>{icon("right", "ic go")}</a>')
+    url = "/what-happens-next/"
+    body = f"""<section class="wrap page">
+  {crumbs(("What happens next", None))}
+  <h1>What happens next</h1>
+  <p class="lede">Step-by-step guides for stressful moments. Knowing what comes next makes it easier to stay calm and use your rights.</p>
+  <div class="sit-grid">{cards}</div>
+</section>"""
+    write(url, page_shell(seo_title("What Happens Next: Traffic Stops, Arrests, Election Day"), "Step-by-step guides to what usually happens at a traffic stop, after an arrest, and on Election Day, with your rights at each step.", body, url, page_title="What happens next"))
+    register(url, "What happens next", "Guides", 2, "Step-by-step guides for stressful moments.", "", "list")
 
 
 def render_search_page():
@@ -1780,6 +2025,11 @@ def main():
     render_amendments_index(amendments, all_ins)
     render_bill_of_rights(amendments, all_ins)
     render_articles_index(articles)
+    render_everyone()
+    render_civics()
+    for g in ("turning-18", "who-it-covers", "your-voice"):
+        render_guide(g)
+    render_next()
     render_simple("about", "/about/")
     render_simple("sources", "/sources/")
     render_timeline(events)

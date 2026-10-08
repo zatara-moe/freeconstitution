@@ -12,6 +12,11 @@ ten_second:
   - "I want a lawyer."
   - "Am I being detained, or am I free to leave?"
 ten_second_note: "Say it calmly. Then stop talking."
+ten_second_es:
+  - "Ejerzo mi derecho a guardar silencio."
+  - "Quiero un abogado."
+  - "¿Me están deteniendo o puedo irme?"
+ten_second_note_es: "Dígalo con calma. Luego deje de hablar."
 do:
   - "Stay calm and keep your hands visible."
   - "Say out loud that you are staying silent."
@@ -95,6 +100,10 @@ Miranda warnings are the "you have the right to remain silent" speech. Police mu
 2. Being questioned.
 
 If police are talking to you on the street and you are free to leave, they do not have to read Miranda warnings. Anything you say can still be used. This is why it is safest to use your rights as soon as questioning starts.
+
+## What happens next
+
+- Step by step, from booking to the first court date: [After an arrest](/what-happens-next/arrest/).
 
 ## The law you are citing
 

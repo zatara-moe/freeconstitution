@@ -10,8 +10,13 @@ related_amendments: [4, 5]
 ten_second:
   - "I do not consent to this search."
   - "Am I being detained, or am I free to leave?"
-  - "I want to remain silent. I want a lawyer."
+  - "I am exercising my right to remain silent. I want a lawyer."
 ten_second_note: "Say it calmly, even if they search anyway. Do not physically stop them."
+ten_second_es:
+  - "No doy mi consentimiento para este registro."
+  - "¿Me están deteniendo o puedo irme?"
+  - "Ejerzo mi derecho a guardar silencio. Quiero un abogado."
+ten_second_note_es: "Dígalo con calma, aunque registren de todos modos. No se resista físicamente."
 do:
   - "Say clearly that you do not consent."
   - "Keep your hands visible."
@@ -86,7 +91,7 @@ During a frisk, police generally cannot go into your pockets. The exception is i
 
 - Pull over safely. Turn on the inside light at night. Keep your hands on the steering wheel.
 - Show your driver's license, registration, and proof of insurance if asked.
-- You do not have to answer other questions. Say: "I want to remain silent."
+- You do not have to answer other questions. Say: "I am exercising my right to remain silent."
 - Say: "I do not consent to a search of this vehicle."
 - Police may still search if they have probable cause. Your "no" still protects your rights in court.
 
@@ -96,6 +101,10 @@ During a frisk, police generally cannot go into your pockets. The exception is i
 - Say: "I do not consent to a search of my phone."
 - You do not have to tell police your passcode because they ask.
 - Courts disagree about whether a judge can order you to unlock a phone. The rules for fingerprint and face unlock are also unsettled and differ by state.
+
+## What happens next
+
+- Step by step, from the lights behind you to the end of the stop: [A traffic stop](/what-happens-next/traffic-stop/).
 
 ## The law you are citing
 

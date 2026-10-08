@@ -10,8 +10,13 @@ related_amendments: [1, 4, 5]
 ten_second:
   - "Am I being detained, or am I free to leave?"
   - "I do not consent to a search."
-  - "I want to remain silent. I want a lawyer."
+  - "I am exercising my right to remain silent. I want a lawyer."
 ten_second_note: "If police order the crowd to leave, leave. Argue it later with a lawyer."
+ten_second_es:
+  - "¿Me están deteniendo o puedo irme?"
+  - "No doy mi consentimiento para un registro."
+  - "Ejerzo mi derecho a guardar silencio. Quiero un abogado."
+ten_second_note_es: "Si la policía ordena a la multitud que se vaya, váyase. Si cree que fue injusto, consúltelo después con un abogado."
 do:
   - "Stay on public sidewalks, parks, and plazas."
   - "Follow orders to leave the area."
@@ -42,7 +47,7 @@ faq:
   - q: "Do I need a permit to protest?"
     a: "It depends on your city and the kind of protest. Cities can require permits for marches that block streets. Cities can also set rules about time, place, and manner, but these rules cannot be based on what you are saying. Check your city's rules."
   - q: "Can police arrest me at a protest?"
-    a: "Yes, if police have probable cause that you broke a law, such as blocking traffic or staying after an order to leave. If you are arrested, do not physically resist. Say: \"I want to remain silent. I want a lawyer.\" A lawyer can challenge the arrest later."
+    a: "Yes, if police have probable cause that you broke a law, such as blocking traffic or staying after an order to leave. If you are arrested, do not physically resist. Say: \"I am exercising my right to remain silent. I want a lawyer.\" A lawyer can challenge the arrest later."
   - q: "Can I record at a protest?"
     a: "Yes, in most cases. Many federal appeals courts have said you have a right to record police in public. Do not get in their way while you record. Police generally need a warrant to search your phone."
   - q: "What is a dispersal order?"
@@ -80,7 +85,7 @@ Many federal appeals courts have said you have a right to record police in publi
 ## If you are arrested
 
 - Do not physically resist, even if you think the arrest is unfair. A lawyer can challenge it later.
-- Say: "I want to remain silent. I want a lawyer." Then stop talking.
+- Say: "I am exercising my right to remain silent. I want a lawyer." Then stop talking.
 - Say: "I do not consent to a search." Police generally need a warrant to search your phone.
 - Many states let you make a phone call after you are booked. Call a lawyer or someone who can find you one.
 
