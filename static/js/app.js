@@ -23,7 +23,7 @@
     if (prefs.focus) html.setAttribute("data-focus", "on"); else html.removeAttribute("data-focus");
     $$(".focus-exit").forEach(function (b) { b.hidden = !prefs.focus; });
     $$("[data-toggle-focus]").forEach(function (b) {
-      if (!b.classList.contains("focus-exit")) b.lastChild.textContent = prefs.focus ? " Turn off focus" : " Turn on focus";
+      if (!b.classList.contains("focus-exit")) b.lastChild.textContent = prefs.focus ? " Turn off focus mode" : " Turn on focus mode";
     });
     var deep = prefs.depth === "deep";
     $$("details[data-deep-open]").forEach(function (x) { if (deep) x.open = true; });
@@ -325,15 +325,14 @@
   });
 
   /* ---------- Memorize ---------- */
-  var memSources = $$("#mem-data, script[data-mem-data]");
-  if (memSources.length) {
-    var MEM = {};
-    memSources.forEach(function (src) { JSON.parse(src.textContent).forEach(function (m) { MEM[m.slug] = m; }); });
+  var memData = $("#mem-data");
+  if (memData) {
+    var MEM = {}; JSON.parse(memData.textContent).forEach(function (m) { MEM[m.slug] = m; });
     $$("[data-mem]").forEach(function (box) {
       var m = MEM[box.getAttribute("data-mem")], stage = $("[data-stage]", box);
       function mode(name) {
         $$(".seg-btn", box).forEach(function (b) { var on = b.getAttribute("data-mode") === name; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); });
-        if (name === "read") stage.innerHTML = m.list ? m.chunks.map(function (c) { return "<p>" + esc(c) + "</p>"; }).join("") : "<p>" + esc(m.chunks.join(" ")) + "</p>";
+        if (name === "read") stage.innerHTML = "<p>" + esc(m.chunks.join(" ")) + "</p>";
         if (name === "letters") {
           var words = m.chunks.join(" ").split(/\s+/);
           stage.innerHTML = '<p class="hint">Say each word. Tap a letter to check it.</p><p>' + words.map(function (w) {
@@ -366,127 +365,6 @@
     });
   }
 
-  /* ---------- Step-by-step guides: one step at a time, or all on one page ---------- */
-  $$("[data-stepper]").forEach(function (box) {
-    var steps = $$("[data-step]", box), i = 0, all = false;
-    if (steps.length < 2) return;
-    var bar = $("[data-stepper-bar]", box), nav = $("[data-stepper-nav]", box), pos = $("[data-stepper-pos]", box);
-    var prev = $("[data-stepper-prev]", box), next = $("[data-stepper-next]", box), allBtn = $("[data-stepper-all]", box);
-    function render(focus) {
-      steps.forEach(function (st, k) { st.hidden = !all && k !== i; });
-      nav.hidden = all;
-      pos.textContent = all ? "All " + steps.length + " steps" : "Step " + (i + 1) + " of " + steps.length;
-      allBtn.textContent = all ? "One step at a time" : "Show all steps";
-      prev.disabled = i === 0;
-      next.hidden = i === steps.length - 1;
-      if (focus) { var h = $("h2", steps[i]); box.scrollIntoView({ block: "start" }); if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); } }
-    }
-    var m = /^#step-(\d+)$/.exec(location.hash); if (m) i = Math.min(steps.length - 1, Math.max(0, +m[1] - 1));
-    bar.hidden = false; render(false);
-    prev.addEventListener("click", function () { if (i > 0) { i--; render(true); } });
-    next.addEventListener("click", function () { if (i < steps.length - 1) { i++; render(true); } });
-    allBtn.addEventListener("click", function () { all = !all; render(false); });
-  });
-
-  /* ---------- Citizenship test practice ---------- */
-  var civBox = $("[data-civ]"), civData = $("#civ-data");
-  if (civBox && civData) {
-    var CIV = JSON.parse(civData.textContent), card = $("[data-civ-card]", civBox), run = null;
-    civBox.hidden = false;
-    var only = $("[data-civ-only6520]");
-    if (only) only.addEventListener("change", function () {
-      $$(".civ-q").forEach(function (q) { q.hidden = only.checked && !q.hasAttribute("data-civ-6520"); });
-      $$(".civ-sec").forEach(function (h) { var el = h.nextElementSibling, any = false; while (el && el.classList.contains("civ-q")) { if (!el.hidden) any = true; el = el.nextElementSibling; } h.hidden = !any; });
-    });
-    function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
-    function start(pool, size, need) {
-      run = { qs: shuffle(pool.slice()).slice(0, size), i: 0, known: 0, missed: [], need: need };
-      card.hidden = false; show();
-      card.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    function show() {
-      var q = run.qs[run.i];
-      card.innerHTML = '<p class="civ-step">Question ' + (run.i + 1) + " of " + run.qs.length + " &middot; Number " + q.n + "</p>" +
-        '<p class="civ-big" data-civ-q>' + esc(q.q) + "</p>" +
-        '<p><button type="button" class="listen-btn" data-civ-say>' + "Hear the question" + "</button></p>" +
-        '<p><button type="button" class="btn btn-primary" data-civ-show>Show the answers</button></p>' +
-        '<div class="civ-ans" hidden>' + q.h + '<p class="civ-did">Did you know it?</p><p class="civ-mark"><button type="button" class="btn btn-quiet" data-civ-yes>I knew it</button> <button type="button" class="btn btn-quiet" data-civ-no>Not yet</button></p></div>';
-      var say = $("[data-civ-say]", card);
-      if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
-        say.addEventListener("click", function () { speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(q.q); u.lang = "en-US"; u.rate = 0.85; speechSynthesis.speak(u); });
-      } else { say.parentNode.remove(); }
-      $("[data-civ-show]", card).addEventListener("click", function () { this.parentNode.remove(); $(".civ-ans", card).hidden = false; $("[data-civ-yes]", card).focus(); });
-      $("[data-civ-yes]", card).addEventListener("click", function () { run.known++; next(); });
-      $("[data-civ-no]", card).addEventListener("click", function () { run.missed.push(q); next(); });
-    }
-    function next() {
-      run.i++;
-      if (run.i < run.qs.length) { show(); return; }
-      var pass = run.known >= run.need;
-      card.innerHTML = '<p class="civ-big">You knew ' + run.known + " of " + run.qs.length + ".</p>" +
-        "<p>" + (pass ? "That would pass. On the real test you need " + run.need + " right." : "On the real test you need " + run.need + " right. Keep practicing, one question at a time.") + "</p>" +
-        (run.missed.length ? '<p><button type="button" class="btn btn-primary" data-civ-again>Practice the ' + run.missed.length + " you missed</button></p>" : "") +
-        '<p><button type="button" class="btn btn-quiet" data-civ-new>Start a new practice test</button></p>';
-      var missed = run.missed;
-      var again = $("[data-civ-again]", card);
-      if (again) again.addEventListener("click", function () { start(missed, missed.length, Math.ceil(missed.length * 0.6)); });
-      $("[data-civ-new]", card).addEventListener("click", begin);
-      card.focus && card.setAttribute("tabindex", "-1");
-    }
-    function begin() {
-      var set = ($('input[name="civset"]:checked', civBox) || {}).value;
-      if (set === "6520") start(CIV.filter(function (q) { return q.s; }), 10, 6);
-      else start(CIV, 20, 12);
-    }
-    $("[data-civ-start]", civBox).addEventListener("click", begin);
-  }
-
-  /* ---------- Spanish meaning under the say-this lines (remembered on this device) ---------- */
-  var esBtns = $$("[data-es-toggle]");
-  function setEs(on) {
-    d.documentElement.classList.toggle("es-on", on);
-    esBtns.forEach(function (b) { b.setAttribute("aria-pressed", on ? "true" : "false"); b.textContent = on ? "Ocultar espa\u00f1ol" : "Ver en espa\u00f1ol"; });
-    try { localStorage.setItem("fc-es", on ? "1" : "0"); } catch (e) {}
-  }
-  if (esBtns.length) {
-    var esOn = false; try { esOn = localStorage.getItem("fc-es") === "1"; } catch (e) {}
-    setEs(esOn);
-    esBtns.forEach(function (b) { b.addEventListener("click", function () { setEs(!d.documentElement.classList.contains("es-on")); }); });
-  }
-
-  /* ---------- Listen (read aloud with the device's own voice; works offline) ---------- */
-  var synth = window.speechSynthesis;
-  var listenBtns = $$("[data-listen]");
-  if (synth && window.SpeechSynthesisUtterance && listenBtns.length) {
-    var speaking = null;
-    function stopAll() {
-      synth.cancel();
-      listenBtns.forEach(function (b) { b.classList.remove("on"); var l = $("[data-listen-label]", b); if (l && l.dataset.orig) l.textContent = l.dataset.orig; b.setAttribute("aria-pressed", "false"); });
-      speaking = null;
-    }
-    listenBtns.forEach(function (b) {
-      b.hidden = false;
-      b.setAttribute("aria-pressed", "false");
-      b.addEventListener("click", function () {
-        if (speaking === b) { stopAll(); return; }
-        stopAll();
-        var scope = b.closest("section, .layer, article") || document;
-        var targets = $$(b.getAttribute("data-listen"), scope);
-        if (!targets.length) return;
-        var text = targets.map(function (t) { return t.innerText; }).join(". ").replace(/\.\s*\./g, ".").replace(/\s+/g, " ").trim();
-        var u = new SpeechSynthesisUtterance(text);
-        u.lang = "en-US"; u.rate = 0.9;
-        u.onend = u.onerror = function () { if (speaking === b) stopAll(); };
-        var l = $("[data-listen-label]", b);
-        if (l) { l.dataset.orig = l.dataset.orig || l.textContent; l.textContent = "Stop"; }
-        b.classList.add("on"); b.setAttribute("aria-pressed", "true");
-        speaking = b;
-        synth.speak(u);
-      });
-    });
-    window.addEventListener("pagehide", function () { synth.cancel(); });
-  }
-
   /* ---------- Timeline filter ---------- */
   $$('input[name="tlk"]').forEach(function (r) {
     r.addEventListener("change", function () {
@@ -509,6 +387,21 @@
       requestAnimationFrame(function () { btt.classList.toggle("visible", window.scrollY > 700); tick = false; });
     }, { passive: true });
     btt.addEventListener("click", function () { window.scrollTo({ top: 0 }); $("#main").focus({ preventScroll: true }); });
+  }
+
+  /* ---------- On this page rail: mark the section in view ---------- */
+  var railLinks = $$(".rail-toc a");
+  if (railLinks.length && "IntersectionObserver" in window) {
+    var byId = {};
+    railLinks.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        railLinks.forEach(function (a) { a.removeAttribute("aria-current"); });
+        var a = byId[en.target.id]; if (a) a.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    Object.keys(byId).forEach(function (id) { var el = d.getElementById(id); if (el) io.observe(el); });
   }
 
   /* ---------- Offline support ---------- */

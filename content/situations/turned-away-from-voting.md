@@ -3,6 +3,7 @@ type: situation
 slug: turned-away-from-voting
 title: Turned away from voting
 summary: What to do if a poll worker says you cannot vote, your name is not on the list, or you lack the right ID.
+card: "What to do if a poll worker says you cannot vote or need more ID."
 icon: ballot
 order: 9
 reading_time_seconds: 210
@@ -11,10 +12,6 @@ ten_second:
   - "Can you please check the list again?"
   - "I would like to cast a provisional ballot."
 ten_second_note: "Do not leave without voting. Call 1-866-OUR-VOTE if you need help."
-ten_second_es:
-  - "¿Puede revisar la lista de votantes otra vez, por favor?"
-  - "Quiero votar con una boleta provisional."
-ten_second_note_es: "No se vaya sin votar. Si necesita ayuda, llame a la línea en español: 1-888-VE-Y-VOTA (1-888-839-8682)."
 do:
   - "Ask the poll worker to check again."
   - "Ask if you are at the right polling place."
@@ -99,10 +96,6 @@ Other languages:
 ## Before Election Day
 
 Check your registration ahead of time at vote.gov. Most states let you check online in about a minute. Many also let you update your address online.
-
-## What happens next
-
-- Step by step, from the line to the ballot box: [Election Day](/what-happens-next/election-day/).
 
 ## The law you are citing
 

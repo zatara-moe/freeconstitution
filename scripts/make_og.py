@@ -50,20 +50,12 @@ def card(path, kicker, title, line, accent=NAVY):
     im = Image.new("RGB", (1200, 630), PAPER)
     d = ImageDraw.Draw(im)
     d.rectangle([0, 0, 1200, 88], fill=NAVY)
-    # The mark: a parchment page with a folded corner and a heritage-red star (see BRAND.md)
-    d.rounded_rectangle([48, 20, 96, 68], radius=10, fill="#1e3a5f")
-    sx = lambda v: 48 + v * 48 / 64
-    d.polygon([(sx(17), sx(10) - 28), (sx(38), sx(10) - 28), (sx(47), sx(19) - 28), (sx(47), sx(54) - 28), (sx(17), sx(54) - 28)], fill="#f7f1e3")
-    d.polygon([(sx(38), sx(10) - 28), (sx(38), sx(19) - 28), (sx(47), sx(19) - 28)], fill="#d9cdb0")
-    import math
-    pts = []
-    for i in range(10):
-        a = -math.pi / 2 + i * math.pi / 5; r = 10.5 if i % 2 == 0 else 4.0
-        pts.append((sx(32) + r * 0.75 * math.cos(a), sx(33.5) - 28 + r * 0.75 * math.sin(a)))
-    d.polygon(pts, fill=RED)
-    d.text((116, 22), "Free Constitution", font=F("serif", 36), fill=PAPER)
-    d.rectangle([0, 88, 10, 560], fill="#1e3a5f")
-    d.text((64, 128), kicker, font=F("bold", 28), fill=SOFT)
+    d.rounded_rectangle([48, 20, 96, 68], radius=10, fill="#f7f1e3")
+    d.text((60, 14), "f", font=F("serif", 44), fill="#1f1b16")
+    d.ellipse([84, 54, 92, 62], fill="#b85436")
+    d.text((116, 26), "Free Constitution", font=F("bold", 34), fill=PAPER)
+    d.rectangle([0, 88, 10, 560], fill=RED)
+    d.text((64, 128), kicker.upper(), font=F("bold", 26), fill=GOLD)
     size = 76
     while True:
         tf = F("bold", size)
@@ -112,14 +104,5 @@ card("preamble.jpg", "The Constitution · 1787", "The Preamble, explained", shor
 card("declaration.jpg", "Founding document · 1776", "The Declaration of Independence in plain English", short(ins("declaration").get("one_line"))); n_made += 1
 card("paths.jpg", "Guided paths", "Learn your rights, one short step at a time", "Your rights in 10 minutes, getting pulled over, rights at school, first-time voter, and more."); n_made += 1
 card("timeline.jpg", "1776 to today", "The Constitution timeline", "When each amendment was added and the court cases that shaped what it means."); n_made += 1
-n_terms = len(yaml.safe_load((C / "glossary.yml").read_text()))
-card("words.jpg", "Glossary", "Legal words in plain English", f"Probable cause, due process, equal protection, and {n_terms - 3} more terms, explained simply."); n_made += 1
-card("citizenship-test.jpg", "Citizenship test practice", "Practice all 128 civics test questions", "The 2025 U.S. citizenship test with official answers, a 20-question practice run, and the 65/20 questions."); n_made += 1
-for g in ("turning-18", "who-it-covers", "your-voice"):
-    gf = load_md(C / f"{g}.md")
-    card(f"{g}.jpg", "Know your rights", gf.get("h1") or gf["title"], short(gf.get("one_line"))); n_made += 1
-for q in yaml.safe_load((C / "next.yml").read_text()):
-    card(f"next-{q['slug']}.jpg", "What happens next", q["h1"], short(q["summary"])); n_made += 1
-ev = load_md(C / "everyone.md")
-card("everyone.jpg", "Know your rights", ev["title"], short(ev.get("one_line"))); n_made += 1
+card("words.jpg", "Glossary", "Legal words in plain English", "Probable cause, due process, equal protection, and 57 more terms, explained simply."); n_made += 1
 print(f"Made {n_made} share images in {OUT}")

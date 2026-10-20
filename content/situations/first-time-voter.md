@@ -3,6 +3,7 @@ type: situation
 slug: first-time-voter
 title: First-time voter
 summary: How to register, what ID you may need, and your rights at the polls when you vote for the first time.
+card: "Registering, ID rules in your state, and your rights at the polls."
 icon: ballot
 order: 7
 reading_time_seconds: 165
@@ -12,11 +13,6 @@ ten_second:
   - "I would like to cast a provisional ballot."
   - "I need help voting. I choose this person to help me."
 ten_second_note: "Stay in line. If something goes wrong, call 1-866-OUR-VOTE."
-ten_second_es:
-  - "Estaba en la fila antes de que cerraran las urnas. Quiero votar."
-  - "Quiero votar con una boleta provisional."
-  - "Necesito ayuda para votar. Elijo a esta persona para que me ayude."
-ten_second_note_es: "Quédese en la fila. Si algo sale mal, llame a la línea en español: 1-888-VE-Y-VOTA (1-888-839-8682)."
 do:
   - "Register before your state's deadline."
   - "Check your registration at vote.gov."
@@ -26,7 +22,6 @@ dont:
   - "Don't leave the line if the polls close."
   - "Don't leave without asking for a provisional ballot."
   - "Don't register in two places at once."
-  - "Don't register or vote if you are not a U.S. citizen."
 help:
   - label: "Register or check your registration"
     value: "vote.gov"
@@ -47,8 +42,6 @@ faq:
     a: "You can usually cast a provisional ballot. First, ask the poll worker to check again, and ask if you are at the right polling place. If it is not fixed, say: \"I would like to cast a provisional ballot.\" Officials check later whether you were eligible."
   - q: "Can I vote if I'm in line when polls close?"
     a: "Yes, in most states. If you are in line when the polls close, you can still vote. Stay in line. If someone tells you to leave, call the Election Protection Hotline at 1-866-OUR-VOTE (1-866-687-8683)."
-  - q: "Can a green card holder vote?"
-    a: "No, not in federal or state elections. Only U.S. citizens can vote in them. Under federal law, a noncitizen who votes, or who claims to be a citizen on a voter or DMV form, can be deported. It can also block a later application for citizenship. A few cities let noncitizens vote in some local elections."
   - q: "How old do you have to be to vote?"
     a: "You must be 18 by Election Day. The Twenty-sixth Amendment (1971) protects the vote for citizens 18 and older. Some states let you pre-register at 16 or 17. Some let 17-year-olds vote in a primary if they will be 18 by the general election."
   - q: "Can college students vote where they go to school?"
@@ -63,15 +56,6 @@ faq:
 - You must be 18 by Election Day.
 - You must meet your state's rules about where you live.
 - Some states let you pre-register at 16 or 17. Some let 17-year-olds vote in a primary if they will be 18 by the general election.
-
-## If you are not a U.S. citizen
-
-- Only U.S. citizens can vote in federal and state elections. This includes green card holders.
-- If you are not a citizen, do not register to vote. Do not vote.
-- Do not check a box that says you are a citizen. This includes forms at the DMV, at school, or online.
-- Under federal law, voting or claiming to be a citizen can lead to deportation. It can also stop you from becoming a citizen later.
-- A few cities let noncitizens vote in some local elections. Ask a legal-aid group before you vote in one.
-- Not sure if you are a citizen? Some people become citizens through a parent without knowing it. Ask an immigration lawyer before you register.
 
 ## How to register
 
@@ -99,10 +83,6 @@ faq:
 - Call or text the Election Protection Hotline: 1-866-OUR-VOTE (1-866-687-8683).
 - Write down what happened, the time, and the names of people involved.
 - See the card "Turned away from voting" for more steps.
-
-## What happens next
-
-- Step by step, from the line to the ballot box: [Election Day](/what-happens-next/election-day/).
 
 ## The law you are citing
 

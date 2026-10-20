@@ -3,6 +3,7 @@ type: situation
 slug: recording-police
 title: Recording police
 summary: What courts have said about recording police in public, how to do it without interfering, and what police can do with your phone.
+card: "How to record police in public, and your rights over your phone."
 icon: camera
 order: 6
 reading_time_seconds: 150
@@ -12,11 +13,6 @@ ten_second:
   - "I do not consent to a search of my phone."
   - "Am I being detained, or am I free to leave?"
 ten_second_note: "Keep your hands visible. If an officer tells you to step back, step back."
-ten_second_es:
-  - "No estoy interfiriendo. Estoy grabando desde aquí."
-  - "No doy mi consentimiento para un registro de mi teléfono."
-  - "¿Me están deteniendo o puedo irme?"
-ten_second_note_es: "Mantenga las manos visibles. Si un agente le dice que se aleje, aléjese."
 do:
   - "Record from a public place, like a sidewalk."
   - "Keep a safe distance from officers."
@@ -84,7 +80,7 @@ faq:
 
 ## If you are arrested
 
-- Say: "I am exercising my right to remain silent. I want a lawyer." Then stop talking.
+- Say: "I want to remain silent. I want a lawyer." Then stop talking.
 - Do not physically resist.
 - Do not unlock your phone. Do not delete anything.
 

@@ -1,7 +1,7 @@
 /* ============================================================
    freeconstitution.org design system
-   Hope for Americans family (see BRAND.md): parchment paper, federal
-   navy, heritage red with one job (careful / don't). Built for neurodivergent and young
+   Sister site to freescripture.org: parchment paper, federal navy,
+   heritage red used sparingly. Built for neurodivergent and young
    readers: hyperlegible type, one idea per block, big tap targets,
    predictable layout, user-controlled size, spacing, font, color
    and depth. Fonts are self-hosted (no third-party requests).
@@ -9,6 +9,8 @@
 
 @font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("/static/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible Next"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("/static/fonts/atkinson-hyperlegible-next-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family: "Atkinson Hyperlegible Next"; font-style: normal; font-weight: 700; font-display: swap;
   src: url("/static/fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Lexend"; font-style: normal; font-weight: 400; font-display: swap;
@@ -17,6 +19,8 @@
   src: url("/static/fonts/lexend-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("/static/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("/static/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 600 700; font-display: swap;
   src: url("/static/fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
 
@@ -112,7 +116,7 @@ img, svg { max-width: 100%; }
 .ic { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.2em; }
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 kbd { font-family: inherit; font-size: .85em; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 5px; padding: 0 .35em; background: var(--card); }
-.wrap { max-width: 44rem; margin: 0 auto; padding: 0 var(--gutter); }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 var(--gutter); }
 @media (min-width: 40rem) { :root { --gutter: 1.5rem; } }
 
 .skip-link { position: absolute; left: .5rem; top: -4rem; z-index: 200; background: var(--navy-deep); color: #fff; padding: .7rem 1rem; border-radius: 8px; }
@@ -135,8 +139,7 @@ kbd { font-family: inherit; font-size: .85em; border: 1px solid var(--rule); bor
 .site-header { background: var(--header); color: var(--on-header); position: sticky; top: 0; z-index: 50; }
 .header-row { display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; max-width: 64rem; }
 .wordmark { display: inline-flex; align-items: center; gap: .55rem; color: var(--on-header); text-decoration: none; font-weight: 700; font-size: 1.05rem; margin-right: auto; letter-spacing: 0.02em; }
-.wm-mark { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 8px; background: #f7f1e3; color: #1f1b16; font-family: var(--font-orig); font-weight: 700; font-size: 1.35rem; line-height: 1; padding-bottom: .15rem; }
-.wm-mark span { color: #b85436; }
+.wm-mark { display: block; width: 2.1rem; height: 2.1rem; flex: none; }
 .site-nav { display: none; gap: 1.2rem; }
 .site-nav a { color: var(--on-header); text-decoration: none; font-weight: 700; font-size: .95rem; padding: .3rem 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: #e7a59c; color: var(--on-header); }
@@ -427,7 +430,7 @@ html[data-theme="dark"] .ten-second { background: #1f3350; }
 .path-done p { margin: 0; }
 .path-bar { position: fixed; left: 0; right: 0; bottom: calc(3.45rem + env(safe-area-inset-bottom)); z-index: 55; background: var(--navy-deep); color: #fbf8f0; padding: .55rem var(--gutter); font-size: .9rem; }
 @media (min-width: 48rem) { .path-bar { bottom: 0; } }
-.path-bar-in { max-width: 44rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .7rem; }
+.path-bar-in { max-width: 64rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .7rem; }
 .path-bar-in .pb-text { flex: 1 1 100%; line-height: 1.3; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 2.6rem; }
 .path-bar-in { position: relative; }
 .path-bar .pb-x { position: absolute; right: -.4rem; top: -.2rem; }
@@ -550,7 +553,7 @@ html[data-depth="quick"] .depth-std { display: none !important; }
   .depth-std { display: block !important; }
   .ten-second { background: #fff !important; color: #000; border: 2px solid #000; }
   .ten-lines li::before { background: #000; color: #fff; }
-  body.print-wallet main > *:not(.situation), body.print-wallet .situation > *:not(.ten-second) { display: none !important; }
+  body.print-wallet main > *:not(.doc-layout):not(.situation), body.print-wallet .doc-rail, body.print-wallet .situation > *:not(.ten-second) { display: none !important; }
   body.print-wallet .ten-second { width: 3.4in; padding: .15in; border-radius: 8px; }
   body.print-wallet .ten-lines li { font-size: 11pt; padding: .05in 0 .05in .3in; }
   body.print-wallet .ten-lines li::before { width: .2in; height: .2in; font-size: 8pt; top: .06in; }
@@ -563,134 +566,179 @@ html[data-depth="quick"] .depth-std { display: none !important; }
 .faq h3 { font-size: 1.05rem; margin-bottom: .35rem; color: var(--navy); }
 .faq p { margin-bottom: .5rem; }
 
-/* ============================================================
-   v2.3 identity layer (see BRAND.md)
-   ============================================================ */
-:root { --fill-band: #fffdf8; --focus: #1e3a5f; --halo: #fbf8f0; }
-html[data-theme="sepia"] { --fill-band: #f8f0dc; --halo: #f3e9d2; }
-html[data-theme="dark"] { --fill-band: #232833; --focus: #bcd2ee; --halo: #13161b; }
-@media (prefers-color-scheme: dark) { html:not([data-theme]) { --fill-band: #232833; --focus: #bcd2ee; --halo: #13161b; } }
+/* ---- v2.3 layout: one 64rem container, same left edge as the logo (Hope for Americans pattern) ---- */
+.page > p, .page > .lede, .page > h1 { max-width: var(--measure); }
+.page h1 { max-width: 24ch; }
 
-/* Mark + wordmark: the page with a star; name in the voice face */
-.wm-mark { display: block; width: 2rem; height: 2rem; padding: 0; background: none; border-radius: 0; flex: none; }
-.wm-svg { display: block; width: 100%; height: 100%; }
-.wordmark { font-family: var(--font-orig); font-weight: 600; font-size: 1.15rem; letter-spacing: 0; }
+/* Reading pages: text column + "On this page" rail */
+.doc-layout { display: block; }
+.doc-rail { display: none; }
+@media (min-width: 64rem) {
+  .doc-layout { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; column-gap: 4rem; align-items: start; }
+  .doc-layout > .doc { max-width: 44rem; }
+  .doc-rail { display: block; position: sticky; top: 5rem; margin-top: 4.6rem; max-height: calc(100vh - 6rem); overflow-y: auto; }
+}
+.rail-in { border-left: 2px solid var(--rule-soft); padding-left: 1rem; }
+.rail-h { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faded); margin: 0 0 .6rem; }
+.rail-toc { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.rail-toc li { margin: 0; }
+.rail-toc a { display: block; padding: .32rem 0; font-size: .92rem; line-height: 1.3; color: var(--ink-soft); text-decoration: none; }
+.rail-toc a:hover { color: var(--navy); text-decoration: underline; }
+.rail-toc a[aria-current="true"] { color: var(--navy); font-weight: 700; }
+.rail-toc a[aria-current="true"]::before { content: ""; position: absolute; margin-left: calc(-1rem - 2px); width: 2px; height: 1.2em; background: var(--red); }
+.rail-tools { display: grid; gap: .4rem; }
+.rail-btn { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.6rem; padding: 0 .8rem; border-radius: 8px; border: 1px solid var(--rule); background: var(--card); color: var(--ink); font: inherit; font-size: .9rem; font-weight: 700; text-decoration: none; cursor: pointer; }
+.rail-btn:hover { border-color: var(--navy); color: var(--ink); }
+.rail-btn .ic { width: 1.1rem; height: 1.1rem; color: var(--navy); }
+html[data-focus="on"] .doc-rail { display: none; }
+html[data-focus="on"] .doc-layout { display: block; }
 
-/* Focus ring: navy with a paper halo; light ring on dark surfaces */
-:focus-visible, .seg input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; box-shadow: 0 0 0 6px var(--halo); }
-.site-header :focus-visible { outline-color: var(--on-header); box-shadow: none; }
+/* Home hero: text left, "say this" card right */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+.hero-text { min-width: 0; }
+.hero-text .hero-search { margin-top: 1.4rem; }
+@media (min-width: 60rem) {
+  .hero { padding-top: 3rem; padding-bottom: 2.6rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 22rem; column-gap: 3.5rem; align-items: center; }
+  .hero .lede { max-width: 34rem; }
+}
+.say-card { background: var(--navy-deep); color: #fbf8f0; border-radius: 18px; padding: 1.2rem 1.25rem 1.1rem; box-shadow: 0 14px 32px rgba(20,40,63,.18); }
+html[data-theme="dark"] .say-card { background: #1f3350; }
+.say-card .label { display: flex; align-items: center; gap: .45rem; font-size: .85rem; font-weight: 700; color: #d9e3ef; margin: 0 0 .6rem; }
+.say-card .label .ic { width: 1.1rem; height: 1.1rem; }
+.say-card .ten-lines { margin: 0 0 .8rem; padding-left: 1.3rem; font-size: 1.12rem; font-weight: 700; line-height: 1.35; }
+.say-card .ten-lines li { margin-bottom: .5rem; }
+.say-more { display: inline-flex; align-items: center; gap: .3rem; color: #fbf8f0; font-weight: 700; font-size: .95rem; }
+.say-more:hover { color: #fff; }
+@media (min-width: 60rem) { .finder-q { margin-top: 2.2rem; } }
 
-/* Heritage red has one job: careful / don't / myth / wrong. Everything else is navy. */
-.sec-title .ic, .kicker .ic, .layer > h2 .ic { color: var(--navy); }
-.phrase dd::before { color: var(--navy); }
-.article-row .num, .sec-num { color: var(--navy); }
-.letter h2 { color: var(--navy); }
-.strip-dot.k-founding, .key.k-founding, .tl-item.k-founding::before { background: var(--navy); }
-.tl-dot.k-founding { fill: var(--navy); }
-.pill-founding { background: var(--navy-wash); color: var(--navy); }
-.hfa-madein span { color: inherit; }
-
-/* Upright text: emphasis is weight; case names are court gold */
-em, i, cite { font-style: normal; font-weight: 700; }
-em.case { color: var(--gold); }
-
-/* Filled cards, no borders or shadows (family card shape) */
-.card, .phrase, .jump, .resume-card { background: var(--paper-2); border-color: transparent; box-shadow: none; }
-.resume-card { background: var(--navy-wash); }
-.finder-btn { background: var(--fill-band); border-color: transparent; box-shadow: none; }
-.card:hover, .jump:hover, .finder-btn:hover { border-color: var(--navy); }
-
-/* The document as the image */
-.doc-line { display: grid; gap: .5rem; padding: 1.3rem 0; border-top: 2px solid var(--rule-soft); border-bottom: 2px solid var(--rule-soft); text-decoration: none; color: var(--ink); }
-.doc-words { font-family: var(--font-orig); font-weight: 600; font-size: clamp(1.45rem, 5.6vw, 2rem); line-height: 1.25; text-wrap: balance; }
-.doc-src { display: block; font-weight: 700; font-size: .95rem; color: var(--navy); }
-.doc-line:hover .doc-src { text-decoration: underline; }
-
-/* Footer seal: the 13 stars of 1777 */
-.star-ring { display: block; width: 2.6rem; height: 2.6rem; margin: 0 auto .6rem; fill: var(--navy); }
-.hfa-more { margin-top: .5rem !important; }
-
-/* ============================================================
-   v2.5: Listen, Practice saying it, Rights for everyone
-   ============================================================ */
-.listen-btn { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; padding: .35rem .9rem; border-radius: 999px; border: 2px solid var(--rule); background: var(--card); color: var(--navy); font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; margin: .2rem 0 .8rem; }
-.listen-btn:hover, .listen-btn.on { border-color: var(--navy); }
-.listen-btn.on { background: var(--navy-wash); }
-.one-line .listen-btn { margin: .6rem 0 0; }
-.ten-actions .listen-btn { margin: 0; }
-.practice { margin: 0 0 1.6rem; }
-.practice summary .ic { color: var(--navy); }
-.practice .mem-stage p { font-weight: 700; margin: 0 0 .4rem; }
-.tscroll { overflow-x: auto; margin: 0 0 .6rem; }
-.words-table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 34rem; }
-.words-table th, .words-table td { text-align: left; vertical-align: top; padding: .65rem .6rem; border-bottom: 1px solid var(--rule); }
-.words-table thead th { font-size: .88rem; color: var(--ink-faded); }
-.words-table .says { font-family: var(--font-orig); font-weight: 600; font-size: 1.05rem; white-space: nowrap; }
-.who { display: inline-block; font-weight: 700; font-size: .88rem; padding: .1rem .55rem; border-radius: 999px; }
-.who-all { background: var(--green-wash); color: var(--green); }
-.who-cit { background: var(--navy-wash); color: var(--navy); }
-.who-debated { background: var(--gold-wash); color: var(--gold); }
-@media (max-width: 40rem) {
-  .words-table { min-width: 0; }
-  .words-table thead { display: none; }
-  .words-table tr { display: grid; gap: .2rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); }
-  .words-table th, .words-table td { border: 0; padding: 0; }
+/* Use the width: grids open up on wide screens */
+@media (min-width: 48rem) {
+  .jump-rail { grid-template-columns: 1fr 1fr; }
+  .sit-grid, .path-grid { grid-template-columns: 1fr 1fr; }
+  .article-list { grid-template-columns: 1fr 1fr; }
+  .mini-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 60rem) {
+  .more-row { grid-template-columns: repeat(4, 1fr); }
+  .home-sec .amend-grid { grid-template-columns: repeat(5, 1fr); }
+  .home-sec .amend-cell { flex-direction: column; align-items: flex-start; gap: .5rem; padding: .8rem .9rem; }
+}
+.pager-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.pager > span { min-width: 0; }
+.pager-label { overflow-wrap: anywhere; }
+.say-card .ten-lines { padding-left: 0; }
+/* Phones: finder buttons first, the "say this" card after them */
+@media (max-width: 59.99rem) {
+  .hero { display: flex; flex-direction: column; }
+  .hero-grid { display: contents; }
+  .hero .say-card { order: 10; margin-top: 1.4rem; }
+  .hero .finder-more { order: 9; }
+}
+/* "Say this" cards keep a fixed deep navy in every theme (auto dark flipped --navy-deep to light blue) */
+.ten-second, .say-card { background: #14283f; }
+html[data-theme="dark"] .ten-second, html[data-theme="dark"] .say-card { background: #1f3350; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]):not([data-theme="sepia"]) .ten-second,
+  html:not([data-theme="light"]):not([data-theme="sepia"]) .say-card { background: #1f3350; }
 }
 
-/* v3.0: Spanish meaning under the say-this lines. English stays the line to say or show. */
-.say-es { display: none; }
-html.es-on .say-es { display: block; }
-.ten-lines .say-es { font-weight: 400; font-size: .82em; opacity: .9; margin-top: .25rem; }
-.ten-note .say-es { margin-top: .3rem; }
-.es-toggle { margin: 0 0 .8rem; }
-.es-hint { font-size: .9rem; margin: 0 0 .8rem; opacity: .9; }
-.screen-mode .say-es { font-size: .6em; font-weight: 400; margin-top: .3rem; }
+/* ==== v2.4 cards: one style everywhere (Hope for Americans pattern) ==== */
+:root { --edge: #948c87; --lift: 0 2px 4px rgba(20,40,63,.05), 0 14px 32px rgba(20,40,63,.10); }
+html[data-theme="sepia"] { --edge: #94845f; }
+html[data-theme="dark"] { --edge: #6b7383; --lift: none; }
+@media (prefers-color-scheme: dark) { html:not([data-theme]) { --edge: #6b7383; --lift: none; } }
 
-/* v3.0: citizenship test practice */
-.civ-practice { background: var(--paper-2); border-radius: var(--radius); padding: 1.1rem; margin: 0 0 2rem; }
-.civ-practice h2 { font-size: 1.3rem; }
-.civ-card { background: var(--card); border-radius: var(--radius); padding: 1.1rem; margin: .4rem 0 1rem; }
-.civ-step { font-weight: 700; color: var(--ink-faded); font-size: .92rem; margin: 0 0 .4rem; }
-.civ-big { font-size: 1.35rem; font-weight: 700; line-height: 1.3; margin: 0 0 .8rem; }
-.civ-ans ul { margin: 0 0 .8rem; }
-.civ-did { font-weight: 700; margin: 0 0 .4rem; }
-.civ-mark { display: flex; flex-wrap: wrap; gap: .5rem; }
-.civ-list { display: grid; gap: .4rem; }
-.civ-q { background: var(--paper-2); border-radius: 12px; padding: 0; }
-.civ-q summary { display: flex; gap: .7rem; align-items: baseline; padding: .75rem .9rem; cursor: pointer; list-style: none; font-weight: 700; }
-.civ-q summary::-webkit-details-marker { display: none; }
-.civ-num { color: var(--navy); min-width: 2.2rem; font-variant-numeric: tabular-nums; }
-.civ-text { flex: 1; }
-.civ-star { flex: none; font-size: .78rem; font-weight: 700; padding: .05rem .5rem; border-radius: 999px; background: var(--navy-wash); color: var(--navy); }
-.civ-a { padding: 0 .9rem .8rem 3.8rem; }
-.civ-a ul { margin: 0 0 .4rem; }
-.civ-filter label { display: inline-flex; gap: .5rem; align-items: center; font-weight: 700; min-height: 2.75rem; }
-@media (max-width: 40rem) { .civ-a { padding-left: .9rem; } }
-
-.md-table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 34rem; }
-.md-table th, .md-table td { text-align: left; vertical-align: top; padding: .65rem .6rem; border-bottom: 1px solid var(--rule); }
-.md-table thead th { font-size: .88rem; color: var(--ink-faded); }
-@media (max-width: 40rem) {
-  .md-table { min-width: 0; }
-  .md-table thead { display: none; }
-  .md-table tr { display: grid; gap: .2rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); }
-  .md-table th, .md-table td { border: 0; padding: 0; }
+.sit-grid, .path-grid, .jump-rail, .amend-grid, .article-list, .sec-cards, .mini-cards, .more-row { display: grid; gap: .75rem; align-items: stretch; }
+.xcard {
+  display: flex; flex-direction: column; gap: .3rem;
+  padding: 1rem 1.15rem 1.1rem; min-width: 0;
+  background: var(--card); color: var(--ink); text-decoration: none;
+  border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow);
+  transition: border-color .15s ease, box-shadow .15s ease;
 }
-.ten-actions .listen-btn { background: rgba(255,255,255,.12); color: inherit; border: 2px solid rgba(255,255,255,.35); min-height: var(--tap); padding: .55em 1.1em; }
-.ten-actions .listen-btn.on { background: rgba(255,255,255,.22); }
-.civ-sec { font-size: 1.05rem; margin: 1.2rem 0 .3rem; color: var(--navy); }
+.xcard:hover { border-color: var(--navy); box-shadow: var(--lift); color: var(--ink); }
+.xcard:hover .xc-title { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.xc-label { font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); line-height: 1.3; }
+.xc-title { font-size: 1.08rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.xc-text { font-size: .95rem; line-height: 1.5; color: var(--ink-soft); }
+.xc-text p { margin: 0; }
+.xc-read { display: none; color: var(--green); }
+.xcard.is-read .xc-read { display: inline; }
+.xcard-sm { padding: .85rem 1rem .9rem; }
+.xcard-sm .xc-title { font-size: 1rem; }
+.path-prog { text-transform: none; letter-spacing: 0; }
 
-/* v3.1: what happens next */
-.steps { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .9rem; }
-.step { background: var(--paper-2); border-radius: var(--radius); padding: 1rem 1.1rem; }
-.step h2 { font-size: 1.3rem; margin: 0 0 .6rem; }
-.step h2:focus { outline: none; }
-.step h3 { font-size: 1rem; margin: .7rem 0 .3rem; color: var(--ink-faded); }
-.step ul { margin: 0 0 .4rem; }
-.step-count { font-weight: 700; color: var(--navy); font-size: .92rem; margin: 0 0 .3rem; font-variant-numeric: tabular-nums; }
-.step-say { background: var(--header); color: var(--on-header); border-radius: 12px; padding: .7rem .9rem; font-weight: 700; font-size: 1.1rem; margin: .7rem 0 .4rem; }
-.step-say .label { display: block; font-size: .82rem; opacity: .8; margin-bottom: .1rem; }
-.step-law { margin: .5rem 0 0; }
-.stepper-bar, .stepper-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem; margin: 0 0 .8rem; }
-.stepper-pos { font-weight: 700; }
-.stepper-nav .btn[disabled] { opacity: .45; cursor: default; }
+/* Plain link rows (Preamble, related cards): text only, aligned */
+.mini-card { display: flex; align-items: center; min-height: 3.25rem; padding: .7rem 1.1rem; border-radius: 12px; background: var(--card); border: 1px solid var(--rule); box-shadow: var(--shadow); color: var(--ink); font-weight: 700; text-decoration: none; }
+.mini-card:hover { border-color: var(--navy); color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* "What's going on?" choices: simple bordered buttons, like HfA's Help me choose */
+.finder { gap: .6rem; }
+.finder-btn { display: flex; align-items: center; flex-direction: row; min-height: 3.6rem; padding: .7rem 1rem; border-radius: 8px; border: 1.5px solid var(--edge); background: var(--card); box-shadow: none; color: var(--ink); font-weight: 700; font-size: 1rem; line-height: 1.3; text-decoration: none; }
+.finder-btn:hover { border-color: var(--navy); background: var(--navy-wash); color: var(--ink); }
+
+/* Content cards inside pages match */
+.card, .myth, .dodont > div, .phrase { border-radius: 12px; }
+.card h3 { color: var(--ink); }
+
+/* Headings without icons */
+.sec-title { display: block; font-size: 1.5rem; margin-bottom: .3rem; }
+.layer > h2 { display: block; }
+.kicker { color: var(--gold); text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+
+/* Columns */
+@media (min-width: 40rem) {
+  .finder { grid-template-columns: 1fr 1fr; }
+  .sit-grid, .path-grid, .jump-rail, .article-list, .mini-cards, .more-row { grid-template-columns: 1fr 1fr; }
+  .amend-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 60rem) {
+  .finder { grid-template-columns: repeat(4, 1fr); }
+  .more-row { grid-template-columns: repeat(4, 1fr); }
+  .jump-rail { grid-template-columns: repeat(3, 1fr); }
+  .page > .path-grid { grid-template-columns: repeat(3, 1fr); }
+  .home-sec .amend-grid { grid-template-columns: repeat(5, 1fr); }
+  .home-sec .article-list { grid-template-columns: repeat(4, 1fr); }
+}
+.doc .sec-cards, .doc .mini-cards { grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .doc .mini-cards { grid-template-columns: 1fr 1fr; } }
+/* spacing around card groups */
+.home-sec > .sit-grid, .home-sec > .path-grid, .home-sec > .jump-rail, .home-sec > .amend-grid, .home-sec > .article-list { margin: 1rem 0 0; }
+.home-sec > .sec-title ~ .sec-title { margin-top: 2.8rem; }
+.home-sec > p:has(.text-link), .page > p:has(.btn) { margin-top: 1rem; }
+.home-sec .more-row { margin-top: 1.4rem; }
+@media (min-width: 60rem) { .home-sec .more-row { grid-template-columns: repeat(3, 1fr); } }
+.mini-card { line-height: 1.3; }
+.layer > .sec-cards, .layer > .mini-cards { margin-top: .4rem; }
+
+/* ==== v2.5 typography in cards: no one-word last lines, balanced titles ==== */
+.xc-title, .finder-btn, .mini-card, .sec-title, .doc-head h1 { text-wrap: balance; }
+.xc-text, .lede, .sec-lede { text-wrap: pretty; }
+.xcard, .finder-btn, .mini-card { hyphens: manual; }
+/* Choices: one column on phones like Hope for Americans, one line each */
+.finder { grid-template-columns: 1fr; }
+.finder-btn { min-height: 3.25rem; }
+@media (min-width: 40rem) { .finder { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 60rem) { .finder { grid-template-columns: repeat(4, 1fr); } }
+/* Descriptions: a comfortable measure so every card reads as two even lines */
+.xc-text { text-wrap: balance; max-width: 40ch; }
+/* v2.5 breakpoints: add columns only when the copy still fits on its lines */
+.sit-grid, .path-grid, .jump-rail, .article-list, .mini-cards, .more-row, .amend-grid,
+.home-sec .amend-grid, .home-sec .article-list, .page > .path-grid { grid-template-columns: 1fr; }
+.finder { grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .finder { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 48rem) {
+  .sit-grid, .path-grid, .jump-rail, .article-list, .mini-cards, .amend-grid,
+  .home-sec .amend-grid, .home-sec .article-list, .page > .path-grid { grid-template-columns: 1fr 1fr; }
+  .more-row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 68rem) {
+  .finder { grid-template-columns: repeat(4, 1fr); }
+  .jump-rail, .page > .path-grid { grid-template-columns: repeat(3, 1fr); }
+  .home-sec .article-list { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 72rem) { .home-sec .amend-grid { grid-template-columns: repeat(5, 1fr); } }
+.doc .sec-cards, .doc .mini-cards { grid-template-columns: 1fr; }
+@media (min-width: 48rem) { .doc .mini-cards { grid-template-columns: 1fr 1fr; } }
+.xc-text { max-width: 30ch; }

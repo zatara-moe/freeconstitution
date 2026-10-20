@@ -3,20 +3,16 @@ type: situation
 slug: at-school
 title: At school
 summary: Your rights at a public school when staff want to search you, question you, or punish you for something you said.
+card: "Searches, questions, and speech rules at a public school."
 icon: school
 order: 3
 reading_time_seconds: 210
 related_amendments: [1, 4, 5]
 ten_second:
   - "I do not consent to a search."
-  - "I am exercising my right to remain silent."
+  - "I want to remain silent."
   - "I want a lawyer, and I want my parent or guardian called."
 ten_second_note: "Say it calmly. Do not physically stop a search."
-ten_second_es:
-  - "No doy mi consentimiento para un registro."
-  - "Ejerzo mi derecho a guardar silencio."
-  - "Quiero un abogado, y quiero que llamen a mi padre, madre o tutor."
-ten_second_note_es: "Dígalo con calma. No trate de impedir el registro físicamente."
 do:
   - "Stay calm and polite."
   - "Say clearly that you do not consent."
@@ -46,13 +42,11 @@ faq:
   - q: "Can I be punished for something I posted off campus?"
     a: "Sometimes, but schools have less power over off-campus speech. In Mahanoy Area School District v. B.L. (2021), the Supreme Court said a public school could not punish a student for a vulgar weekend Snapchat post. Schools may still act on threats, bullying, or harassment."
   - q: "Do I have to talk to a police officer at school?"
-    a: "No. You have the right to remain silent with police, including school resource officers. Say clearly: \"I am exercising my right to remain silent. I want a lawyer.\" Asking only for a parent may not count as using your rights. Some states require police to contact a parent first."
+    a: "No. You have the right to remain silent with police, including school resource officers. Say clearly: \"I want to remain silent. I want a lawyer.\" Asking only for a parent may not count as using your rights. Some states require police to contact a parent first."
   - q: "Do I have to answer the principal's questions?"
     a: "You generally cannot be forced to, but refusing can lead to school discipline. Teachers, principals, and counselors can question you without reading you your rights. What you tell them can be shared with police. You can ask: \"Can I call my parent or guardian first?\""
   - q: "Can a school strip search a student?"
     a: "Only in very limited cases. In Safford Unified School District v. Redding (2009), the Supreme Court said a strip search of a student for pain pills went too far. A school search must fit its reason and cannot be much more invasive than needed."
-  - q: "Can undocumented students go to public school?"
-    a: "Yes. In Plyler v. Doe (1982), the Supreme Court said a state cannot deny children a free public education because of their immigration status. The ruling covers public schools from kindergarten through 12th grade."
   - q: "Do students have free speech at school?"
     a: "Yes, at public schools, with limits. In Tinker v. Des Moines (1969), the Supreme Court said students keep free speech rights at school. A school can limit speech that would seriously disrupt school or invade others' rights. Schools have more control over school-sponsored speech."
 ---
@@ -60,12 +54,6 @@ faq:
 ## Public schools and private schools are different
 
 The Constitution limits the government. Public schools are part of the government, so the Constitution applies there. Private schools are not. At a private school, your rights mostly come from school rules, your enrollment agreement, and state law.
-
-## Every child can go to public school
-
-- Public schools cannot turn a child away because of the child's or parents' immigration status.
-- In *Plyler v. Doe* (1982), the Supreme Court said this would break the Fourteenth Amendment's promise of equal protection.
-- The ruling covers public schools from kindergarten through 12th grade. It does not cover college.
 
 ## Searches of you and your bag
 
@@ -95,7 +83,7 @@ Saying "I do not consent" still matters. It shows you did not agree. Do not phys
 
 - If a police officer questions you, you have the right to remain silent. This includes school resource officers, meaning police officers assigned to a school.
 - Ask: "Are you a police officer?"
-- Say clearly: "I am exercising my right to remain silent. I want a lawyer." Asking only for a parent may not count as using your rights.
+- Say clearly: "I want to remain silent. I want a lawyer." Asking only for a parent may not count as using your rights.
 - In *J.D.B. v. North Carolina* (2011), the Court said a young person's age matters when deciding if they were in custody.
 - Some states require police to contact a parent or let a young person talk to a lawyer before questioning.
 - Courts disagree about which search rules apply when a school resource officer does the search.
@@ -115,13 +103,6 @@ Saying "I do not consent" still matters. It shows you did not agree. Do not phys
 ## At a public college
 
 The First Amendment applies at public colleges. Courts usually give college students more free speech protection than younger students.
-
-## Laws that add to the Constitution
-
-- If a student has a disability, two federal laws can require extra help at school.
-- **IDEA** covers special education through an IEP, a written plan for teaching.
-- **Section 504** covers accommodations, like extra time or a quiet place to take tests.
-- Mama Shepherd, a Hope for Americans site, explains both in plain words: [IEP vs 504 plan](https://www.mamashepherd.com/school).
 
 ## The law you are citing
 

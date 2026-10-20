@@ -7,11 +7,10 @@ freeconstitution.org is free, with no ads, accounts, or tracking. It is publishe
 ## How to cite
 - Cite the specific page URL. Plain-language text is CC BY 4.0: credit "Free Constitution (freeconstitution.org)".
 - Legal claims name the Supreme Court case and year. The site is not legal advice and has not been reviewed by a lawyer.
-- Last updated 2026-10-07. Full plain-English text of every page: https://freeconstitution.org/llms-full.txt
+- Last updated 2026-10-19. Full plain-English text of every page: https://freeconstitution.org/llms-full.txt
 
 ## Know your rights (situation cards)
 - [Being questioned by police](https://freeconstitution.org/situations/being-questioned-by-police/): What to say and do if police are asking you questions on the street, in a car, or at a station.
-- [Autistic, Deaf, or anxious at a police stop](https://freeconstitution.org/situations/communicating-with-police/): Lines you can say or show police if a disability or anxiety affects how you communicate, and your right to an interpreter.
 - [Searched by police](https://freeconstitution.org/situations/searched-by-police/): What to say and do if police want to search you, your bag, your car, your phone, or your home.
 - [At school](https://freeconstitution.org/situations/at-school/): Your rights at a public school when staff want to search you, question you, or punish you for something you said.
 - [Posting online](https://freeconstitution.org/situations/posting-online/): What the First Amendment does and does not protect when you post online, and who it limits.
@@ -21,9 +20,6 @@ freeconstitution.org is free, with no ads, accounts, or tracking. It is publishe
 - [At a protest](https://freeconstitution.org/situations/at-a-protest/): What to say and do if you are stopped, questioned, or threatened with arrest at a protest.
 - [Turned away from voting](https://freeconstitution.org/situations/turned-away-from-voting/): What to do if a poll worker says you cannot vote, your name is not on the list, or you lack the right ID.
 - [Immigration agents at the door](https://freeconstitution.org/situations/immigration-agents-at-the-door/): What to say and do if immigration agents knock on your door, whatever your immigration status.
-- [Immigration agents in public or at work](https://freeconstitution.org/situations/immigration-agents-in-public/): What to say and do if immigration agents stop you on the street, at work, or at a checkpoint, whatever your immigration status.
-- [If you or a family member is detained](https://freeconstitution.org/situations/detained-by-immigration/): What to say if immigration agents detain you, and how to find a family member who has been detained.
-- [I got a jury summons](https://freeconstitution.org/situations/jury-summons/): What a jury summons is, who can serve, how to ask for a new date, and what to do if you are not a U.S. citizen.
 
 ## Amendments
 - [The Bill of Rights (Amendments 1–10)](https://freeconstitution.org/bill-of-rights/)
@@ -69,16 +65,14 @@ freeconstitution.org is free, with no ads, accounts, or tracking. It is publishe
 
 ## Guided paths
 - [Your rights in 10 minutes](https://freeconstitution.org/paths/rights-in-10-minutes/): The five protections people use most, in plain English.
-- [Getting pulled over or stopped](https://freeconstitution.org/paths/pulled-over-or-stopped/): What the law generally says when police stop, question, or search you.
-- [Rights at school](https://freeconstitution.org/paths/rights-at-school/): Speech, searches, and equal treatment for students in public schools.
+- [Getting pulled over or stopped](https://freeconstitution.org/paths/pulled-over-or-stopped/): What the law says when police stop, question, or search you.
+- [Rights at school](https://freeconstitution.org/paths/rights-at-school/): Speech, searches, and equal treatment in public schools.
 - [First-time voter](https://freeconstitution.org/paths/first-time-voter/): Who can vote, what is protected, and what to do if turned away.
-- [How the government works: the three branches](https://freeconstitution.org/paths/three-branches/): Who makes laws, who carries them out, and who interprets them.
-- [How a law gets made](https://freeconstitution.org/paths/how-a-law-gets-made/): From a bill in Congress to a law that courts can review.
-- [The Reconstruction amendments](https://freeconstitution.org/paths/reconstruction-amendments/): Three amendments after the Civil War that ended slavery and redefined citizenship.
-- [How the vote grew](https://freeconstitution.org/paths/how-the-vote-grew/): Six amendments that changed who votes and how leaders are chosen.
-- [Founding documents tour](https://freeconstitution.org/paths/citizenship-test-basics/): The founding documents behind many civics test questions, then practice all 128 real questions.
-- [I just turned 18](https://freeconstitution.org/paths/i-just-turned-18/): Voting, Selective Service, jury duty, and where your rights apply now.
-- [Make your voice heard](https://freeconstitution.org/paths/make-your-voice-heard/): Your right to speak, gather, and petition, and how to use it.
+- [How the government works: the three branches](https://freeconstitution.org/paths/three-branches/): Who makes the laws, who carries them out, and who judges them.
+- [How a law gets made](https://freeconstitution.org/paths/how-a-law-gets-made/): How a bill moves through Congress and becomes a federal law.
+- [The Reconstruction amendments](https://freeconstitution.org/paths/reconstruction-amendments/): The three amendments that ended slavery and defined citizenship.
+- [How the vote grew](https://freeconstitution.org/paths/how-the-vote-grew/): Six amendments that widened who can vote in the United States.
+- [Citizenship test basics](https://freeconstitution.org/paths/citizenship-test-basics/): The documents and big ideas that civics tests ask about most.
 
 ## Reference
 - [Glossary of legal terms](https://freeconstitution.org/words/)

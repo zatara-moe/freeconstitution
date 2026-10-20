@@ -1,6 +1,6 @@
 # Free Constitution — full plain-English text
 
-Source: https://freeconstitution.org · Updated 2026-10-07 · CC BY 4.0 · Not legal advice; not reviewed by a lawyer.
+Source: https://freeconstitution.org · Updated 2026-10-19 · CC BY 4.0 · Not legal advice; not reviewed by a lawyer.
 
 
 ## Your rights when police question you
@@ -41,39 +41,6 @@ A: No, not unless you are under arrest. "Come down to the station to talk" is a 
 Q: Can I get a free lawyer?
 A: Yes, if you cannot pay and are charged with a crime that could lead to jail. A court generally must give you a lawyer, often called a public defender, before it can sentence you to jail. Gideon v. Wainwright (1963) and later cases set this rule.
 
-## Autistic, Deaf, or anxious? How to communicate with police
-URL: https://freeconstitution.org/situations/communicating-with-police/
-
-Lines you can say or show police if a disability or anxiety affects how you communicate, and your right to an interpreter.
-
-What to say:
-- I have a disability that affects how I communicate.
-- I am not ignoring you. I need more time to answer.
-- Please give me one instruction at a time.
-- I am exercising my right to remain silent. I want a lawyer.
-
-Do:
-- Keep your hands visible and move slowly.
-- Say what you are doing before you reach for a phone or card.
-- Show this screen or a printed card if speaking is hard.
-- Ask for an interpreter if you use sign language.
-
-Don't:
-- Don't reach into a pocket or bag without saying so first.
-- Don't run, even if you feel overwhelmed.
-- Don't answer questions you don't understand.
-- Don't agree to a search just to make the stop end.
-
-Common questions:
-Q: Should I tell police I am autistic?
-A: It is your choice. You do not have to. Telling officers can help them understand behavior they might misread, like no eye contact or slow answers. You can say one line, show your phone, or hand over a card.
-Q: Do police have to provide a sign language interpreter?
-A: Often, yes. Under the ADA, police must communicate effectively with people who are Deaf or hard of hearing. For questioning or an arrest, that generally means a qualified interpreter if you use sign language. For a quick traffic stop, written notes may be enough. You cannot be charged for it.
-Q: Can I put autism on my driver's license?
-A: In some states, yes. Some states offer a voluntary note on a license or vehicle registration for autism or a communication disability. Ask your state's DMV. It is always your choice.
-Q: What if I can't answer an officer's questions?
-A: You have the right to remain silent. You can say or show: "I am exercising my right to remain silent." Drivers must still show a license, registration, and insurance. Do not run or physically resist.
-
 ## Your rights when police want to search you
 URL: https://freeconstitution.org/situations/searched-by-police/
 
@@ -82,7 +49,7 @@ What to say and do if police want to search you, your bag, your car, your phone,
 What to say:
 - I do not consent to this search.
 - Am I being detained, or am I free to leave?
-- I am exercising my right to remain silent. I want a lawyer.
+- I want to remain silent. I want a lawyer.
 
 Do:
 - Say clearly that you do not consent.
@@ -119,7 +86,7 @@ Your rights at a public school when staff want to search you, question you, or p
 
 What to say:
 - I do not consent to a search.
-- I am exercising my right to remain silent.
+- I want to remain silent.
 - I want a lawyer, and I want my parent or guardian called.
 
 Do:
@@ -142,13 +109,11 @@ A: Yes, at a public school, if staff have reasonable suspicion. They do not need
 Q: Can I be punished for something I posted off campus?
 A: Sometimes, but schools have less power over off-campus speech. In Mahanoy Area School District v. B.L. (2021), the Supreme Court said a public school could not punish a student for a vulgar weekend Snapchat post. Schools may still act on threats, bullying, or harassment.
 Q: Do I have to talk to a police officer at school?
-A: No. You have the right to remain silent with police, including school resource officers. Say clearly: "I am exercising my right to remain silent. I want a lawyer." Asking only for a parent may not count as using your rights. Some states require police to contact a parent first.
+A: No. You have the right to remain silent with police, including school resource officers. Say clearly: "I want to remain silent. I want a lawyer." Asking only for a parent may not count as using your rights. Some states require police to contact a parent first.
 Q: Do I have to answer the principal's questions?
 A: You generally cannot be forced to, but refusing can lead to school discipline. Teachers, principals, and counselors can question you without reading you your rights. What you tell them can be shared with police. You can ask: "Can I call my parent or guardian first?"
 Q: Can a school strip search a student?
 A: Only in very limited cases. In Safford Unified School District v. Redding (2009), the Supreme Court said a strip search of a student for pain pills went too far. A school search must fit its reason and cannot be much more invasive than needed.
-Q: Can undocumented students go to public school?
-A: Yes. In Plyler v. Doe (1982), the Supreme Court said a state cannot deny children a free public education because of their immigration status. The ruling covers public schools from kindergarten through 12th grade.
 Q: Do students have free speech at school?
 A: Yes, at public schools, with limits. In Tinker v. Des Moines (1969), the Supreme Court said students keep free speech rights at school. A school can limit speech that would seriously disrupt school or invade others' rights. Schools have more control over school-sponsored speech.
 
@@ -158,7 +123,7 @@ URL: https://freeconstitution.org/situations/posting-online/
 What the First Amendment does and does not protect when you post online, and who it limits.
 
 What to say:
-- I am exercising my right to remain silent. I want a lawyer.
+- I want to remain silent. I want a lawyer.
 - I do not consent to a search of my phone.
 
 Do:
@@ -177,13 +142,13 @@ A: Yes, true threats are not protected speech. A true threat is a serious statem
 Q: Can I get fired for a social media post?
 A: Often, yes, at a private job. The First Amendment limits the government, not private employers. Some laws protect some posts, like talking with coworkers about pay. A few states protect legal off-duty activity. Government workers have some First Amendment protection.
 Q: Can a government official block me on social media?
-A: It depends. In Lindke v. Freed (2024), the Supreme Court gave a two-part test. Blocking can violate the First Amendment if the official had real authority to speak for the government on that topic. The official also had to be using that authority in those posts. If the account is personal, blocking is usually allowed.
+A: It depends. In Lindke v. Freed (2024), the Supreme Court said blocking can violate the First Amendment if the official had real authority to speak for the government on that topic and was using it in those posts. If the account is personal, blocking is usually allowed.
 Q: Does free speech apply to social media apps?
 A: Generally, no. The First Amendment limits the government, not private companies. An app can remove your post or ban your account without violating the First Amendment. Government officials and agencies are still limited by it when they act for the government online.
 Q: Can police use my social media posts?
 A: Yes. Public posts can be used as evidence in court. Police can sometimes get records from apps with a court order or warrant. Police generally need a warrant to search your phone itself.
 Q: Is it illegal to delete posts during an investigation?
-A: It can be. Deleting posts after you learn of an investigation can be a separate crime. If police contact you about a post, you can say: "I am exercising my right to remain silent. I want a lawyer." Then stop talking.
+A: It can be. Deleting posts after you learn of an investigation can be a separate crime. If police contact you about a post, you can say: "I want to remain silent. I want a lawyer." Then stop talking.
 
 ## Free speech and your rights at work
 URL: https://freeconstitution.org/situations/at-work/
@@ -278,7 +243,6 @@ Don't:
 - Don't leave the line if the polls close.
 - Don't leave without asking for a provisional ballot.
 - Don't register in two places at once.
-- Don't register or vote if you are not a U.S. citizen.
 
 Common questions:
 Q: What do I need to bring to vote for the first time?
@@ -289,8 +253,6 @@ Q: What if my name isn't on the voter list?
 A: You can usually cast a provisional ballot. First, ask the poll worker to check again, and ask if you are at the right polling place. If it is not fixed, say: "I would like to cast a provisional ballot." Officials check later whether you were eligible.
 Q: Can I vote if I'm in line when polls close?
 A: Yes, in most states. If you are in line when the polls close, you can still vote. Stay in line. If someone tells you to leave, call the Election Protection Hotline at 1-866-OUR-VOTE (1-866-687-8683).
-Q: Can a green card holder vote?
-A: No, not in federal or state elections. Only U.S. citizens can vote in them. Under federal law, a noncitizen who votes, or who claims to be a citizen on a voter or DMV form, can be deported. It can also block a later application for citizenship. A few cities let noncitizens vote in some local elections.
 Q: How old do you have to be to vote?
 A: You must be 18 by Election Day. The Twenty-sixth Amendment (1971) protects the vote for citizens 18 and older. Some states let you pre-register at 16 or 17. Some let 17-year-olds vote in a primary if they will be 18 by the general election.
 Q: Can college students vote where they go to school?
@@ -306,7 +268,7 @@ What to say and do if you are stopped, questioned, or threatened with arrest at 
 What to say:
 - Am I being detained, or am I free to leave?
 - I do not consent to a search.
-- I am exercising my right to remain silent. I want a lawyer.
+- I want to remain silent. I want a lawyer.
 
 Do:
 - Stay on public sidewalks, parks, and plazas.
@@ -326,7 +288,7 @@ A: Yes. The First Amendment protects your right to speak and to gather peacefull
 Q: Do I need a permit to protest?
 A: It depends on your city and the kind of protest. Cities can require permits for marches that block streets. Cities can also set rules about time, place, and manner, but these rules cannot be based on what you are saying. Check your city's rules.
 Q: Can police arrest me at a protest?
-A: Yes, if police have probable cause that you broke a law, such as blocking traffic or staying after an order to leave. If you are arrested, do not physically resist. Say: "I am exercising my right to remain silent. I want a lawyer." A lawyer can challenge the arrest later.
+A: Yes, if police have probable cause that you broke a law, such as blocking traffic or staying after an order to leave. If you are arrested, do not physically resist. Say: "I want to remain silent. I want a lawyer." A lawyer can challenge the arrest later.
 Q: Can I record at a protest?
 A: Yes, in most cases. Many federal appeals courts have said you have a right to record police in public. Do not get in their way while you record. Police generally need a warrant to search your phone.
 Q: What is a dispersal order?
@@ -408,106 +370,6 @@ Q: What if ICE comes in without a judge's warrant?
 A: Do not physically resist. You can say: "I do not consent to you entering my home. I do not consent to a search." You can also say you are using your right to remain silent. Write down names, badge numbers, and what happened as soon as you can.
 Q: Do I have to sign papers ICE gives me?
 A: No. Do not sign anything you do not understand. Some forms can give up your right to see a judge. You can ask to speak to a lawyer first. Free or low-cost immigration legal help is listed in the National Immigration Legal Services Directory.
-
-## Stopped by ICE in public or at work: your rights
-URL: https://freeconstitution.org/situations/immigration-agents-in-public/
-
-What to say and do if immigration agents stop you on the street, at work, or at a checkpoint, whatever your immigration status.
-
-What to say:
-- Am I being detained, or am I free to leave?
-- I am exercising my right to remain silent.
-- I do not consent to a search.
-- I want to speak to a lawyer.
-
-Do:
-- Stay calm and keep your hands visible.
-- Ask if you are free to leave.
-- Carry a lawyer's phone number.
-- Write down names, badge numbers, and what happened.
-
-Don't:
-- Don't run or physically resist.
-- Don't lie or show false documents.
-- Don't sign anything without a lawyer.
-- Don't argue, even if a stop seems unfair.
-
-Common questions:
-Q: Do I have to answer ICE questions in public?
-A: Generally, no. You have the right to remain silent, whatever your immigration status. In some states, you must give your name if asked. Do not lie, because lying to a federal agent can be a crime.
-Q: Can ICE come into my workplace?
-A: Agents can enter areas open to the public, like a lobby or a store floor. To enter private areas, like a back office or a kitchen, they generally need a judicial warrant or the employer's consent.
-Q: Do I have to show ICE my papers?
-A: If you are 18 or older and have valid immigration papers, federal law generally requires you to carry them and show them if asked. If you do not have valid papers, you can stay silent. Never show false documents.
-Q: What happens at a Border Patrol checkpoint?
-A: Agents can stop every car briefly and ask about citizenship, even without suspicion. In United States v. Martinez-Fuerte (1976), the Supreme Court allowed this. To search your car, they generally need your consent or probable cause.
-
-## Detained by ICE: what to do and how to find someone
-URL: https://freeconstitution.org/situations/detained-by-immigration/
-
-What to say if immigration agents detain you, and how to find a family member who has been detained.
-
-What to say:
-- I am exercising my right to remain silent.
-- I will not sign anything without a lawyer.
-- I want to speak to a lawyer.
-- I want to contact my country's consulate.
-
-Do:
-- Memorize a lawyer's or family member's phone number.
-- Keep your A-number where family can find it.
-- Ask for a list of free legal services.
-- Tell family where your important papers are.
-
-Don't:
-- Don't sign forms you don't understand.
-- Don't lie or show false documents.
-- Don't discuss how you entered the U.S. with anyone but your lawyer.
-- Don't pay anyone who promises a fast release.
-
-Common questions:
-Q: How do I find someone detained by ICE?
-A: Use ICE's Online Detainee Locator at ice.gov/locator. The best search uses the person's A-number and country of birth. A name search must be spelled exactly. People under 18 do not appear in it.
-Q: Can someone detained by ICE get bond?
-A: Sometimes. Since 2025, the government says many people who entered without permission cannot get bond from a judge. Courts disagree, and it can depend on where the person is held. Ask a lawyer right away.
-Q: Do immigrants get a free lawyer in immigration court?
-A: No. Federal law lets you have a lawyer in immigration court, but not at the government's expense. Free and low-cost legal groups help many people. The Sixth Amendment's right to a lawyer covers criminal cases.
-Q: Should I sign papers ICE gives me?
-A: Not without talking to a lawyer first. Some forms can give up your right to see an immigration judge. They can lead to fast deportation. You can say: "I will not sign anything without a lawyer."
-Q: Can I contact my consulate if I am detained?
-A: Yes. If you are not a U.S. citizen, you can ask to contact your country's consulate. You can also ask officers to tell the consulate that you are detained. If you fear going back to your country, talk to a lawyer first.
-
-## Got a jury summons? What it means and what to do
-URL: https://freeconstitution.org/situations/jury-summons/
-
-What a jury summons is, who can serve, how to ask for a new date, and what to do if you are not a U.S. citizen.
-
-What to say:
-- I can't serve on these dates. May I postpone to a later date?
-- I am not a U.S. citizen, so I am not eligible to serve.
-- My employer needs proof that I served. May I have a letter?
-
-Do:
-- Read the summons and answer it by the deadline.
-- Ask to postpone if the dates don't work.
-- Tell your employer as soon as you get it.
-- If you are not a citizen, say so on the form.
-
-Don't:
-- Don't ignore it. Courts can fine people who do.
-- Don't check "citizen" if you are not one.
-- Don't look up the case online while you serve.
-- Don't post about the case while you serve.
-
-Common questions:
-Q: Can I ignore a jury summons?
-A: No. Answer it by the deadline, even if you can't serve. Courts can fine people who ignore a summons. You can usually ask to postpone to a later date.
-Q: Can a noncitizen get a jury summons?
-A: Yes, by mistake. Courts often use DMV and voter lists. Only U.S. citizens can serve. If you are not a citizen, say so on the form. Never claim to be a citizen.
-Q: Can my employer fire me for jury duty?
-A: For federal juries, no. Federal law protects permanent employees from being fired or threatened for serving. Most states have similar laws for state juries.
-Q: Who can serve on a federal jury?
-A: U.S. citizens 18 or older who have lived in the court's area for a year and can read, write, and speak English. People charged with or convicted of a felony cannot serve unless their rights were restored.
 
 ## The Bill of Rights
 URL: https://freeconstitution.org/bill-of-rights/
@@ -622,7 +484,7 @@ Ratified: 1791-12-15
 
 In one line: Police generally need a warrant, your consent, or a legal exception to search you, your home, your phone, or your things.
 
-Plain English: You have the right to be secure in your body, your home, your belongings, and your communications. The government cannot search or take them unreasonably. To get a warrant, the government needs good reason to believe a crime is involved. It must swear to that reason under oath. It must say exactly what will be searched and what will be taken.
+Plain English: You have the right to be secure in your body, your home, your belongings, and your communications, and the government cannot search or take them unreasonably. The government cannot get a warrant unless it has good reason to believe a crime is involved, swears to that reason under oath, and describes specifically what will be searched and what will be taken.
 
 Myths vs. facts:
 - Myth: If I refuse a search, it shows I'm hiding something. Fact: Saying no is your right. Refusing is not a crime, and courts have said it is not, by itself, a reason to search you.
@@ -631,7 +493,7 @@ Myths vs. facts:
 
 Key cases:
 - Mapp v. Ohio (1961): Evidence found in an illegal search generally cannot be used against you in a state criminal trial.
-- Terry v. Ohio (1968): Police can briefly stop a person if they have reasonable suspicion of a crime. They can pat the person down if they also have reason to think the person is armed.
+- Terry v. Ohio (1968): Police can briefly stop and pat down a person if they have reasonable suspicion of a crime and a reason to think the person is armed.
 - New Jersey v. T.L.O. (1985): Public school officials can search a student with reasonable suspicion, a lower standard than police need.
 - Riley v. California (2014): Police generally need a warrant to search the phone of someone they arrest.
 - Carpenter v. United States (2018): Police generally need a warrant to get your cell phone location records from your phone company.
@@ -812,7 +674,7 @@ Ratified: 1791-12-15
 
 In one line: The federal government has only the powers the Constitution gives it. Other powers belong to the states or to the people.
 
-Plain English: Some powers are not given to the federal government, and not forbidden to the states. Those powers belong to the states or to the people.
+Plain English: Any power that the Constitution does not give to the federal government, and does not forbid the states from having, belongs to the states or to the people.
 
 Myths vs. facts:
 - Myth: The federal government can make any law it wants. Fact: Congress can act only under powers the Constitution gives it, such as taxing and regulating trade between states. Courts decide where those limits are.
@@ -929,7 +791,7 @@ Ratified: 1868-07-09
 
 In one line: Almost everyone born here is a citizen, and states must give every person fair legal process and equal treatment under the law.
 
-Plain English: Section 1. Anyone born in the United States, or naturalized here, is a U.S. citizen. They are also a citizen of the state where they live. States cannot pass or enforce laws that take away the rights of U.S. citizens. States cannot take away anyone's life, freedom, or property without following fair legal procedures. And states cannot deny anyone, citizen or not, the equal protection of the laws. Section 2. Seats in the House are divided among the states by the number of people in each state. "Indians not taxed" are not counted. Some states might deny the vote to male citizens age 21 or older, except for rebellion or other crime. Those states lose seats in the House in proportion. Note: The words "male" and "twenty-one years of age" are out of date. The Nineteenth Amendment protects women's right to vote, and the Twenty-Sixth sets the voting age at 18. Congress has never used this section to reduce a state's seats. Section 3. Some people took an oath to support the Constitution, then joined an insurrection or rebellion or helped the nation's enemies. They cannot serve in Congress or as presidential electors. They also cannot hold any federal or state office, civil or military. Congress can remove this disqualification by a two-thirds vote of each house. Section 4. The validity of the public debt of the United States cannot be questioned. The United States and the states cannot pay any debt taken on to support a rebellion against the United States. They also cannot pay anyone for the loss of enslaved people who were freed. Section 5. Congress has the power to enforce this amendment by passing appropriate laws.
+Plain English: Section 1. Anyone born in the United States, or naturalized as a citizen here, is a citizen of the United States and of the state where they live. States cannot pass or enforce laws that take away the rights of U.S. citizens. States cannot take away anyone's life, freedom, or property without following fair legal procedures. And states cannot deny anyone, citizen or not, the equal protection of the laws. Section 2. Representatives in Congress are divided among the states based on the number of people in each state, except that "Indians not taxed" are not counted. If a state denies the right to vote to male citizens age 21 or older, except for taking part in rebellion or other crime, that state's representation in Congress will be reduced in proportion. Note: The words "male" and "twenty-one years of age" are out of date. The Nineteenth Amendment protects women's right to vote, and the Twenty-Sixth sets the voting age at 18. Congress has never used this section to reduce a state's seats. Section 3. No person can serve as a Senator, Representative, presidential or vice presidential elector, or hold any federal or state office, civil or military, if they previously took an oath to support the Constitution and then engaged in insurrection or rebellion against the United States, or gave aid or comfort to its enemies. Congress can remove this disqualification by a two-thirds vote of each house. Section 4. The validity of the public debt of the United States cannot be questioned. The United States and the states cannot pay any debt incurred to support insurrection or rebellion against the United States, or any claim for the loss of enslaved people who were freed. Section 5. Congress has the power to enforce this amendment by passing appropriate laws.
 
 Myths vs. facts:
 - Myth: The Bill of Rights has always applied to my state and local police. Fact: At first it limited only the federal government. Through the Fourteenth Amendment, courts have applied most of it to state and local governments too, mostly during the 1900s.
@@ -963,7 +825,7 @@ Ratified: 1870-02-03
 
 In one line: No government can deny or limit your right to vote because of your race or color.
 
-Plain English: Section 1. No government, federal or state, can deny or limit a citizen's right to vote because of race, color, or having once been enslaved. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
+Plain English: Section 1. The right of U.S. citizens to vote cannot be denied or limited by the federal government or by any state because of their race, color, or whether they were previously enslaved. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
 
 Myths vs. facts:
 - Myth: The Fifteenth Amendment gave everyone the right to vote. Fact: It bans race discrimination in voting. It did not protect women, who won that protection in 1920, and it did not set a voting age.
@@ -995,7 +857,7 @@ Ratified: 1913-02-03
 
 In one line: Congress can tax your income, from any source, without dividing the tax among the states by population.
 
-Plain English: Congress can tax incomes from any source. It does not have to divide the tax among the states by population or use any census.
+Plain English: Congress has the power to tax incomes from any source, without apportioning the tax among the states based on population, and without regard to any census.
 
 Myths vs. facts:
 - Myth: The income tax is unconstitutional, or paying it is voluntary. Fact: Courts have rejected these claims many times. The Supreme Court upheld the income tax under this amendment in Brushaber v. Union Pacific Railroad (1916).
@@ -1043,7 +905,7 @@ Ratified: 1919-01-16
 
 In one line: This amendment banned making, selling, and transporting alcohol nationwide starting in 1920. It was repealed in 1933.
 
-Plain English: Section 1. One year after this amendment is ratified, alcoholic drinks become illegal in the United States and its territories. That means making, selling, moving, importing, or exporting them. Section 2. Congress and the states share the power to enforce this amendment by passing appropriate laws. Section 3. This amendment will not take effect unless ratified by three-fourths of the state legislatures within seven years. Note: This amendment was repealed by the Twenty-First Amendment in 1933. It is no longer in effect but remains in the Constitution as part of the document's record.
+Plain English: Section 1. One year after this amendment is ratified, it becomes illegal to make, sell, transport, import, or export alcoholic beverages within the United States or any U.S. territory. Section 2. Congress and the states share the power to enforce this amendment by passing appropriate laws. Section 3. This amendment will not take effect unless ratified by three-fourths of the state legislatures within seven years. Note: This amendment was repealed by the Twenty-First Amendment in 1933. It is no longer in effect but remains in the Constitution as part of the document's record.
 
 Myths vs. facts:
 - Myth: Prohibition made drinking alcohol a crime. Fact: The amendment banned making, selling, and transporting alcohol for drinking. It did not ban drinking it.
@@ -1096,7 +958,7 @@ Ratified: 1933-01-23
 
 In one line: New Presidents start on January 20, and new members of Congress start on January 3, after the November election.
 
-Plain English: Section 1. The terms of the President and Vice President end at noon on January 20. The terms of Senators and Representatives end at noon on January 3. New officials begin their terms at the same time. Section 2. Congress meets at least once a year, beginning at noon on January 3, unless Congress sets a different day by law. Section 3. If a President-elect dies before taking office, the Vice President-elect becomes President. Sometimes no President has been chosen by the start of the term, or the President-elect has not qualified. Then the Vice President-elect serves as Acting President until a President qualifies. Congress can pass laws for what happens if neither has qualified. Section 4. Congress can pass laws for what happens if a candidate dies during certain stages of the presidential election process. Section 5. Sections 1 and 2 take effect on October 15 after ratification. Section 6. This amendment is void if not ratified within seven years.
+Plain English: Section 1. The terms of the President and Vice President end at noon on January 20. The terms of Senators and Representatives end at noon on January 3. New officials begin their terms at the same time. Section 2. Congress meets at least once a year, beginning at noon on January 3, unless Congress sets a different day by law. Section 3. If a President-elect dies before taking office, the Vice President-elect becomes President. If no President has been chosen by the start of the term, or if the President-elect has not qualified, the Vice President-elect serves as Acting President until a President qualifies. Congress can pass laws for what happens if neither has qualified. Section 4. Congress can pass laws for what happens if a candidate dies during certain stages of the presidential election process. Section 5. Sections 1 and 2 take effect on October 15 after ratification. Section 6. This amendment is void if not ratified within seven years.
 
 Myths vs. facts:
 - Myth: A President who loses the election leaves office right away. Fact: The outgoing President keeps full power until noon on January 20. This time between the election and the handover is often called the lame-duck period.
@@ -1143,7 +1005,7 @@ Ratified: 1951-02-27
 
 In one line: No one can be elected President more than twice.
 
-Plain English: Section 1. No person can be elected President more than twice. Someone may serve more than two years of another person's term as President or Acting President. That person can only be elected President once. This rule did not apply to the President in office when the amendment was proposed. Section 2. This amendment will not take effect unless ratified by three-fourths of state legislatures within seven years.
+Plain English: Section 1. No person can be elected President more than twice. If a person has held the office of President, or served as Acting President, for more than two years of a term to which someone else was elected, that person can only be elected President once. This rule did not apply to the President in office when the amendment was proposed. Section 2. This amendment will not take effect unless ratified by three-fourths of state legislatures within seven years.
 
 Myths vs. facts:
 - Myth: A President can serve 8 years at most. Fact: A person could serve up to 10 years. They would first finish two years or less of another President's term, then win two elections.
@@ -1189,7 +1051,7 @@ Ratified: 1964-01-23
 
 In one line: No one can be charged a fee to vote in a federal election. A 1966 Supreme Court ruling extended this to state elections.
 
-Plain English: Section 1. No government, federal or state, can make citizens pay a poll tax or other tax to vote in federal elections. Federal elections are for President, Vice President, presidential electors, Senators, and Representatives. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
+Plain English: Section 1. The right of U.S. citizens to vote in federal elections — for President, Vice President, presidential electors, U.S. Senators, or U.S. Representatives — cannot be denied or limited by the federal government or any state because of failure to pay a poll tax or other tax. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
 
 Myths vs. facts:
 - Myth: The Twenty-Fourth Amendment bans poll taxes in every election. Fact: The text covers only federal elections. Harper v. Virginia State Board of Elections (1966) banned poll taxes in state and local elections under the Fourteenth Amendment.
@@ -1218,7 +1080,7 @@ Ratified: 1967-02-10
 
 In one line: If the President dies, resigns, or cannot do the job, the Vice President takes over, sometimes for only a few hours.
 
-Plain English: Section 1. If the President is removed from office, dies, or resigns, the Vice President becomes President. Section 2. If the office of Vice President becomes vacant, the President nominates a Vice President. The new Vice President takes office once confirmed by a majority vote of both houses of Congress. Section 3. The President can choose to hand power to the Vice President. To do this, the President sends a written letter to the President pro tempore of the Senate and the Speaker of the House. The Vice President serves as Acting President until the President sends another written declaration ending the transfer. Section 4. The Vice President and a majority of the Cabinet can declare in writing that the President cannot do the job. Congress can name another group to act instead of the Cabinet. The Vice President then immediately serves as Acting President. The President can send a written letter saying they are able to work again. The President then returns to office. The Vice President and the same majority can object in writing within four days. In that case, Congress decides. Congress must convene within 48 hours if not in session. Congress has 21 days to reach a two-thirds vote in both houses that the President is unable. If both houses reach this vote, the Vice President continues as Acting President. Otherwise, the President resumes the office.
+Plain English: Section 1. If the President is removed from office, dies, or resigns, the Vice President becomes President. Section 2. If the office of Vice President becomes vacant, the President nominates a Vice President. The new Vice President takes office once confirmed by a majority vote of both houses of Congress. Section 3. The President can voluntarily transfer power to the Vice President by sending a written declaration to the President pro tempore of the Senate and the Speaker of the House. The Vice President serves as Acting President until the President sends another written declaration ending the transfer. Section 4. The Vice President and a majority of either the Cabinet or another body designated by Congress can declare in writing that the President is unable to perform the duties of office. The Vice President then immediately serves as Acting President. If the President sends a written declaration that they are able to resume duties, the President resumes the office — unless the Vice President and the same majority send a second written declaration within four days that the President is still unable. In that case, Congress decides. Congress must convene within 48 hours if not in session. Congress has 21 days to reach a two-thirds vote in both houses that the President is unable. If both houses reach this vote, the Vice President continues as Acting President. Otherwise, the President resumes the office.
 
 Myths vs. facts:
 - Myth: The Twenty-Fifth Amendment is a quick way to remove a President people disagree with. Fact: Section 4 is about a President who is unable to do the job. If the President objects, it takes a two-thirds vote of both houses to keep the Vice President in charge. Section 4 has never been used.
@@ -1244,7 +1106,7 @@ Ratified: 1971-07-01
 
 In one line: If you are a U.S. citizen and 18 or older, no government can stop you from voting because of your age.
 
-Plain English: Section 1. No government, federal or state, can deny or limit the vote of citizens 18 or older because of their age. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
+Plain English: Section 1. The right of U.S. citizens age 18 or older to vote cannot be denied or limited by the federal government or any state because of age. Section 2. Congress has the power to enforce this amendment by passing appropriate laws.
 
 Myths vs. facts:
 - Myth: You have to be 21 to vote in some states. Fact: Since 1971, no state can set a voting age higher than 18 for any election.
