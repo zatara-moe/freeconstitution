@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.6 — October 19, 2026
+- Removed "Free, no ads, no account" from the homepage, path descriptions, and share images. The About page still explains that nothing leaves your device.
+
 ## v2.5 — October 19, 2026: card copy written to fit
 - Rewrote every card's text to a set length so each group reads as a set: one-line titles, two-line descriptions, no single word left alone on a line. Checked at ten screen widths from 360px to 1440px.
 - New `card:` and `card_title:` fields for situation cards and `short:` for paths. Page headings and search descriptions are unchanged.

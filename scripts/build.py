@@ -1330,7 +1330,7 @@ def render_paths(paths):
   <ol class="steps">{steps}</ol>
   <div class="path-done" data-path-done hidden>{icon("star")}<p><strong>Path finished.</strong> Nice work. Try another path or take a Quick check on any page.</p></div>
 </section>"""
-        pdesc = seo_desc(f"{p['blurb']} {len(p['steps'])} short steps, about {path_minutes(p)} minutes, in plain English. Free, no account needed.")
+        pdesc = seo_desc(f"{p['blurb']} {len(p['steps'])} short steps, about {path_minutes(p)} minutes, in plain English.")
         write(purl, page_shell(seo_title(f"{p['title']}: Guided Path"), pdesc, pbody, purl, og_image="/static/og/paths.jpg", page_title=p["title"]))
         register(purl, p["title"], "Path", path_minutes(p), p["blurb"], " ".join(s["label"] + " " + s["why"] for s in p["steps"]), "map")
 
@@ -1531,7 +1531,7 @@ def render_home(amendments, articles, situations, paths, all_ins, events):
     <div class="hero-text">
       <a href="https://hopeforamericans.net" class="hfa-eyebrow">A Hope for Americans project</a>
       <h1>Know your rights.<br><span class="accent">The Constitution in plain English.</span></h1>
-      <p class="lede">The whole U.S. Constitution and all 27 amendments, explained one short page at a time. Free, no ads, no account.</p>
+      <p class="lede">The whole U.S. Constitution and all 27 amendments, explained one short page at a time.</p>
       <button type="button" class="hero-search" data-open-search>{icon("search")}<span>Search: phone search, voting, speech at school&hellip;</span></button>
     </div>
     {say_card}

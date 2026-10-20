@@ -70,7 +70,7 @@ def card(path, kicker, title, line, accent=NAVY):
     for l in wrap(d, line, lf, 1060)[:3]:
         d.text((64, y), l, font=lf, fill=SOFT); y += 46
     d.rectangle([0, 560, 1200, 630], fill=PAPER2)
-    d.text((64, 578), "freeconstitution.org  ·  Plain English  ·  Free, no ads", font=F("reg", 28), fill=SOFT)
+    d.text((64, 578), "freeconstitution.org  ·  The Constitution in plain English", font=F("reg", 28), fill=SOFT)
     im.save(OUT / path, quality=86, optimize=True)
 
 def load_md(p):
